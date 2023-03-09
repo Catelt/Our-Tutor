@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:our_tutor/app/common_widgets/svg_widget.dart';
+import 'package:our_tutor/app/common_widgets/common_widgets.dart';
 import 'package:our_tutor/app/constants/app_icon.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
 import 'package:our_tutor/app/features/tutor/data/tutor.dart';
@@ -45,19 +44,7 @@ class TutorItem extends StatelessWidget {
                         Text(item.national.name)
                       ],
                     ),
-                    RatingBar.builder(
-                      initialRating: item.avgRating,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemSize: 15,
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {},
-                    )
+                    RatingBarWidget(avgRating: item.avgRating)
                   ],
                 ),
                 const Spacer(),
@@ -69,7 +56,7 @@ class TutorItem extends StatelessWidget {
               ],
             ),
             gapH12,
-            specialtiesWidget(context, item.specialties),
+            WrapListWidget(list: item.specialties),
             gapH12,
             Text(
               item.description,
@@ -87,39 +74,6 @@ class TutorItem extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget specialtiesWidget(BuildContext context, List<String> specialty) {
-    var list1 = specialty;
-    List<String> list2 = [];
-
-    if (specialty.length > 3) {
-      final mid = (specialty.length / 2).round();
-      list1 = specialty.sublist(0, mid);
-      list2 = specialty.sublist(mid + 1);
-    }
-
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Column(
-        children: [
-          Wrap(
-            spacing: Sizes.p4,
-            runSpacing: Sizes.p4,
-            children: [
-              for (var specialty in list1) specialtyItem(context, specialty)
-            ],
-          ),
-          Wrap(
-            spacing: Sizes.p4,
-            runSpacing: Sizes.p4,
-            children: [
-              for (var specialty in list2) specialtyItem(context, specialty)
-            ],
-          ),
-        ],
       ),
     );
   }
