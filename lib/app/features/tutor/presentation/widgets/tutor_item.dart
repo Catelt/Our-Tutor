@@ -67,6 +67,22 @@ class TutorItem extends StatelessWidget {
               ],
             ),
             gapH12,
+            Container(
+              constraints: const BoxConstraints(minHeight: 60, maxHeight: 60),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Wrap(
+                  direction: Axis.vertical,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: Sizes.p4,
+                  runSpacing: Sizes.p4,
+                  children: [
+                    for (var i = 0; i < 5; i++) tutorTypeItem(context)
+                  ],
+                ),
+              ),
+            ),
+            gapH12,
             const Text(
               'I am passionate about running and fitness, I often compete in trail/mountain running events and I love pushing myself. I am training to one day take part in ultra-endurance events. I also enjoy watching rugby on the weekends, reading and watching podcasts on Youtube. My most memorable life experience',
               style: TextStyle(
@@ -84,6 +100,18 @@ class TutorItem extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget tutorTypeItem(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+          color: Theme.of(context).primaryColor.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(15)),
+      child: Text('English for Business',
+          style: TextStyle(
+              color: Theme.of(context).colorScheme.primary, fontSize: 12)),
     );
   }
 
