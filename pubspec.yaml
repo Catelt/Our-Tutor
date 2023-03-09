@@ -31,3 +31,5 @@ flutter:
       - asset: assets/fonts/Roboto-Regular.ttf
   assets:
     - assets/images/
+    - assets/icon_national/
+    - assets/image_tutor/

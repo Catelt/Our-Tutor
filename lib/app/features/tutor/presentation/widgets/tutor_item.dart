@@ -3,9 +3,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:our_tutor/app/common_widgets/svg_widget.dart';
 import 'package:our_tutor/app/constants/app_icon.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
+import 'package:our_tutor/app/features/tutor/data/tutor.dart';
 
 class TutorItem extends StatelessWidget {
-  const TutorItem({super.key});
+  const TutorItem({super.key, required this.item});
+  final Tutor item;
 
   @override
   Widget build(BuildContext context) {
@@ -29,22 +31,22 @@ class TutorItem extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 35,
-                  backgroundImage: Image.asset(AppIcon.sample).image,
+                  backgroundImage: Image.asset(item.imageUrl).image,
                 ),
                 gapW8,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Keegan', style: TextStyle(fontSize: 22)),
+                    Text(item.name, style: TextStyle(fontSize: 22)),
                     Row(
-                      children: const [
-                        SvgWidget(assetName: AppIcon.icVn, size: 15),
+                      children: [
+                        SvgWidget(assetName: item.national.imageUrl, size: 15),
                         gapW4,
-                        Text('Viet nam')
+                        Text(item.national.name)
                       ],
                     ),
                     RatingBar.builder(
-                      initialRating: 3,
+                      initialRating: item.avgRating,
                       minRating: 1,
                       direction: Axis.horizontal,
                       allowHalfRating: true,
@@ -67,25 +69,11 @@ class TutorItem extends StatelessWidget {
               ],
             ),
             gapH12,
-            Container(
-              constraints: const BoxConstraints(minHeight: 60, maxHeight: 60),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Wrap(
-                  direction: Axis.vertical,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: Sizes.p4,
-                  runSpacing: Sizes.p4,
-                  children: [
-                    for (var i = 0; i < 5; i++) tutorTypeItem(context)
-                  ],
-                ),
-              ),
-            ),
+            specialtiesWidget(context, item.specialties),
             gapH12,
-            const Text(
-              'I am passionate about running and fitness, I often compete in trail/mountain running events and I love pushing myself. I am training to one day take part in ultra-endurance events. I also enjoy watching rugby on the weekends, reading and watching podcasts on Youtube. My most memorable life experience',
-              style: TextStyle(
+            Text(
+              item.description,
+              style: const TextStyle(
                 fontSize: 14,
               ),
               overflow: TextOverflow.ellipsis,
@@ -103,13 +91,46 @@ class TutorItem extends StatelessWidget {
     );
   }
 
-  Widget tutorTypeItem(BuildContext context) {
+  Widget specialtiesWidget(BuildContext context, List<String> specialty) {
+    var list1 = specialty;
+    List<String> list2 = [];
+
+    if (specialty.length > 3) {
+      final mid = (specialty.length / 2).round();
+      list1 = specialty.sublist(0, mid);
+      list2 = specialty.sublist(mid + 1);
+    }
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Column(
+        children: [
+          Wrap(
+            spacing: Sizes.p4,
+            runSpacing: Sizes.p4,
+            children: [
+              for (var specialty in list1) specialtyItem(context, specialty)
+            ],
+          ),
+          Wrap(
+            spacing: Sizes.p4,
+            runSpacing: Sizes.p4,
+            children: [
+              for (var specialty in list2) specialtyItem(context, specialty)
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget specialtyItem(BuildContext context, String name) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
           color: Theme.of(context).primaryColor.withOpacity(0.2),
           borderRadius: BorderRadius.circular(15)),
-      child: Text('English for Business',
+      child: Text(name,
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary, fontSize: 12)),
     );
