@@ -10,71 +10,68 @@ class TutorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.16),
-                blurRadius: 5,
-              )
-            ]),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 35,
-                  backgroundImage: Image.asset(item.imageUrl).image,
-                ),
-                gapW8,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(item.name, style: TextStyle(fontSize: 22)),
-                    Row(
-                      children: [
-                        SvgWidget(assetName: item.national.imageUrl, size: 15),
-                        gapW4,
-                        Text(item.national.name)
-                      ],
-                    ),
-                    RatingBarWidget(avgRating: item.avgRating)
-                  ],
-                ),
-                const Spacer(),
-                SvgWidget(
-                  assetName: AppIcon.icHeart,
-                  size: 26,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ],
-            ),
-            gapH12,
-            WrapListWidget(list: item.specialties),
-            gapH12,
-            Text(
-              item.description,
-              style: const TextStyle(
-                fontSize: 14,
+    return Stack(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(Sizes.p16),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: [
+                BoxShadow(
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.16),
+                    spreadRadius: 0,
+                    blurRadius: 5,
+                    offset: const Offset(0, 2))
+              ]),
+          child: Column(
+            children: [
+              CircleAvatar(
+                radius: 35,
+                backgroundImage: Image.asset(item.imageUrl).image,
               ),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 4,
-              textAlign: TextAlign.justify,
-            ),
-            gapH12,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [bookButton(context)],
-            )
-          ],
+              gapW8,
+              Text(item.name, style: TextStyle(fontSize: 22)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgWidget(assetName: item.national.imageUrl, size: 15),
+                  gapW4,
+                  Text(item.national.name)
+                ],
+              ),
+              RatingBarWidget(avgRating: item.avgRating),
+              gapH12,
+              WrapListWidget(list: item.specialties),
+              gapH12,
+              Text(
+                item.description,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 4,
+                textAlign: TextAlign.justify,
+              ),
+              gapH12,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [bookButton(context)],
+              )
+            ],
+          ),
         ),
-      ),
+        Positioned(
+          top: Sizes.p16,
+          right: Sizes.p16,
+          child: SvgWidget(
+            assetName: AppIcon.icHeart,
+            size: 26,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+      ],
     );
   }
 

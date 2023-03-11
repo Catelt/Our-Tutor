@@ -9,4 +9,5 @@ class AppIcon {
   static const icBook = '$baseUrl/ic_book.svg';
   static const icReport = '$baseUrl/ic_report.svg';
   static const icStar = '$baseUrl/ic_star.svg';
+  static const icTivi = '$baseUrl/ic_tivi.svg';
 }

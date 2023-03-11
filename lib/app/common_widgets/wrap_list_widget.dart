@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
 
 class WrapListWidget extends StatelessWidget {
-  const WrapListWidget({super.key, required this.list});
+  const WrapListWidget({super.key, required this.list, this.color});
 
   final List<String> list;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,11 +22,13 @@ class WrapListWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor.withOpacity(0.2),
+          color: color?.withOpacity(0.2) ??
+              Theme.of(context).primaryColor.withOpacity(0.2),
           borderRadius: BorderRadius.circular(15)),
       child: Text(name,
           style: TextStyle(
-              color: Theme.of(context).colorScheme.primary, fontSize: 12)),
+              color: color ?? Theme.of(context).colorScheme.primary,
+              fontSize: 12)),
     );
   }
 }
