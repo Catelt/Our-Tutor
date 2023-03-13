@@ -52,13 +52,11 @@ class TutorScreen extends StatelessWidget {
             children: [
               Expanded(
                   flex: 2,
-                  child: textfieldCustom(
-                    context,
-                    "Enter tutor name",
+                  child: TextFieldCustom(
+                    hint: "Enter tutor name",
                   )),
               gapW4,
-              Expanded(
-                  child: textfieldCustom(context, "Select tutor nationality"))
+              Expanded(child: TextFieldCustom(hint: "Select tutor nationality"))
             ],
           ),
           gapH8,
@@ -72,16 +70,14 @@ class TutorScreen extends StatelessWidget {
             children: [
               SizedBox(
                 width: 150,
-                child: textfieldCustom(
-                  context,
-                  "Select a day",
+                child: TextFieldCustom(
+                  hint: "Select a day",
                 ),
               ),
               SizedBox(
                 width: 250,
-                child: textfieldCustom(
-                  context,
-                  "Start time -> End time",
+                child: TextFieldCustom(
+                  hint: "Start time -> End time",
                 ),
               ),
             ],
@@ -94,24 +90,6 @@ class TutorScreen extends StatelessWidget {
           gapH12,
         ],
       ),
-    );
-  }
-
-  Widget textfieldCustom(BuildContext context, String hint) {
-    return TextField(
-      style: TextStyle(fontSize: 14),
-      decoration: InputDecoration(
-          hintText: hint,
-          isDense: true,
-          contentPadding: const EdgeInsets.symmetric(
-              vertical: Sizes.p8, horizontal: Sizes.p12),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(width: 1, color: Colors.grey)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(
-                  width: 1, color: Theme.of(context).colorScheme.primary))),
     );
   }
 

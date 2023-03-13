@@ -95,7 +95,7 @@ class TutorItem extends StatelessWidget {
           border: Border.all(color: Theme.of(context).colorScheme.primary)),
       child: Row(children: [
         SvgWidget(
-            assetName: AppIcon.icBook,
+            assetName: AppIcon.icSchedule,
             width: 14,
             height: 11,
             color: Theme.of(context).colorScheme.primary),

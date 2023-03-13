@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 
 class SvgWidget extends StatelessWidget {
   const SvgWidget({
-    super.key,
     required this.assetName,
+    super.key,
     this.color,
     this.width,
     this.height,
@@ -25,10 +25,13 @@ class SvgWidget extends StatelessWidget {
       height: size ?? height,
       colorFilter: color != null
           ? ColorFilter.mode(
-              Theme.of(context).colorScheme.primary,
+              color!,
               BlendMode.srcIn,
             )
-          : null,
+          : ColorFilter.mode(
+              Theme.of(context).colorScheme.primary,
+              BlendMode.srcIn,
+            ),
     );
   }
 }
