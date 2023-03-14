@@ -33,10 +33,10 @@ class RatingBarWidget extends StatelessWidget {
           visible: numRating != null,
           child: Text(
             '($numRating)',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontStyle: FontStyle.italic,
-              color: Colors.grey[100],
+              color: Colors.grey,
             ),
           ),
         )

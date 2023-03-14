@@ -28,10 +28,7 @@ class SvgWidget extends StatelessWidget {
               color!,
               BlendMode.srcIn,
             )
-          : ColorFilter.mode(
-              Theme.of(context).colorScheme.primary,
-              BlendMode.srcIn,
-            ),
+          : null,
     );
   }
 }

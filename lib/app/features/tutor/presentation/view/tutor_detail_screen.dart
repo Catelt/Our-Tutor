@@ -15,6 +15,7 @@ class TutorDetailScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: Sizes.p12),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +72,7 @@ class TutorDetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              RemoteVideoWidget(url: item.introduceUrl),
+              Center(child: RemoteVideoWidget(url: item.introduceUrl)),
               detailWidget(
                   title: 'Languages',
                   child: WrapListWidget(list: item.languages)),

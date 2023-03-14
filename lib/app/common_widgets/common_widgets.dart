@@ -1,3 +1,4 @@
+export 'action_text_button.dart';
 export 'primary_button.dart';
 export 'rating_bar.dart';
 export 'remote_video.dart';
