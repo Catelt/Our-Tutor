@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:our_tutor/app/common_widgets/svg_widget.dart';
+import 'package:our_tutor/app/constants/app_icon.dart';
+import 'package:our_tutor/app/constants/app_size.dart';
+import 'package:our_tutor/app/features/schedule/presentation/widgets/schedule_item.dart';
 
 class ScheduleScreen extends StatelessWidget {
   const ScheduleScreen({super.key});
@@ -8,9 +10,91 @@ class ScheduleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Schedule_screen"),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: Sizes.p12),
+        child: ListView(
+          children: [
+            const SvgWidget(
+              assetName: AppIcon.calendar,
+              size: 120,
+            ),
+            const Text(
+              'Schedule',
+              style: TextStyle(fontSize: 30),
+            ),
+            IntrinsicHeight(
+              child: Row(
+                children: const [
+                  VerticalDivider(
+                    color: Colors.grey,
+                    thickness: 3,
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours',
+                      style: TextStyle(fontSize: 18, color: Colors.grey),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            gapH8,
+            latestBook(),
+            gapH16,
+            ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 5,
+              itemBuilder: (context, index) => const ScheduleItem(),
+              separatorBuilder: ((context, index) => gapH8),
+            )
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget latestBook() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Latest Book',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        gapH4,
+        Table(
+          border: TableBorder.all(),
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          columnWidths: const {
+            0: IntrinsicColumnWidth(),
+            1: FlexColumnWidth(),
+          },
+          children: [
+            tableRowItem('Name', 'Everybody 5 - Unit 4 - Lesson 3.pdf'),
+            tableRowItem('Page', '1'),
+            tableRowItem('Description', ''),
+          ],
+        ),
+      ],
+    );
+  }
+
+  TableRow tableRowItem(String title, String topic) {
+    return TableRow(
+      children: [
+        TableCell(
+          verticalAlignment: TableCellVerticalAlignment.fill,
+          child: Container(
+            color: Colors.grey[200],
+            child: Center(child: Text(title)),
+          ),
+        ),
+        Container(height: 50, child: Center(child: Text(topic))),
+      ],
     );
   }
 }

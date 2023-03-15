@@ -20,6 +20,9 @@ class AppIcon {
   static const icBook = '$baseUrl/ic_book.svg';
   static const icUserGroup = '$baseUrl/ic_usergroup.svg';
   static const icCircleQuestion = '$baseUrl/ic_circle_question.svg';
+  static const icMessage = '$baseUrl/ic_message.svg';
+  static const icCloseSquare = '$baseUrl/ic_close_square.svg';
 
   static const course = '$baseUrl/course.svg';
+  static const calendar = '$baseUrl/calendar.svg';
 }
