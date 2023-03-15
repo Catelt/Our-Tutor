@@ -5,6 +5,12 @@ class AppIcon {
   static const icGoogle = '$baseUrl/google.svg';
   static const icPhone = '$baseUrl/phone.svg';
 
+  static const icBoardTeacher = '$baseUrl/ic_board_teacher.svg';
+  static const icScheduleCheck = '$baseUrl/ic_schedule_check.svg';
+  static const icHistory = '$baseUrl/ic_history.svg';
+  static const icGraduationCap = '$baseUrl/ic_graduation_cap.svg';
+  static const icUserGraduate = '$baseUrl/ic_user_graduate.svg';
+
   static const icHeart = '$baseUrl/ic_heart.svg';
   static const icSchedule = '$baseUrl/ic_schedule.svg';
   static const icReport = '$baseUrl/ic_report.svg';
