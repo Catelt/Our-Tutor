@@ -20,7 +20,7 @@ class ScheduleScreen extends StatelessWidget {
             ),
             const Text(
               'Schedule',
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             IntrinsicHeight(
               child: Row(
@@ -89,6 +89,7 @@ class ScheduleScreen extends StatelessWidget {
         TableCell(
           verticalAlignment: TableCellVerticalAlignment.fill,
           child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: Sizes.p4),
             color: Colors.grey[200],
             child: Center(child: Text(title)),
           ),

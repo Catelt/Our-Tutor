@@ -25,4 +25,5 @@ class AppIcon {
 
   static const course = '$baseUrl/course.svg';
   static const calendar = '$baseUrl/calendar.svg';
+  static const history = '$baseUrl/history.svg';
 }
