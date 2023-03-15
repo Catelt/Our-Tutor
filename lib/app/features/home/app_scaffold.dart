@@ -58,20 +58,19 @@ class _AppScaffoldState extends State<AppScaffold> {
   int _calculateSelectedIndex(BuildContext context) {
     final route = GoRouter.of(context);
     final location = route.location;
-    print(location);
-    if (location.startsWith('/tutors')) {
+    if (location.startsWith(AppRoute.tutors.path)) {
       return 0;
     }
-    if (location.startsWith('/courses')) {
+    if (location.startsWith(AppRoute.schedule.path)) {
       return 1;
     }
-    if (location.startsWith('/courses')) {
+    if (location.startsWith(AppRoute.history.path)) {
       return 2;
     }
-    if (location.startsWith('/courses')) {
+    if (location.startsWith(AppRoute.courses.path)) {
       return 3;
     }
-    if (location.startsWith('/signIn')) {
+    if (location.startsWith(AppRoute.signIn.path)) {
       return 4;
     }
     return 0;
@@ -82,9 +81,9 @@ class _AppScaffoldState extends State<AppScaffold> {
       case 0:
         return context.goNamed(AppRoute.tutors.name);
       case 1:
-        return context.goNamed(AppRoute.courses.name);
+        return context.goNamed(AppRoute.schedule.name);
       case 2:
-        return context.goNamed(AppRoute.courses.name);
+        return context.goNamed(AppRoute.history.name);
       case 3:
         return context.goNamed(AppRoute.courses.name);
       case 4:
