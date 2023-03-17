@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:our_tutor/app/common_widgets/common_widgets.dart';
 import 'package:our_tutor/app/constants/app_icon.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/constants/countries.dart';
 import 'package:our_tutor/app/features/schedule/presentation/widgets/request_lesson.dart';
 
 class ScheduleItem extends StatelessWidget {
@@ -35,67 +34,9 @@ class ScheduleItem extends StatelessWidget {
             style: TextStyle(fontSize: 14),
           ),
           gapH16,
-          infoTutor(context),
+          const InfoTutorWidget(),
           gapH12,
           infoLesson()
-        ],
-      ),
-    );
-  }
-
-  Widget infoTutor(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(Sizes.p12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 34,
-            backgroundImage: Image.asset('assets/image_tutor/sample.jpg').image,
-          ),
-          gapW16,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Keegan',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
-                children: [
-                  SvgWidget(assetName: vn.imageUrl, size: 18),
-                  gapW4,
-                  Text(
-                    vn.name,
-                    style: const TextStyle(fontSize: 16),
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  const SvgWidget(
-                    assetName: AppIcon.icMessage,
-                    size: 14,
-                    // color: Theme.of(context).colorScheme.primary,
-                  ),
-                  gapW4,
-                  Text(
-                    'Direct Message',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:our_tutor/app/common_widgets/common_widgets.dart';
 import 'package:our_tutor/app/constants/app_icon.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
+import 'package:our_tutor/app/features/history/presentation/widgets/history_item.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
@@ -37,13 +38,13 @@ class HistoryScreen extends StatelessWidget {
                 ],
               ),
             ),
-            // ListView.separated(
-            //   physics: const NeverScrollableScrollPhysics(),
-            //   shrinkWrap: true,
-            //   itemCount: 5,
-            //   itemBuilder: (context, index) => const ScheduleItem(),
-            //   separatorBuilder: ((context, index) => gapH8),
-            // )
+            ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 5,
+              itemBuilder: (context, index) => const HistoryItem(),
+              separatorBuilder: ((context, index) => gapH8),
+            )
           ],
         ),
       ),
