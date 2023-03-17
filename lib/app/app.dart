@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:our_tutor/app/constants/fake_tutors.dart';
 import 'package:our_tutor/app/features/course/presentation/view/course_detail_screen.dart';
 import 'package:our_tutor/app/features/course/presentation/view/courses_screen.dart';
+import 'package:our_tutor/app/features/course/presentation/view/topic_detail_screen.dart';
 import 'package:our_tutor/app/features/history/presentation/view/history_screen.dart';
 import 'package:our_tutor/app/features/schedule/presentation/view/schedule_screen.dart';
 import 'package:our_tutor/app/features/tutor/presentation/view/tutor_detail_screen.dart';
@@ -28,7 +29,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: const Color(0xFF13B9FF),
       ),
-      home: const HistoryScreen(),
+      home: const TopicDetailScreen(),
     );
   }
 }
