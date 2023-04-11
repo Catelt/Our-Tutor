@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:our_tutor/app/constants/app_icon.dart';
+import 'package:our_tutor/app/common_widgets/common_widgets.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/features/home/custom_navigation_item.dart';
-import 'package:our_tutor/app/routing/app_routing.dart';
+import 'package:our_tutor/app/constants/home_navigation_items.dart';
 
 class AppScaffold extends StatefulWidget {
-  const AppScaffold({Key? key, required this.child}) : super(key: key);
+  const AppScaffold({super.key, required this.child});
   final Widget child;
   @override
   State<AppScaffold> createState() => _AppScaffoldState();
@@ -16,80 +15,39 @@ class _AppScaffoldState extends State<AppScaffold> {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.primary;
+    final items = HomeNavigationItems.items;
     return Scaffold(
       body: widget.child,
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _calculateSelectedIndex(context),
-        onTap: onTap,
-        items: [
-          CustomNavigationItem(
-            asset: AppIcon.icBoardTeacher,
-            title: 'Tutor',
-            color: color,
-          ),
-          CustomNavigationItem(
-            asset: AppIcon.icScheduleCheck,
-            title: 'Schedule',
-            color: color,
-          ),
-          CustomNavigationItem(
-            asset: AppIcon.icHistory,
-            title: 'History',
-            color: color,
-          ),
-          CustomNavigationItem(
-            asset: AppIcon.icGraduationCap,
-            title: 'Course',
-            color: color,
-          ),
-          CustomNavigationItem(
-            asset: AppIcon.icUserGraduate,
-            title: 'Account',
-            color: color,
-          ),
-        ],
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (index) {
+          context.goNamed(items[index].route.name);
+        },
+        selectedIndex: locationToTabIndex(GoRouter.of(context).location),
+        destinations: List.generate(items.length, (index) {
+          final item = items[index];
+          return NavigationDestination(
+            icon: SvgWidget(
+              assetName: item.icon,
+              color: color,
+              size: Sizes.p24,
+            ),
+            selectedIcon: SvgWidget(
+              assetName: item.selectedIcon,
+              color: color,
+              size: Sizes.p24,
+            ),
+            label: item.label,
+            tooltip: item.tooltip,
+          );
+        }),
       ),
     );
   }
 
-  int _calculateSelectedIndex(BuildContext context) {
-    final route = GoRouter.of(context);
-    final location = route.location;
-    if (location.startsWith(AppRoute.tutors.path)) {
-      return 0;
-    }
-    if (location.startsWith(AppRoute.schedule.path)) {
-      return 1;
-    }
-    if (location.startsWith(AppRoute.history.path)) {
-      return 2;
-    }
-    if (location.startsWith(AppRoute.courses.path)) {
-      return 3;
-    }
-    if (location.startsWith(AppRoute.signIn.path)) {
-      return 4;
-    }
-    return 0;
-  }
-
-  void onTap(int value) {
-    switch (value) {
-      case 0:
-        return context.goNamed(AppRoute.tutors.name);
-      case 1:
-        return context.goNamed(AppRoute.schedule.name);
-      case 2:
-        return context.goNamed(AppRoute.history.name);
-      case 3:
-        return context.goNamed(AppRoute.courses.name);
-      case 4:
-        return context.goNamed(AppRoute.signIn.name);
-      default:
-        return context.goNamed(AppRoute.tutors.name);
-    }
+  int locationToTabIndex(String location) {
+    final index = HomeNavigationItems.items
+        .indexWhere((t) => location.startsWith(t.path));
+    // if index not found (-1), return 0
+    return index < 0 ? 0 : index;
   }
 }

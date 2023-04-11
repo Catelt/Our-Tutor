@@ -1,0 +1,23 @@
+{
+  "common_appTitle": "Out Tutor",
+  "common_appVersion": "Version {value}",
+  "@common_appVersion": {
+    "description": "Version number of app",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "common_loading": "Loading",
+  "common_next": "Next",
+  "common_cancel": "Cancel",
+  "common_yes": "Yes",
+  "common_no": "No",
+  "common_close": "Close",
+  "common_exit": "Exit",
+  "common_back": "Back",
+  "error_noInternet": "A Server Error Occurred",
+  "error_unknown": "An Unknown Error Occurred",
+  "error_somethingWrongTryAgain": "Something went wrong, try again..."
+}
