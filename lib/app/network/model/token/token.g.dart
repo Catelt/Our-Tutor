@@ -7,11 +7,11 @@ part of 'token.dart';
 // **************************************************************************
 
 _$_MToken _$$_MTokenFromJson(Map<String, dynamic> json) => _$_MToken(
-      token: json['token'] as String,
+      id: json['token'] as String,
       expires: json['expires'] as String,
     );
 
 Map<String, dynamic> _$$_MTokenToJson(_$_MToken instance) => <String, dynamic>{
-      'token': instance.token,
+      'token': instance.id,
       'expires': instance.expires,
     };

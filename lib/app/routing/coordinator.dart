@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'app_routing.dart';
+
 class XCoordinator {
   static final navigatorKey = GlobalKey<NavigatorState>();
   static final shellKey = GlobalKey<NavigatorState>();
@@ -67,4 +69,12 @@ class XCoordinator {
         queryParams: queryParams,
         extra: extra,
       );
+
+  static void showHomeScreen() {
+    goNamed(AppRoute.tutors.name);
+  }
+
+  static void showSignInScreen() {
+    goNamed(AppRoute.signIn.name);
+  }
 }

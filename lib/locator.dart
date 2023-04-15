@@ -7,10 +7,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
-import 'package:our_tutor/app/network/domain_manager.dart';
-import 'package:our_tutor/app/routing/app_routing.dart';
-import 'package:our_tutor/app/services/user_prefs.dart';
-import 'package:our_tutor/app/utils/utils.dart';
+
+import 'app/features/account/logic/account_cubit.dart';
+import 'app/network/domain_manager.dart';
+import 'app/routing/app_routing.dart';
+import 'app/services/user_prefs.dart';
+import 'app/utils/utils.dart';
 
 class XBlocObserver extends BlocObserver {
   final Logger log = Logger();
@@ -56,6 +58,7 @@ class XBlocObserver extends BlocObserver {
 void _initGetIt() {
   GetIt.I.registerLazySingleton(() => DomainManager());
   GetIt.I.registerLazySingleton(() => goRoute());
+  GetIt.I.registerLazySingleton(() => AccountCubit());
 }
 
 Future<void> locator(FutureOr<Widget> Function() builder) async {

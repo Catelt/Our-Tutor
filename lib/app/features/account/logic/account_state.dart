@@ -15,6 +15,8 @@ class AccountState extends Equatable {
     );
   }
 
+  bool get isLogin => user.id.isNotEmpty; // && token.isNotEmpty
+
   @override
   List<Object?> get props => [user, locale];
 

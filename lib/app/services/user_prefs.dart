@@ -3,14 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../network/model/token/token.dart';
 import '../network/model/user/user.dart';
 import '../utils/utils.dart';
 
 class _keys {
   static const String theme = 'app-theme';
   static const String user = 'user';
-  static const String token = 'auth-token';
 }
 
 class UserPrefs {
@@ -39,7 +37,7 @@ class UserPrefs {
 
   // user
   void setUser(MUser? value) {
-    if (value == null) {
+    if (value == null || value == MUser.empty()) {
       _prefs.remove(_keys.user);
     } else {
       _prefs.setString(_keys.user, jsonEncode(value.toJson()));
@@ -51,26 +49,6 @@ class UserPrefs {
     try {
       if (value == null || value.isEmpty) return null;
       return MUser.fromJson(jsonDecode(value));
-    } catch (e) {
-      xLog.e(e);
-      return null;
-    }
-  }
-
-  // token
-  void setToken(MToken? value) {
-    if (value == null) {
-      _prefs.remove(_keys.token);
-    } else {
-      _prefs.setString(_keys.token, jsonEncode(value.toJson()));
-    }
-  }
-
-  MToken? getToken() {
-    final value = _prefs.getString(_keys.token);
-    try {
-      if (value == null || value.isEmpty) return null;
-      return MToken.fromJson(jsonDecode(value));
     } catch (e) {
       xLog.e(e);
       return null;

@@ -7,7 +7,7 @@ part 'token.g.dart';
 @freezed
 class MToken with _$MToken {
   const factory MToken({
-    required String token,
+    @JsonKey(name: "token") required String id,
     required String expires,
   }) = _MToken;
 

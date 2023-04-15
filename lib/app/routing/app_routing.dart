@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../constants/fake_tutors.dart';
 import '../constants/home_navigation_items.dart';
+import '../features/account/logic/account_cubit.dart';
+import '../features/authentication/view/sign_in_screen.dart';
 import '../features/course/presentation/view/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
@@ -18,12 +21,26 @@ enum AppRoute {
   signIn,
   schedule,
   history,
+  account,
 }
 
 GoRouter goRoute() => GoRouter(
-      initialLocation: HomeNavigationItems.items[0].path,
+      initialLocation: '/signIn',
       navigatorKey: XCoordinator.navigatorKey,
+      redirect: (context, state) {
+        if (context.read<AccountCubit>().state.isLogin) {
+          if (state.location.contains(RegExp(r'signIn'))) {
+            return HomeNavigationItems.items[0].path;
+          }
+        }
+        return null;
+      },
       routes: [
+        GoRoute(
+          name: AppRoute.signIn.name,
+          path: '/signIn',
+          builder: (context, state) => const SignInScreen(),
+        ),
         ShellRoute(
           navigatorKey: XCoordinator.shellKey,
           builder: (context, state, child) {

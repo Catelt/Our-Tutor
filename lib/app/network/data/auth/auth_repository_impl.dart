@@ -7,8 +7,6 @@ class AuthRepositoryImpl extends AuthRepository {
     final response = await XHttp()
         .post('$_baseUrl/login', data: {'email': email, 'password': password});
     final data = MAuthResponse.fromJson(jsonDecode(response));
-    XHttp().setTokenApi(data.tokens.access.token);
-    UserPrefs.I.setToken(data.tokens.access);
-    return MResult.success(data.user);
+    return MResult.success(MUser.userFromAuthResponse(data));
   }
 }
