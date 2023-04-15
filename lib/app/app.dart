@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:our_tutor/app/localization/localization_utils.dart';
+import 'localization/localization_utils.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

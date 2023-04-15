@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:our_tutor/app/constants/fake_tutors.dart';
-import 'package:our_tutor/app/constants/home_navigation_items.dart';
-import 'package:our_tutor/app/features/authentication/presentation/view/sign_in_screen.dart';
-import 'package:our_tutor/app/features/course/presentation/view/course_detail_screen.dart';
-import 'package:our_tutor/app/features/course/presentation/view/courses_screen.dart';
-import 'package:our_tutor/app/features/history/presentation/view/history_screen.dart';
-import 'package:our_tutor/app/features/home/app_scaffold.dart';
-import 'package:our_tutor/app/features/home/data/home_navigation_item.dart';
-import 'package:our_tutor/app/features/schedule/presentation/view/schedule_screen.dart';
-import 'package:our_tutor/app/features/tutor/presentation/view/tutor_detail_screen.dart';
-import 'package:our_tutor/app/features/tutor/presentation/view/tutor_screen.dart';
-import 'package:our_tutor/app/routing/not_found_screen.dart';
+
+import '../constants/fake_tutors.dart';
+import '../constants/home_navigation_items.dart';
+import '../features/course/presentation/view/course_detail_screen.dart';
+import '../features/home/app_scaffold.dart';
+import '../features/home/data/home_navigation_item.dart';
+import '../features/tutor/presentation/view/tutor_detail_screen.dart';
+import 'coordinator.dart';
+import 'not_found_screen.dart';
 
 enum AppRoute {
   tutors,
@@ -25,8 +22,10 @@ enum AppRoute {
 
 GoRouter goRoute() => GoRouter(
       initialLocation: HomeNavigationItems.items[0].path,
+      navigatorKey: XCoordinator.navigatorKey,
       routes: [
         ShellRoute(
+          navigatorKey: XCoordinator.shellKey,
           builder: (context, state, child) {
             return AppScaffold(child: child);
           },

@@ -4,6 +4,8 @@ import 'package:our_tutor/app/constants/app_icon.dart';
 import 'package:our_tutor/app/constants/app_size.dart';
 import 'package:our_tutor/app/features/authentication/presentation/widgets/widget.dart';
 
+import '../../../../network/domain_manager.dart';
+
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
@@ -36,7 +38,12 @@ class SignInScreen extends StatelessWidget {
                 gapH12,
                 SizedBox(
                     width: double.infinity,
-                    child: PrimaryButton(text: 'LOG IN', onPressed: () => {})),
+                    child: PrimaryButton(
+                        text: 'LOG IN',
+                        onPressed: () => {
+                              DomainManager.I.auth
+                                  .login("phhai@ymail.com", "123456")
+                            })),
                 gapH8,
                 Center(
                   child: Text('Forgot Password?',

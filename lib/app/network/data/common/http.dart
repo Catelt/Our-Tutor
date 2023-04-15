@@ -1,72 +1,137 @@
+import 'dart:convert';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:our_tutor/app/localization/localization_utils.dart';
-import 'package:our_tutor/app/utils/utils.dart';
+import '../../../localization/localization_utils.dart';
+import '../../../utils/utils.dart';
+
+enum XMethod {
+  get,
+  post,
+  put,
+  patch,
+  delete,
+  head;
+}
 
 class XHttp {
+  factory XHttp() => instance;
+  XHttp._internal() {
+    final options = BaseOptions(
+      validateStatus: (status) {
+        return true;
+      },
+      baseUrl: _baseUrl,
+      headers: _headers,
+      connectTimeout: _connectTimeout,
+      receiveTimeout: _receiveTimeout,
+      sendTimeout: _sendTimeout,
+    );
+
+    _dio = Dio(options);
+  }
+
+  static final XHttp instance = XHttp._internal();
+  static XHttp get I => instance;
+  static late Dio _dio;
+
   static String? tokenType;
   static String? tokenApi;
 
-  static Map<String, String> get _headers => {
+  static String _baseUrl = 'https://sandbox.api.lettutor.com';
+  static Duration _connectTimeout = const Duration(seconds: 10);
+  static Duration _receiveTimeout = const Duration(seconds: 10);
+  static Duration _sendTimeout = const Duration(seconds: 5);
+
+  Map<String, String> get _headers => {
         'Content-type': 'application/json',
         'Accept': 'application/json',
-        "Authorization": "$tokenType $tokenApi"
+        'Authorization': '$tokenType $tokenApi'
       };
 
-  static void setTokenApi(String tokenApi, {String tokenType = "Bearer"}) {
+  /// Configure Dio
+  void configDio({
+    Duration? connectTimeout,
+    Duration? receiveTimeout,
+    Duration? sendTimeout,
+    String? baseUrl,
+    List<Interceptor>? interceptors,
+  }) {
+    _connectTimeout = connectTimeout ?? _connectTimeout;
+    _receiveTimeout = receiveTimeout ?? _receiveTimeout;
+    _sendTimeout = sendTimeout ?? _sendTimeout;
+    _baseUrl = baseUrl ?? _baseUrl;
+  }
+
+  void setTokenApi(String tokenApi, {String tokenType = 'Bearer'}) {
     XHttp.tokenType = tokenType;
     XHttp.tokenApi = tokenApi;
   }
 
-  static const domain = '';
-
-  static Future<String> get(String url) async {
+  Future<String> request(
+    XMethod method,
+    String url, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+    CancelToken? cancelToken,
+    Options? options,
+  }) async {
     String bodyResponse = '';
     try {
-      final uri = Uri.https(domain, url);
-      final response = await http
-          .get(uri, headers: _headers)
-          .timeout(const Duration(minutes: 5));
-      xLog.i('> GET RESPONSE [${response.statusCode}]<  $url');
-      bodyResponse = response.body;
-      if (response.statusCode <= 299) {
+      // Check internet
+      final connectivityResult = await Connectivity().checkConnectivity();
+      if (connectivityResult == ConnectivityResult.none) {
+        throw FlutterError(S.text.error_noInternet);
+      }
+
+      final response = await _dio.request(
+        url,
+        data: data,
+        queryParameters: queryParameters,
+        options: _checkOptions(method.name, options),
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+        cancelToken: cancelToken,
+      );
+      bodyResponse = jsonEncode(response.data);
+      xLog.i('> RESPONSE [${response.statusCode}]<  $url');
+
+      if (response.statusCode == null) {
+        throw FlutterError(S.text.error_unknown);
+      }
+      if (response.statusCode! <= 299) {
         return bodyResponse;
       } else {
-        if (response.statusCode >= 400) {
+        if (response.statusCode! >= 400) {
           throw FlutterError(S.text.error_noInternet);
         } else {
           throw FlutterError(S.text.error_unknown);
         }
       }
-    } catch (e) {
-      xLog.w('> API CATCH Error< $e');
-      xLog.w('> API CATCH Body< $bodyResponse');
+    } on DioError catch (e) {
+      xLog
+        ..w('> API CATCH Error< $e')
+        ..w('> API CATCH Body< $bodyResponse');
       rethrow;
     }
   }
 
-  static Future<String> post(String url, {String? body}) async {
-    String bodyResponse = '';
-    try {
-      final uri = Uri.https(domain, url);
-      final response = await http
-          .post(uri, body: body, headers: _headers)
-          .timeout(const Duration(minutes: 5));
-      xLog.i('> POST RESPONSE [${response.statusCode}]< $url $body');
-      bodyResponse = response.body;
-      if (response.statusCode <= 299) {
-        return bodyResponse;
-      } else {
-        if (response.statusCode >= 400) {
-          throw FlutterError(S.text.error_noInternet);
-        } else {
-          throw FlutterError(S.text.error_unknown);
-        }
-      }
-    } catch (e) {
-      xLog.w('> API CATCH Error< $e');
-      xLog.w('> API CATCH Body< $bodyResponse');
-      rethrow;
-    }
+  Options _checkOptions(String? method, Options? options) {
+    final newOptions = options ?? Options();
+    newOptions.method = method;
+    return newOptions;
+  }
+
+  Future<String> get(String url) {
+    return request(XMethod.get, url);
+  }
+
+  Future<String> post(String url,
+      {Object? data, Map<String, dynamic>? queryParameters}) {
+    return request(XMethod.post, url,
+        data: data, queryParameters: queryParameters);
   }
 }

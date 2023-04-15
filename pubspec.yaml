@@ -18,9 +18,12 @@ dependencies:
   # HELPER
   intl: ^0.17.0
   logger: ^1.3.0
-  http: ^0.13.5
+  equatable: ^2.0.5
   shared_preferences: ^2.0.18
   video_player: ^2.5.3
+  dio: ^5.1.1
+  connectivity_plus: ^3.0.4
+  freezed: ^2.3.2
 
 
   # WIDGET
@@ -39,7 +42,8 @@ dev_dependencies:
   mocktail: ^0.3.0
   bloc_test: ^9.1.1
   flutter_lints: ^2.0.1
-  very_good_analysis: ^4.0.0
+  json_serializable: ^6.6.1
+  build_runner: ^2.3.3
 
 flutter:
   uses-material-design: true
