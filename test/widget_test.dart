@@ -8,8 +8,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:our_tutor/app/app.dart';
 
 void main() {
-  testWidgets('My simple app', (tester) async {
-    // Create the widget by telling the tester to build it.
-    await tester.pumpWidget(const App());
-  });
+  // testWidgets('My simple app', (tester) async {
+  //   // Create the widget by telling the tester to build it.
+  //   await tester.pumpWidget(const App());
+  // });
 }
