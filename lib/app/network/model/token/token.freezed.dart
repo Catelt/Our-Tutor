@@ -22,7 +22,10 @@ MToken _$MTokenFromJson(Map<String, dynamic> json) {
 mixin _$MToken {
   @JsonKey(name: "token")
   String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "token")
+  set id(String value) => throw _privateConstructorUsedError;
   String get expires => throw _privateConstructorUsedError;
+  set expires(String value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -104,17 +107,16 @@ class __$$_MTokenCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MToken with DiagnosticableTreeMixin implements _MToken {
-  const _$_MToken(
-      {@JsonKey(name: "token") required this.id, required this.expires});
+  _$_MToken({@JsonKey(name: "token") required this.id, required this.expires});
 
   factory _$_MToken.fromJson(Map<String, dynamic> json) =>
       _$$_MTokenFromJson(json);
 
   @override
   @JsonKey(name: "token")
-  final String id;
+  String id;
   @override
-  final String expires;
+  String expires;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -129,19 +131,6 @@ class _$_MToken with DiagnosticableTreeMixin implements _MToken {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('expires', expires));
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MToken &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.expires, expires) || other.expires == expires));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, expires);
 
   @JsonKey(ignore: true)
   @override
@@ -158,17 +147,20 @@ class _$_MToken with DiagnosticableTreeMixin implements _MToken {
 }
 
 abstract class _MToken implements MToken {
-  const factory _MToken(
-      {@JsonKey(name: "token") required final String id,
-      required final String expires}) = _$_MToken;
+  factory _MToken(
+      {@JsonKey(name: "token") required String id,
+      required String expires}) = _$_MToken;
 
   factory _MToken.fromJson(Map<String, dynamic> json) = _$_MToken.fromJson;
 
   @override
   @JsonKey(name: "token")
   String get id;
+  @JsonKey(name: "token")
+  set id(String value);
   @override
   String get expires;
+  set expires(String value);
   @override
   @JsonKey(ignore: true)
   _$$_MTokenCopyWith<_$_MToken> get copyWith =>

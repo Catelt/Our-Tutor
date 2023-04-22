@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../constants/fake_tutors.dart';
 import '../../../../constants/specialties.dart';
@@ -123,7 +123,7 @@ class TutorScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SvgWidget(
-                    assetName: AppIcon.icTivi,
+                    assetName: Assets.images.icTivi.path,
                     size: 16,
                     color: Theme.of(context).colorScheme.primary,
                   ),

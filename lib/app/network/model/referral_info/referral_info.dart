@@ -6,9 +6,9 @@ import 'referral_pack_info.dart';
 part 'referral_info.freezed.dart';
 part 'referral_info.g.dart';
 
-@freezed
+@unfreezed
 class MReferralInfo with _$MReferralInfo {
-  const factory MReferralInfo({
+  factory MReferralInfo({
     required String referralCode,
     required MReferralPackInfo referralInfo,
   }) = _MReferralInfo;

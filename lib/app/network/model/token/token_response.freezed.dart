@@ -21,7 +21,9 @@ MTokenResponse _$MTokenResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MTokenResponse {
   MToken get access => throw _privateConstructorUsedError;
+  set access(MToken value) => throw _privateConstructorUsedError;
   MToken get refresh => throw _privateConstructorUsedError;
+  set refresh(MToken value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -134,15 +136,15 @@ class __$$_MTokenResponseCopyWithImpl<$Res>
 class _$_MTokenResponse
     with DiagnosticableTreeMixin
     implements _MTokenResponse {
-  const _$_MTokenResponse({required this.access, required this.refresh});
+  _$_MTokenResponse({required this.access, required this.refresh});
 
   factory _$_MTokenResponse.fromJson(Map<String, dynamic> json) =>
       _$$_MTokenResponseFromJson(json);
 
   @override
-  final MToken access;
+  MToken access;
   @override
-  final MToken refresh;
+  MToken refresh;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -157,19 +159,6 @@ class _$_MTokenResponse
       ..add(DiagnosticsProperty('access', access))
       ..add(DiagnosticsProperty('refresh', refresh));
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MTokenResponse &&
-            (identical(other.access, access) || other.access == access) &&
-            (identical(other.refresh, refresh) || other.refresh == refresh));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, access, refresh);
 
   @JsonKey(ignore: true)
   @override
@@ -186,17 +175,18 @@ class _$_MTokenResponse
 }
 
 abstract class _MTokenResponse implements MTokenResponse {
-  const factory _MTokenResponse(
-      {required final MToken access,
-      required final MToken refresh}) = _$_MTokenResponse;
+  factory _MTokenResponse({required MToken access, required MToken refresh}) =
+      _$_MTokenResponse;
 
   factory _MTokenResponse.fromJson(Map<String, dynamic> json) =
       _$_MTokenResponse.fromJson;
 
   @override
   MToken get access;
+  set access(MToken value);
   @override
   MToken get refresh;
+  set refresh(MToken value);
   @override
   @JsonKey(ignore: true)
   _$$_MTokenResponseCopyWith<_$_MTokenResponse> get copyWith =>

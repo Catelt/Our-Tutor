@@ -9,9 +9,9 @@ import '../wallet_info/wallet_info.dart';
 part 'user.freezed.dart';
 part 'user.g.dart';
 
-@freezed
+@unfreezed
 class MUser with _$MUser {
-  const factory MUser({
+  factory MUser({
     required String id,
     String? email,
     String? avatar,

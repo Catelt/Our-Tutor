@@ -21,6 +21,7 @@ MReferralPackInfo _$MReferralPackInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MReferralPackInfo {
   int get earnPercent => throw _privateConstructorUsedError;
+  set earnPercent(int value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -99,13 +100,13 @@ class __$$_MReferralPackInfoCopyWithImpl<$Res>
 class _$_MReferralPackInfo
     with DiagnosticableTreeMixin
     implements _MReferralPackInfo {
-  const _$_MReferralPackInfo({required this.earnPercent});
+  _$_MReferralPackInfo({required this.earnPercent});
 
   factory _$_MReferralPackInfo.fromJson(Map<String, dynamic> json) =>
       _$$_MReferralPackInfoFromJson(json);
 
   @override
-  final int earnPercent;
+  int earnPercent;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -119,19 +120,6 @@ class _$_MReferralPackInfo
       ..add(DiagnosticsProperty('type', 'MReferralPackInfo'))
       ..add(DiagnosticsProperty('earnPercent', earnPercent));
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MReferralPackInfo &&
-            (identical(other.earnPercent, earnPercent) ||
-                other.earnPercent == earnPercent));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, earnPercent);
 
   @JsonKey(ignore: true)
   @override
@@ -149,14 +137,14 @@ class _$_MReferralPackInfo
 }
 
 abstract class _MReferralPackInfo implements MReferralPackInfo {
-  const factory _MReferralPackInfo({required final int earnPercent}) =
-      _$_MReferralPackInfo;
+  factory _MReferralPackInfo({required int earnPercent}) = _$_MReferralPackInfo;
 
   factory _MReferralPackInfo.fromJson(Map<String, dynamic> json) =
       _$_MReferralPackInfo.fromJson;
 
   @override
   int get earnPercent;
+  set earnPercent(int value);
   @override
   @JsonKey(ignore: true)
   _$$_MReferralPackInfoCopyWith<_$_MReferralPackInfo> get copyWith =>

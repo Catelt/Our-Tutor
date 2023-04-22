@@ -4,9 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'token.freezed.dart';
 part 'token.g.dart';
 
-@freezed
+@unfreezed
 class MToken with _$MToken {
-  const factory MToken({
+  factory MToken({
     @JsonKey(name: "token") required String id,
     required String expires,
   }) = _MToken;

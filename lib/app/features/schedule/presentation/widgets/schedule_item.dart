@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import 'request_lesson.dart';
 
@@ -83,9 +83,9 @@ class ScheduleItem extends StatelessWidget {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 SvgWidget(
-                  assetName: AppIcon.icCloseSquare,
+                  assetName: Assets.images.icCloseSquare.path,
                   size: 14,
                   color: Colors.red,
                 ),

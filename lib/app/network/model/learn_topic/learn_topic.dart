@@ -4,9 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'learn_topic.freezed.dart';
 part 'learn_topic.g.dart';
 
-@freezed
+@unfreezed
 class MLearnTopic with _$MLearnTopic {
-  const factory MLearnTopic({
+  factory MLearnTopic({
     required int id,
     required String key,
     required String name,

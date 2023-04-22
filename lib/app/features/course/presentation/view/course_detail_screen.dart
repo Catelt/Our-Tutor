@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import '../widgets/course_item.dart';
 
@@ -24,7 +24,7 @@ class CourseDetailScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgWidget(
-                      assetName: AppIcon.icUserGroup,
+                      assetName: Assets.images.icUserGroup.path,
                       size: 20,
                     ),
                     gapW8,
@@ -39,7 +39,7 @@ class CourseDetailScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgWidget(
-                      assetName: AppIcon.icBook,
+                      assetName: Assets.images.icBook.path,
                       size: 20,
                     ),
                     gapW8,
@@ -147,7 +147,7 @@ class CourseDetailScreen extends StatelessWidget {
   Widget titleInOverviewWidget(String title) {
     return Row(children: [
       SvgWidget(
-        assetName: AppIcon.icCircleQuestion,
+        assetName: Assets.images.icCircleQuestion.path,
         size: 20,
         color: Colors.red,
       ),

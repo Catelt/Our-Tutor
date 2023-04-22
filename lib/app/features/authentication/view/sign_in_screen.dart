@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../common_widgets/common_widgets.dart';
-import '../../../constants/app_icon.dart';
 import '../../../constants/app_size.dart';
 import '../../../routing/coordinator.dart';
 import '../../account/logic/account_cubit.dart';
@@ -82,10 +82,10 @@ class SignInScreen extends StatelessWidget {
                       width: MediaQuery.of(context).size.width / 2,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          SocialButton(assetName: AppIcon.icFb),
-                          SocialButton(assetName: AppIcon.icGoogle),
-                          SocialButton(assetName: AppIcon.icPhone),
+                        children: [
+                          SocialButton(assetName: Assets.images.fb.path),
+                          SocialButton(assetName: Assets.images.google.path),
+                          SocialButton(assetName: Assets.images.phone.path),
                         ],
                       ),
                     ),

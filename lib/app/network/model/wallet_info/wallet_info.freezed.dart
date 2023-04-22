@@ -21,12 +21,19 @@ MWalletInfo _$MWalletInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MWalletInfo {
   String get id => throw _privateConstructorUsedError;
+  set id(String value) => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  set userId(String value) => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
+  set amount(String value) => throw _privateConstructorUsedError;
   bool get isBlocked => throw _privateConstructorUsedError;
+  set isBlocked(bool value) => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
+  set createdAt(String value) => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
+  set updatedAt(String value) => throw _privateConstructorUsedError;
   int get bonus => throw _privateConstructorUsedError;
+  set bonus(int value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -177,7 +184,7 @@ class __$$_MWalletInfoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MWalletInfo with DiagnosticableTreeMixin implements _MWalletInfo {
-  const _$_MWalletInfo(
+  _$_MWalletInfo(
       {required this.id,
       required this.userId,
       required this.amount,
@@ -190,19 +197,19 @@ class _$_MWalletInfo with DiagnosticableTreeMixin implements _MWalletInfo {
       _$$_MWalletInfoFromJson(json);
 
   @override
-  final String id;
+  String id;
   @override
-  final String userId;
+  String userId;
   @override
-  final String amount;
+  String amount;
   @override
-  final bool isBlocked;
+  bool isBlocked;
   @override
-  final String createdAt;
+  String createdAt;
   @override
-  final String updatedAt;
+  String updatedAt;
   @override
-  final int bonus;
+  int bonus;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -223,28 +230,6 @@ class _$_MWalletInfo with DiagnosticableTreeMixin implements _MWalletInfo {
       ..add(DiagnosticsProperty('bonus', bonus));
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MWalletInfo &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.isBlocked, isBlocked) ||
-                other.isBlocked == isBlocked) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.bonus, bonus) || other.bonus == bonus));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, id, userId, amount, isBlocked, createdAt, updatedAt, bonus);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -260,32 +245,39 @@ class _$_MWalletInfo with DiagnosticableTreeMixin implements _MWalletInfo {
 }
 
 abstract class _MWalletInfo implements MWalletInfo {
-  const factory _MWalletInfo(
-      {required final String id,
-      required final String userId,
-      required final String amount,
-      required final bool isBlocked,
-      required final String createdAt,
-      required final String updatedAt,
-      required final int bonus}) = _$_MWalletInfo;
+  factory _MWalletInfo(
+      {required String id,
+      required String userId,
+      required String amount,
+      required bool isBlocked,
+      required String createdAt,
+      required String updatedAt,
+      required int bonus}) = _$_MWalletInfo;
 
   factory _MWalletInfo.fromJson(Map<String, dynamic> json) =
       _$_MWalletInfo.fromJson;
 
   @override
   String get id;
+  set id(String value);
   @override
   String get userId;
+  set userId(String value);
   @override
   String get amount;
+  set amount(String value);
   @override
   bool get isBlocked;
+  set isBlocked(bool value);
   @override
   String get createdAt;
+  set createdAt(String value);
   @override
   String get updatedAt;
+  set updatedAt(String value);
   @override
   int get bonus;
+  set bonus(int value);
   @override
   @JsonKey(ignore: true)
   _$$_MWalletInfoCopyWith<_$_MWalletInfo> get copyWith =>

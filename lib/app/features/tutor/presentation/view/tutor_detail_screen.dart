@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import '../../data/tutor.dart';
 
@@ -64,11 +64,11 @@ class TutorDetailScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     iconButton(context,
-                        asset: AppIcon.icHeart, title: 'Favorite'),
+                        asset: Assets.images.icHeart.path, title: 'Favorite'),
                     iconButton(context,
-                        asset: AppIcon.icReport, title: 'Report'),
+                        asset: Assets.images.icReport.path, title: 'Report'),
                     iconButton(context,
-                        asset: AppIcon.icStar, title: 'Reviews'),
+                        asset: Assets.images.icStar.path, title: 'Reviews'),
                   ],
                 ),
               ),

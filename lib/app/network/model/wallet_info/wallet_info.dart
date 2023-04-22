@@ -4,9 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'wallet_info.freezed.dart';
 part 'wallet_info.g.dart';
 
-@freezed
+@unfreezed
 class MWalletInfo with _$MWalletInfo {
-  const factory MWalletInfo({
+  factory MWalletInfo({
     required String id,
     required String userId,
     required String amount,

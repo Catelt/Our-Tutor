@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../routing/app_routing.dart';
 import '../../data/tutor.dart';
@@ -76,7 +76,7 @@ class TutorItem extends StatelessWidget {
             top: Sizes.p16,
             right: Sizes.p16,
             child: SvgWidget(
-              assetName: AppIcon.icHeart,
+              assetName: Assets.images.icHeart.path,
               size: 26,
               color: Theme.of(context).colorScheme.primary,
             ),
@@ -106,7 +106,7 @@ class TutorItem extends StatelessWidget {
           border: Border.all(color: Theme.of(context).colorScheme.primary)),
       child: Row(children: [
         SvgWidget(
-            assetName: AppIcon.icSchedule,
+            assetName: Assets.images.icSchedule.path,
             width: 14,
             height: 11,
             color: Theme.of(context).colorScheme.primary),

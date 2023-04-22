@@ -21,28 +21,53 @@ MUser _$MUserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MUser {
   String get id => throw _privateConstructorUsedError;
+  set id(String value) => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
+  set email(String? value) => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  set avatar(String? value) => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
+  set country(String? value) => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
+  set phone(String? value) => throw _privateConstructorUsedError;
   List<String>? get roles => throw _privateConstructorUsedError;
+  set roles(List<String>? value) => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
+  set language(String? value) => throw _privateConstructorUsedError;
   String? get birthday => throw _privateConstructorUsedError;
+  set birthday(String? value) => throw _privateConstructorUsedError;
   bool? get isActivated => throw _privateConstructorUsedError;
+  set isActivated(bool? value) => throw _privateConstructorUsedError;
   MWalletInfo? get walletInfo => throw _privateConstructorUsedError;
+  set walletInfo(MWalletInfo? value) => throw _privateConstructorUsedError;
   List<String>? get courses => throw _privateConstructorUsedError;
+  set courses(List<String>? value) => throw _privateConstructorUsedError;
   String? get requireNote => throw _privateConstructorUsedError;
+  set requireNote(String? value) => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
+  set level(String? value) => throw _privateConstructorUsedError;
   List<MLearnTopic>? get learnTopics => throw _privateConstructorUsedError;
+  set learnTopics(List<MLearnTopic>? value) =>
+      throw _privateConstructorUsedError;
   List<String>? get testPreparations => throw _privateConstructorUsedError;
+  set testPreparations(List<String>? value) =>
+      throw _privateConstructorUsedError;
   bool? get isPhoneActivated => throw _privateConstructorUsedError;
+  set isPhoneActivated(bool? value) => throw _privateConstructorUsedError;
   int? get timezone => throw _privateConstructorUsedError;
+  set timezone(int? value) => throw _privateConstructorUsedError;
   String? get studySchedule => throw _privateConstructorUsedError;
+  set studySchedule(String? value) => throw _privateConstructorUsedError;
   bool? get canSendMessage => throw _privateConstructorUsedError;
+  set canSendMessage(bool? value) => throw _privateConstructorUsedError;
   String? get studentGroup => throw _privateConstructorUsedError;
+  set studentGroup(String? value) => throw _privateConstructorUsedError;
   String? get studentInfo => throw _privateConstructorUsedError;
+  set studentInfo(String? value) => throw _privateConstructorUsedError;
   double? get avgRating => throw _privateConstructorUsedError;
+  set avgRating(double? value) => throw _privateConstructorUsedError;
   MToken? get token => throw _privateConstructorUsedError;
+  set token(MToken? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -333,7 +358,7 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
       roles: freezed == roles
-          ? _value._roles
+          ? _value.roles
           : roles // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       language: freezed == language
@@ -353,7 +378,7 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
           : walletInfo // ignore: cast_nullable_to_non_nullable
               as MWalletInfo?,
       courses: freezed == courses
-          ? _value._courses
+          ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       requireNote: freezed == requireNote
@@ -365,11 +390,11 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
           : level // ignore: cast_nullable_to_non_nullable
               as String?,
       learnTopics: freezed == learnTopics
-          ? _value._learnTopics
+          ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
               as List<MLearnTopic>?,
       testPreparations: freezed == testPreparations
-          ? _value._testPreparations
+          ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       isPhoneActivated: freezed == isPhoneActivated
@@ -411,22 +436,22 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
 /// @nodoc
 @JsonSerializable()
 class _$_MUser with DiagnosticableTreeMixin implements _MUser {
-  const _$_MUser(
+  _$_MUser(
       {required this.id,
       this.email,
       this.avatar,
       this.country,
       this.phone,
-      final List<String>? roles,
+      this.roles,
       this.language,
       this.birthday,
       this.isActivated,
       this.walletInfo,
-      final List<String>? courses,
+      this.courses,
       this.requireNote,
       this.level,
-      final List<MLearnTopic>? learnTopics,
-      final List<String>? testPreparations,
+      this.learnTopics,
+      this.testPreparations,
       this.isPhoneActivated,
       this.timezone,
       this.studySchedule,
@@ -434,94 +459,57 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
       this.studentGroup,
       this.studentInfo,
       this.avgRating,
-      this.token})
-      : _roles = roles,
-        _courses = courses,
-        _learnTopics = learnTopics,
-        _testPreparations = testPreparations;
+      this.token});
 
   factory _$_MUser.fromJson(Map<String, dynamic> json) =>
       _$$_MUserFromJson(json);
 
   @override
-  final String id;
+  String id;
   @override
-  final String? email;
+  String? email;
   @override
-  final String? avatar;
+  String? avatar;
   @override
-  final String? country;
+  String? country;
   @override
-  final String? phone;
-  final List<String>? _roles;
+  String? phone;
   @override
-  List<String>? get roles {
-    final value = _roles;
-    if (value == null) return null;
-    if (_roles is EqualUnmodifiableListView) return _roles;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  List<String>? roles;
   @override
-  final String? language;
+  String? language;
   @override
-  final String? birthday;
+  String? birthday;
   @override
-  final bool? isActivated;
+  bool? isActivated;
   @override
-  final MWalletInfo? walletInfo;
-  final List<String>? _courses;
+  MWalletInfo? walletInfo;
   @override
-  List<String>? get courses {
-    final value = _courses;
-    if (value == null) return null;
-    if (_courses is EqualUnmodifiableListView) return _courses;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  List<String>? courses;
   @override
-  final String? requireNote;
+  String? requireNote;
   @override
-  final String? level;
-  final List<MLearnTopic>? _learnTopics;
+  String? level;
   @override
-  List<MLearnTopic>? get learnTopics {
-    final value = _learnTopics;
-    if (value == null) return null;
-    if (_learnTopics is EqualUnmodifiableListView) return _learnTopics;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _testPreparations;
+  List<MLearnTopic>? learnTopics;
   @override
-  List<String>? get testPreparations {
-    final value = _testPreparations;
-    if (value == null) return null;
-    if (_testPreparations is EqualUnmodifiableListView)
-      return _testPreparations;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  List<String>? testPreparations;
   @override
-  final bool? isPhoneActivated;
+  bool? isPhoneActivated;
   @override
-  final int? timezone;
+  int? timezone;
   @override
-  final String? studySchedule;
+  String? studySchedule;
   @override
-  final bool? canSendMessage;
+  bool? canSendMessage;
   @override
-  final String? studentGroup;
+  String? studentGroup;
   @override
-  final String? studentInfo;
+  String? studentInfo;
   @override
-  final double? avgRating;
+  double? avgRating;
   @override
-  final MToken? token;
+  MToken? token;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -558,79 +546,6 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
       ..add(DiagnosticsProperty('token', token));
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MUser &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.avatar, avatar) || other.avatar == avatar) &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            const DeepCollectionEquality().equals(other._roles, _roles) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.birthday, birthday) ||
-                other.birthday == birthday) &&
-            (identical(other.isActivated, isActivated) ||
-                other.isActivated == isActivated) &&
-            (identical(other.walletInfo, walletInfo) ||
-                other.walletInfo == walletInfo) &&
-            const DeepCollectionEquality().equals(other._courses, _courses) &&
-            (identical(other.requireNote, requireNote) ||
-                other.requireNote == requireNote) &&
-            (identical(other.level, level) || other.level == level) &&
-            const DeepCollectionEquality()
-                .equals(other._learnTopics, _learnTopics) &&
-            const DeepCollectionEquality()
-                .equals(other._testPreparations, _testPreparations) &&
-            (identical(other.isPhoneActivated, isPhoneActivated) ||
-                other.isPhoneActivated == isPhoneActivated) &&
-            (identical(other.timezone, timezone) ||
-                other.timezone == timezone) &&
-            (identical(other.studySchedule, studySchedule) ||
-                other.studySchedule == studySchedule) &&
-            (identical(other.canSendMessage, canSendMessage) ||
-                other.canSendMessage == canSendMessage) &&
-            (identical(other.studentGroup, studentGroup) ||
-                other.studentGroup == studentGroup) &&
-            (identical(other.studentInfo, studentInfo) ||
-                other.studentInfo == studentInfo) &&
-            (identical(other.avgRating, avgRating) ||
-                other.avgRating == avgRating) &&
-            (identical(other.token, token) || other.token == token));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        email,
-        avatar,
-        country,
-        phone,
-        const DeepCollectionEquality().hash(_roles),
-        language,
-        birthday,
-        isActivated,
-        walletInfo,
-        const DeepCollectionEquality().hash(_courses),
-        requireNote,
-        level,
-        const DeepCollectionEquality().hash(_learnTopics),
-        const DeepCollectionEquality().hash(_testPreparations),
-        isPhoneActivated,
-        timezone,
-        studySchedule,
-        canSendMessage,
-        studentGroup,
-        studentInfo,
-        avgRating,
-        token
-      ]);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -646,79 +561,102 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
 }
 
 abstract class _MUser implements MUser {
-  const factory _MUser(
-      {required final String id,
-      final String? email,
-      final String? avatar,
-      final String? country,
-      final String? phone,
-      final List<String>? roles,
-      final String? language,
-      final String? birthday,
-      final bool? isActivated,
-      final MWalletInfo? walletInfo,
-      final List<String>? courses,
-      final String? requireNote,
-      final String? level,
-      final List<MLearnTopic>? learnTopics,
-      final List<String>? testPreparations,
-      final bool? isPhoneActivated,
-      final int? timezone,
-      final String? studySchedule,
-      final bool? canSendMessage,
-      final String? studentGroup,
-      final String? studentInfo,
-      final double? avgRating,
-      final MToken? token}) = _$_MUser;
+  factory _MUser(
+      {required String id,
+      String? email,
+      String? avatar,
+      String? country,
+      String? phone,
+      List<String>? roles,
+      String? language,
+      String? birthday,
+      bool? isActivated,
+      MWalletInfo? walletInfo,
+      List<String>? courses,
+      String? requireNote,
+      String? level,
+      List<MLearnTopic>? learnTopics,
+      List<String>? testPreparations,
+      bool? isPhoneActivated,
+      int? timezone,
+      String? studySchedule,
+      bool? canSendMessage,
+      String? studentGroup,
+      String? studentInfo,
+      double? avgRating,
+      MToken? token}) = _$_MUser;
 
   factory _MUser.fromJson(Map<String, dynamic> json) = _$_MUser.fromJson;
 
   @override
   String get id;
+  set id(String value);
   @override
   String? get email;
+  set email(String? value);
   @override
   String? get avatar;
+  set avatar(String? value);
   @override
   String? get country;
+  set country(String? value);
   @override
   String? get phone;
+  set phone(String? value);
   @override
   List<String>? get roles;
+  set roles(List<String>? value);
   @override
   String? get language;
+  set language(String? value);
   @override
   String? get birthday;
+  set birthday(String? value);
   @override
   bool? get isActivated;
+  set isActivated(bool? value);
   @override
   MWalletInfo? get walletInfo;
+  set walletInfo(MWalletInfo? value);
   @override
   List<String>? get courses;
+  set courses(List<String>? value);
   @override
   String? get requireNote;
+  set requireNote(String? value);
   @override
   String? get level;
+  set level(String? value);
   @override
   List<MLearnTopic>? get learnTopics;
+  set learnTopics(List<MLearnTopic>? value);
   @override
   List<String>? get testPreparations;
+  set testPreparations(List<String>? value);
   @override
   bool? get isPhoneActivated;
+  set isPhoneActivated(bool? value);
   @override
   int? get timezone;
+  set timezone(int? value);
   @override
   String? get studySchedule;
+  set studySchedule(String? value);
   @override
   bool? get canSendMessage;
+  set canSendMessage(bool? value);
   @override
   String? get studentGroup;
+  set studentGroup(String? value);
   @override
   String? get studentInfo;
+  set studentInfo(String? value);
   @override
   double? get avgRating;
+  set avgRating(double? value);
   @override
   MToken? get token;
+  set token(MToken? value);
   @override
   @JsonKey(ignore: true)
   _$$_MUserCopyWith<_$_MUser> get copyWith =>

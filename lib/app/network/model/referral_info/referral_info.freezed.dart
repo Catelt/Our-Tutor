@@ -21,7 +21,10 @@ MReferralInfo _$MReferralInfoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MReferralInfo {
   String get referralCode => throw _privateConstructorUsedError;
+  set referralCode(String value) => throw _privateConstructorUsedError;
   MReferralPackInfo get referralInfo => throw _privateConstructorUsedError;
+  set referralInfo(MReferralPackInfo value) =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -121,16 +124,15 @@ class __$$_MReferralInfoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MReferralInfo with DiagnosticableTreeMixin implements _MReferralInfo {
-  const _$_MReferralInfo(
-      {required this.referralCode, required this.referralInfo});
+  _$_MReferralInfo({required this.referralCode, required this.referralInfo});
 
   factory _$_MReferralInfo.fromJson(Map<String, dynamic> json) =>
       _$$_MReferralInfoFromJson(json);
 
   @override
-  final String referralCode;
+  String referralCode;
   @override
-  final MReferralPackInfo referralInfo;
+  MReferralPackInfo referralInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -145,21 +147,6 @@ class _$_MReferralInfo with DiagnosticableTreeMixin implements _MReferralInfo {
       ..add(DiagnosticsProperty('referralCode', referralCode))
       ..add(DiagnosticsProperty('referralInfo', referralInfo));
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MReferralInfo &&
-            (identical(other.referralCode, referralCode) ||
-                other.referralCode == referralCode) &&
-            (identical(other.referralInfo, referralInfo) ||
-                other.referralInfo == referralInfo));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, referralCode, referralInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -176,17 +163,19 @@ class _$_MReferralInfo with DiagnosticableTreeMixin implements _MReferralInfo {
 }
 
 abstract class _MReferralInfo implements MReferralInfo {
-  const factory _MReferralInfo(
-      {required final String referralCode,
-      required final MReferralPackInfo referralInfo}) = _$_MReferralInfo;
+  factory _MReferralInfo(
+      {required String referralCode,
+      required MReferralPackInfo referralInfo}) = _$_MReferralInfo;
 
   factory _MReferralInfo.fromJson(Map<String, dynamic> json) =
       _$_MReferralInfo.fromJson;
 
   @override
   String get referralCode;
+  set referralCode(String value);
   @override
   MReferralPackInfo get referralInfo;
+  set referralInfo(MReferralPackInfo value);
   @override
   @JsonKey(ignore: true)
   _$$_MReferralInfoCopyWith<_$_MReferralInfo> get copyWith =>

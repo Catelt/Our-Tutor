@@ -6,9 +6,9 @@ import 'token.dart';
 part 'token_response.freezed.dart';
 part 'token_response.g.dart';
 
-@freezed
+@unfreezed
 class MTokenResponse with _$MTokenResponse {
-  const factory MTokenResponse({
+  factory MTokenResponse({
     required MToken access,
     required MToken refresh,
   }) = _MTokenResponse;

@@ -7,9 +7,9 @@ import '../../user/user.dart';
 part 'auth_response.freezed.dart';
 part 'auth_response.g.dart';
 
-@freezed
+@unfreezed
 class MAuthResponse with _$MAuthResponse {
-  const factory MAuthResponse({
+  factory MAuthResponse({
     required MUser user,
     required MTokenResponse tokens,
   }) = _MAuthResponse;

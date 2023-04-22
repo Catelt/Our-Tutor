@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import '../widgets/course_item.dart';
 
@@ -17,7 +17,7 @@ class CoursesScreen extends StatelessWidget {
             Row(
               children: [
                 SvgWidget(
-                  assetName: AppIcon.course,
+                  assetName: Assets.images.course.path,
                   size: 100,
                 ),
                 gapW16,
@@ -32,7 +32,7 @@ class CoursesScreen extends StatelessWidget {
                         ),
                         TextFieldCustom(
                           hint: 'Course',
-                          assetIcon: AppIcon.icSearch,
+                          assetIcon: Assets.images.icSearch.path,
                         )
                       ]),
                 )

@@ -21,8 +21,11 @@ MLearnTopic _$MLearnTopicFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MLearnTopic {
   int get id => throw _privateConstructorUsedError;
+  set id(int value) => throw _privateConstructorUsedError;
   String get key => throw _privateConstructorUsedError;
+  set key(String value) => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -119,18 +122,17 @@ class __$$_MLearnTopicCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MLearnTopic with DiagnosticableTreeMixin implements _MLearnTopic {
-  const _$_MLearnTopic(
-      {required this.id, required this.key, required this.name});
+  _$_MLearnTopic({required this.id, required this.key, required this.name});
 
   factory _$_MLearnTopic.fromJson(Map<String, dynamic> json) =>
       _$$_MLearnTopicFromJson(json);
 
   @override
-  final int id;
+  int id;
   @override
-  final String key;
+  String key;
   @override
-  final String name;
+  String name;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -147,20 +149,6 @@ class _$_MLearnTopic with DiagnosticableTreeMixin implements _MLearnTopic {
       ..add(DiagnosticsProperty('name', name));
   }
 
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MLearnTopic &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.key, key) || other.key == key) &&
-            (identical(other.name, name) || other.name == name));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, key, name);
-
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -176,20 +164,23 @@ class _$_MLearnTopic with DiagnosticableTreeMixin implements _MLearnTopic {
 }
 
 abstract class _MLearnTopic implements MLearnTopic {
-  const factory _MLearnTopic(
-      {required final int id,
-      required final String key,
-      required final String name}) = _$_MLearnTopic;
+  factory _MLearnTopic(
+      {required int id,
+      required String key,
+      required String name}) = _$_MLearnTopic;
 
   factory _MLearnTopic.fromJson(Map<String, dynamic> json) =
       _$_MLearnTopic.fromJson;
 
   @override
   int get id;
+  set id(int value);
   @override
   String get key;
+  set key(String value);
   @override
   String get name;
+  set name(String value);
   @override
   @JsonKey(ignore: true)
   _$$_MLearnTopicCopyWith<_$_MLearnTopic> get copyWith =>

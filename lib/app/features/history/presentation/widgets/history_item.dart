@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../common_widgets/expand_container.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 
 class HistoryItem extends StatelessWidget {
@@ -67,7 +67,7 @@ class HistoryItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SvgWidget(
-                  assetName: AppIcon.icPlaySquare,
+                  assetName: Assets.images.icPlaySquare.path,
                   size: 14,
                   color: Colors.white,
                 ),

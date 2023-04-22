@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_icon.dart';
 import '../../../../constants/app_size.dart';
 import '../widgets/history_item.dart';
 
@@ -14,8 +14,8 @@ class HistoryScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: Sizes.p12),
         child: ListView(
           children: [
-            const SvgWidget(
-              assetName: AppIcon.history,
+            SvgWidget(
+              assetName: Assets.images.history.path,
               size: 120,
             ),
             const Text(

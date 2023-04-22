@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_icon.dart';
+import '../../gen/assets.gen.dart';
 import '../constants/app_size.dart';
 import '../constants/countries.dart';
 import 'svg_widget.dart';
@@ -45,8 +45,8 @@ class InfoTutorWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const SvgWidget(
-                    assetName: AppIcon.icMessage,
+                  SvgWidget(
+                    assetName: Assets.images.icMessage.path,
                     size: 14,
                     // color: Theme.of(context).colorScheme.primary,
                   ),

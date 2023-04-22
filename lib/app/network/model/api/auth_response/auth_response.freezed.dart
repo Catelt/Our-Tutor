@@ -21,7 +21,9 @@ MAuthResponse _$MAuthResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MAuthResponse {
   MUser get user => throw _privateConstructorUsedError;
+  set user(MUser value) => throw _privateConstructorUsedError;
   MTokenResponse get tokens => throw _privateConstructorUsedError;
+  set tokens(MTokenResponse value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -132,15 +134,15 @@ class __$$_MAuthResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MAuthResponse with DiagnosticableTreeMixin implements _MAuthResponse {
-  const _$_MAuthResponse({required this.user, required this.tokens});
+  _$_MAuthResponse({required this.user, required this.tokens});
 
   factory _$_MAuthResponse.fromJson(Map<String, dynamic> json) =>
       _$$_MAuthResponseFromJson(json);
 
   @override
-  final MUser user;
+  MUser user;
   @override
-  final MTokenResponse tokens;
+  MTokenResponse tokens;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -155,19 +157,6 @@ class _$_MAuthResponse with DiagnosticableTreeMixin implements _MAuthResponse {
       ..add(DiagnosticsProperty('user', user))
       ..add(DiagnosticsProperty('tokens', tokens));
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MAuthResponse &&
-            (identical(other.user, user) || other.user == user) &&
-            (identical(other.tokens, tokens) || other.tokens == tokens));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, user, tokens);
 
   @JsonKey(ignore: true)
   @override
@@ -184,17 +173,18 @@ class _$_MAuthResponse with DiagnosticableTreeMixin implements _MAuthResponse {
 }
 
 abstract class _MAuthResponse implements MAuthResponse {
-  const factory _MAuthResponse(
-      {required final MUser user,
-      required final MTokenResponse tokens}) = _$_MAuthResponse;
+  factory _MAuthResponse(
+      {required MUser user, required MTokenResponse tokens}) = _$_MAuthResponse;
 
   factory _MAuthResponse.fromJson(Map<String, dynamic> json) =
       _$_MAuthResponse.fromJson;
 
   @override
   MUser get user;
+  set user(MUser value);
   @override
   MTokenResponse get tokens;
+  set tokens(MTokenResponse value);
   @override
   @JsonKey(ignore: true)
   _$$_MAuthResponseCopyWith<_$_MAuthResponse> get copyWith =>

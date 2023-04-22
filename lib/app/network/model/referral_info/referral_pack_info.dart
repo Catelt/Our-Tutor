@@ -4,9 +4,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'referral_pack_info.freezed.dart';
 part 'referral_pack_info.g.dart';
 
-@freezed
+@unfreezed
 class MReferralPackInfo with _$MReferralPackInfo {
-  const factory MReferralPackInfo({
+  factory MReferralPackInfo({
     required int earnPercent,
   }) = _MReferralPackInfo;
 
