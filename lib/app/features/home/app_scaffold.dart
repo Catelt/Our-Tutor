@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:our_tutor/app/common_widgets/common_widgets.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/constants/home_navigation_items.dart';
+import '../../common_widgets/common_widgets.dart';
+import '../../constants/app_size.dart';
+import '../../constants/home_navigation_items.dart';
 
 class AppScaffold extends StatefulWidget {
   const AppScaffold({super.key, required this.child});

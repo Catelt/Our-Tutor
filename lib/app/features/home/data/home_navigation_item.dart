@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/routing/app_routing.dart';
+import '../../../routing/app_routing.dart';
 
 class HomeNavigationItem {
   HomeNavigationItem(

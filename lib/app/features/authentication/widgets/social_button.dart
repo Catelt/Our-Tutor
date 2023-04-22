@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/svg_widget.dart';
+import '../../../common_widgets/svg_widget.dart';
 
 class SocialButton extends StatelessWidget {
   const SocialButton({

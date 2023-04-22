@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:our_tutor/app/features/tutor/data/national.dart';
+import 'national.dart';
 
 @immutable
 class Tutor {

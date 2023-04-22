@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/svg_widget.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
+
+import '../constants/app_size.dart';
+import 'svg_widget.dart';
 
 class TextFieldCustom extends StatelessWidget {
   const TextFieldCustom({super.key, this.hint, this.assetIcon, this.icon});

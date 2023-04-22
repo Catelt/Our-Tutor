@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:our_tutor/app/common_widgets/common_widgets.dart';
-import 'package:our_tutor/app/constants/app_icon.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/features/tutor/data/tutor.dart';
-import 'package:our_tutor/app/routing/app_routing.dart';
+
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../constants/app_icon.dart';
+import '../../../../constants/app_size.dart';
+import '../../../../routing/app_routing.dart';
+import '../../data/tutor.dart';
 
 class TutorItem extends StatelessWidget {
   const TutorItem({super.key, required this.item});

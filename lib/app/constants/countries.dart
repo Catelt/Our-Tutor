@@ -1,4 +1,4 @@
-import 'package:our_tutor/app/features/tutor/data/national.dart';
+import '../features/tutor/data/national.dart';
 
 const vn = National(
     id: 1, name: 'Viet Nam', imageUrl: 'assets/icon_national/ic_vn.svg');

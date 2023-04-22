@@ -1,5 +1,5 @@
-import 'package:our_tutor/app/constants/countries.dart';
-import 'package:our_tutor/app/features/tutor/data/tutor.dart';
+import '../features/tutor/data/tutor.dart';
+import 'countries.dart';
 
 const fakeTutors = [
   Tutor(

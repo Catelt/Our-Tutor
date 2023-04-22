@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/expand_container.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
+import '../../../../common_widgets/expand_container.dart';
+import '../../../../constants/app_size.dart';
 
 class RequestLessonWidget extends StatelessWidget {
   const RequestLessonWidget({super.key});

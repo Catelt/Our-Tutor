@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/features/course/presentation/widgets/course_item.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+import '../../../../constants/app_size.dart';
+import '../widgets/course_item.dart';
 
 class TopicDetailScreen extends StatelessWidget {
   const TopicDetailScreen({super.key});

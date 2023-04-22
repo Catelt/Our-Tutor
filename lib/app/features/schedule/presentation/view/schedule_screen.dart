@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/svg_widget.dart';
-import 'package:our_tutor/app/constants/app_icon.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/features/schedule/presentation/widgets/schedule_item.dart';
+import '../../../../common_widgets/svg_widget.dart';
+import '../../../../constants/app_icon.dart';
+import '../../../../constants/app_size.dart';
+import '../widgets/schedule_item.dart';
 
 class ScheduleScreen extends StatelessWidget {
   const ScheduleScreen({super.key});

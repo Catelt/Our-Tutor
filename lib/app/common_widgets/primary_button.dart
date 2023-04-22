@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
+import '../constants/app_size.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/common_widgets.dart';
-import 'package:our_tutor/app/common_widgets/expand_container.dart';
-import 'package:our_tutor/app/constants/app_icon.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../common_widgets/expand_container.dart';
+import '../../../../constants/app_icon.dart';
+import '../../../../constants/app_size.dart';
 
 class HistoryItem extends StatelessWidget {
   const HistoryItem({super.key});

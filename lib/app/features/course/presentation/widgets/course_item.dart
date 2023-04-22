@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/common_widgets.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../constants/app_size.dart';
 
 class CourseItem extends StatelessWidget {
   const CourseItem({super.key, this.onPress});

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:our_tutor/app/common_widgets/svg_widget.dart';
-import 'package:our_tutor/app/constants/app_icon.dart';
-import 'package:our_tutor/app/constants/app_size.dart';
-import 'package:our_tutor/app/constants/countries.dart';
+
+import '../constants/app_icon.dart';
+import '../constants/app_size.dart';
+import '../constants/countries.dart';
+import 'svg_widget.dart';
 
 class InfoTutorWidget extends StatelessWidget {
   const InfoTutorWidget({super.key});
