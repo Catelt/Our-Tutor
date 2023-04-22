@@ -10,7 +10,6 @@ import 'package:logger/logger.dart';
 
 import 'app/features/account/logic/account_cubit.dart';
 import 'app/network/domain_manager.dart';
-import 'app/routing/app_routing.dart';
 import 'app/services/user_prefs.dart';
 import 'app/utils/utils.dart';
 

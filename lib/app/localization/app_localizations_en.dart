@@ -46,16 +46,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_somethingWrongTryAgain => 'Something went wrong, try again...';
 
   @override
+  String get error_sign_in => 'Log in failed. Incorrect email or password';
+
+  @override
+  String get error_sign_up => 'Sign up failed. Please try again';
+
+  @override
+  String get common_empty_field => 'Field is requirement';
+
+  @override
   String get email => 'EMAIL';
 
   @override
   String get email_hint => 'abc@gmail.com';
 
   @override
+  String get invalid_email => 'Email is invalid';
+
+  @override
   String get password => 'PASSWORD';
 
   @override
   String get password_hint => '';
+
+  @override
+  String get invalid_password => 'Password with at least 6 characters';
 
   @override
   String get sign_in_title => 'Say hello to your English tutors';

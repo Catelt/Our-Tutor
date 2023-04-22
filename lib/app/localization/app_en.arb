@@ -21,10 +21,16 @@
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
 
+  "error_sign_in": "Log in failed. Incorrect email or password",
+  "error_sign_up": "Sign up failed. Please try again",
+
+  "common_empty_field":"Field is requirement",
   "email":"EMAIL",
   "email_hint":"abc@gmail.com",
+  "invalid_email":"Email is invalid",
   "password":"PASSWORD",
   "password_hint":"",
+  "invalid_password":"Password with at least 6 characters",
 
   "sign_in_title":"Say hello to your English tutors",
   "sign_in_subtitle":"Become fluent faster through one on one video chat lessons tailored to your goals.",

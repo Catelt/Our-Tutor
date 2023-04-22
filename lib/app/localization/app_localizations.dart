@@ -171,6 +171,24 @@ abstract class AppLocalizations {
   /// **'Something went wrong, try again...'**
   String get error_somethingWrongTryAgain;
 
+  /// No description provided for @error_sign_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in failed. Incorrect email or password'**
+  String get error_sign_in;
+
+  /// No description provided for @error_sign_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up failed. Please try again'**
+  String get error_sign_up;
+
+  /// No description provided for @common_empty_field.
+  ///
+  /// In en, this message translates to:
+  /// **'Field is requirement'**
+  String get common_empty_field;
+
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
@@ -183,6 +201,12 @@ abstract class AppLocalizations {
   /// **'abc@gmail.com'**
   String get email_hint;
 
+  /// No description provided for @invalid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is invalid'**
+  String get invalid_email;
+
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
@@ -194,6 +218,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **''**
   String get password_hint;
+
+  /// No description provided for @invalid_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password with at least 6 characters'**
+  String get invalid_password;
 
   /// No description provided for @sign_in_title.
   ///

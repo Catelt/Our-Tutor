@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -33,6 +34,7 @@ class App extends StatelessWidget {
             onGenerateTitle: (BuildContext context) =>
                 S.of(context).common_appTitle,
             routerConfig: XAppRouter.router,
+            builder: BotToastInit(),
             theme: ThemeData(
               useMaterial3: true,
               colorSchemeSeed: const Color(0xFF13B9FF),

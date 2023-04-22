@@ -46,16 +46,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String get error_somethingWrongTryAgain => 'Something went wrong, try again...';
 
   @override
+  String get error_sign_in => 'Đăng nhập thất bại.Email hoặc mật khẩu không đúng';
+
+  @override
+  String get error_sign_up => 'Đăng ký thất bại. Xin hãy thử lại';
+
+  @override
+  String get common_empty_field => 'Không được để trống';
+
+  @override
   String get email => 'ĐỊA CHỈ email';
 
   @override
   String get email_hint => 'abc@gmail.com';
 
   @override
+  String get invalid_email => 'Email không hợp lệ';
+
+  @override
   String get password => 'MẬT KHẨU';
 
   @override
   String get password_hint => '';
+
+  @override
+  String get invalid_password => 'Mật khẩu có ít nhất 6 kí tự';
 
   @override
   String get sign_in_title => 'Đăng nhập';

@@ -21,10 +21,16 @@
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
 
+  "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
+  "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
+
+  "common_empty_field":"Không được để trống",
   "email":"ĐỊA CHỈ email",
   "email_hint":"abc@gmail.com",
+  "invalid_email":"Email không hợp lệ",
   "password":"MẬT KHẨU",
   "password_hint":"",
+  "invalid_password":"Mật khẩu có ít nhất 6 kí tự",
 
   "sign_in_title":"Đăng nhập",
   "sign_in_subtitle":"Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.",

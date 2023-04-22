@@ -10,7 +10,6 @@ import '../features/course/presentation/view/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
 import '../features/tutor/presentation/view/tutor_detail_screen.dart';
-import 'coordinator.dart';
 import 'not_found_screen.dart';
 
 enum AppRoute {
