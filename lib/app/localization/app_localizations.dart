@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_vi.dart';
 
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
@@ -88,7 +89,8 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en')
+    Locale('en'),
+    Locale('vi')
   ];
 
   /// No description provided for @common_appTitle.
@@ -168,6 +170,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong, try again...'**
   String get error_somethingWrongTryAgain;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'EMAIL'**
+  String get email;
+
+  /// No description provided for @email_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'abc@gmail.com'**
+  String get email_hint;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'PASSWORD'**
+  String get password;
+
+  /// No description provided for @password_hint.
+  ///
+  /// In en, this message translates to:
+  /// **''**
+  String get password_hint;
+
+  /// No description provided for @sign_in_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Say hello to your English tutors'**
+  String get sign_in_title;
+
+  /// No description provided for @sign_in_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Become fluent faster through one on one video chat lessons tailored to your goals.'**
+  String get sign_in_subtitle;
+
+  /// No description provided for @sign_in_button.
+  ///
+  /// In en, this message translates to:
+  /// **'LOG IN'**
+  String get sign_in_button;
+
+  /// No description provided for @sign_in_continue.
+  ///
+  /// In en, this message translates to:
+  /// **'Or continue with'**
+  String get sign_in_continue;
+
+  /// No description provided for @sign_in_forget_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get sign_in_forget_password;
+
+  /// No description provided for @sign_in_footer.
+  ///
+  /// In en, this message translates to:
+  /// **'Not a member yet? '**
+  String get sign_in_footer;
+
+  /// No description provided for @sign_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get sign_up;
+
+  /// No description provided for @sign_up_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Start learning with LetTutor'**
+  String get sign_up_title;
+
+  /// No description provided for @sign_up_footer.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get sign_up_footer;
+
+  /// No description provided for @sign_up_button.
+  ///
+  /// In en, this message translates to:
+  /// **'SIGN UP'**
+  String get sign_up_button;
+
+  /// No description provided for @sign_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get sign_in;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
@@ -179,7 +271,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'vi'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -191,6 +283,7 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en': return AppLocalizationsEn();
+    case 'vi': return AppLocalizationsVi();
   }
 
   throw FlutterError(

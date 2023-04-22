@@ -13,7 +13,7 @@ class AccountScreen extends StatelessWidget {
     return BlocListener<AccountCubit, AccountState>(
       listener: (context, state) {
         if (!state.isLogin) {
-          XCoordinator.showSignInScreen();
+          XCoordinator().showSignInScreen();
         }
       },
       child: Scaffold(

@@ -19,5 +19,23 @@
   "common_back": "Back",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
-  "error_somethingWrongTryAgain": "Something went wrong, try again..."
+  "error_somethingWrongTryAgain": "Something went wrong, try again...",
+
+  "email":"EMAIL",
+  "email_hint":"abc@gmail.com",
+  "password":"PASSWORD",
+  "password_hint":"",
+
+  "sign_in_title":"Say hello to your English tutors",
+  "sign_in_subtitle":"Become fluent faster through one on one video chat lessons tailored to your goals.",
+  "sign_in_button":"LOG IN",
+  "sign_in_continue":"Or continue with",
+  "sign_in_forget_password":"Forgot Password?",
+  "sign_in_footer":"Not a member yet? ",
+  "sign_up":"Sign up",
+
+  "sign_up_title":"Start learning with LetTutor",
+  "sign_up_footer":"Already have an account?",
+  "sign_up_button":"SIGN UP",
+  "sign_in":"Log in"
 }

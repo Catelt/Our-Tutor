@@ -4,7 +4,7 @@ import '../routing/coordinator.dart';
 import 'widgets/alert_dialog.dart';
 
 class XAlert {
-  static get context => XCoordinator.context;
+  static get context => XCoordinator().context;
 
   /// show the dialog
   static Future<String?> show({

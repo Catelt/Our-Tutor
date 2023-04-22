@@ -1,0 +1,41 @@
+{
+  "common_appTitle": "Out Tutor",
+  "common_appVersion": "Phiên bản {value}",
+  "@common_appVersion": {
+    "description": "Số phiên bản của ứng dụng",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "common_loading": "Đang tải",
+  "common_next": "Tiếp tục",
+  "common_cancel": "Hủy",
+  "common_yes": "Đúng",
+  "common_no": "Không",
+  "common_close": "Đóng",
+  "common_exit": "Thoát",
+  "common_back": "Trở lại",
+  "error_noInternet": "A Server Error Occurred",
+  "error_unknown": "An Unknown Error Occurred",
+  "error_somethingWrongTryAgain": "Something went wrong, try again...",
+
+  "email":"ĐỊA CHỈ email",
+  "email_hint":"abc@gmail.com",
+  "password":"MẬT KHẨU",
+  "password_hint":"",
+
+  "sign_in_title":"Đăng nhập",
+  "sign_in_subtitle":"Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.",
+  "sign_in_button":"ĐĂNG NHẬP",
+  "sign_in_continue":"Hoặc tiếp tục với",
+  "sign_in_forget_password":"Quên mật khẩu?",
+  "sign_in_footer":"Chưa có tài khoản? ",
+  "sign_up":"Đăng ký",
+
+  "sign_up_title":"Đăng ký",
+  "sign_up_footer":"Đã có tài khoản? ",
+  "sign_up_button":"SIGN UP",
+  "sign_in":"Đăng nhập"  
+}

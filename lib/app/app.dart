@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
 import 'features/account/logic/account_cubit.dart';
 import 'localization/localization_utils.dart';
+import 'routing/app_routing.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final router = GetIt.I<GoRouter>();
-
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => AccountCubit())],
+      providers: [
+        BlocProvider(create: (_) => GetIt.I<AccountCubit>()),
+      ],
       child: BlocBuilder<AccountCubit, AccountState>(
         buildWhen: (previous, current) => false,
         builder: (context, state) {
@@ -28,10 +28,11 @@ class App extends StatelessWidget {
             ],
             supportedLocales: const [
               Locale('en', ''),
+              Locale('vi', ''),
             ],
             onGenerateTitle: (BuildContext context) =>
                 S.of(context).common_appTitle,
-            routerConfig: router,
+            routerConfig: XAppRouter.router,
             theme: ThemeData(
               useMaterial3: true,
               colorSchemeSeed: const Color(0xFF13B9FF),

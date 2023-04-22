@@ -11,6 +11,6 @@ class S {
   }
 
   static AppLocalizations get text {
-    return AppLocalizations.of(XCoordinator.context)!;
+    return AppLocalizations.of(XCoordinator().context)!;
   }
 }

@@ -44,4 +44,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get error_somethingWrongTryAgain => 'Something went wrong, try again...';
+
+  @override
+  String get email => 'EMAIL';
+
+  @override
+  String get email_hint => 'abc@gmail.com';
+
+  @override
+  String get password => 'PASSWORD';
+
+  @override
+  String get password_hint => '';
+
+  @override
+  String get sign_in_title => 'Say hello to your English tutors';
+
+  @override
+  String get sign_in_subtitle => 'Become fluent faster through one on one video chat lessons tailored to your goals.';
+
+  @override
+  String get sign_in_button => 'LOG IN';
+
+  @override
+  String get sign_in_continue => 'Or continue with';
+
+  @override
+  String get sign_in_forget_password => 'Forgot Password?';
+
+  @override
+  String get sign_in_footer => 'Not a member yet? ';
+
+  @override
+  String get sign_up => 'Sign up';
+
+  @override
+  String get sign_up_title => 'Start learning with LetTutor';
+
+  @override
+  String get sign_up_footer => 'Already have an account?';
+
+  @override
+  String get sign_up_button => 'SIGN UP';
+
+  @override
+  String get sign_in => 'Log in';
 }

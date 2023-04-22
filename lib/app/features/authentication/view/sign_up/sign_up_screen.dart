@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../../gen/assets.gen.dart';
-import '../../../common_widgets/common_widgets.dart';
-import '../../../constants/app_size.dart';
-import '../../../routing/coordinator.dart';
-import '../../account/logic/account_cubit.dart';
-import '../cubit/auth_cubit.dart';
-import '../widgets/widget.dart';
+import '../../../../../gen/assets.gen.dart';
+import '../../../../common_widgets/common_widgets.dart';
+import '../../../../constants/app_size.dart';
+import '../../../../localization/localization_utils.dart';
+import '../../../../routing/coordinator.dart';
+import '../../../account/logic/account_cubit.dart';
+import '../../cubit/auth_cubit.dart';
+import '../../router/coordination.dart';
+import '../../widgets/widget.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class SignInScreen extends StatelessWidget {
             final user = state.handle.data;
             if (user != null) {
               GetIt.I<AccountCubit>().onLoginSuccess(user);
-              XCoordinator.showHomeScreen();
+              XCoordinator().showHomeScreen();
             }
           }
         },
@@ -42,38 +44,31 @@ class SignInScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Say hello to your English tutors',
+                  Text(S.text.sign_up_title,
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.bold,
                           fontSize: 35,
                           height: 0)),
                   gapH8,
-                  const Text(
-                      'Become fluent faster through one on one video chat lessons tailored to your goals.',
+                  Text(S.text.sign_in_subtitle,
                       style: TextStyle(fontSize: 20, height: 0)),
                   gapH20,
-                  const Text('EMAIL', style: TextStyle(fontSize: 15)),
-                  const TextFieldWidget(hint: 'Enter your email'),
+                  Text(S.text.email, style: TextStyle(fontSize: 15)),
+                  TextFieldWidget(hint: S.text.email_hint),
                   gapH12,
-                  const Text('PASSWORD', style: TextStyle(fontSize: 15)),
-                  const TextFieldWidget(hint: 'Enter your password'),
+                  Text(S.text.password, style: TextStyle(fontSize: 15)),
+                  TextFieldWidget(hint: S.text.password_hint),
                   gapH12,
                   SizedBox(
                       width: double.infinity,
                       child: PrimaryButton(
-                          text: 'LOG IN',
+                          text: S.text.sign_up_button,
                           onPressed: () =>
                               {context.read<AuthCubit>().login()})),
-                  gapH8,
-                  Center(
-                    child: Text('Forgot Password?',
-                        style:
-                            TextStyle(fontSize: 13, color: Colors.blue[900])),
-                  ),
                   gapH16,
-                  const Center(
-                    child: Text('Or continue with',
+                  Center(
+                    child: Text(S.text.sign_in_continue,
                         style: TextStyle(fontSize: 13)),
                   ),
                   gapH20,
@@ -95,11 +90,14 @@ class SignInScreen extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Text('Not a member yet? ',
+                        Text(S.text.sign_up_footer,
                             style: TextStyle(fontSize: 13)),
-                        Text('Sign up',
-                            style: TextStyle(
-                                fontSize: 13, color: Colors.blue[900])),
+                        GestureDetector(
+                          onTap: () => AuthCoordinator().showSignIn(),
+                          child: Text(S.text.sign_in,
+                              style: TextStyle(
+                                  fontSize: 13, color: Colors.blue[900])),
+                        ),
                       ],
                     ),
                   )

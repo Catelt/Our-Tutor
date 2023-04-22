@@ -57,7 +57,6 @@ class XBlocObserver extends BlocObserver {
 
 void _initGetIt() {
   GetIt.I.registerLazySingleton(() => DomainManager());
-  GetIt.I.registerLazySingleton(() => goRoute());
   GetIt.I.registerLazySingleton(() => AccountCubit());
 }
 
