@@ -119,4 +119,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get forget_password_button => 'Gửi email';
+
+  @override
+  String get book_button => 'Đặt lịch';
 }

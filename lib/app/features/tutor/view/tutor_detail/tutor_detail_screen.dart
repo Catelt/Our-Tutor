@@ -1,15 +1,21 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../../../../gen/assets.gen.dart';
+import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
-import '../../data/tutor.dart';
+import '../../../../constants/countries.dart';
+import '../../../../constants/specialties.dart';
+import '../../../../network/model/tutor/tutor.dart';
 
 class TutorDetailScreen extends StatelessWidget {
   const TutorDetailScreen({super.key, required this.item});
-  final Tutor item;
+  final MTutor item;
 
   @override
   Widget build(BuildContext context) {
+    final national = ENational.getNational(item.country ?? "");
+    final specialties =
+        item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -22,7 +28,10 @@ class TutorDetailScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 55,
-                    backgroundImage: Image.asset(item.imageUrl).image,
+                    foregroundImage:
+                        item.avatar != null && item.avatar?.isNotEmpty == true
+                            ? CachedNetworkImageProvider(item.avatar!)
+                            : null,
                   ),
                   gapW16,
                   Column(
@@ -32,15 +41,15 @@ class TutorDetailScreen extends StatelessWidget {
                           style: const TextStyle(
                               fontSize: 22, fontWeight: FontWeight.bold)),
                       RatingBarWidget(
-                          avgRating: item.avgRating, numRating: item.numRating),
+                          avgRating: item.rating,
+                          numRating: item.feedbacks.length),
                       gapH12,
                       Row(
                         children: [
-                          SvgWidget(
-                              assetName: item.national.imageUrl, size: 22),
+                          SvgWidget(assetName: national.imageUrl, size: 22),
                           gapW4,
                           Text(
-                            item.national.name,
+                            national.name,
                             style: const TextStyle(fontSize: 16),
                           )
                         ],
@@ -51,7 +60,7 @@ class TutorDetailScreen extends StatelessWidget {
               ),
               gapH12,
               Text(
-                item.description,
+                item.bio,
                 style: const TextStyle(
                   fontSize: 14,
                 ),
@@ -72,13 +81,13 @@ class TutorDetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Center(child: RemoteVideoWidget(url: item.introduceUrl)),
+              Center(child: RemoteVideoWidget(url: item.video)),
               detailWidget(
                   title: 'Languages',
-                  child: WrapListWidget(list: item.languages)),
+                  child: WrapListWidget(list: item.languages.split(','))),
               detailWidget(
                   title: 'Specialties',
-                  child: WrapListWidget(list: item.specialties)),
+                  child: WrapListWidget(list: specialties)),
               detailWidget(
                   title: 'Suggested courses',
                   child: const SizedBox(
@@ -87,7 +96,7 @@ class TutorDetailScreen extends StatelessWidget {
               detailWidget(
                   title: 'Interests',
                   child: Text(
-                    item.interest,
+                    item.interests,
                     style: const TextStyle(fontSize: 14),
                   )),
               detailWidget(

@@ -1,37 +1,79 @@
 import 'package:flutter/material.dart';
-import '../../../../../gen/assets.gen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
-import '../../../../constants/fake_tutors.dart';
 import '../../../../constants/specialties.dart';
-import '../widgets/widget.dart';
+import '../../widgets/widget.dart';
+import 'tutors_cubit.dart';
 
-class TutorScreen extends StatelessWidget {
-  const TutorScreen({super.key});
+class TutorsScreen extends StatefulWidget {
+  const TutorsScreen({super.key});
+
+  @override
+  State<TutorsScreen> createState() => _TutorsScreenState();
+}
+
+class _TutorsScreenState extends State<TutorsScreen> {
+  late ScrollController _controller;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void loadMore(BuildContext context) {
+    final state = context.read<TutorsCubit>().state;
+    if (state.hasNextPage &&
+        !state.handle.isLoading &&
+        _controller.position.extentAfter < 300) {
+      context.read<TutorsCubit>().getList();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          headHomeWidget(context),
-          filterWidget(context),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: Sizes.p32, vertical: Sizes.p16),
-            child: ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: fakeTutors.length,
-              itemBuilder: (context, index) {
-                return TutorItem(item: fakeTutors[index]);
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return gapH12;
+    return BlocProvider(
+      create: (_) => TutorsCubit(),
+      child: BlocBuilder<TutorsCubit, TutorsState>(
+        buildWhen: (previous, current) => false,
+        builder: (context, state) {
+          _controller = ScrollController()
+            ..addListener(() => loadMore(context));
+          return Scaffold(
+            body: BlocBuilder<TutorsCubit, TutorsState>(
+              buildWhen: (previous, current) =>
+                  previous.tutors != current.tutors,
+              builder: (context, state) {
+                return CustomScrollView(
+                  controller: _controller,
+                  slivers: [
+                    SliverList(
+                        delegate: SliverChildListDelegate([
+                      headHomeWidget(context),
+                      filterWidget(context),
+                      gapH32,
+                    ])),
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                          (context, index) => Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: Sizes.p20),
+                                child: TutorItem(item: state.tutors[index]),
+                              ),
+                          childCount: state.tutors.length),
+                    ),
+                    SliverList(
+                        delegate: SliverChildListDelegate([
+                      gapH32,
+                    ])),
+                  ],
+                );
               },
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

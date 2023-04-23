@@ -12,7 +12,6 @@ const fakeTutors = [
         'https://api.app.lettutor.com/video/4d54d3d7-d2a9-42e5-97a2-5ed38af5789avideo1627913015871.mp4',
     avgRating: 4,
     numRating: 88,
-    national: vn,
     languages: ['English'],
     specialties: [
       'English for Business',
@@ -36,7 +35,6 @@ const fakeTutors = [
         'https://api.app.lettutor.com/video/4d54d3d7-d2a9-42e5-97a2-5ed38af5789avideo1627913015871.mp4',
     avgRating: 4,
     numRating: 23,
-    national: philip,
     languages: ['English', 'Japanese'],
     specialties: ['English for Business', 'IELTS', 'PET', 'KET'],
     courses: [],
@@ -53,7 +51,6 @@ const fakeTutors = [
         'https://api.app.lettutor.com/video/e9e3eeaa-a588-47c4-b4d1-ecfa190f63favideo1632109929663.mp4',
     avgRating: 4,
     numRating: 9,
-    national: philip,
     languages: ['English'],
     specialties: ['English for Business', 'English for kids', 'TOEFL', 'TOEIC'],
     courses: [],
@@ -70,7 +67,6 @@ const fakeTutors = [
         'https://sandbox.api.lettutor.com/video/af5df96e-53d4-433b-9f4a-59e736d05796video1641220103635.mp4',
     avgRating: 3,
     numRating: 9,
-    national: taiwan,
     languages: ['English'],
     specialties: [
       'English for Business',

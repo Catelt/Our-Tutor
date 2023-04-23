@@ -119,4 +119,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forget_password_button => 'Send Email';
+
+  @override
+  String get book_button => 'Book';
 }

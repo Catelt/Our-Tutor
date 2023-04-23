@@ -10,8 +10,12 @@ class AccountState extends Equatable {
   final String locale;
 
   factory AccountState.ds() {
+    final user = UserPrefs.I.getUser();
+    if (user != null) {
+      XHttp().setTokenApi(user.token?.id ?? "");
+    }
     return AccountState(
-      user: UserPrefs.I.getUser() ?? MUser.empty(),
+      user: user ?? MUser.empty(),
     );
   }
 

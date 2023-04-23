@@ -9,7 +9,8 @@ import '../features/authentication/router/coordination.dart';
 import '../features/course/presentation/view/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
-import '../features/tutor/presentation/view/tutor_detail_screen.dart';
+import '../features/tutor/view/tutor_detail/tutor_detail_screen.dart';
+import '../network/model/tutor/tutor.dart';
 import 'not_found_screen.dart';
 
 enum AppRoute {
@@ -53,9 +54,10 @@ class XAppRouter {
               name: AppRoute.tutor.name,
               builder: (context, state) {
                 final id = int.parse(state.params['id'] ?? '1');
-                final item = fakeTutors[id - 1];
+                // final item = fakeTutors[id - 1];
                 return TutorDetailScreen(
-                  item: item,
+                  item:
+                      MTutor(id: "", userId: "", createdAt: "", updatedAt: ""),
                 );
               },
             )

@@ -4,7 +4,7 @@ import '../features/course/presentation/view/courses_screen.dart';
 import '../features/history/presentation/view/history_screen.dart';
 import '../features/home/data/home_navigation_item.dart';
 import '../features/schedule/presentation/view/schedule_screen.dart';
-import '../features/tutor/presentation/view/tutor_screen.dart';
+import '../features/tutor/view/tutors/tutors_screen.dart';
 import '../routing/app_routing.dart';
 
 class HomeNavigationItems {
@@ -15,7 +15,7 @@ class HomeNavigationItems {
     selectedIcon: Assets.images.icBoardTeacher.path,
     tooltip: 'Tutor',
     label: 'Tutor',
-    view: const TutorScreen(),
+    view: const TutorsScreen(),
   );
 
   static final schedule = HomeNavigationItem(

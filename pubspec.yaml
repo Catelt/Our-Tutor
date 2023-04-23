@@ -34,6 +34,7 @@ dependencies:
   flutter_svg: ^2.0.2
   flutter_rating_bar: ^4.0.1
   bot_toast: ^4.0.3
+  cached_network_image: ^3.2.3
 
   # STATE MANAGEMENT
   flutter_bloc: ^8.1.2

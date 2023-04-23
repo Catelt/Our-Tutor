@@ -320,6 +320,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Send Email'**
   String get forget_password_button;
+
+  /// No description provided for @book_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get book_button;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

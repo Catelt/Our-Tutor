@@ -34,15 +34,15 @@ class XHttp {
 
   static final XHttp instance = XHttp._internal();
   static XHttp get I => instance;
-  static late Dio _dio;
+  late Dio _dio;
 
-  static String? tokenType;
-  static String? tokenApi;
+  String? tokenType;
+  String? tokenApi;
 
-  static String _baseUrl = 'https://sandbox.api.lettutor.com';
-  static Duration _connectTimeout = const Duration(seconds: 10);
-  static Duration _receiveTimeout = const Duration(seconds: 10);
-  static Duration _sendTimeout = const Duration(seconds: 5);
+  String _baseUrl = 'https://sandbox.api.lettutor.com';
+  Duration _connectTimeout = const Duration(seconds: 10);
+  Duration _receiveTimeout = const Duration(seconds: 10);
+  Duration _sendTimeout = const Duration(seconds: 5);
 
   Map<String, String> get _headers => {
         'Content-type': 'application/json',
@@ -62,11 +62,19 @@ class XHttp {
     _receiveTimeout = receiveTimeout ?? _receiveTimeout;
     _sendTimeout = sendTimeout ?? _sendTimeout;
     _baseUrl = baseUrl ?? _baseUrl;
+
+    _dio = Dio(_dio.options.copyWith(
+        baseUrl: _baseUrl,
+        connectTimeout: _connectTimeout,
+        receiveTimeout: _receiveTimeout,
+        sendTimeout: _sendTimeout));
   }
 
   void setTokenApi(String tokenApi, {String tokenType = 'Bearer'}) {
-    XHttp.tokenType = tokenType;
-    XHttp.tokenApi = tokenApi;
+    this.tokenType = tokenType;
+    this.tokenApi = tokenApi;
+
+    _dio = Dio(_dio.options.copyWith(headers: _headers));
   }
 
   Future<String> request(
@@ -125,8 +133,8 @@ class XHttp {
     return newOptions;
   }
 
-  Future<String> get(String url) {
-    return request(XMethod.get, url);
+  Future<String> get(String url, {Map<String, dynamic>? queryParameters}) {
+    return request(XMethod.get, url, queryParameters: queryParameters);
   }
 
   Future<String> post(String url,

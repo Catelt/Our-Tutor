@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'national.dart';
+import '../../../network/model/national.dart';
 
 @immutable
 class Tutor {
@@ -9,7 +9,7 @@ class Tutor {
     required this.imageUrl,
     required this.description,
     required this.introduceUrl,
-    required this.national,
+    this.national = const National(id: 0, name: '', imageUrl: ''),
     this.avgRating = 0,
     this.numRating = 0,
     required this.languages,

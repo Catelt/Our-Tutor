@@ -1,18 +1,26 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../gen/assets.gen.dart';
-import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_size.dart';
-import '../../../../routing/app_routing.dart';
-import '../../data/tutor.dart';
+import '../../../common_widgets/common_widgets.dart';
+import '../../../constants/app_size.dart';
+import '../../../constants/countries.dart';
+import '../../../constants/specialties.dart';
+import '../../../localization/localization_utils.dart';
+import '../../../network/model/tutor/tutor.dart';
+import '../../../routing/app_routing.dart';
+import 'avatar_widget.dart';
 
 class TutorItem extends StatelessWidget {
   const TutorItem({super.key, required this.item});
-  final Tutor item;
+  final MTutor item;
 
   @override
   Widget build(BuildContext context) {
+    final national = ENational.getNational(item.country ?? "");
+    final specialties =
+        item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
     return InkWell(
       onTap: () => context.goNamed(
         AppRoute.tutor.name,
@@ -21,7 +29,8 @@ class TutorItem extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.all(Sizes.p16),
+            padding: const EdgeInsets.all(Sizes.p16)
+                .add(const EdgeInsets.only(bottom: Sizes.p12)),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
@@ -37,32 +46,32 @@ class TutorItem extends StatelessWidget {
                 ]),
             child: Column(
               children: [
-                CircleAvatar(
-                  radius: 35,
-                  backgroundImage: Image.asset(item.imageUrl).image,
-                ),
+                AvatarWidget(name: item.name, url: item.avatar),
                 gapW8,
                 Text(item.name, style: TextStyle(fontSize: 22)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgWidget(assetName: item.national.imageUrl, size: 15),
+                    SvgWidget(assetName: national.imageUrl, size: 15),
                     gapW4,
-                    Text(item.national.name)
+                    Text(national.name)
                   ],
                 ),
-                RatingBarWidget(avgRating: item.avgRating),
+                RatingBarWidget(avgRating: item.rating),
                 gapH12,
-                WrapListWidget(list: item.specialties),
+                WrapListWidget(list: specialties),
                 gapH12,
-                Text(
-                  item.description,
-                  style: const TextStyle(
-                    fontSize: 14,
+                SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    item.bio,
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 4,
+                    textAlign: TextAlign.justify,
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 4,
-                  textAlign: TextAlign.justify,
                 ),
                 gapH12,
                 Row(
@@ -112,7 +121,7 @@ class TutorItem extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary),
         gapW8,
         Text(
-          'Book',
+          S.text.book_button,
           style: TextStyle(
               color: Theme.of(context).colorScheme.primary, fontSize: 14),
         )
