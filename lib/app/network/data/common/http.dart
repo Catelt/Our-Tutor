@@ -84,7 +84,7 @@ class XHttp {
       // Check internet
       final connectivityResult = await Connectivity().checkConnectivity();
       if (connectivityResult == ConnectivityResult.none) {
-        throw FlutterError(S.text.error_noInternet);
+        throw Exception(S.text.error_noInternet);
       }
 
       final response = await _dio.request(
@@ -98,24 +98,24 @@ class XHttp {
       );
       bodyResponse = jsonEncode(response.data);
       xLog.i('> RESPONSE [${response.statusCode}]<  $url');
-
       if (response.statusCode == null) {
         throw FlutterError(S.text.error_unknown);
       }
       if (response.statusCode! <= 299) {
         return bodyResponse;
       } else {
-        if (response.statusCode! >= 400) {
-          throw FlutterError(S.text.error_noInternet);
-        } else {
-          throw FlutterError(S.text.error_unknown);
-        }
+        final message = response.data['message'] ?? "";
+        throw Exception([message]);
       }
-    } on DioError catch (e) {
+    } catch (e) {
       xLog
         ..w('> API CATCH Error< $e')
         ..w('> API CATCH Body< $bodyResponse');
-      rethrow;
+      if (e is DioError) {
+        throw e.response?.data['errors'][0] ?? "Error";
+      } else {
+        throw e;
+      }
     }
   }
 

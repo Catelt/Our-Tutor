@@ -22,6 +22,7 @@ class AuthRepositoryImpl extends AuthRepository {
       final data = MAuthResponse.fromJson(jsonDecode(response));
       return MResult.success(MUser.userFromAuthResponse(data));
     } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
       return MResult.error(e.toString());
     }
   }

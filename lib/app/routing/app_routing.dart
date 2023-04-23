@@ -39,8 +39,8 @@ class XAppRouter {
       return null;
     },
     routes: [
-      AuthCoordinator.router[0],
-      AuthCoordinator.router[1],
+      for (var i = 0; i < AuthCoordinator.router.length; i++)
+        AuthCoordinator.router[i],
       ShellRoute(
         navigatorKey: shellKey,
         builder: (context, state, child) {

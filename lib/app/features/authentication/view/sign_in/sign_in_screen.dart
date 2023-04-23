@@ -109,9 +109,12 @@ class SignInScreen extends StatelessWidget {
                     ),
                     gapH8,
                     Center(
-                      child: Text(S.text.sign_in_forget_password,
-                          style:
-                              TextStyle(fontSize: 13, color: Colors.blue[900])),
+                      child: GestureDetector(
+                        onTap: AuthCoordinator().showForgotPassword,
+                        child: Text(S.text.sign_in_forget_password,
+                            style: TextStyle(
+                                fontSize: 13, color: Colors.blue[900])),
+                      ),
                     ),
                     gapH16,
                     Center(

@@ -28,8 +28,6 @@ class SignUpCubit extends Cubit<SignUpState> {
 
       final response =
           await domain.auth.register(state.email.value, state.password.value);
-      await Future.delayed(Duration(seconds: 2));
-
       if (response.isSuccess) {
         final user = response.data;
         if (user != null) {

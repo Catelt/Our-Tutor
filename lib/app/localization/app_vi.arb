@@ -19,10 +19,11 @@
   "common_back": "Trở lại",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
-  "error_somethingWrongTryAgain": "Something went wrong, try again...",
+  "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
 
   "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
   "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
+  "error_sign_up_email": "Email đã tồn tại",
 
   "common_empty_field":"Không được để trống",
   "email":"ĐỊA CHỈ email",
@@ -43,5 +44,10 @@
   "sign_up_title":"Đăng ký",
   "sign_up_footer":"Đã có tài khoản? ",
   "sign_up_button":"SIGN UP",
-  "sign_in":"Đăng nhập"  
+  "sign_in":"Đăng nhập",
+
+  "forget_password_title": "Thay đổi mật khẩu",
+  "forget_password_subtitle": "Vui lòng nhập email để tìm kiếm tài khoản và thay đổi mật khẩu",
+  "forget_password_subtitle_success": "Hãy kiểm tra đường dẫn trong email của bạn để thay đổi mật khẩu",
+  "forget_password_button": "Gửi email"
 }

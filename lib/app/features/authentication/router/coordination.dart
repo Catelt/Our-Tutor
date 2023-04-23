@@ -3,11 +3,13 @@ import 'package:go_router/go_router.dart';
 import '../../../routing/app_routing.dart';
 import '../../../routing/base_coordinator.dart';
 import '../../../routing/custom_transition.dart';
+import '../view/forgot_password/forgot_password_screen.dart';
 import '../view/view.dart';
 
 enum AuthRoute {
   signIn,
   signUp,
+  forgotPassword,
 }
 
 class AuthCoordinator extends BaseCoordinator {
@@ -26,6 +28,13 @@ class AuthCoordinator extends BaseCoordinator {
       pageBuilder: (context, state) =>
           DefaultTransition(child: const SignUpScreen()),
     ),
+    GoRoute(
+      parentNavigatorKey: XAppRouter.navigatorKey,
+      name: AuthRoute.forgotPassword.name,
+      path: '/forgotPassword',
+      pageBuilder: (context, state) =>
+          DefaultTransition(child: const ForgotPasswordScreen()),
+    )
   ];
 
   void showSignIn() {
@@ -34,5 +43,9 @@ class AuthCoordinator extends BaseCoordinator {
 
   void showSignUp() {
     goNamed(AuthRoute.signUp.name);
+  }
+
+  void showForgotPassword() {
+    pushNamed(AuthRoute.forgotPassword.name);
   }
 }

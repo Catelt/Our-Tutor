@@ -52,6 +52,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_sign_up => 'Sign up failed. Please try again';
 
   @override
+  String get error_sign_up_email => 'Email already exists';
+
+  @override
   String get common_empty_field => 'Field is requirement';
 
   @override
@@ -104,4 +107,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sign_in => 'Log in';
+
+  @override
+  String get forget_password_title => 'Reset Password';
+
+  @override
+  String get forget_password_subtitle => 'Please enter your email address to search for your account.';
+
+  @override
+  String get forget_password_subtitle_success => 'Check your inbox for a link to reset your password.';
+
+  @override
+  String get forget_password_button => 'Send Email';
 }

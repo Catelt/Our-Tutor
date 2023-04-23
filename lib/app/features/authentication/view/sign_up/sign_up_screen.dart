@@ -31,7 +31,12 @@ class SignUpScreen extends StatelessWidget {
               XCoordinator().showHomeScreen();
             }
           } else if (state.handle.isError) {
-            XToast.error(S.text.error_sign_up);
+            if (state.handle.message?.contains('Email has already taken') ==
+                true) {
+              XToast.error(S.text.error_sign_up_email);
+            } else {
+              XToast.error(S.text.error_sign_up);
+            }
           }
         },
         builder: (context, state) {
@@ -102,7 +107,7 @@ class SignUpScreen extends StatelessWidget {
                         return SizedBox(
                           width: double.infinity,
                           child: PrimaryButton(
-                            text: S.text.sign_in_button,
+                            text: S.text.sign_up_button,
                             isLoading: state.handle.isLoading,
                             onPressed: context.read<SignUpCubit>().register,
                           ),

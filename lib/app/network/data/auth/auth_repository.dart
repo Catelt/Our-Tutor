@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../../../utils/extension/exception .dart';
 import '../../model/api/auth_response/auth_response.dart';
 import '../../model/common/result.dart';
 import '../../model/user/user.dart';

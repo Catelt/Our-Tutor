@@ -43,13 +43,16 @@ class AppLocalizationsVi extends AppLocalizations {
   String get error_unknown => 'An Unknown Error Occurred';
 
   @override
-  String get error_somethingWrongTryAgain => 'Something went wrong, try again...';
+  String get error_somethingWrongTryAgain => 'Có chuyện gì đó không đúng, hãy thử lại...';
 
   @override
   String get error_sign_in => 'Đăng nhập thất bại.Email hoặc mật khẩu không đúng';
 
   @override
   String get error_sign_up => 'Đăng ký thất bại. Xin hãy thử lại';
+
+  @override
+  String get error_sign_up_email => 'Email đã tồn tại';
 
   @override
   String get common_empty_field => 'Không được để trống';
@@ -104,4 +107,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get sign_in => 'Đăng nhập';
+
+  @override
+  String get forget_password_title => 'Thay đổi mật khẩu';
+
+  @override
+  String get forget_password_subtitle => 'Vui lòng nhập email để tìm kiếm tài khoản và thay đổi mật khẩu';
+
+  @override
+  String get forget_password_subtitle_success => 'Hãy kiểm tra đường dẫn trong email của bạn để thay đổi mật khẩu';
+
+  @override
+  String get forget_password_button => 'Gửi email';
 }

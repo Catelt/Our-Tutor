@@ -183,6 +183,12 @@ abstract class AppLocalizations {
   /// **'Sign up failed. Please try again'**
   String get error_sign_up;
 
+  /// No description provided for @error_sign_up_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email already exists'**
+  String get error_sign_up_email;
+
   /// No description provided for @common_empty_field.
   ///
   /// In en, this message translates to:
@@ -290,6 +296,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log in'**
   String get sign_in;
+
+  /// No description provided for @forget_password_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get forget_password_title;
+
+  /// No description provided for @forget_password_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email address to search for your account.'**
+  String get forget_password_subtitle;
+
+  /// No description provided for @forget_password_subtitle_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your inbox for a link to reset your password.'**
+  String get forget_password_subtitle_success;
+
+  /// No description provided for @forget_password_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Email'**
+  String get forget_password_button;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
