@@ -326,6 +326,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Book'**
   String get book_button;
+
+  /// No description provided for @favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favorite;
+
+  /// No description provided for @report.
+  ///
+  /// In en, this message translates to:
+  /// **'Report'**
+  String get report;
+
+  /// No description provided for @reviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews'**
+  String get reviews;
+
+  /// No description provided for @tutor_languages.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages'**
+  String get tutor_languages;
+
+  /// No description provided for @tutor_specialties.
+  ///
+  /// In en, this message translates to:
+  /// **'Specialties'**
+  String get tutor_specialties;
+
+  /// No description provided for @tutor_suggested_courses.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested courses'**
+  String get tutor_suggested_courses;
+
+  /// No description provided for @tutor_interests.
+  ///
+  /// In en, this message translates to:
+  /// **'Interests'**
+  String get tutor_interests;
+
+  /// No description provided for @tutor_teaching_experience.
+  ///
+  /// In en, this message translates to:
+  /// **'Teaching experience'**
+  String get tutor_teaching_experience;
+
+  /// No description provided for @discover.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover'**
+  String get discover;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_size.dart';
+
+import '../../../common_widgets/common_widgets.dart';
+import '../../../constants/app_size.dart';
+import '../../../localization/localization_utils.dart';
+import '../../../network/model/course/course.dart';
 
 class CourseItem extends StatelessWidget {
-  const CourseItem({super.key, this.onPress});
+  const CourseItem({super.key, this.onPress, required this.course});
 
   final void Function()? onPress;
+  final MCourse course;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,8 @@ class CourseItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(Sizes.p8),
-            child: Image.asset(
-              'assets/images/course_sample.png',
+            child: CachedNetworkImage(
+              imageUrl: course.imageUrl,
               fit: BoxFit.fill,
             ),
           ),
@@ -36,12 +41,12 @@ class CourseItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Life in the Internet Age',
+                  course.name,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 gapH8,
                 Text(
-                  'Let\'s discuss how technology is changing the way we live',
+                  course.description,
                   style: TextStyle(color: Colors.grey, fontSize: 12),
                 ),
                 gapH16,
@@ -50,7 +55,7 @@ class CourseItem extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: Sizes.p12),
                     width: double.infinity,
                     child: PrimaryButton(
-                      text: 'Discover',
+                      text: S.text.discover,
                       onPressed: onPress,
                     ),
                   ),

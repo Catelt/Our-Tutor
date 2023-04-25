@@ -34,12 +34,18 @@ mixin _$MCourse {
   set reason(String value) => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   set purpose(String value) => throw _privateConstructorUsedError;
-  String get other_details => throw _privateConstructorUsedError;
-  set other_details(String value) => throw _privateConstructorUsedError;
-  double get default_price => throw _privateConstructorUsedError;
-  set default_price(double value) => throw _privateConstructorUsedError;
-  double get course_price => throw _privateConstructorUsedError;
-  set course_price(double value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "other_details")
+  String get otherDetails => throw _privateConstructorUsedError;
+  @JsonKey(name: "other_details")
+  set otherDetails(String value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "default_price")
+  double get defaultPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: "default_price")
+  set defaultPrice(double value) => throw _privateConstructorUsedError;
+  @JsonKey(name: "course_price")
+  double get coursePrice => throw _privateConstructorUsedError;
+  @JsonKey(name: "course_price")
+  set coursePrice(double value) => throw _privateConstructorUsedError;
   String? get courseType => throw _privateConstructorUsedError;
   set courseType(String? value) => throw _privateConstructorUsedError;
   String? get sectionType => throw _privateConstructorUsedError;
@@ -54,6 +60,8 @@ mixin _$MCourse {
   set updatedAt(String? value) => throw _privateConstructorUsedError;
   List<MTopic> get topics => throw _privateConstructorUsedError;
   set topics(List<MTopic> value) => throw _privateConstructorUsedError;
+  List<MTutor> get users => throw _privateConstructorUsedError;
+  set users(List<MTutor> value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,16 +81,17 @@ abstract class $MCourseCopyWith<$Res> {
       String level,
       String reason,
       String purpose,
-      String other_details,
-      double default_price,
-      double course_price,
+      @JsonKey(name: "other_details") String otherDetails,
+      @JsonKey(name: "default_price") double defaultPrice,
+      @JsonKey(name: "course_price") double coursePrice,
       String? courseType,
       String? sectionType,
       bool visible,
       String? displayOrder,
       String? createdAt,
       String? updatedAt,
-      List<MTopic> topics});
+      List<MTopic> topics,
+      List<MTutor> users});
 }
 
 /// @nodoc
@@ -105,9 +114,9 @@ class _$MCourseCopyWithImpl<$Res, $Val extends MCourse>
     Object? level = null,
     Object? reason = null,
     Object? purpose = null,
-    Object? other_details = null,
-    Object? default_price = null,
-    Object? course_price = null,
+    Object? otherDetails = null,
+    Object? defaultPrice = null,
+    Object? coursePrice = null,
     Object? courseType = freezed,
     Object? sectionType = freezed,
     Object? visible = null,
@@ -115,6 +124,7 @@ class _$MCourseCopyWithImpl<$Res, $Val extends MCourse>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? topics = null,
+    Object? users = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -145,17 +155,17 @@ class _$MCourseCopyWithImpl<$Res, $Val extends MCourse>
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      other_details: null == other_details
-          ? _value.other_details
-          : other_details // ignore: cast_nullable_to_non_nullable
+      otherDetails: null == otherDetails
+          ? _value.otherDetails
+          : otherDetails // ignore: cast_nullable_to_non_nullable
               as String,
-      default_price: null == default_price
-          ? _value.default_price
-          : default_price // ignore: cast_nullable_to_non_nullable
+      defaultPrice: null == defaultPrice
+          ? _value.defaultPrice
+          : defaultPrice // ignore: cast_nullable_to_non_nullable
               as double,
-      course_price: null == course_price
-          ? _value.course_price
-          : course_price // ignore: cast_nullable_to_non_nullable
+      coursePrice: null == coursePrice
+          ? _value.coursePrice
+          : coursePrice // ignore: cast_nullable_to_non_nullable
               as double,
       courseType: freezed == courseType
           ? _value.courseType
@@ -185,6 +195,10 @@ class _$MCourseCopyWithImpl<$Res, $Val extends MCourse>
           ? _value.topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<MTopic>,
+      users: null == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<MTutor>,
     ) as $Val);
   }
 }
@@ -204,16 +218,17 @@ abstract class _$$_MCourseCopyWith<$Res> implements $MCourseCopyWith<$Res> {
       String level,
       String reason,
       String purpose,
-      String other_details,
-      double default_price,
-      double course_price,
+      @JsonKey(name: "other_details") String otherDetails,
+      @JsonKey(name: "default_price") double defaultPrice,
+      @JsonKey(name: "course_price") double coursePrice,
       String? courseType,
       String? sectionType,
       bool visible,
       String? displayOrder,
       String? createdAt,
       String? updatedAt,
-      List<MTopic> topics});
+      List<MTopic> topics,
+      List<MTutor> users});
 }
 
 /// @nodoc
@@ -233,9 +248,9 @@ class __$$_MCourseCopyWithImpl<$Res>
     Object? level = null,
     Object? reason = null,
     Object? purpose = null,
-    Object? other_details = null,
-    Object? default_price = null,
-    Object? course_price = null,
+    Object? otherDetails = null,
+    Object? defaultPrice = null,
+    Object? coursePrice = null,
     Object? courseType = freezed,
     Object? sectionType = freezed,
     Object? visible = null,
@@ -243,6 +258,7 @@ class __$$_MCourseCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? topics = null,
+    Object? users = null,
   }) {
     return _then(_$_MCourse(
       id: null == id
@@ -273,17 +289,17 @@ class __$$_MCourseCopyWithImpl<$Res>
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      other_details: null == other_details
-          ? _value.other_details
-          : other_details // ignore: cast_nullable_to_non_nullable
+      otherDetails: null == otherDetails
+          ? _value.otherDetails
+          : otherDetails // ignore: cast_nullable_to_non_nullable
               as String,
-      default_price: null == default_price
-          ? _value.default_price
-          : default_price // ignore: cast_nullable_to_non_nullable
+      defaultPrice: null == defaultPrice
+          ? _value.defaultPrice
+          : defaultPrice // ignore: cast_nullable_to_non_nullable
               as double,
-      course_price: null == course_price
-          ? _value.course_price
-          : course_price // ignore: cast_nullable_to_non_nullable
+      coursePrice: null == coursePrice
+          ? _value.coursePrice
+          : coursePrice // ignore: cast_nullable_to_non_nullable
               as double,
       courseType: freezed == courseType
           ? _value.courseType
@@ -313,6 +329,10 @@ class __$$_MCourseCopyWithImpl<$Res>
           ? _value.topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<MTopic>,
+      users: null == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<MTutor>,
     ));
   }
 }
@@ -328,16 +348,17 @@ class _$_MCourse implements _MCourse {
       this.level = "",
       this.reason = "",
       this.purpose = "",
-      this.other_details = "",
-      this.default_price = 0,
-      this.course_price = 0,
+      @JsonKey(name: "other_details") this.otherDetails = "",
+      @JsonKey(name: "default_price") this.defaultPrice = 0,
+      @JsonKey(name: "course_price") this.coursePrice = 0,
       this.courseType,
       this.sectionType,
       this.visible = false,
       this.displayOrder,
       this.createdAt,
       this.updatedAt,
-      this.topics = const []});
+      this.topics = const [],
+      this.users = const []});
 
   factory _$_MCourse.fromJson(Map<String, dynamic> json) =>
       _$$_MCourseFromJson(json);
@@ -364,14 +385,14 @@ class _$_MCourse implements _MCourse {
   @JsonKey()
   String purpose;
   @override
-  @JsonKey()
-  String other_details;
+  @JsonKey(name: "other_details")
+  String otherDetails;
   @override
-  @JsonKey()
-  double default_price;
+  @JsonKey(name: "default_price")
+  double defaultPrice;
   @override
-  @JsonKey()
-  double course_price;
+  @JsonKey(name: "course_price")
+  double coursePrice;
   @override
   String? courseType;
   @override
@@ -388,10 +409,13 @@ class _$_MCourse implements _MCourse {
   @override
   @JsonKey()
   List<MTopic> topics;
+  @override
+  @JsonKey()
+  List<MTutor> users;
 
   @override
   String toString() {
-    return 'MCourse(id: $id, name: $name, description: $description, imageUrl: $imageUrl, level: $level, reason: $reason, purpose: $purpose, other_details: $other_details, default_price: $default_price, course_price: $course_price, courseType: $courseType, sectionType: $sectionType, visible: $visible, displayOrder: $displayOrder, createdAt: $createdAt, updatedAt: $updatedAt, topics: $topics)';
+    return 'MCourse(id: $id, name: $name, description: $description, imageUrl: $imageUrl, level: $level, reason: $reason, purpose: $purpose, otherDetails: $otherDetails, defaultPrice: $defaultPrice, coursePrice: $coursePrice, courseType: $courseType, sectionType: $sectionType, visible: $visible, displayOrder: $displayOrder, createdAt: $createdAt, updatedAt: $updatedAt, topics: $topics, users: $users)';
   }
 
   @JsonKey(ignore: true)
@@ -417,16 +441,17 @@ abstract class _MCourse implements MCourse {
       String level,
       String reason,
       String purpose,
-      String other_details,
-      double default_price,
-      double course_price,
+      @JsonKey(name: "other_details") String otherDetails,
+      @JsonKey(name: "default_price") double defaultPrice,
+      @JsonKey(name: "course_price") double coursePrice,
       String? courseType,
       String? sectionType,
       bool visible,
       String? displayOrder,
       String? createdAt,
       String? updatedAt,
-      List<MTopic> topics}) = _$_MCourse;
+      List<MTopic> topics,
+      List<MTutor> users}) = _$_MCourse;
 
   factory _MCourse.fromJson(Map<String, dynamic> json) = _$_MCourse.fromJson;
 
@@ -452,14 +477,20 @@ abstract class _MCourse implements MCourse {
   String get purpose;
   set purpose(String value);
   @override
-  String get other_details;
-  set other_details(String value);
+  @JsonKey(name: "other_details")
+  String get otherDetails;
+  @JsonKey(name: "other_details")
+  set otherDetails(String value);
   @override
-  double get default_price;
-  set default_price(double value);
+  @JsonKey(name: "default_price")
+  double get defaultPrice;
+  @JsonKey(name: "default_price")
+  set defaultPrice(double value);
   @override
-  double get course_price;
-  set course_price(double value);
+  @JsonKey(name: "course_price")
+  double get coursePrice;
+  @JsonKey(name: "course_price")
+  set coursePrice(double value);
   @override
   String? get courseType;
   set courseType(String? value);
@@ -481,6 +512,9 @@ abstract class _MCourse implements MCourse {
   @override
   List<MTopic> get topics;
   set topics(List<MTopic> value);
+  @override
+  List<MTutor> get users;
+  set users(List<MTutor> value);
   @override
   @JsonKey(ignore: true)
   _$$_MCourseCopyWith<_$_MCourse> get copyWith =>

@@ -122,4 +122,31 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get book_button => 'Đặt lịch';
+
+  @override
+  String get favorite => 'Yêu thích';
+
+  @override
+  String get report => 'Báo cáo';
+
+  @override
+  String get reviews => 'Xem đánh giá';
+
+  @override
+  String get tutor_languages => 'Ngôn ngữ';
+
+  @override
+  String get tutor_specialties => 'Chuyên ngành';
+
+  @override
+  String get tutor_suggested_courses => 'Khóa học tham khảo';
+
+  @override
+  String get tutor_interests => 'Sở thích';
+
+  @override
+  String get tutor_teaching_experience => 'Kinh nghiệm giảng dạy';
+
+  @override
+  String get discover => 'Khám phá';
 }

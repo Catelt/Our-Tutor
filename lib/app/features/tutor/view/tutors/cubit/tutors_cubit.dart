@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../network/domain_manager.dart';
-import '../../../../network/model/common/handle.dart';
-import '../../../../network/model/tutor/tutor.dart';
+import '../../../../../network/domain_manager.dart';
+import '../../../../../network/model/common/handle.dart';
+import '../../../../../network/model/tutor/tutor.dart';
 
 part 'tutors_state.dart';
 

@@ -5,7 +5,7 @@ import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../constants/specialties.dart';
 import '../../widgets/widget.dart';
-import 'tutors_cubit.dart';
+import 'cubit/tutors_cubit.dart';
 
 class TutorsScreen extends StatefulWidget {
   const TutorsScreen({super.key});

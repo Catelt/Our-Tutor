@@ -7,9 +7,11 @@ import '../../../../constants/app_size.dart';
 import '../../../../constants/base_style.dart';
 import '../../../../constants/countries.dart';
 import '../../../../constants/specialties.dart';
+import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/course/course.dart';
 import '../../../../network/model/tutor/tutor.dart';
-import 'tutor_detail_cubit.dart';
+import '../../../../routing/coordinator.dart';
+import 'cubit/tutor_detail_cubit.dart';
 
 class TutorDetailScreen extends StatelessWidget {
   const TutorDetailScreen({super.key, required this.id});
@@ -99,22 +101,24 @@ class TutorDetailScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   iconButton(context,
-                      asset: Assets.images.icHeart.path, title: 'Favorite'),
+                      asset: Assets.images.icHeart.path,
+                      title: S.text.favorite),
                   iconButton(context,
-                      asset: Assets.images.icReport.path, title: 'Report'),
+                      asset: Assets.images.icReport.path, title: S.text.report),
                   iconButton(context,
-                      asset: Assets.images.icStar.path, title: 'Reviews'),
+                      asset: Assets.images.icStar.path, title: S.text.reviews),
                 ],
               ),
             ),
             Center(child: RemoteVideoWidget(url: item.video)),
             detailWidget(
-                title: 'Languages',
+                title: S.text.tutor_languages,
                 child: WrapListWidget(list: item.languages.split(','))),
             detailWidget(
-                title: 'Specialties', child: WrapListWidget(list: specialties)),
+                title: S.text.tutor_specialties,
+                child: WrapListWidget(list: specialties)),
             detailWidget(
-              title: 'Suggested courses',
+              title: S.text.tutor_suggested_courses,
               child: ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -124,13 +128,13 @@ class TutorDetailScreen extends StatelessWidget {
               ),
             ),
             detailWidget(
-                title: 'Interests',
+                title: S.text.tutor_interests,
                 child: Text(
                   item.interests,
                   style: const TextStyle(fontSize: 14),
                 )),
             detailWidget(
-                title: 'Teaching experience',
+                title: S.text.tutor_teaching_experience,
                 child: Text(
                   item.experience,
                   style: const TextStyle(fontSize: 14),
@@ -142,11 +146,14 @@ class TutorDetailScreen extends StatelessWidget {
   }
 
   Widget itemCourse(int index, MCourse course) {
-    return Padding(
-      padding: EdgeInsets.only(left: Sizes.p4),
-      child: Text(
-        "$index. ${course.name}",
-        style: BaseTextStyle.body3(),
+    return GestureDetector(
+      onTap: () => XCoordinator().showCourseDetail(course.id, isReplace: true),
+      child: Padding(
+        padding: EdgeInsets.only(left: Sizes.p4),
+        child: Text(
+          "$index. ${course.name}",
+          style: BaseTextStyle.body3(),
+        ),
       ),
     );
   }

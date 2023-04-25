@@ -51,5 +51,17 @@
   "forget_password_subtitle_success": "Hãy kiểm tra đường dẫn trong email của bạn để thay đổi mật khẩu",
   "forget_password_button": "Gửi email",
 
-  "book_button": "Đặt lịch"
+  "book_button": "Đặt lịch",
+
+  "favorite": "Yêu thích",
+  "report": "Báo cáo",
+  "reviews": "Xem đánh giá",
+
+  "tutor_languages" : "Ngôn ngữ",
+  "tutor_specialties" : "Chuyên ngành",
+  "tutor_suggested_courses" : "Khóa học tham khảo",
+  "tutor_interests" : "Sở thích",
+  "tutor_teaching_experience" : "Kinh nghiệm giảng dạy",
+
+  "discover" : "Khám phá"
 }

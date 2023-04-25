@@ -10,7 +10,19 @@ class XCoordinator extends BaseCoordinator {
     goNamed(AppRoute.signIn.name);
   }
 
-  void showTutorDetail(String id) {
-    pushNamed(AppRoute.tutor.name, params: {'id': id});
+  void showTutorDetail(String id, {bool isReplace = false}) {
+    if (isReplace) {
+      goNamed(AppRoute.tutor.name, params: {'id': id});
+    } else {
+      pushNamed(AppRoute.tutor.name, params: {'id': id});
+    }
+  }
+
+  void showCourseDetail(String id, {bool isReplace = false}) {
+    if (isReplace) {
+      goNamed(AppRoute.course.name, params: {'id': id});
+    } else {
+      pushNamed(AppRoute.course.name, params: {'id': id});
+    }
   }
 }

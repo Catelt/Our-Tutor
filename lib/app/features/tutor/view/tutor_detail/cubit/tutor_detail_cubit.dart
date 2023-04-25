@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../network/domain_manager.dart';
-import '../../../../network/model/common/handle.dart';
-import '../../../../network/model/tutor/tutor.dart';
+import '../../../../../network/domain_manager.dart';
+import '../../../../../network/model/common/handle.dart';
+import '../../../../../network/model/tutor/tutor.dart';
 
 part 'tutor_detail_state.dart';
 

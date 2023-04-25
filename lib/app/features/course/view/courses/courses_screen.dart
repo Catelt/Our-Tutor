@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../../gen/assets.gen.dart';
+import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
-import '../widgets/course_item.dart';
+import '../../../../network/model/course/course.dart';
+import '../../widgets/course_item.dart';
 
 class CoursesScreen extends StatelessWidget {
   const CoursesScreen({super.key});
@@ -74,7 +75,9 @@ class CoursesScreen extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 5,
-              itemBuilder: (context, index) => CourseItem(),
+              itemBuilder: (context, index) => CourseItem(
+                course: MCourse(),
+              ),
               separatorBuilder: (context, index) => gapH12,
             ),
           ],

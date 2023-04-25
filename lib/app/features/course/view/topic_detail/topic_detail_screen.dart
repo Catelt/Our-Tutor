@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../../../../constants/app_size.dart';
-import '../widgets/course_item.dart';
+import '../../../../network/model/course/course.dart';
+import '../../widgets/course_item.dart';
 
 class TopicDetailScreen extends StatelessWidget {
   const TopicDetailScreen({super.key});
@@ -15,6 +16,7 @@ class TopicDetailScreen extends StatelessWidget {
         child: ListView(
           children: [
             CourseItem(
+              course: MCourse(),
               onPress: () {},
             ),
             gapH12,

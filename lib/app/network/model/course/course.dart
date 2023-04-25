@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../topic/topic.dart';
+import '../tutor/tutor.dart';
 
 part 'course.freezed.dart';
 part 'course.g.dart';
@@ -15,9 +16,9 @@ class MCourse with _$MCourse {
     @Default("") String level,
     @Default("") String reason,
     @Default("") String purpose,
-    @Default("") String other_details,
-    @Default(0) double default_price,
-    @Default(0) double course_price,
+    @JsonKey(name: "other_details") @Default("") String otherDetails,
+    @JsonKey(name: "default_price") @Default(0) double defaultPrice,
+    @JsonKey(name: "course_price") @Default(0) double coursePrice,
     String? courseType,
     String? sectionType,
     @Default(false) bool visible,
@@ -25,6 +26,7 @@ class MCourse with _$MCourse {
     String? createdAt,
     String? updatedAt,
     @Default([]) List<MTopic> topics,
+    @Default([]) List<MTutor> users,
   }) = _MCourse;
 
   factory MCourse.fromJson(Map<String, Object?> json) =>

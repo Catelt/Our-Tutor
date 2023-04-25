@@ -1,6 +1,6 @@
 import '../../gen/assets.gen.dart';
 import '../features/account/view/account_screen.dart';
-import '../features/course/presentation/view/courses_screen.dart';
+import '../features/course/view/courses/courses_screen.dart';
 import '../features/history/presentation/view/history_screen.dart';
 import '../features/home/data/home_navigation_item.dart';
 import '../features/schedule/presentation/view/schedule_screen.dart';

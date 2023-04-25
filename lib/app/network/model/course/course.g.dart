@@ -14,9 +14,9 @@ _$_MCourse _$$_MCourseFromJson(Map<String, dynamic> json) => _$_MCourse(
       level: json['level'] as String? ?? "",
       reason: json['reason'] as String? ?? "",
       purpose: json['purpose'] as String? ?? "",
-      other_details: json['other_details'] as String? ?? "",
-      default_price: (json['default_price'] as num?)?.toDouble() ?? 0,
-      course_price: (json['course_price'] as num?)?.toDouble() ?? 0,
+      otherDetails: json['other_details'] as String? ?? "",
+      defaultPrice: (json['default_price'] as num?)?.toDouble() ?? 0,
+      coursePrice: (json['course_price'] as num?)?.toDouble() ?? 0,
       courseType: json['courseType'] as String?,
       sectionType: json['sectionType'] as String?,
       visible: json['visible'] as bool? ?? false,
@@ -25,6 +25,10 @@ _$_MCourse _$$_MCourseFromJson(Map<String, dynamic> json) => _$_MCourse(
       updatedAt: json['updatedAt'] as String?,
       topics: (json['topics'] as List<dynamic>?)
               ?.map((e) => MTopic.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      users: (json['users'] as List<dynamic>?)
+              ?.map((e) => MTutor.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );
@@ -38,9 +42,9 @@ Map<String, dynamic> _$$_MCourseToJson(_$_MCourse instance) =>
       'level': instance.level,
       'reason': instance.reason,
       'purpose': instance.purpose,
-      'other_details': instance.other_details,
-      'default_price': instance.default_price,
-      'course_price': instance.course_price,
+      'other_details': instance.otherDetails,
+      'default_price': instance.defaultPrice,
+      'course_price': instance.coursePrice,
       'courseType': instance.courseType,
       'sectionType': instance.sectionType,
       'visible': instance.visible,
@@ -48,4 +52,5 @@ Map<String, dynamic> _$$_MCourseToJson(_$_MCourse instance) =>
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
       'topics': instance.topics.map((e) => e.toJson()).toList(),
+      'users': instance.users.map((e) => e.toJson()).toList(),
     };

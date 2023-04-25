@@ -122,4 +122,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get book_button => 'Book';
+
+  @override
+  String get favorite => 'Favorite';
+
+  @override
+  String get report => 'Report';
+
+  @override
+  String get reviews => 'Reviews';
+
+  @override
+  String get tutor_languages => 'Languages';
+
+  @override
+  String get tutor_specialties => 'Specialties';
+
+  @override
+  String get tutor_suggested_courses => 'Suggested courses';
+
+  @override
+  String get tutor_interests => 'Interests';
+
+  @override
+  String get tutor_teaching_experience => 'Teaching experience';
+
+  @override
+  String get discover => 'Discover';
 }

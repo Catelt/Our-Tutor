@@ -51,5 +51,17 @@
   "forget_password_subtitle_success": "Check your inbox for a link to reset your password.",
   "forget_password_button": "Send Email",
 
-  "book_button": "Book"
+  "book_button": "Book",
+
+  "favorite": "Favorite",
+  "report": "Report",
+  "reviews": "Reviews",
+
+  "tutor_languages" : "Languages",
+  "tutor_specialties" : "Specialties",
+  "tutor_suggested_courses" : "Suggested courses",
+  "tutor_interests" : "Interests",
+  "tutor_teaching_experience" : "Teaching experience",
+
+  "discover" : "Discover"
 }
