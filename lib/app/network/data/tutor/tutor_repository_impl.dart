@@ -18,4 +18,17 @@ class TutorRepositoryImpl extends TutorRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<MTutor>> getDetailTutor(String id) async {
+    try {
+      final response = await XHttp().get('$_baseUrl/$id');
+      final data = MTutorDetailResponse.fromJson(jsonDecode(response));
+      final tutor = MTutor.fromTutorDetailResponse(data);
+      return MResult.success(tutor);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }

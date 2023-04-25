@@ -53,11 +53,8 @@ class XAppRouter {
               path: ':id',
               name: AppRoute.tutor.name,
               builder: (context, state) {
-                final id = int.parse(state.params['id'] ?? '1');
-                // final item = fakeTutors[id - 1];
                 return TutorDetailScreen(
-                  item:
-                      MTutor(id: "", userId: "", createdAt: "", updatedAt: ""),
+                  id: state.params['id'] ?? "",
                 );
               },
             )

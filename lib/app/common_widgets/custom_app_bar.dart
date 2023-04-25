@@ -15,7 +15,6 @@ class DefaultAppBar {
       ),
       onPressed: onPressed ??
           () {
-            print("Hellol");
             Navigator.of(XCoordinator().context).pop();
           },
     );

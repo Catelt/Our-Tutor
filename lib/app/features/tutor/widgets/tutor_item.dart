@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../../gen/assets.gen.dart';
 import '../../../common_widgets/common_widgets.dart';
@@ -9,7 +7,7 @@ import '../../../constants/countries.dart';
 import '../../../constants/specialties.dart';
 import '../../../localization/localization_utils.dart';
 import '../../../network/model/tutor/tutor.dart';
-import '../../../routing/app_routing.dart';
+import '../../../routing/coordinator.dart';
 import 'avatar_widget.dart';
 
 class TutorItem extends StatelessWidget {
@@ -22,10 +20,7 @@ class TutorItem extends StatelessWidget {
     final specialties =
         item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
     return InkWell(
-      onTap: () => context.goNamed(
-        AppRoute.tutor.name,
-        params: {'id': item.id.toString()},
-      ),
+      onTap: () => XCoordinator().showTutorDetail(item.userId.toString()),
       child: Stack(
         children: [
           Container(

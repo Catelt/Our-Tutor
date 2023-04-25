@@ -9,4 +9,8 @@ class XCoordinator extends BaseCoordinator {
   void showSignInScreen() {
     goNamed(AppRoute.signIn.name);
   }
+
+  void showTutorDetail(String id) {
+    pushNamed(AppRoute.tutor.name, params: {'id': id});
+  }
 }

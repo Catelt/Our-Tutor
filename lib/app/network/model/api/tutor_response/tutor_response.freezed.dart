@@ -22,8 +22,9 @@ MTutorResponse _$MTutorResponseFromJson(Map<String, dynamic> json) {
 mixin _$MTutorResponse {
   MTutors get tutors => throw _privateConstructorUsedError;
   set tutors(MTutors value) => throw _privateConstructorUsedError;
-  List<MTutor> get favoriteTutor => throw _privateConstructorUsedError;
-  set favoriteTutor(List<MTutor> value) => throw _privateConstructorUsedError;
+  List<MFavoriteTutor> get favoriteTutor => throw _privateConstructorUsedError;
+  set favoriteTutor(List<MFavoriteTutor> value) =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,7 @@ abstract class $MTutorResponseCopyWith<$Res> {
           MTutorResponse value, $Res Function(MTutorResponse) then) =
       _$MTutorResponseCopyWithImpl<$Res, MTutorResponse>;
   @useResult
-  $Res call({MTutors tutors, List<MTutor> favoriteTutor});
+  $Res call({MTutors tutors, List<MFavoriteTutor> favoriteTutor});
 
   $MTutorsCopyWith<$Res> get tutors;
 }
@@ -66,7 +67,7 @@ class _$MTutorResponseCopyWithImpl<$Res, $Val extends MTutorResponse>
       favoriteTutor: null == favoriteTutor
           ? _value.favoriteTutor
           : favoriteTutor // ignore: cast_nullable_to_non_nullable
-              as List<MTutor>,
+              as List<MFavoriteTutor>,
     ) as $Val);
   }
 
@@ -87,7 +88,7 @@ abstract class _$$_MTutorResponseCopyWith<$Res>
       __$$_MTutorResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MTutors tutors, List<MTutor> favoriteTutor});
+  $Res call({MTutors tutors, List<MFavoriteTutor> favoriteTutor});
 
   @override
   $MTutorsCopyWith<$Res> get tutors;
@@ -115,7 +116,7 @@ class __$$_MTutorResponseCopyWithImpl<$Res>
       favoriteTutor: null == favoriteTutor
           ? _value.favoriteTutor
           : favoriteTutor // ignore: cast_nullable_to_non_nullable
-              as List<MTutor>,
+              as List<MFavoriteTutor>,
     ));
   }
 }
@@ -134,7 +135,7 @@ class _$_MTutorResponse
   MTutors tutors;
   @override
   @JsonKey()
-  List<MTutor> favoriteTutor;
+  List<MFavoriteTutor> favoriteTutor;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -167,7 +168,7 @@ class _$_MTutorResponse
 abstract class _MTutorResponse implements MTutorResponse {
   factory _MTutorResponse(
       {required MTutors tutors,
-      List<MTutor> favoriteTutor}) = _$_MTutorResponse;
+      List<MFavoriteTutor> favoriteTutor}) = _$_MTutorResponse;
 
   factory _MTutorResponse.fromJson(Map<String, dynamic> json) =
       _$_MTutorResponse.fromJson;
@@ -176,8 +177,8 @@ abstract class _MTutorResponse implements MTutorResponse {
   MTutors get tutors;
   set tutors(MTutors value);
   @override
-  List<MTutor> get favoriteTutor;
-  set favoriteTutor(List<MTutor> value);
+  List<MFavoriteTutor> get favoriteTutor;
+  set favoriteTutor(List<MFavoriteTutor> value);
   @override
   @JsonKey(ignore: true)
   _$$_MTutorResponseCopyWith<_$_MTutorResponse> get copyWith =>

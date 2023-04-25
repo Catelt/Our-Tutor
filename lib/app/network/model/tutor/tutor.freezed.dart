@@ -106,8 +106,14 @@ mixin _$MTutor {
   set deletedAt(String? value) => throw _privateConstructorUsedError;
   String? get studentGroupId => throw _privateConstructorUsedError;
   set studentGroupId(String? value) => throw _privateConstructorUsedError;
+  dynamic get isFavorite => throw _privateConstructorUsedError;
+  set isFavorite(dynamic value) => throw _privateConstructorUsedError;
+  List<MCourse> get courses => throw _privateConstructorUsedError;
+  set courses(List<MCourse> value) => throw _privateConstructorUsedError;
   List<MFeedback> get feedbacks => throw _privateConstructorUsedError;
   set feedbacks(List<MFeedback> value) => throw _privateConstructorUsedError;
+  int get totalFeedback => throw _privateConstructorUsedError;
+  set totalFeedback(int value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -163,7 +169,10 @@ abstract class $MTutorCopyWith<$Res> {
       String updatedAt,
       String? deletedAt,
       String? studentGroupId,
-      List<MFeedback> feedbacks});
+      dynamic isFavorite,
+      List<MCourse> courses,
+      List<MFeedback> feedbacks,
+      int totalFeedback});
 }
 
 /// @nodoc
@@ -222,7 +231,10 @@ class _$MTutorCopyWithImpl<$Res, $Val extends MTutor>
     Object? updatedAt = null,
     Object? deletedAt = freezed,
     Object? studentGroupId = freezed,
+    Object? isFavorite = freezed,
+    Object? courses = null,
     Object? feedbacks = null,
+    Object? totalFeedback = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -397,10 +409,22 @@ class _$MTutorCopyWithImpl<$Res, $Val extends MTutor>
           ? _value.studentGroupId
           : studentGroupId // ignore: cast_nullable_to_non_nullable
               as String?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      courses: null == courses
+          ? _value.courses
+          : courses // ignore: cast_nullable_to_non_nullable
+              as List<MCourse>,
       feedbacks: null == feedbacks
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
               as List<MFeedback>,
+      totalFeedback: null == totalFeedback
+          ? _value.totalFeedback
+          : totalFeedback // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -455,7 +479,10 @@ abstract class _$$_MTutorCopyWith<$Res> implements $MTutorCopyWith<$Res> {
       String updatedAt,
       String? deletedAt,
       String? studentGroupId,
-      List<MFeedback> feedbacks});
+      dynamic isFavorite,
+      List<MCourse> courses,
+      List<MFeedback> feedbacks,
+      int totalFeedback});
 }
 
 /// @nodoc
@@ -511,7 +538,10 @@ class __$$_MTutorCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? deletedAt = freezed,
     Object? studentGroupId = freezed,
+    Object? isFavorite = freezed,
+    Object? courses = null,
     Object? feedbacks = null,
+    Object? totalFeedback = null,
   }) {
     return _then(_$_MTutor(
       id: null == id
@@ -686,10 +716,19 @@ class __$$_MTutorCopyWithImpl<$Res>
           ? _value.studentGroupId
           : studentGroupId // ignore: cast_nullable_to_non_nullable
               as String?,
+      isFavorite: freezed == isFavorite ? _value.isFavorite! : isFavorite,
+      courses: null == courses
+          ? _value.courses
+          : courses // ignore: cast_nullable_to_non_nullable
+              as List<MCourse>,
       feedbacks: null == feedbacks
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
               as List<MFeedback>,
+      totalFeedback: null == totalFeedback
+          ? _value.totalFeedback
+          : totalFeedback // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -741,7 +780,10 @@ class _$_MTutor implements _MTutor {
       this.updatedAt = "",
       this.deletedAt,
       this.studentGroupId,
-      this.feedbacks = const []});
+      this.isFavorite = false,
+      this.courses = const [],
+      this.feedbacks = const [],
+      this.totalFeedback = 0});
 
   factory _$_MTutor.fromJson(Map<String, dynamic> json) =>
       _$$_MTutorFromJson(json);
@@ -857,11 +899,20 @@ class _$_MTutor implements _MTutor {
   String? studentGroupId;
   @override
   @JsonKey()
+  dynamic isFavorite;
+  @override
+  @JsonKey()
+  List<MCourse> courses;
+  @override
+  @JsonKey()
   List<MFeedback> feedbacks;
+  @override
+  @JsonKey()
+  int totalFeedback;
 
   @override
   String toString() {
-    return 'MTutor(id: $id, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, interests: $interests, languages: $languages, specialties: $specialties, rating: $rating, price: $price, isOnline: $isOnline, isNative: $isNative, resume: $resume, accent: $accent, targetStudent: $targetStudent, level: $level, email: $email, google: $google, facebook: $facebook, apple: $apple, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, requestPassword: $requestPassword, isActivated: $isActivated, isPhoneActivated: $isPhoneActivated, requireNote: $requireNote, timezone: $timezone, phoneAuth: $phoneAuth, isPhoneAuthActivated: $isPhoneAuthActivated, studySchedule: $studySchedule, canSendMessage: $canSendMessage, isPublicRecord: $isPublicRecord, caredByStaffId: $caredByStaffId, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt, studentGroupId: $studentGroupId, feedbacks: $feedbacks)';
+    return 'MTutor(id: $id, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, interests: $interests, languages: $languages, specialties: $specialties, rating: $rating, price: $price, isOnline: $isOnline, isNative: $isNative, resume: $resume, accent: $accent, targetStudent: $targetStudent, level: $level, email: $email, google: $google, facebook: $facebook, apple: $apple, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, requestPassword: $requestPassword, isActivated: $isActivated, isPhoneActivated: $isPhoneActivated, requireNote: $requireNote, timezone: $timezone, phoneAuth: $phoneAuth, isPhoneAuthActivated: $isPhoneAuthActivated, studySchedule: $studySchedule, canSendMessage: $canSendMessage, isPublicRecord: $isPublicRecord, caredByStaffId: $caredByStaffId, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt, studentGroupId: $studentGroupId, isFavorite: $isFavorite, courses: $courses, feedbacks: $feedbacks, totalFeedback: $totalFeedback)';
   }
 
   @JsonKey(ignore: true)
@@ -923,7 +974,10 @@ abstract class _MTutor implements MTutor {
       String updatedAt,
       String? deletedAt,
       String? studentGroupId,
-      List<MFeedback> feedbacks}) = _$_MTutor;
+      dynamic isFavorite,
+      List<MCourse> courses,
+      List<MFeedback> feedbacks,
+      int totalFeedback}) = _$_MTutor;
 
   factory _MTutor.fromJson(Map<String, dynamic> json) = _$_MTutor.fromJson;
 
@@ -1057,8 +1111,17 @@ abstract class _MTutor implements MTutor {
   String? get studentGroupId;
   set studentGroupId(String? value);
   @override
+  dynamic get isFavorite;
+  set isFavorite(dynamic value);
+  @override
+  List<MCourse> get courses;
+  set courses(List<MCourse> value);
+  @override
   List<MFeedback> get feedbacks;
   set feedbacks(List<MFeedback> value);
+  @override
+  int get totalFeedback;
+  set totalFeedback(int value);
   @override
   @JsonKey(ignore: true)
   _$$_MTutorCopyWith<_$_MTutor> get copyWith =>

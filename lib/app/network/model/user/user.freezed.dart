@@ -22,22 +22,22 @@ MUser _$MUserFromJson(Map<String, dynamic> json) {
 mixin _$MUser {
   String get id => throw _privateConstructorUsedError;
   set id(String value) => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  set email(String? value) => throw _privateConstructorUsedError;
-  String? get avatar => throw _privateConstructorUsedError;
-  set avatar(String? value) => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  set email(String value) => throw _privateConstructorUsedError;
+  String get avatar => throw _privateConstructorUsedError;
+  set avatar(String value) => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   set country(String? value) => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  set phone(String? value) => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
+  set phone(String value) => throw _privateConstructorUsedError;
   List<String>? get roles => throw _privateConstructorUsedError;
   set roles(List<String>? value) => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
   set language(String? value) => throw _privateConstructorUsedError;
   String? get birthday => throw _privateConstructorUsedError;
   set birthday(String? value) => throw _privateConstructorUsedError;
-  bool? get isActivated => throw _privateConstructorUsedError;
-  set isActivated(bool? value) => throw _privateConstructorUsedError;
+  bool get isActivated => throw _privateConstructorUsedError;
+  set isActivated(bool value) => throw _privateConstructorUsedError;
   MWalletInfo? get walletInfo => throw _privateConstructorUsedError;
   set walletInfo(MWalletInfo? value) => throw _privateConstructorUsedError;
   List<String>? get courses => throw _privateConstructorUsedError;
@@ -49,17 +49,17 @@ mixin _$MUser {
   List<MLearnTopic>? get learnTopics => throw _privateConstructorUsedError;
   set learnTopics(List<MLearnTopic>? value) =>
       throw _privateConstructorUsedError;
-  List<String>? get testPreparations => throw _privateConstructorUsedError;
-  set testPreparations(List<String>? value) =>
+  List<MLearnTopic>? get testPreparations => throw _privateConstructorUsedError;
+  set testPreparations(List<MLearnTopic>? value) =>
       throw _privateConstructorUsedError;
-  bool? get isPhoneActivated => throw _privateConstructorUsedError;
-  set isPhoneActivated(bool? value) => throw _privateConstructorUsedError;
+  bool get isPhoneActivated => throw _privateConstructorUsedError;
+  set isPhoneActivated(bool value) => throw _privateConstructorUsedError;
   int? get timezone => throw _privateConstructorUsedError;
   set timezone(int? value) => throw _privateConstructorUsedError;
-  String? get studySchedule => throw _privateConstructorUsedError;
-  set studySchedule(String? value) => throw _privateConstructorUsedError;
-  bool? get canSendMessage => throw _privateConstructorUsedError;
-  set canSendMessage(bool? value) => throw _privateConstructorUsedError;
+  String get studySchedule => throw _privateConstructorUsedError;
+  set studySchedule(String value) => throw _privateConstructorUsedError;
+  bool get canSendMessage => throw _privateConstructorUsedError;
+  set canSendMessage(bool value) => throw _privateConstructorUsedError;
   String? get studentGroup => throw _privateConstructorUsedError;
   set studentGroup(String? value) => throw _privateConstructorUsedError;
   String? get studentInfo => throw _privateConstructorUsedError;
@@ -81,24 +81,24 @@ abstract class $MUserCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? email,
-      String? avatar,
+      String email,
+      String avatar,
       String? country,
-      String? phone,
+      String phone,
       List<String>? roles,
       String? language,
       String? birthday,
-      bool? isActivated,
+      bool isActivated,
       MWalletInfo? walletInfo,
       List<String>? courses,
       String? requireNote,
       String? level,
       List<MLearnTopic>? learnTopics,
-      List<String>? testPreparations,
-      bool? isPhoneActivated,
+      List<MLearnTopic>? testPreparations,
+      bool isPhoneActivated,
       int? timezone,
-      String? studySchedule,
-      bool? canSendMessage,
+      String studySchedule,
+      bool canSendMessage,
       String? studentGroup,
       String? studentInfo,
       double? avgRating,
@@ -122,24 +122,24 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
   @override
   $Res call({
     Object? id = null,
-    Object? email = freezed,
-    Object? avatar = freezed,
+    Object? email = null,
+    Object? avatar = null,
     Object? country = freezed,
-    Object? phone = freezed,
+    Object? phone = null,
     Object? roles = freezed,
     Object? language = freezed,
     Object? birthday = freezed,
-    Object? isActivated = freezed,
+    Object? isActivated = null,
     Object? walletInfo = freezed,
     Object? courses = freezed,
     Object? requireNote = freezed,
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
-    Object? isPhoneActivated = freezed,
+    Object? isPhoneActivated = null,
     Object? timezone = freezed,
-    Object? studySchedule = freezed,
-    Object? canSendMessage = freezed,
+    Object? studySchedule = null,
+    Object? canSendMessage = null,
     Object? studentGroup = freezed,
     Object? studentInfo = freezed,
     Object? avgRating = freezed,
@@ -150,22 +150,22 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
+              as String,
+      avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: freezed == phone
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       roles: freezed == roles
           ? _value.roles
           : roles // ignore: cast_nullable_to_non_nullable
@@ -178,10 +178,10 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as String?,
-      isActivated: freezed == isActivated
+      isActivated: null == isActivated
           ? _value.isActivated
           : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       walletInfo: freezed == walletInfo
           ? _value.walletInfo
           : walletInfo // ignore: cast_nullable_to_non_nullable
@@ -205,23 +205,23 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
       testPreparations: freezed == testPreparations
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      isPhoneActivated: freezed == isPhoneActivated
+              as List<MLearnTopic>?,
+      isPhoneActivated: null == isPhoneActivated
           ? _value.isPhoneActivated
           : isPhoneActivated // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
               as int?,
-      studySchedule: freezed == studySchedule
+      studySchedule: null == studySchedule
           ? _value.studySchedule
           : studySchedule // ignore: cast_nullable_to_non_nullable
-              as String?,
-      canSendMessage: freezed == canSendMessage
+              as String,
+      canSendMessage: null == canSendMessage
           ? _value.canSendMessage
           : canSendMessage // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       studentGroup: freezed == studentGroup
           ? _value.studentGroup
           : studentGroup // ignore: cast_nullable_to_non_nullable
@@ -274,24 +274,24 @@ abstract class _$$_MUserCopyWith<$Res> implements $MUserCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String? email,
-      String? avatar,
+      String email,
+      String avatar,
       String? country,
-      String? phone,
+      String phone,
       List<String>? roles,
       String? language,
       String? birthday,
-      bool? isActivated,
+      bool isActivated,
       MWalletInfo? walletInfo,
       List<String>? courses,
       String? requireNote,
       String? level,
       List<MLearnTopic>? learnTopics,
-      List<String>? testPreparations,
-      bool? isPhoneActivated,
+      List<MLearnTopic>? testPreparations,
+      bool isPhoneActivated,
       int? timezone,
-      String? studySchedule,
-      bool? canSendMessage,
+      String studySchedule,
+      bool canSendMessage,
       String? studentGroup,
       String? studentInfo,
       double? avgRating,
@@ -313,24 +313,24 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
   @override
   $Res call({
     Object? id = null,
-    Object? email = freezed,
-    Object? avatar = freezed,
+    Object? email = null,
+    Object? avatar = null,
     Object? country = freezed,
-    Object? phone = freezed,
+    Object? phone = null,
     Object? roles = freezed,
     Object? language = freezed,
     Object? birthday = freezed,
-    Object? isActivated = freezed,
+    Object? isActivated = null,
     Object? walletInfo = freezed,
     Object? courses = freezed,
     Object? requireNote = freezed,
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
-    Object? isPhoneActivated = freezed,
+    Object? isPhoneActivated = null,
     Object? timezone = freezed,
-    Object? studySchedule = freezed,
-    Object? canSendMessage = freezed,
+    Object? studySchedule = null,
+    Object? canSendMessage = null,
     Object? studentGroup = freezed,
     Object? studentInfo = freezed,
     Object? avgRating = freezed,
@@ -341,22 +341,22 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      avatar: freezed == avatar
+              as String,
+      avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: freezed == phone
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       roles: freezed == roles
           ? _value.roles
           : roles // ignore: cast_nullable_to_non_nullable
@@ -369,10 +369,10 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as String?,
-      isActivated: freezed == isActivated
+      isActivated: null == isActivated
           ? _value.isActivated
           : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       walletInfo: freezed == walletInfo
           ? _value.walletInfo
           : walletInfo // ignore: cast_nullable_to_non_nullable
@@ -396,23 +396,23 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
       testPreparations: freezed == testPreparations
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      isPhoneActivated: freezed == isPhoneActivated
+              as List<MLearnTopic>?,
+      isPhoneActivated: null == isPhoneActivated
           ? _value.isPhoneActivated
           : isPhoneActivated // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
               as int?,
-      studySchedule: freezed == studySchedule
+      studySchedule: null == studySchedule
           ? _value.studySchedule
           : studySchedule // ignore: cast_nullable_to_non_nullable
-              as String?,
-      canSendMessage: freezed == canSendMessage
+              as String,
+      canSendMessage: null == canSendMessage
           ? _value.canSendMessage
           : canSendMessage // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       studentGroup: freezed == studentGroup
           ? _value.studentGroup
           : studentGroup // ignore: cast_nullable_to_non_nullable
@@ -438,24 +438,24 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
 class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   _$_MUser(
       {required this.id,
-      this.email,
-      this.avatar,
+      this.email = "",
+      this.avatar = "",
       this.country,
-      this.phone,
+      this.phone = "",
       this.roles,
       this.language,
       this.birthday,
-      this.isActivated,
+      this.isActivated = false,
       this.walletInfo,
       this.courses,
       this.requireNote,
       this.level,
       this.learnTopics,
       this.testPreparations,
-      this.isPhoneActivated,
+      this.isPhoneActivated = false,
       this.timezone,
-      this.studySchedule,
-      this.canSendMessage,
+      this.studySchedule = "",
+      this.canSendMessage = false,
       this.studentGroup,
       this.studentInfo,
       this.avgRating,
@@ -467,13 +467,16 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   @override
   String id;
   @override
-  String? email;
+  @JsonKey()
+  String email;
   @override
-  String? avatar;
+  @JsonKey()
+  String avatar;
   @override
   String? country;
   @override
-  String? phone;
+  @JsonKey()
+  String phone;
   @override
   List<String>? roles;
   @override
@@ -481,7 +484,8 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   @override
   String? birthday;
   @override
-  bool? isActivated;
+  @JsonKey()
+  bool isActivated;
   @override
   MWalletInfo? walletInfo;
   @override
@@ -493,15 +497,18 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   @override
   List<MLearnTopic>? learnTopics;
   @override
-  List<String>? testPreparations;
+  List<MLearnTopic>? testPreparations;
   @override
-  bool? isPhoneActivated;
+  @JsonKey()
+  bool isPhoneActivated;
   @override
   int? timezone;
   @override
-  String? studySchedule;
+  @JsonKey()
+  String studySchedule;
   @override
-  bool? canSendMessage;
+  @JsonKey()
+  bool canSendMessage;
   @override
   String? studentGroup;
   @override
@@ -563,24 +570,24 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
 abstract class _MUser implements MUser {
   factory _MUser(
       {required String id,
-      String? email,
-      String? avatar,
+      String email,
+      String avatar,
       String? country,
-      String? phone,
+      String phone,
       List<String>? roles,
       String? language,
       String? birthday,
-      bool? isActivated,
+      bool isActivated,
       MWalletInfo? walletInfo,
       List<String>? courses,
       String? requireNote,
       String? level,
       List<MLearnTopic>? learnTopics,
-      List<String>? testPreparations,
-      bool? isPhoneActivated,
+      List<MLearnTopic>? testPreparations,
+      bool isPhoneActivated,
       int? timezone,
-      String? studySchedule,
-      bool? canSendMessage,
+      String studySchedule,
+      bool canSendMessage,
       String? studentGroup,
       String? studentInfo,
       double? avgRating,
@@ -592,17 +599,17 @@ abstract class _MUser implements MUser {
   String get id;
   set id(String value);
   @override
-  String? get email;
-  set email(String? value);
+  String get email;
+  set email(String value);
   @override
-  String? get avatar;
-  set avatar(String? value);
+  String get avatar;
+  set avatar(String value);
   @override
   String? get country;
   set country(String? value);
   @override
-  String? get phone;
-  set phone(String? value);
+  String get phone;
+  set phone(String value);
   @override
   List<String>? get roles;
   set roles(List<String>? value);
@@ -613,8 +620,8 @@ abstract class _MUser implements MUser {
   String? get birthday;
   set birthday(String? value);
   @override
-  bool? get isActivated;
-  set isActivated(bool? value);
+  bool get isActivated;
+  set isActivated(bool value);
   @override
   MWalletInfo? get walletInfo;
   set walletInfo(MWalletInfo? value);
@@ -631,20 +638,20 @@ abstract class _MUser implements MUser {
   List<MLearnTopic>? get learnTopics;
   set learnTopics(List<MLearnTopic>? value);
   @override
-  List<String>? get testPreparations;
-  set testPreparations(List<String>? value);
+  List<MLearnTopic>? get testPreparations;
+  set testPreparations(List<MLearnTopic>? value);
   @override
-  bool? get isPhoneActivated;
-  set isPhoneActivated(bool? value);
+  bool get isPhoneActivated;
+  set isPhoneActivated(bool value);
   @override
   int? get timezone;
   set timezone(int? value);
   @override
-  String? get studySchedule;
-  set studySchedule(String? value);
+  String get studySchedule;
+  set studySchedule(String value);
   @override
-  bool? get canSendMessage;
-  set canSendMessage(bool? value);
+  bool get canSendMessage;
+  set canSendMessage(bool value);
   @override
   String? get studentGroup;
   set studentGroup(String? value);

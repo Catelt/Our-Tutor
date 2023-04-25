@@ -8,15 +8,15 @@ part of 'user.dart';
 
 _$_MUser _$$_MUserFromJson(Map<String, dynamic> json) => _$_MUser(
       id: json['id'] as String,
-      email: json['email'] as String?,
-      avatar: json['avatar'] as String?,
+      email: json['email'] as String? ?? "",
+      avatar: json['avatar'] as String? ?? "",
       country: json['country'] as String?,
-      phone: json['phone'] as String?,
+      phone: json['phone'] as String? ?? "",
       roles:
           (json['roles'] as List<dynamic>?)?.map((e) => e as String).toList(),
       language: json['language'] as String?,
       birthday: json['birthday'] as String?,
-      isActivated: json['isActivated'] as bool?,
+      isActivated: json['isActivated'] as bool? ?? false,
       walletInfo: json['walletInfo'] == null
           ? null
           : MWalletInfo.fromJson(json['walletInfo'] as Map<String, dynamic>),
@@ -28,12 +28,12 @@ _$_MUser _$$_MUserFromJson(Map<String, dynamic> json) => _$_MUser(
           ?.map((e) => MLearnTopic.fromJson(e as Map<String, dynamic>))
           .toList(),
       testPreparations: (json['testPreparations'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => MLearnTopic.fromJson(e as Map<String, dynamic>))
           .toList(),
-      isPhoneActivated: json['isPhoneActivated'] as bool?,
+      isPhoneActivated: json['isPhoneActivated'] as bool? ?? false,
       timezone: json['timezone'] as int?,
-      studySchedule: json['studySchedule'] as String?,
-      canSendMessage: json['canSendMessage'] as bool?,
+      studySchedule: json['studySchedule'] as String? ?? "",
+      canSendMessage: json['canSendMessage'] as bool? ?? false,
       studentGroup: json['studentGroup'] as String?,
       studentInfo: json['studentInfo'] as String?,
       avgRating: (json['avgRating'] as num?)?.toDouble(),
@@ -57,7 +57,8 @@ Map<String, dynamic> _$$_MUserToJson(_$_MUser instance) => <String, dynamic>{
       'requireNote': instance.requireNote,
       'level': instance.level,
       'learnTopics': instance.learnTopics?.map((e) => e.toJson()).toList(),
-      'testPreparations': instance.testPreparations,
+      'testPreparations':
+          instance.testPreparations?.map((e) => e.toJson()).toList(),
       'isPhoneActivated': instance.isPhoneActivated,
       'timezone': instance.timezone,
       'studySchedule': instance.studySchedule,

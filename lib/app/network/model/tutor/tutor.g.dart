@@ -50,10 +50,16 @@ _$_MTutor _$$_MTutorFromJson(Map<String, dynamic> json) => _$_MTutor(
       updatedAt: json['updatedAt'] as String? ?? "",
       deletedAt: json['deletedAt'] as String?,
       studentGroupId: json['studentGroupId'] as String?,
+      isFavorite: json['isFavorite'] ?? false,
+      courses: (json['courses'] as List<dynamic>?)
+              ?.map((e) => MCourse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       feedbacks: (json['feedbacks'] as List<dynamic>?)
               ?.map((e) => MFeedback.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      totalFeedback: json['totalFeedback'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$$_MTutorToJson(_$_MTutor instance) => <String, dynamic>{
@@ -100,5 +106,8 @@ Map<String, dynamic> _$$_MTutorToJson(_$_MTutor instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt,
       'deletedAt': instance.deletedAt,
       'studentGroupId': instance.studentGroupId,
+      'isFavorite': instance.isFavorite,
+      'courses': instance.courses.map((e) => e.toJson()).toList(),
       'feedbacks': instance.feedbacks.map((e) => e.toJson()).toList(),
+      'totalFeedback': instance.totalFeedback,
     };
