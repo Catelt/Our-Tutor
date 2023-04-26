@@ -41,39 +41,44 @@ class _TutorsScreenState extends State<TutorsScreen> {
         builder: (context, state) {
           _controller = ScrollController()
             ..addListener(() => loadMore(context));
-          return Scaffold(
-            body: BlocBuilder<TutorsCubit, TutorsState>(
-              buildWhen: (previous, current) =>
-                  previous.tutors != current.tutors,
-              builder: (context, state) {
-                return CustomScrollView(
-                  controller: _controller,
-                  slivers: [
-                    SliverList(
-                        delegate: SliverChildListDelegate([
-                      headHomeWidget(context),
-                      filterWidget(context),
-                      gapH32,
-                    ])),
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                          (context, index) => Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: Sizes.p20),
-                                child: TutorItem(item: state.tutors[index]),
-                              ),
-                          childCount: state.tutors.length),
-                    ),
-                    SliverList(
-                        delegate: SliverChildListDelegate([
-                      gapH32,
-                    ])),
-                  ],
-                );
-              },
-            ),
-          );
+          return _body();
         },
+      ),
+    );
+  }
+
+  Widget _body() {
+    return SafeArea(
+      child: Scaffold(
+        body: BlocBuilder<TutorsCubit, TutorsState>(
+          buildWhen: (previous, current) => previous.tutors != current.tutors,
+          builder: (context, state) {
+            return CustomScrollView(
+              controller: _controller,
+              slivers: [
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  headHomeWidget(context),
+                  filterWidget(context),
+                  gapH32,
+                ])),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (context, index) => Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: Sizes.p20),
+                            child: TutorItem(item: state.tutors[index]),
+                          ),
+                      childCount: state.tutors.length),
+                ),
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  gapH32,
+                ])),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

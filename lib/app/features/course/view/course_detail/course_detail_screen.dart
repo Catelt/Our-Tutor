@@ -135,8 +135,7 @@ class CourseDetailScreen extends StatelessWidget {
       ),
       gapW4,
       GestureDetector(
-        onTap: () =>
-            XCoordinator().showTutorDetail(tutor.userId, isReplace: true),
+        onTap: () => XCoordinator().showTutorDetail(tutor.id, isReplace: true),
         child: Text(
           "More info",
           style: TextStyle(

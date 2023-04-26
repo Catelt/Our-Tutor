@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../../../common_widgets/common_widgets.dart';
 import '../../../constants/app_size.dart';
+import '../../../constants/course_level.dart';
 import '../../../localization/localization_utils.dart';
 import '../../../network/model/course/course.dart';
+import '../../../routing/coordinator.dart';
 
 class CourseItem extends StatelessWidget {
   const CourseItem({super.key, this.onPress, required this.course});
@@ -14,6 +16,14 @@ class CourseItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return InkWell(
+        onTap: onPress != null
+            ? null
+            : () => XCoordinator().showCourseDetail(course.id),
+        child: _body(context));
+  }
+
+  Widget _body(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -31,6 +41,9 @@ class CourseItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(Sizes.p8),
             child: CachedNetworkImage(
               imageUrl: course.imageUrl,
+              placeholder: (context, url) => SizedBox(
+                height: 150,
+              ),
               fit: BoxFit.fill,
             ),
           ),
@@ -61,7 +74,7 @@ class CourseItem extends StatelessWidget {
                   ),
                 if (onPress == null)
                   Text(
-                    "Intermediate • 9  Lessons",
+                    "${CoursesLevel.getName(course.level)} • ${course.topics.length}  Lessons",
                     style: TextStyle(color: Colors.grey, fontSize: 14),
                   )
               ],
