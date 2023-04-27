@@ -31,4 +31,26 @@ class TutorRepositoryImpl extends TutorRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<List<MTutor>>> search(int page,
+      {List<String>? specialties,
+      List<bool>? nationality,
+      String? search}) async {
+    try {
+      final response = await XHttp().post('$_baseUrl/search', data: {
+        'perPage': perPage,
+        'page': page,
+        'search': search,
+        'filters': {
+          'specialties': specialties,
+        },
+      });
+      final data = MTutors.fromJson(jsonDecode(response));
+      return MResult.success(data.rows);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }

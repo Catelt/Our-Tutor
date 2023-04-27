@@ -99,8 +99,18 @@ class _TutorsScreenState extends State<TutorsScreen> {
             children: [
               Expanded(
                   flex: 2,
-                  child: TextFieldCustom(
-                    hint: "Enter tutor name",
+                  child: BlocBuilder<TutorsCubit, TutorsState>(
+                    buildWhen: (previous, current) =>
+                        previous.nameTutor != current.nameTutor,
+                    builder: (context, state) {
+                      return TextFieldCustom(
+                        hint: "Enter tutor name",
+                        text: state.nameTutor,
+                        onEditingComplete:
+                            context.read<TutorsCubit>().onSubmitSearch,
+                        onChange: context.read<TutorsCubit>().onChangeNameTutor,
+                      );
+                    },
                   )),
               gapW4,
               Expanded(child: TextFieldCustom(hint: "Select tutor nationality"))
