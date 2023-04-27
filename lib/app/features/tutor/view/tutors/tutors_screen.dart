@@ -60,7 +60,6 @@ class _TutorsScreenState extends State<TutorsScreen> {
                     delegate: SliverChildListDelegate([
                   headHomeWidget(context),
                   filterWidget(context),
-                  gapH32,
                 ])),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
@@ -73,6 +72,15 @@ class _TutorsScreenState extends State<TutorsScreen> {
                 ),
                 SliverList(
                     delegate: SliverChildListDelegate([
+                  BlocBuilder<TutorsCubit, TutorsState>(
+                    buildWhen: (previous, current) =>
+                        previous.handle != current.handle,
+                    builder: (context, state) {
+                      return Visibility(
+                          visible: state.handle.isLoading,
+                          child: LoadingWidget());
+                    },
+                  ),
                   gapH32,
                 ])),
               ],
@@ -116,33 +124,42 @@ class _TutorsScreenState extends State<TutorsScreen> {
               Expanded(child: TextFieldCustom(hint: "Select tutor nationality"))
             ],
           ),
-          gapH8,
-          Text(
-            "Select available tutoring time:",
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          ),
-          Wrap(
-            spacing: Sizes.p4,
-            runSpacing: Sizes.p8,
-            children: [
-              SizedBox(
-                width: 150,
-                child: TextFieldCustom(
-                  hint: "Select a day",
-                ),
-              ),
-              SizedBox(
-                width: 250,
-                child: TextFieldCustom(
-                  hint: "Start time -> End time",
-                ),
-              ),
-            ],
-          ),
+          // gapH8,
+          // Text(
+          //   "Select available tutoring time:",
+          //   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          // ),
+          // Wrap(
+          //   spacing: Sizes.p4,
+          //   runSpacing: Sizes.p8,
+          //   children: [
+          //     SizedBox(
+          //       width: 150,
+          //       child: TextFieldCustom(
+          //         hint: "Select a day",
+          //       ),
+          //     ),
+          //     SizedBox(
+          //       width: 250,
+          //       child: TextFieldCustom(
+          //         hint: "Start time -> End time",
+          //       ),
+          //     ),
+          //   ],
+          // ),
           gapH12,
-          WrapListWidget(
-            list: specialties_data,
-            color: Colors.grey[700],
+          BlocBuilder<TutorsCubit, TutorsState>(
+            buildWhen: (previous, current) =>
+                previous.specialties != current.specialties,
+            builder: (context, state) {
+              return WrapListWidget(
+                list: specialties_data,
+                color: Colors.grey[700],
+                isSelected: true,
+                onPress: context.read<TutorsCubit>().onChangeSpecialties,
+                select: state.specialties,
+              );
+            },
           ),
           gapH12,
         ],

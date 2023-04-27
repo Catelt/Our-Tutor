@@ -42,6 +42,14 @@ class TutorsState extends Equatable {
 
   bool get isSearch => nameTutor.isNotEmpty || specialties.isNotEmpty;
 
+  List<String> get specialtiesId {
+    List<String> result = [];
+    for (var value in specialties) {
+      result.add(Specialty.getId(value));
+    }
+    return result;
+  }
+
   @override
   List<Object?> get props =>
       [handle, hasNextPage, page, tutors, nameTutor, specialties];

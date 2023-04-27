@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../../../constants/specialties.dart';
 import '../../../../../network/domain_manager.dart';
 import '../../../../../network/model/common/handle.dart';
 import '../../../../../network/model/common/result.dart';
@@ -20,7 +21,7 @@ class TutorsCubit extends Cubit<TutorsState> {
     MResult<List<MTutor>> response;
     if (state.isSearch) {
       response = await domain.tutor.search(state.page,
-          search: state.nameTutor, specialties: state.specialties);
+          search: state.nameTutor, specialties: state.specialtiesId);
     } else {
       response = await domain.tutor.getList(state.page);
     }
@@ -40,6 +41,11 @@ class TutorsCubit extends Cubit<TutorsState> {
 
   void onChangeNameTutor(String value) {
     emit(state.copyWith(nameTutor: value));
+  }
+
+  void onChangeSpecialties(List<String> specialties) {
+    emit(state.copyWith(specialties: specialties));
+    onSubmitSearch();
   }
 
   void onSubmitSearch() {

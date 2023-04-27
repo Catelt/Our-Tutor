@@ -37,4 +37,13 @@ enum Specialty {
         .firstWhere((e) => e.id == id, orElse: () => Specialty.all)
         .name;
   }
+
+  static String getId(String name) {
+    return Specialty.values
+        .firstWhere(
+          (e) => e.name == name,
+          orElse: () => Specialty.all,
+        )
+        .id;
+  }
 }
