@@ -53,4 +53,47 @@ class TutorRepositoryImpl extends TutorRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<bool>> favoriteTutor(String id) async {
+    try {
+      final response = await XHttp().post('/user/manageFavoriteTutor');
+
+      final data = jsonDecode(response);
+      return MResult.success(data['message'] == 'Manage success');
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<MResult<List<MFeedback>>> getFeedbackTutor(String id, int page) async {
+    try {
+      final response = await XHttp().get('/feedback/v2/$id', queryParameters: {
+        'perPage': perPage,
+        'page': page,
+      });
+      final data = MFeedbackResponse.fromJson(jsonDecode(response)['data']);
+      return MResult.success(data.list);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<MResult<bool>> reportTutor(String id, String content) async {
+    try {
+      final response = await XHttp().post('/report', data: {
+        "content": content,
+        "tutorId": id,
+      });
+      final data = jsonDecode(response);
+      return MResult.success(data['message'] == 'Report successfully');
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }

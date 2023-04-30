@@ -32,6 +32,10 @@ mixin _$MFeedback {
   set rating(double value) => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   set content(String value) => throw _privateConstructorUsedError;
+  String get createAt => throw _privateConstructorUsedError;
+  set createAt(String value) => throw _privateConstructorUsedError;
+  String get updatedAt => throw _privateConstructorUsedError;
+  set updatedAt(String value) => throw _privateConstructorUsedError;
   MTutor get firstInfo => throw _privateConstructorUsedError;
   set firstInfo(MTutor value) => throw _privateConstructorUsedError;
 
@@ -53,6 +57,8 @@ abstract class $MFeedbackCopyWith<$Res> {
       String secondId,
       double rating,
       String content,
+      String createAt,
+      String updatedAt,
       MTutor firstInfo});
 
   $MTutorCopyWith<$Res> get firstInfo;
@@ -77,6 +83,8 @@ class _$MFeedbackCopyWithImpl<$Res, $Val extends MFeedback>
     Object? secondId = null,
     Object? rating = null,
     Object? content = null,
+    Object? createAt = null,
+    Object? updatedAt = null,
     Object? firstInfo = null,
   }) {
     return _then(_value.copyWith(
@@ -103,6 +111,14 @@ class _$MFeedbackCopyWithImpl<$Res, $Val extends MFeedback>
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      createAt: null == createAt
+          ? _value.createAt
+          : createAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
       firstInfo: null == firstInfo
           ? _value.firstInfo
@@ -134,6 +150,8 @@ abstract class _$$_MFeedbackCopyWith<$Res> implements $MFeedbackCopyWith<$Res> {
       String secondId,
       double rating,
       String content,
+      String createAt,
+      String updatedAt,
       MTutor firstInfo});
 
   @override
@@ -157,6 +175,8 @@ class __$$_MFeedbackCopyWithImpl<$Res>
     Object? secondId = null,
     Object? rating = null,
     Object? content = null,
+    Object? createAt = null,
+    Object? updatedAt = null,
     Object? firstInfo = null,
   }) {
     return _then(_$_MFeedback(
@@ -184,6 +204,14 @@ class __$$_MFeedbackCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      createAt: null == createAt
+          ? _value.createAt
+          : createAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String,
       firstInfo: null == firstInfo
           ? _value.firstInfo
           : firstInfo // ignore: cast_nullable_to_non_nullable
@@ -202,6 +230,8 @@ class _$_MFeedback implements _MFeedback {
       this.secondId = "",
       this.rating = 0,
       this.content = "",
+      this.createAt = "",
+      this.updatedAt = "",
       required this.firstInfo});
 
   factory _$_MFeedback.fromJson(Map<String, dynamic> json) =>
@@ -226,11 +256,17 @@ class _$_MFeedback implements _MFeedback {
   @JsonKey()
   String content;
   @override
+  @JsonKey()
+  String createAt;
+  @override
+  @JsonKey()
+  String updatedAt;
+  @override
   MTutor firstInfo;
 
   @override
   String toString() {
-    return 'MFeedback(id: $id, bookingId: $bookingId, firstId: $firstId, secondId: $secondId, rating: $rating, content: $content, firstInfo: $firstInfo)';
+    return 'MFeedback(id: $id, bookingId: $bookingId, firstId: $firstId, secondId: $secondId, rating: $rating, content: $content, createAt: $createAt, updatedAt: $updatedAt, firstInfo: $firstInfo)';
   }
 
   @JsonKey(ignore: true)
@@ -255,6 +291,8 @@ abstract class _MFeedback implements MFeedback {
       String secondId,
       double rating,
       String content,
+      String createAt,
+      String updatedAt,
       required MTutor firstInfo}) = _$_MFeedback;
 
   factory _MFeedback.fromJson(Map<String, dynamic> json) =
@@ -278,6 +316,12 @@ abstract class _MFeedback implements MFeedback {
   @override
   String get content;
   set content(String value);
+  @override
+  String get createAt;
+  set createAt(String value);
+  @override
+  String get updatedAt;
+  set updatedAt(String value);
   @override
   MTutor get firstInfo;
   set firstInfo(MTutor value);

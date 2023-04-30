@@ -7,10 +7,12 @@ class RatingBarWidget extends StatelessWidget {
     super.key,
     required this.avgRating,
     this.numRating,
+    this.size = 15,
   });
 
   final double avgRating;
   final int? numRating;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class RatingBarWidget extends StatelessWidget {
           initialRating: avgRating,
           minRating: 1,
           allowHalfRating: true,
-          itemSize: 15,
+          itemSize: size,
           itemBuilder: (context, _) => const Icon(
             Icons.star,
             color: Colors.amber,

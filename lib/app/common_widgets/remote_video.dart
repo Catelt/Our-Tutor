@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class RemoteVideoWidget extends StatefulWidget {
-  const RemoteVideoWidget({super.key, required this.url});
+  const RemoteVideoWidget({super.key, required this.url, this.controller});
 
   final String url;
+  final VideoPlayerController? controller;
 
   @override
   State<RemoteVideoWidget> createState() => _RemoteVideoWidgetState();
@@ -16,11 +17,12 @@ class _RemoteVideoWidgetState extends State<RemoteVideoWidget> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.url)
-      ..initialize().then((_) {
-        setState(() {});
-        _controller.play();
-      });
+    _controller =
+        widget.controller ?? VideoPlayerController.network(widget.url);
+    _controller.initialize().then((_) {
+      setState(() {});
+      _controller.play();
+    });
   }
 
   @override

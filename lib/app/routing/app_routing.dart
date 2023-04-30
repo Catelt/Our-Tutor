@@ -8,6 +8,7 @@ import '../features/authentication/router/coordination.dart';
 import '../features/course/view/course_detail/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
+import '../features/tutor/view/feedback/feedback_screen.dart';
 import '../features/tutor/view/tutor_detail/tutor_detail_screen.dart';
 import 'custom_transition.dart';
 import 'not_found_screen.dart';
@@ -15,6 +16,8 @@ import 'not_found_screen.dart';
 enum AppRoute {
   tutors,
   tutor,
+  feedback,
+
   courses,
   course,
   signIn,
@@ -55,7 +58,17 @@ class XAppRouter {
               pageBuilder: (context, state) => DefaultTransition(
                 child: TutorDetailScreen(id: state.params['id'] ?? ""),
               ),
-            )
+              routes: [
+                GoRoute(
+                  parentNavigatorKey: XAppRouter.navigatorKey,
+                  path: 'feedback',
+                  name: AppRoute.feedback.name,
+                  pageBuilder: (context, state) => DefaultTransition(
+                    child: FeedbackScreen(tutorId: state.params['id'] ?? ""),
+                  ),
+                ),
+              ],
+            ),
           ]),
           _bottomNavigationItemBuilder(HomeNavigationItems.items[1]),
           _bottomNavigationItemBuilder(HomeNavigationItems.items[2]),

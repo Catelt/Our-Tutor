@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player/video_player.dart';
 import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
@@ -45,6 +46,7 @@ class TutorDetailScreen extends StatelessWidget {
     final national = ENational.getNational(item.country ?? "");
     final specialties =
         item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
+    final _controller = VideoPlayerController.network(item.video);
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Sizes.p12),
@@ -105,12 +107,23 @@ class TutorDetailScreen extends StatelessWidget {
                       title: S.text.favorite),
                   iconButton(context,
                       asset: Assets.images.icReport.path, title: S.text.report),
-                  iconButton(context,
-                      asset: Assets.images.icStar.path, title: S.text.reviews),
+                  GestureDetector(
+                    onTap: () {
+                      _controller.pause();
+                      XCoordinator().showFeedback(id);
+                    },
+                    child: iconButton(context,
+                        asset: Assets.images.icStar.path,
+                        title: S.text.reviews),
+                  ),
                 ],
               ),
             ),
-            Center(child: RemoteVideoWidget(url: item.video)),
+            Center(
+                child: RemoteVideoWidget(
+              url: item.video,
+              controller: _controller,
+            )),
             detailWidget(
                 title: S.text.tutor_languages,
                 child: WrapListWidget(list: item.languages.split(','))),

@@ -14,6 +14,8 @@ class MFeedback with _$MFeedback {
     @Default("") String secondId,
     @Default(0) double rating,
     @Default("") String content,
+    @Default("") String createAt,
+    @Default("") String updatedAt,
     required MTutor firstInfo,
   }) = _MFeedback;
 

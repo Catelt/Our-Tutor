@@ -18,6 +18,10 @@ class XCoordinator extends BaseCoordinator {
     }
   }
 
+  void showFeedback(String id) {
+    pushNamed(AppRoute.feedback.name, params: {'id': id});
+  }
+
   void showCourseDetail(String id, {bool isReplace = false}) {
     if (isReplace) {
       goNamed(AppRoute.course.name, params: {'id': id});
