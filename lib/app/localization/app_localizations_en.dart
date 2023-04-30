@@ -37,6 +37,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get common_back => 'Back';
 
   @override
+  String get common_success => 'Success';
+
+  @override
+  String get common_submit => 'Submit';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -149,4 +155,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get discover => 'Discover';
+
+  @override
+  String report_title(String value) {
+    return 'Report $value';
+  }
+
+  @override
+  String get report_subtitle => 'Help us understand what\'s happening';
 }

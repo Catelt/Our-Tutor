@@ -153,6 +153,18 @@ abstract class AppLocalizations {
   /// **'Back'**
   String get common_back;
 
+  /// No description provided for @common_success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get common_success;
+
+  /// No description provided for @common_submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get common_submit;
+
   /// No description provided for @error_noInternet.
   ///
   /// In en, this message translates to:
@@ -380,6 +392,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discover'**
   String get discover;
+
+  /// No description provided for @report_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Report {value}'**
+  String report_title(String value);
+
+  /// No description provided for @report_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help us understand what\'s happening'**
+  String get report_subtitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -17,6 +17,8 @@
   "common_close": "Close",
   "common_exit": "Exit",
   "common_back": "Back",
+  "common_success": "Success",
+  "common_submit": "Submit",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
@@ -63,5 +65,15 @@
   "tutor_interests" : "Interests",
   "tutor_teaching_experience" : "Teaching experience",
 
-  "discover" : "Discover"
+  "discover" : "Discover",
+
+  "report_title" : "Report {value}",
+    "@report_title": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "report_subtitle": "Help us understand what's happening"
 }

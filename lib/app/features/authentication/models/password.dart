@@ -1,7 +1,7 @@
 import 'package:formz/formz.dart';
 
 import '../../../localization/localization_utils.dart';
-import 'base_error.dart';
+import '../../../network/model/common/base_error.dart';
 
 class Password extends FormzInput<String, ValidationError> {
   const Password.pure() : super.pure('');

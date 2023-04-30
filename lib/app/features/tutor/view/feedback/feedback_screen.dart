@@ -28,14 +28,14 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
     if (state.hasNextPage &&
         !state.handle.isLoading &&
         _controller.position.extentAfter < 300) {
-      context.read<FeedbackCubit>().getList(widget.tutorId);
+      context.read<FeedbackCubit>().getList();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FeedbackCubit()..getList(widget.tutorId),
+      create: (context) => FeedbackCubit(id: widget.tutorId)..getList(),
       child: BlocBuilder<FeedbackCubit, FeedbackState>(
         buildWhen: (previous, current) => false,
         builder: (context, state) {

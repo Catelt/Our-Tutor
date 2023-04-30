@@ -8,11 +8,11 @@ import '../../../../../network/model/feedback/feedback.dart';
 part 'feedback_state.dart';
 
 class FeedbackCubit extends Cubit<FeedbackState> {
-  FeedbackCubit() : super(FeedbackState.ds());
-
+  FeedbackCubit({required this.id}) : super(FeedbackState.ds());
+  final String id;
   final domain = DomainManager.I;
 
-  Future<void> getList(String id) async {
+  Future<void> getList() async {
     emit(state.copyWith(page: state.page + 1, handle: MHandle.loading()));
     final response = await domain.tutor.getFeedbackTutor(id, state.page);
     if (response.isSuccess) {

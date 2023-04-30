@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:formz/formz.dart';
 
 import '../../../localization/localization_utils.dart';
-import 'base_error.dart';
+import '../../../network/model/common/base_error.dart';
 
 class Email extends FormzInput<String, ValidationError> {
   const Email.pure() : super.pure('');

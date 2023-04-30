@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_size.dart';
+import '../constants/base_style.dart';
 import 'svg_widget.dart';
 
 class TextFieldCustom extends StatefulWidget {
-  const TextFieldCustom({
-    Key? key,
-    this.hint,
-    this.errorText,
-    this.text,
-    this.onChange,
-    this.onEditingComplete,
-    this.assetIcon,
-    this.icon,
-  }) : super(key: key);
+  const TextFieldCustom(
+      {Key? key,
+      this.hint,
+      this.errorText,
+      this.text,
+      this.onChange,
+      this.onEditingComplete,
+      this.assetIcon,
+      this.icon,
+      this.maxLines})
+      : super(key: key);
 
   final String? hint;
   final String? errorText;
@@ -22,6 +24,7 @@ class TextFieldCustom extends StatefulWidget {
   final void Function()? onEditingComplete;
   final String? assetIcon;
   final IconData? icon;
+  final int? maxLines;
 
   @override
   State<TextFieldCustom> createState() => _TextFieldCustomState();
@@ -49,6 +52,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
       onChanged: widget.onChange,
       onEditingComplete: widget.onEditingComplete,
       textInputAction: TextInputAction.done,
+      maxLines: widget.maxLines,
       decoration: InputDecoration(
           hintText: widget.hint,
           errorText: widget.errorText,
@@ -59,6 +63,12 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(Sizes.p12),
               borderSide: const BorderSide(width: 1, color: Colors.grey)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Sizes.p12),
+              borderSide: BorderSide(width: 1, color: BaseColor.red)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(Sizes.p12),
+              borderSide: BorderSide(width: 1, color: BaseColor.red)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(Sizes.p12),
               borderSide: BorderSide(

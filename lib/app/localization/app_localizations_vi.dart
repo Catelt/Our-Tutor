@@ -37,6 +37,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get common_back => 'Trở lại';
 
   @override
+  String get common_success => 'Thành công';
+
+  @override
+  String get common_submit => 'Gửi';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -149,4 +155,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get discover => 'Khám phá';
+
+  @override
+  String report_title(String value) {
+    return 'Báo cáo $value';
+  }
+
+  @override
+  String get report_subtitle => 'Bạn đang gặp phải vấn đề gì';
 }

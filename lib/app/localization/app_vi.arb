@@ -17,6 +17,8 @@
   "common_close": "Đóng",
   "common_exit": "Thoát",
   "common_back": "Trở lại",
+  "common_success": "Thành công",
+  "common_submit": "Gửi",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
@@ -63,5 +65,15 @@
   "tutor_interests" : "Sở thích",
   "tutor_teaching_experience" : "Kinh nghiệm giảng dạy",
 
-  "discover" : "Khám phá"
+  "discover" : "Khám phá",
+  
+  "report_title" : "Báo cáo {value}",
+    "@report_title": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "report_subtitle": "Bạn đang gặp phải vấn đề gì"
 }

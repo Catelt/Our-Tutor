@@ -13,7 +13,9 @@ import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/course/course.dart';
 import '../../../../network/model/tutor/tutor.dart';
 import '../../../../routing/coordinator.dart';
+import '../../widgets/widget.dart';
 import 'cubit/tutor_detail_cubit.dart';
+import 'widgets/report_widget.dart';
 
 class TutorDetailScreen extends StatelessWidget {
   const TutorDetailScreen({super.key, required this.id});
@@ -63,12 +65,17 @@ class TutorDetailScreen extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 55,
-                  foregroundImage:
-                      item.avatar != null && item.avatar?.isNotEmpty == true
-                          ? CachedNetworkImageProvider(item.avatar!)
-                          : null,
+                // CircleAvatar(
+                //   radius: 55,
+                //   foregroundImage:
+                //       item.avatar != null && item.avatar?.isNotEmpty == true
+                //           ? CachedNetworkImageProvider(item.avatar!)
+                //           : null,
+                // ),
+                AvatarWidget(
+                  name: item.name,
+                  url: item.avatar,
+                  size: 110,
                 ),
                 gapW16,
                 Column(
@@ -124,8 +131,13 @@ class TutorDetailScreen extends StatelessWidget {
                       );
                     },
                   ),
-                  iconButton(context,
-                      asset: Assets.images.icReport.path, title: S.text.report),
+                  GestureDetector(
+                    onTap: () => XBottomSheet.show(context,
+                        isDismissible: false, child: ReportWidget(tutor: item)),
+                    child: iconButton(context,
+                        asset: Assets.images.icReport.path,
+                        title: S.text.report),
+                  ),
                   GestureDetector(
                     onTap: () {
                       _controller.pause();

@@ -18,7 +18,7 @@ class AvatarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(35),
+      borderRadius: BorderRadius.circular(size / 2),
       child: url != null && url?.isNotEmpty == true
           ? CachedNetworkImage(
               height: size,
