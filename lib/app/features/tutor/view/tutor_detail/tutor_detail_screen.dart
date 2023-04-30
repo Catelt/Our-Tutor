@@ -8,6 +8,7 @@ import '../../../../constants/app_size.dart';
 import '../../../../constants/base_style.dart';
 import '../../../../constants/countries.dart';
 import '../../../../constants/specialties.dart';
+import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/course/course.dart';
 import '../../../../network/model/tutor/tutor.dart';
@@ -22,7 +23,13 @@ class TutorDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => TutorDetailCubit()..getTutor(id),
-      child: BlocBuilder<TutorDetailCubit, TutorDetailState>(
+      child: BlocConsumer<TutorDetailCubit, TutorDetailState>(
+        listenWhen: (previous, current) => previous.handle != current.handle,
+        listener: (context, state) {
+          if (state.handle.isError) {
+            XToast.error(state.handle.message);
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -33,8 +40,8 @@ class TutorDetailScreen extends StatelessWidget {
                 ? Center(
                     child: LoadingWidget(),
                   )
-                : state.handle.isCompleted
-                    ? _viewTutorDetail(context, state.handle.data ?? MTutor())
+                : state.tutor.id.isNotEmpty
+                    ? _viewTutorDetail(context, state.tutor)
                     : NotFoundWidget(),
           );
         },
@@ -102,9 +109,21 @@ class TutorDetailScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  iconButton(context,
-                      asset: Assets.images.icHeart.path,
-                      title: S.text.favorite),
+                  BlocBuilder<TutorDetailCubit, TutorDetailState>(
+                    builder: (context, state) {
+                      return GestureDetector(
+                        onTap: () => context
+                            .read<TutorDetailCubit>()
+                            .onChangeFavorite(id),
+                        child: iconButton(context,
+                            asset: item.isFavorite
+                                ? Assets.images.icHeartFill.path
+                                : Assets.images.icHeart.path,
+                            title: S.text.favorite,
+                            color: item.isFavorite ? BaseColor.pink : null),
+                      );
+                    },
+                  ),
                   iconButton(context,
                       asset: Assets.images.icReport.path, title: S.text.report),
                   GestureDetector(
@@ -172,19 +191,19 @@ class TutorDetailScreen extends StatelessWidget {
   }
 
   Widget iconButton(BuildContext context,
-      {required String title, required String asset}) {
+      {required String title, required String asset, Color? color}) {
+    final newColor = color ?? Theme.of(context).colorScheme.primary;
     return Column(
       children: [
         SvgWidget(
           assetName: asset,
           size: 20,
-          color: Theme.of(context).colorScheme.primary,
+          color: newColor,
         ),
         gapH4,
         Text(
           title,
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.primary, fontSize: 13),
+          style: TextStyle(color: newColor, fontSize: 13),
         )
       ],
     );

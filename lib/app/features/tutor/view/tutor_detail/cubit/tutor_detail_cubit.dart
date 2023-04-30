@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../network/domain_manager.dart';
@@ -16,6 +15,21 @@ class TutorDetailCubit extends Cubit<TutorDetailState> {
   void getTutor(String id) async {
     emit(state.copyWith(handle: MHandle.loading()));
     final response = await domain.tutor.getDetailTutor(id);
-    emit(state.copyWith(handle: MHandle.result(response)));
+    if (response.isSuccess) {
+      final tutor = response.data ?? MTutor();
+      emit(state.copyWith(handle: MHandle.completed(tutor), tutor: tutor));
+    } else {
+      emit(state.copyWith(handle: MHandle.error(response.error)));
+    }
+  }
+
+  void onChangeFavorite(String id) async {
+    final response = await domain.tutor.favoriteTutor(id);
+    if (response.isSuccess && response.data == true) {
+      emit(state.copyWith(
+          tutor: state.tutor.copyWith(isFavorite: !state.tutor.isFavorite)));
+    } else {
+      emit(state.copyWith(handle: MHandle.error(response.error)));
+    }
   }
 }

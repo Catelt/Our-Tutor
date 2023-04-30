@@ -10,6 +10,7 @@ class BaseColor {
   static const Color orange = Color(0xFFFF9900);
   static const Color secondaryOrange = Color(0xFFFFF5E5);
   static const Color red = Color(0xFFD43513);
+  static const Color pink = Color.fromARGB(255, 255, 98, 81);
   static const Color secondaryRed = Color(0xFFFBEAE9);
   static const Color green = Color(0xFF00C11F);
   static const Color secondaryGreen = Color(0xFFE9FCEC);

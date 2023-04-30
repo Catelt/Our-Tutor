@@ -84,6 +84,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/ic_heart.svg
   SvgGenImage get icHeart => const SvgGenImage('assets/images/ic_heart.svg');
 
+  /// File path: assets/images/ic_heart_fill.svg
+  SvgGenImage get icHeartFill =>
+      const SvgGenImage('assets/images/ic_heart_fill.svg');
+
   /// File path: assets/images/ic_history.svg
   SvgGenImage get icHistory =>
       const SvgGenImage('assets/images/ic_history.svg');
@@ -141,6 +145,7 @@ class $AssetsImagesGen {
         icCloseSquare,
         icGraduationCap,
         icHeart,
+        icHeartFill,
         icHistory,
         icMessage,
         icPlaySquare,

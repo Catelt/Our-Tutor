@@ -57,7 +57,9 @@ class TutorRepositoryImpl extends TutorRepository {
   @override
   Future<MResult<bool>> favoriteTutor(String id) async {
     try {
-      final response = await XHttp().post('/user/manageFavoriteTutor');
+      final response = await XHttp().post('/user/manageFavoriteTutor', data: {
+        "tutorId": id,
+      });
 
       final data = jsonDecode(response);
       return MResult.success(data['message'] == 'Manage success');
