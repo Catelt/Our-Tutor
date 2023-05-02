@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'features/account/logic/account_cubit.dart';
+import 'features/account/bloc/account_cubit.dart';
 import 'localization/localization_utils.dart';
 import 'routing/app_routing.dart';
 

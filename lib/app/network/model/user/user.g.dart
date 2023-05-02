@@ -37,9 +37,12 @@ _$_MUser _$$_MUserFromJson(Map<String, dynamic> json) => _$_MUser(
       studentGroup: json['studentGroup'] as String?,
       studentInfo: json['studentInfo'] as String?,
       avgRating: (json['avgRating'] as num?)?.toDouble(),
-      token: json['token'] == null
+      accessToken: json['accessToken'] == null
           ? null
-          : MToken.fromJson(json['token'] as Map<String, dynamic>),
+          : MToken.fromJson(json['accessToken'] as Map<String, dynamic>),
+      refreshToken: json['refreshToken'] == null
+          ? null
+          : MToken.fromJson(json['refreshToken'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MUserToJson(_$_MUser instance) => <String, dynamic>{
@@ -66,5 +69,6 @@ Map<String, dynamic> _$$_MUserToJson(_$_MUser instance) => <String, dynamic>{
       'studentGroup': instance.studentGroup,
       'studentInfo': instance.studentInfo,
       'avgRating': instance.avgRating,
-      'token': instance.token?.toJson(),
+      'accessToken': instance.accessToken?.toJson(),
+      'refreshToken': instance.refreshToken?.toJson(),
     };

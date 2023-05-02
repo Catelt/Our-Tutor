@@ -26,4 +26,17 @@ class AuthRepositoryImpl extends AuthRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<MUser>> refreshToken(String token, {int timezone = 7}) async {
+    try {
+      final response = await XHttp().post('$_baseUrl/refresh-token',
+          data: {'refreshToken': token, 'timezone': timezone});
+      final data = MAuthResponse.fromJson(jsonDecode(response));
+      return MResult.success(MUser.userFromAuthResponse(data));
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }

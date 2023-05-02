@@ -5,16 +5,45 @@ import '../../../dialogs/alert_wrapper.dart';
 import '../../../dialogs/widgets/alert_dialog.dart';
 import '../../../localization/localization_utils.dart';
 import '../../../network/data/common/http.dart';
+import '../../../network/domain_manager.dart';
 import '../../../network/model/user/user.dart';
 import '../../../services/user_prefs.dart';
 
 part 'account_state.dart';
 
 class AccountCubit extends Cubit<AccountState> {
-  AccountCubit() : super(AccountState.ds());
+  AccountCubit() : super(AccountState.ds()) {
+    checkRefreshToken();
+  }
+
+  final domain = DomainManager();
 
   void onLoginSuccess(MUser user) {
     onUserChange(state.login(user));
+  }
+
+  void checkRefreshToken() async {
+    if (state.isLogin) {
+      final access = state.user.accessToken;
+      final refresh = state.user.refreshToken;
+      if (access != null && refresh != null) {
+        final now = DateTime.now();
+        final refreshDate = DateTime.parse(refresh.expires);
+        if (refreshDate.isBefore(now)) {
+          onUserChange(state.logOut());
+          return;
+        }
+        final accessDate = DateTime.parse(access.expires);
+        if (accessDate.isBefore(now)) {
+          final response = await domain.auth.refreshToken(refresh.id);
+          if (response.isSuccess) {
+            final user = response.data;
+            if (user == null) return;
+            onUserChange(state.login(user));
+          }
+        }
+      }
+    }
   }
 
   Future onLogOut() async {
@@ -40,7 +69,7 @@ class AccountCubit extends Cubit<AccountState> {
   void onUserChange(AccountState newState) {
     UserPrefs.instance.setUser(newState.user);
     if (newState.isLogin) {
-      final token = newState.user.token?.id;
+      final token = newState.user.accessToken?.id;
       if (token != null) {
         XHttp().setTokenApi(token);
       }

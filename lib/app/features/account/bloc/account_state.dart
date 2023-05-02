@@ -12,7 +12,7 @@ class AccountState extends Equatable {
   factory AccountState.ds() {
     final user = UserPrefs.I.getUser();
     if (user != null) {
-      XHttp().setTokenApi(user.token?.id ?? "");
+      XHttp().setTokenApi(user.accessToken?.id ?? "");
     }
     return AccountState(
       user: user ?? MUser.empty(),

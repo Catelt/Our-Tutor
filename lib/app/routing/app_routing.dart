@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../constants/home_navigation_items.dart';
-import '../features/account/logic/account_cubit.dart';
+import '../features/account/bloc/account_cubit.dart';
 import '../features/authentication/router/coordination.dart';
 import '../features/course/view/course_detail/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';

@@ -34,7 +34,8 @@ class MUser with _$MUser {
     String? studentGroup,
     String? studentInfo,
     double? avgRating,
-    MToken? token,
+    MToken? accessToken,
+    MToken? refreshToken,
   }) = _MUser;
 
   factory MUser.fromJson(Map<String, Object?> json) => _$MUserFromJson(json);
@@ -42,5 +43,7 @@ class MUser with _$MUser {
   factory MUser.empty() => MUser(id: '');
 
   factory MUser.userFromAuthResponse(MAuthResponse response) =>
-      response.user.copyWith(token: response.tokens.access);
+      response.user.copyWith(
+          accessToken: response.tokens.access,
+          refreshToken: response.tokens.refresh);
 }

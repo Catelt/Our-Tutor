@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common_widgets/common_widgets.dart';
 import '../../../routing/coordinator.dart';
-import '../logic/account_cubit.dart';
+import '../bloc/account_cubit.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});

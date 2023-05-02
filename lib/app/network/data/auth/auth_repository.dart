@@ -11,4 +11,5 @@ part 'auth_repository_impl.dart';
 abstract class AuthRepository {
   Future<MResult<MUser>> login(String email, String password);
   Future<MResult<MUser>> register(String email, String password);
+  Future<MResult<MUser>> refreshToken(String token, {int timezone = 7});
 }

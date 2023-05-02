@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
-import 'app/features/account/logic/account_cubit.dart';
+import 'app/features/account/bloc/account_cubit.dart';
 import 'app/network/domain_manager.dart';
 import 'app/services/user_prefs.dart';
 import 'app/utils/utils.dart';

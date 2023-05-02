@@ -14,4 +14,16 @@ class UserRepositoryImpl extends UserRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<MUser>> getInfo() async {
+    try {
+      final response = await XHttp().get('$_baseUrl/info');
+      final data = MUser.fromJson(jsonDecode(response)["user"]);
+      return MResult.success(data);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }

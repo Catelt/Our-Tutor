@@ -8,7 +8,7 @@ import '../../../../constants/app_size.dart';
 import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../routing/coordinator.dart';
-import '../../../account/logic/account_cubit.dart';
+import '../../../account/bloc/account_cubit.dart';
 import '../../models/models.dart';
 import '../../router/coordination.dart';
 import '../../widgets/widget.dart';
