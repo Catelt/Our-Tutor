@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 
 class XDateFormat {
   static final basic = DateFormat('yyyy-MM-dd HH:mm');
+  static final date = DateFormat('EEE, d MMM yyyy');
 }
 
 extension DateTimeExtension on DateTime {

@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 import '../../gen/assets.gen.dart';
 import '../constants/app_size.dart';
 import '../constants/countries.dart';
-import 'svg_widget.dart';
+import '../network/model/tutor/tutor.dart';
+import 'common_widgets.dart';
 
 class InfoTutorWidget extends StatelessWidget {
-  const InfoTutorWidget({super.key});
+  const InfoTutorWidget({super.key, required this.tutor});
+
+  final MTutor tutor;
 
   @override
   Widget build(BuildContext context) {
+    final national = ENational.getNational(tutor.country ?? "");
     return Container(
       padding: const EdgeInsets.all(Sizes.p12),
       decoration: BoxDecoration(
@@ -18,16 +22,17 @@ class InfoTutorWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 34,
-            backgroundImage: Image.asset('assets/image_tutor/sample.jpg').image,
+          AvatarWidget(
+            size: 68,
+            url: tutor.avatar,
+            name: tutor.name,
           ),
           gapW16,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Keegan',
+              Text(
+                tutor.name,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -35,10 +40,10 @@ class InfoTutorWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  SvgWidget(assetName: vn.imageUrl, size: 18),
+                  SvgWidget(assetName: national.imageUrl, size: 18),
                   gapW4,
                   Text(
-                    vn.name,
+                    national.name,
                     style: const TextStyle(fontSize: 16),
                   )
                 ],

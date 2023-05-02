@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ExpandContainer extends StatefulWidget {
-  const ExpandContainer({super.key, required this.title, required this.body});
+  const ExpandContainer(
+      {super.key,
+      required this.title,
+      required this.body,
+      this.canExpand = false});
   final Widget Function(bool) title;
   final Widget body;
+  final bool canExpand;
 
   @override
   State<ExpandContainer> createState() => _ExpandContainerState();
@@ -18,9 +23,11 @@ class _ExpandContainerState extends State<ExpandContainer> {
       children: [
         GestureDetector(
           onTap: () {
-            setState(() {
-              expanded = !expanded;
-            });
+            if (widget.canExpand) {
+              setState(() {
+                expanded = !expanded;
+              });
+            }
           },
           child: widget.title(expanded),
         ),

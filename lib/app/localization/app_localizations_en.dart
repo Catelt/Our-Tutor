@@ -154,6 +154,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reviews => 'Reviews';
 
   @override
+  String get record => 'Record';
+
+  @override
+  String get add_a_rating => 'Add a Rating';
+
+  @override
   String get tutor_languages => 'Languages';
 
   @override
@@ -167,6 +173,29 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tutor_teaching_experience => 'Teaching experience';
+
+  @override
+  String get history_title => 'History';
+
+  @override
+  String get history_subTitle => 'The following is a list of lessons you have attended\nYou can review the details of the lessons you have attended';
+
+  @override
+  String history_lesson_time(String value) {
+    return 'Lesson Time: $value';
+  }
+
+  @override
+  String get history_review => 'Review from tutor';
+
+  @override
+  String get history_no_review => 'Tutor haven\'t reviewed yet';
+
+  @override
+  String get history_request => 'Request for lesson';
+
+  @override
+  String get history_no_request => 'No request for lesson';
 
   @override
   String get discover => 'Discover';

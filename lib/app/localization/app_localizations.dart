@@ -387,6 +387,18 @@ abstract class AppLocalizations {
   /// **'Reviews'**
   String get reviews;
 
+  /// No description provided for @record.
+  ///
+  /// In en, this message translates to:
+  /// **'Record'**
+  String get record;
+
+  /// No description provided for @add_a_rating.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a Rating'**
+  String get add_a_rating;
+
   /// No description provided for @tutor_languages.
   ///
   /// In en, this message translates to:
@@ -416,6 +428,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Teaching experience'**
   String get tutor_teaching_experience;
+
+  /// No description provided for @history_title.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history_title;
+
+  /// No description provided for @history_subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The following is a list of lessons you have attended\nYou can review the details of the lessons you have attended'**
+  String get history_subTitle;
+
+  /// No description provided for @history_lesson_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson Time: {value}'**
+  String history_lesson_time(String value);
+
+  /// No description provided for @history_review.
+  ///
+  /// In en, this message translates to:
+  /// **'Review from tutor'**
+  String get history_review;
+
+  /// No description provided for @history_no_review.
+  ///
+  /// In en, this message translates to:
+  /// **'Tutor haven\'t reviewed yet'**
+  String get history_no_review;
+
+  /// No description provided for @history_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Request for lesson'**
+  String get history_request;
+
+  /// No description provided for @history_no_request.
+  ///
+  /// In en, this message translates to:
+  /// **'No request for lesson'**
+  String get history_no_request;
 
   /// No description provided for @discover.
   ///

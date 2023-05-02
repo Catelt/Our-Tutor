@@ -154,6 +154,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get reviews => 'Xem đánh giá';
 
   @override
+  String get record => 'Bản ghi';
+
+  @override
+  String get add_a_rating => 'Đánh giá';
+
+  @override
   String get tutor_languages => 'Ngôn ngữ';
 
   @override
@@ -167,6 +173,29 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get tutor_teaching_experience => 'Kinh nghiệm giảng dạy';
+
+  @override
+  String get history_title => 'Lịch sử các buổi học';
+
+  @override
+  String get history_subTitle => 'Đây là danh sách các bài học bạn đã tham gia\nBạn có thể xem lại thông tin chi tiết về các buổi học đã tham gia đã tham gia';
+
+  @override
+  String history_lesson_time(String value) {
+    return 'Thời gian bài học: $value';
+  }
+
+  @override
+  String get history_review => 'Đánh giá từ gia sư';
+
+  @override
+  String get history_no_review => 'Gia sư chưa có đánh giá';
+
+  @override
+  String get history_request => 'Yêu cầu cho buổi học';
+
+  @override
+  String get history_no_request => 'Không có yêu cầu cho buổi học';
 
   @override
   String get discover => 'Khám phá';

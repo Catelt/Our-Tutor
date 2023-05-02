@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../api/auth_response/auth_response.dart';
+import '../course/course.dart';
 import '../learn_topic/learn_topic.dart';
 import '../token/token.dart';
 import '../wallet_info/wallet_info.dart';
@@ -22,7 +23,7 @@ class MUser with _$MUser {
     String? birthday,
     @Default(false) bool isActivated,
     MWalletInfo? walletInfo,
-    List<String>? courses,
+    List<MCourse>? courses,
     String? requireNote,
     String? level,
     List<MLearnTopic>? learnTopics,

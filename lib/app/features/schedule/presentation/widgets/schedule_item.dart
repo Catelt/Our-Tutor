@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
+import '../../../../network/model/tutor/tutor.dart';
 import 'request_lesson.dart';
 
 class ScheduleItem extends StatelessWidget {
@@ -34,7 +35,9 @@ class ScheduleItem extends StatelessWidget {
             style: TextStyle(fontSize: 14),
           ),
           gapH16,
-          const InfoTutorWidget(),
+          InfoTutorWidget(
+            tutor: MTutor(),
+          ),
           gapH12,
           infoLesson()
         ],

@@ -40,8 +40,8 @@ mixin _$MUser {
   set isActivated(bool value) => throw _privateConstructorUsedError;
   MWalletInfo? get walletInfo => throw _privateConstructorUsedError;
   set walletInfo(MWalletInfo? value) => throw _privateConstructorUsedError;
-  List<String>? get courses => throw _privateConstructorUsedError;
-  set courses(List<String>? value) => throw _privateConstructorUsedError;
+  List<MCourse>? get courses => throw _privateConstructorUsedError;
+  set courses(List<MCourse>? value) => throw _privateConstructorUsedError;
   String? get requireNote => throw _privateConstructorUsedError;
   set requireNote(String? value) => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
@@ -92,7 +92,7 @@ abstract class $MUserCopyWith<$Res> {
       String? birthday,
       bool isActivated,
       MWalletInfo? walletInfo,
-      List<String>? courses,
+      List<MCourse>? courses,
       String? requireNote,
       String? level,
       List<MLearnTopic>? learnTopics,
@@ -194,7 +194,7 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
       courses: freezed == courses
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<MCourse>?,
       requireNote: freezed == requireNote
           ? _value.requireNote
           : requireNote // ignore: cast_nullable_to_non_nullable
@@ -304,7 +304,7 @@ abstract class _$$_MUserCopyWith<$Res> implements $MUserCopyWith<$Res> {
       String? birthday,
       bool isActivated,
       MWalletInfo? walletInfo,
-      List<String>? courses,
+      List<MCourse>? courses,
       String? requireNote,
       String? level,
       List<MLearnTopic>? learnTopics,
@@ -405,7 +405,7 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
       courses: freezed == courses
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<MCourse>?,
       requireNote: freezed == requireNote
           ? _value.requireNote
           : requireNote // ignore: cast_nullable_to_non_nullable
@@ -519,7 +519,7 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   @override
   MWalletInfo? walletInfo;
   @override
-  List<String>? courses;
+  List<MCourse>? courses;
   @override
   String? requireNote;
   @override
@@ -612,7 +612,7 @@ abstract class _MUser implements MUser {
       String? birthday,
       bool isActivated,
       MWalletInfo? walletInfo,
-      List<String>? courses,
+      List<MCourse>? courses,
       String? requireNote,
       String? level,
       List<MLearnTopic>? learnTopics,
@@ -660,8 +660,8 @@ abstract class _MUser implements MUser {
   MWalletInfo? get walletInfo;
   set walletInfo(MWalletInfo? value);
   @override
-  List<String>? get courses;
-  set courses(List<String>? value);
+  List<MCourse>? get courses;
+  set courses(List<MCourse>? value);
   @override
   String? get requireNote;
   set requireNote(String? value);

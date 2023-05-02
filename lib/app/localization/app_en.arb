@@ -64,12 +64,29 @@
   "favorite": "Favorite",
   "report": "Report",
   "reviews": "Reviews",
+  "record": "Record",
+  "add_a_rating":"Add a Rating",
 
   "tutor_languages" : "Languages",
   "tutor_specialties" : "Specialties",
   "tutor_suggested_courses" : "Suggested courses",
   "tutor_interests" : "Interests",
   "tutor_teaching_experience" : "Teaching experience",
+
+  "history_title": "History",
+  "history_subTitle": "The following is a list of lessons you have attended\nYou can review the details of the lessons you have attended",
+  "history_lesson_time": "Lesson Time: {value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "history_review": "Review from tutor",
+  "history_no_review": "Tutor haven't reviewed yet",
+  "history_request": "Request for lesson",
+  "history_no_request": "No request for lesson",
 
   "discover" : "Discover",
 

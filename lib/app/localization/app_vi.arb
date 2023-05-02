@@ -64,12 +64,29 @@
   "favorite": "Yêu thích",
   "report": "Báo cáo",
   "reviews": "Xem đánh giá",
+  "record": "Bản ghi",
+  "add_a_rating":"Đánh giá",
 
   "tutor_languages" : "Ngôn ngữ",
   "tutor_specialties" : "Chuyên ngành",
   "tutor_suggested_courses" : "Khóa học tham khảo",
   "tutor_interests" : "Sở thích",
   "tutor_teaching_experience" : "Kinh nghiệm giảng dạy",
+
+  "history_title": "Lịch sử các buổi học",
+  "history_subTitle": "Đây là danh sách các bài học bạn đã tham gia\nBạn có thể xem lại thông tin chi tiết về các buổi học đã tham gia đã tham gia",
+  "history_lesson_time": "Thời gian bài học: {value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "history_review": "Đánh giá từ gia sư",
+  "history_no_review": "Gia sư chưa có đánh giá",
+  "history_request": "Yêu cầu cho buổi học",
+  "history_no_request": "Không có yêu cầu cho buổi học",
 
   "discover" : "Khám phá",
   

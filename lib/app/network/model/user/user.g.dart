@@ -20,8 +20,9 @@ _$_MUser _$$_MUserFromJson(Map<String, dynamic> json) => _$_MUser(
       walletInfo: json['walletInfo'] == null
           ? null
           : MWalletInfo.fromJson(json['walletInfo'] as Map<String, dynamic>),
-      courses:
-          (json['courses'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      courses: (json['courses'] as List<dynamic>?)
+          ?.map((e) => MCourse.fromJson(e as Map<String, dynamic>))
+          .toList(),
       requireNote: json['requireNote'] as String?,
       level: json['level'] as String?,
       learnTopics: (json['learnTopics'] as List<dynamic>?)
@@ -56,7 +57,7 @@ Map<String, dynamic> _$$_MUserToJson(_$_MUser instance) => <String, dynamic>{
       'birthday': instance.birthday,
       'isActivated': instance.isActivated,
       'walletInfo': instance.walletInfo?.toJson(),
-      'courses': instance.courses,
+      'courses': instance.courses?.map((e) => e.toJson()).toList(),
       'requireNote': instance.requireNote,
       'level': instance.level,
       'learnTopics': instance.learnTopics?.map((e) => e.toJson()).toList(),
