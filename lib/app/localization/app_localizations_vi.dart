@@ -160,6 +160,20 @@ class AppLocalizationsVi extends AppLocalizations {
   String get add_a_rating => 'Đánh giá';
 
   @override
+  String get enter_lesson_room => 'Vào lớp học';
+
+  @override
+  String get tutors_find_tutor => 'Tìm kiếm gia sư';
+
+  @override
+  String get tutors_up_coming => 'Buổi học sắp diễn ra';
+
+  @override
+  String tutors_total_time(int hours, int minutes) {
+    return 'Tổng số giờ bạn đã học là $hours giờ $minutes phút';
+  }
+
+  @override
   String get tutor_languages => 'Ngôn ngữ';
 
   @override

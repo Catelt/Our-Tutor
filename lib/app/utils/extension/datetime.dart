@@ -1,8 +1,10 @@
 import 'package:intl/intl.dart';
 
+import '../../services/user_prefs.dart';
+
 class XDateFormat {
-  static final basic = DateFormat('yyyy-MM-dd HH:mm');
-  static final date = DateFormat('EEE, d MMM yyyy');
+  final basic = DateFormat('yyyy-MM-dd HH:mm', UserPrefs.I.getLocale());
+  final date = DateFormat('EEE, d MMM yyyy', UserPrefs.I.getLocale());
 }
 
 extension DateTimeExtension on DateTime {
@@ -14,6 +16,6 @@ extension DateTimeExtension on DateTime {
     if (distance.inHours < 24) {
       return "${distance.inHours} hours ago";
     }
-    return XDateFormat.basic.format(this);
+    return XDateFormat().basic.format(this);
   }
 }

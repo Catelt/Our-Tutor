@@ -160,6 +160,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add_a_rating => 'Add a Rating';
 
   @override
+  String get enter_lesson_room => 'Enter lesson room';
+
+  @override
+  String get tutors_find_tutor => 'Find a tutor';
+
+  @override
+  String get tutors_up_coming => 'Upcoming lesson';
+
+  @override
+  String tutors_total_time(int hours, int minutes) {
+    return 'Total lesson time is $hours hours $minutes minutes';
+  }
+
+  @override
   String get tutor_languages => 'Languages';
 
   @override

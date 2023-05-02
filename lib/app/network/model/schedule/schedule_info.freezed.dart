@@ -22,10 +22,10 @@ MScheduleInfo _$MScheduleInfoFromJson(Map<String, dynamic> json) {
 mixin _$MScheduleInfo {
   String get date => throw _privateConstructorUsedError;
   set date(String value) => throw _privateConstructorUsedError;
-  double get createdAtTimeStamp => throw _privateConstructorUsedError;
-  set createdAtTimeStamp(double value) => throw _privateConstructorUsedError;
-  double get updatedAtTimeStamp => throw _privateConstructorUsedError;
-  set updatedAtTimeStamp(double value) => throw _privateConstructorUsedError;
+  double get startTimestamp => throw _privateConstructorUsedError;
+  set startTimestamp(double value) => throw _privateConstructorUsedError;
+  double get endTimestamp => throw _privateConstructorUsedError;
+  set endTimestamp(double value) => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   set id(String value) => throw _privateConstructorUsedError;
   String get tutorId => throw _privateConstructorUsedError;
@@ -57,8 +57,8 @@ abstract class $MScheduleInfoCopyWith<$Res> {
   @useResult
   $Res call(
       {String date,
-      double createdAtTimeStamp,
-      double updatedAtTimeStamp,
+      double startTimestamp,
+      double endTimestamp,
       String id,
       String tutorId,
       String startTime,
@@ -85,8 +85,8 @@ class _$MScheduleInfoCopyWithImpl<$Res, $Val extends MScheduleInfo>
   @override
   $Res call({
     Object? date = null,
-    Object? createdAtTimeStamp = null,
-    Object? updatedAtTimeStamp = null,
+    Object? startTimestamp = null,
+    Object? endTimestamp = null,
     Object? id = null,
     Object? tutorId = null,
     Object? startTime = null,
@@ -101,13 +101,13 @@ class _$MScheduleInfoCopyWithImpl<$Res, $Val extends MScheduleInfo>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAtTimeStamp: null == createdAtTimeStamp
-          ? _value.createdAtTimeStamp
-          : createdAtTimeStamp // ignore: cast_nullable_to_non_nullable
+      startTimestamp: null == startTimestamp
+          ? _value.startTimestamp
+          : startTimestamp // ignore: cast_nullable_to_non_nullable
               as double,
-      updatedAtTimeStamp: null == updatedAtTimeStamp
-          ? _value.updatedAtTimeStamp
-          : updatedAtTimeStamp // ignore: cast_nullable_to_non_nullable
+      endTimestamp: null == endTimestamp
+          ? _value.endTimestamp
+          : endTimestamp // ignore: cast_nullable_to_non_nullable
               as double,
       id: null == id
           ? _value.id
@@ -167,8 +167,8 @@ abstract class _$$_MScheduleInfoCopyWith<$Res>
   @useResult
   $Res call(
       {String date,
-      double createdAtTimeStamp,
-      double updatedAtTimeStamp,
+      double startTimestamp,
+      double endTimestamp,
       String id,
       String tutorId,
       String startTime,
@@ -194,8 +194,8 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? date = null,
-    Object? createdAtTimeStamp = null,
-    Object? updatedAtTimeStamp = null,
+    Object? startTimestamp = null,
+    Object? endTimestamp = null,
     Object? id = null,
     Object? tutorId = null,
     Object? startTime = null,
@@ -210,13 +210,13 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAtTimeStamp: null == createdAtTimeStamp
-          ? _value.createdAtTimeStamp
-          : createdAtTimeStamp // ignore: cast_nullable_to_non_nullable
+      startTimestamp: null == startTimestamp
+          ? _value.startTimestamp
+          : startTimestamp // ignore: cast_nullable_to_non_nullable
               as double,
-      updatedAtTimeStamp: null == updatedAtTimeStamp
-          ? _value.updatedAtTimeStamp
-          : updatedAtTimeStamp // ignore: cast_nullable_to_non_nullable
+      endTimestamp: null == endTimestamp
+          ? _value.endTimestamp
+          : endTimestamp // ignore: cast_nullable_to_non_nullable
               as double,
       id: null == id
           ? _value.id
@@ -259,8 +259,8 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
 class _$_MScheduleInfo implements _MScheduleInfo {
   _$_MScheduleInfo(
       {this.date = "",
-      this.createdAtTimeStamp = 0,
-      this.updatedAtTimeStamp = 0,
+      this.startTimestamp = 0,
+      this.endTimestamp = 0,
       this.id = "",
       this.tutorId = "",
       this.startTime = "",
@@ -278,10 +278,10 @@ class _$_MScheduleInfo implements _MScheduleInfo {
   String date;
   @override
   @JsonKey()
-  double createdAtTimeStamp;
+  double startTimestamp;
   @override
   @JsonKey()
-  double updatedAtTimeStamp;
+  double endTimestamp;
   @override
   @JsonKey()
   String id;
@@ -308,7 +308,7 @@ class _$_MScheduleInfo implements _MScheduleInfo {
 
   @override
   String toString() {
-    return 'MScheduleInfo(date: $date, createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, tutorId: $tutorId, startTime: $startTime, endTime: $endTime, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, tutorInfo: $tutorInfo)';
+    return 'MScheduleInfo(date: $date, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, id: $id, tutorId: $tutorId, startTime: $startTime, endTime: $endTime, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, tutorInfo: $tutorInfo)';
   }
 
   @JsonKey(ignore: true)
@@ -328,8 +328,8 @@ class _$_MScheduleInfo implements _MScheduleInfo {
 abstract class _MScheduleInfo implements MScheduleInfo {
   factory _MScheduleInfo(
       {String date,
-      double createdAtTimeStamp,
-      double updatedAtTimeStamp,
+      double startTimestamp,
+      double endTimestamp,
       String id,
       String tutorId,
       String startTime,
@@ -346,11 +346,11 @@ abstract class _MScheduleInfo implements MScheduleInfo {
   String get date;
   set date(String value);
   @override
-  double get createdAtTimeStamp;
-  set createdAtTimeStamp(double value);
+  double get startTimestamp;
+  set startTimestamp(double value);
   @override
-  double get updatedAtTimeStamp;
-  set updatedAtTimeStamp(double value);
+  double get endTimestamp;
+  set endTimestamp(double value);
   @override
   String get id;
   set id(String value);

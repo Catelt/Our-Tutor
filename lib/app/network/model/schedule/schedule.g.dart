@@ -7,8 +7,9 @@ part of 'schedule.dart';
 // **************************************************************************
 
 _$_MSchedule _$$_MScheduleFromJson(Map<String, dynamic> json) => _$_MSchedule(
-      createdAtTimeStamp: (json['createdAtTimeStamp'] as num?)?.toDouble() ?? 0,
-      updatedAtTimeStamp: (json['updatedAtTimeStamp'] as num?)?.toDouble() ?? 0,
+      startPeriodTimestamp:
+          (json['startPeriodTimestamp'] as num?)?.toDouble() ?? 0,
+      endPeriodTimestamp: (json['endPeriodTimestamp'] as num?)?.toDouble() ?? 0,
       id: json['id'] as String? ?? "",
       scheduleId: json['scheduleId'] as String? ?? "",
       startPeriod: json['startPeriod'] as String? ?? "",
@@ -23,8 +24,8 @@ _$_MSchedule _$$_MScheduleFromJson(Map<String, dynamic> json) => _$_MSchedule(
 
 Map<String, dynamic> _$$_MScheduleToJson(_$_MSchedule instance) =>
     <String, dynamic>{
-      'createdAtTimeStamp': instance.createdAtTimeStamp,
-      'updatedAtTimeStamp': instance.updatedAtTimeStamp,
+      'startPeriodTimestamp': instance.startPeriodTimestamp,
+      'endPeriodTimestamp': instance.endPeriodTimestamp,
       'id': instance.id,
       'scheduleId': instance.scheduleId,
       'startPeriod': instance.startPeriod,

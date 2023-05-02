@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../../../../constants/specialties.dart';
 import '../../../../../network/domain_manager.dart';
+import '../../../../../network/model/booking/booking.dart';
 import '../../../../../network/model/common/handle.dart';
 import '../../../../../network/model/common/result.dart';
+import '../../../../../network/model/schedule/schedule.dart';
 import '../../../../../network/model/tutor/tutor.dart';
 
 part 'tutors_state.dart';
@@ -13,6 +14,8 @@ part 'tutors_state.dart';
 class TutorsCubit extends Cubit<TutorsState> {
   TutorsCubit() : super(TutorsState.ds()) {
     getList();
+    getUpComingBooking();
+    getTotalTime();
   }
   final domain = DomainManager.I;
 
@@ -36,6 +39,21 @@ class TutorsCubit extends Cubit<TutorsState> {
       }
     } else {
       emit(state.copyWith(handle: MHandle.error(response.error)));
+    }
+  }
+
+  Future<void> getTotalTime() async {
+    final response = await domain.schedule.getTotalTimeLearn();
+    if (response.isSuccess) {
+      emit(state.copyWith(total: response.data));
+    }
+  }
+
+  Future<void> getUpComingBooking() async {
+    final response = await domain.schedule
+        .getNextBooked(DateTime.now().millisecondsSinceEpoch);
+    if (response.isSuccess) {
+      emit(state.copyWith(booking: response.data?.first));
     }
   }
 

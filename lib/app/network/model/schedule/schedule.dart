@@ -8,8 +8,8 @@ part 'schedule.g.dart';
 @unfreezed
 class MSchedule with _$MSchedule {
   factory MSchedule({
-    @Default(0) double createdAtTimeStamp,
-    @Default(0) double updatedAtTimeStamp,
+    @Default(0) double startPeriodTimestamp,
+    @Default(0) double endPeriodTimestamp,
     @Default("") String id,
     @Default("") String scheduleId,
     @Default("") String startPeriod,

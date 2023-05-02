@@ -4,6 +4,8 @@ import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../constants/specialties.dart';
+import '../../../../localization/localization_utils.dart';
+import '../../../../utils/extension/datetime.dart';
 import '../../widgets/widget.dart';
 import 'cubit/tutors_cubit.dart';
 
@@ -99,7 +101,7 @@ class _TutorsScreenState extends State<TutorsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Find a Tutor",
+            S.text.tutors_find_tutor,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 29),
           ),
           gapH12,
@@ -174,49 +176,78 @@ class _TutorsScreenState extends State<TutorsScreen> {
       color: Colors.blue,
       child: Column(
         children: [
-          gapH16,
-          Text(
-            "Upcoming lesson",
-            style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+          upComingInfo(),
+          BlocBuilder<TutorsCubit, TutorsState>(
+            buildWhen: (previous, current) => previous.total != current.total,
+            builder: (context, state) {
+              final time = state.total;
+              return Text(
+                  S.text.tutors_total_time((time / 60).floor(), (time % 60)),
+                  style: TextStyle(color: Colors.white, fontSize: 16));
+            },
           ),
-          gapH4,
-          Text(
-            "Sat 11 Mar 23 22:00 - 22:25",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          gapH8,
-          GestureDetector(
-            onTap: null,
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: Sizes.p20, vertical: Sizes.p4),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SvgWidget(
-                    assetName: Assets.images.icTivi.path,
-                    size: 16,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                  gapW8,
-                  Text(
-                    "Enter your room",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontSize: 16),
-                  )
-                ],
-              ),
-            ),
-          ),
-          gapH8,
-          Text("Total lesson time is 300 hours 25 minutes",
-              style: TextStyle(color: Colors.white, fontSize: 16)),
         ],
       ),
+    );
+  }
+
+  Widget upComingInfo() {
+    return BlocBuilder<TutorsCubit, TutorsState>(
+      buildWhen: (previous, current) => previous.booking != current.booking,
+      builder: (context, state) {
+        final schedule = state.booking.scheduleDetailInfo;
+        final start = DateTime.fromMillisecondsSinceEpoch(
+            schedule.startPeriodTimestamp.round());
+        return Visibility(
+          visible: state.booking.id.isNotEmpty,
+          child: Column(
+            children: [
+              gapH16,
+              Text(
+                S.text.tutors_up_coming,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+              ),
+              gapH4,
+              Text(
+                "${XDateFormat().date.format(start)} ${schedule.startPeriod} - ${schedule.endPeriod}",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              gapH8,
+              GestureDetector(
+                onTap: null,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: Sizes.p20, vertical: Sizes.p4),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgWidget(
+                        assetName: Assets.images.icTivi.path,
+                        size: 16,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      gapW8,
+                      Text(
+                        S.text.enter_lesson_room,
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 16),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              gapH8,
+            ],
+          ),
+        );
+      },
     );
   }
 }

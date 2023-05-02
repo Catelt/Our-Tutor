@@ -9,8 +9,8 @@ part of 'schedule_info.dart';
 _$_MScheduleInfo _$$_MScheduleInfoFromJson(Map<String, dynamic> json) =>
     _$_MScheduleInfo(
       date: json['date'] as String? ?? "",
-      createdAtTimeStamp: (json['createdAtTimeStamp'] as num?)?.toDouble() ?? 0,
-      updatedAtTimeStamp: (json['updatedAtTimeStamp'] as num?)?.toDouble() ?? 0,
+      startTimestamp: (json['startTimestamp'] as num?)?.toDouble() ?? 0,
+      endTimestamp: (json['endTimestamp'] as num?)?.toDouble() ?? 0,
       id: json['id'] as String? ?? "",
       tutorId: json['tutorId'] as String? ?? "",
       startTime: json['startTime'] as String? ?? "",
@@ -26,8 +26,8 @@ _$_MScheduleInfo _$$_MScheduleInfoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_MScheduleInfoToJson(_$_MScheduleInfo instance) =>
     <String, dynamic>{
       'date': instance.date,
-      'createdAtTimeStamp': instance.createdAtTimeStamp,
-      'updatedAtTimeStamp': instance.updatedAtTimeStamp,
+      'startTimestamp': instance.startTimestamp,
+      'endTimestamp': instance.endTimestamp,
       'id': instance.id,
       'tutorId': instance.tutorId,
       'startTime': instance.startTime,

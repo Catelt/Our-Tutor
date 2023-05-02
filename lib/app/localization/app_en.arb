@@ -66,6 +66,21 @@
   "reviews": "Reviews",
   "record": "Record",
   "add_a_rating":"Add a Rating",
+  "enter_lesson_room" :"Enter lesson room",
+
+  "tutors_find_tutor" : "Find a tutor",
+  "tutors_up_coming" : "Upcoming lesson",
+  "tutors_total_time" : "Total lesson time is {hours} hours {minutes} minutes",
+  "@tutors_total_time": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
 
   "tutor_languages" : "Languages",
   "tutor_specialties" : "Specialties",

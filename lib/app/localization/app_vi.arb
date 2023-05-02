@@ -66,6 +66,21 @@
   "reviews": "Xem đánh giá",
   "record": "Bản ghi",
   "add_a_rating":"Đánh giá",
+  "enter_lesson_room" :"Vào lớp học",
+
+  "tutors_find_tutor" : "Tìm kiếm gia sư",
+  "tutors_up_coming" : "Buổi học sắp diễn ra",
+  "tutors_total_time" : "Tổng số giờ bạn đã học là {hours} giờ {minutes} phút",
+  "@tutors_total_time": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
 
   "tutor_languages" : "Ngôn ngữ",
   "tutor_specialties" : "Chuyên ngành",

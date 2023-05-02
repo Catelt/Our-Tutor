@@ -399,6 +399,30 @@ abstract class AppLocalizations {
   /// **'Add a Rating'**
   String get add_a_rating;
 
+  /// No description provided for @enter_lesson_room.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter lesson room'**
+  String get enter_lesson_room;
+
+  /// No description provided for @tutors_find_tutor.
+  ///
+  /// In en, this message translates to:
+  /// **'Find a tutor'**
+  String get tutors_find_tutor;
+
+  /// No description provided for @tutors_up_coming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming lesson'**
+  String get tutors_up_coming;
+
+  /// No description provided for @tutors_total_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Total lesson time is {hours} hours {minutes} minutes'**
+  String tutors_total_time(int hours, int minutes);
+
   /// No description provided for @tutor_languages.
   ///
   /// In en, this message translates to:

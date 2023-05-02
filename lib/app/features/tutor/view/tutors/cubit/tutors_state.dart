@@ -7,6 +7,8 @@ class TutorsState extends Equatable {
   final List<MTutor> tutors;
   final String nameTutor;
   final List<String> specialties;
+  final MBooking booking;
+  final int total;
 
   TutorsState({
     required this.handle,
@@ -15,29 +17,39 @@ class TutorsState extends Equatable {
     required this.tutors,
     this.nameTutor = '',
     this.specialties = const [],
+    required this.booking,
+    this.total = 0,
   });
 
   factory TutorsState.ds() => TutorsState(
-        handle: MHandle(),
-        hasNextPage: true,
-        page: 0,
-        tutors: [],
-      );
+      handle: MHandle(),
+      hasNextPage: true,
+      page: 0,
+      tutors: [],
+      booking: MBooking(
+        scheduleDetailInfo: MSchedule(),
+      ));
 
-  TutorsState copyWith(
-      {MHandle<bool>? handle,
-      bool? hasNextPage,
-      int? page,
-      List<MTutor>? tutors,
-      String? nameTutor,
-      List<String>? specialties}) {
+  TutorsState copyWith({
+    MHandle<bool>? handle,
+    bool? hasNextPage,
+    int? page,
+    List<MTutor>? tutors,
+    String? nameTutor,
+    List<String>? specialties,
+    MBooking? booking,
+    int? total,
+  }) {
     return TutorsState(
-        handle: handle ?? this.handle,
-        hasNextPage: hasNextPage ?? this.hasNextPage,
-        page: page ?? this.page,
-        tutors: tutors ?? this.tutors,
-        nameTutor: nameTutor ?? this.nameTutor,
-        specialties: specialties ?? this.specialties);
+      handle: handle ?? this.handle,
+      hasNextPage: hasNextPage ?? this.hasNextPage,
+      page: page ?? this.page,
+      tutors: tutors ?? this.tutors,
+      nameTutor: nameTutor ?? this.nameTutor,
+      specialties: specialties ?? this.specialties,
+      booking: booking ?? this.booking,
+      total: total ?? this.total,
+    );
   }
 
   bool get isSearch => nameTutor.isNotEmpty || specialties.isNotEmpty;
@@ -51,6 +63,14 @@ class TutorsState extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [handle, hasNextPage, page, tutors, nameTutor, specialties];
+  List<Object?> get props => [
+        handle,
+        hasNextPage,
+        page,
+        tutors,
+        nameTutor,
+        specialties,
+        booking,
+        total
+      ];
 }

@@ -17,7 +17,7 @@ class HistoryCubit extends Cubit<HistoryState> {
   Future<void> getList() async {
     emit(state.copyWith(page: state.page + 1, handle: MHandle.loading()));
     final response = await domain.schedule
-        .getBookedClasses(state.page, DateTime.now().microsecondsSinceEpoch);
+        .getBookedClasses(state.page, DateTime.now().millisecondsSinceEpoch);
     if (response.isSuccess) {
       if (response.data?.isEmpty == true) {
         emit(state.copyWith(

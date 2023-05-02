@@ -35,7 +35,7 @@ class HistoryItem extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            XDateFormat.date.format(date),
+            XDateFormat().date.format(date),
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           // const Text(

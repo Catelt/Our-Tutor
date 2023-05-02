@@ -9,8 +9,8 @@ part 'schedule_info.g.dart';
 class MScheduleInfo with _$MScheduleInfo {
   factory MScheduleInfo({
     @Default("") String date,
-    @Default(0) double createdAtTimeStamp,
-    @Default(0) double updatedAtTimeStamp,
+    @Default(0) double startTimestamp,
+    @Default(0) double endTimestamp,
     @Default("") String id,
     @Default("") String tutorId,
     @Default("") String startTime,
