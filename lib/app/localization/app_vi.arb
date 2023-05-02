@@ -23,6 +23,12 @@
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
 
+  "navigation_tutor": "Gia sư",
+  "navigation_schedule": "Lịch Học",
+  "navigation_history": "Lịch Sử",
+  "navigation_course": "Khóa Học",
+  "navigation_account": "Tài Khoản",
+
   "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
   "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
   "error_sign_up_email": "Email đã tồn tại",
@@ -75,5 +81,12 @@
       }
     }
   },
-  "report_subtitle": "Bạn đang gặp phải vấn đề gì"
+  "report_subtitle": "Bạn đang gặp phải vấn đề gì",
+
+  "setting_edit_profile": "Chỉnh sửa thông tin",
+  "setting_language": "Ngôn ngữ",
+  "setting_private_policy": "Chính sách bảo mật",
+  "setting_button_log_out": "Đăng xuất",
+
+  "title_bottom_select_language": "Chọn ngôn ngữ"
 }

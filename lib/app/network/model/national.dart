@@ -1,27 +1,18 @@
-import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
-@immutable
-class National {
+class National extends Equatable {
   const National({
     required this.id,
     required this.name,
     required this.imageUrl,
+    required this.code,
   });
 
   final int id;
   final String name;
   final String imageUrl;
+  final String code;
 
   @override
-  String toString() => 'National(id: $id, name: $name, imageUrl: $imageUrl)';
-
-  @override
-  bool operator ==(covariant National other) {
-    if (identical(this, other)) return true;
-
-    return other.id == id && other.name == name && other.imageUrl == imageUrl;
-  }
-
-  @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ imageUrl.hashCode;
+  List<Object?> get props => [id, name, imageUrl, code];
 }

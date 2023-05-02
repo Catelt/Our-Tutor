@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsIconNationalGen {
   const $AssetsIconNationalGen();
 
+  /// File path: assets/icon_national/ic_en.svg
+  SvgGenImage get icEn => const SvgGenImage('assets/icon_national/ic_en.svg');
+
   /// File path: assets/icon_national/ic_philip.svg
   SvgGenImage get icPhilip =>
       const SvgGenImage('assets/icon_national/ic_philip.svg');
@@ -26,7 +29,7 @@ class $AssetsIconNationalGen {
   SvgGenImage get icVn => const SvgGenImage('assets/icon_national/ic_vn.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [icPhilip, icTaiwan, icVn];
+  List<SvgGenImage> get values => [icEn, icPhilip, icTaiwan, icVn];
 }
 
 class $AssetsImageTutorGen {

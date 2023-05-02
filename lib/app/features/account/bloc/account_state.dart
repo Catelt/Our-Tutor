@@ -3,7 +3,7 @@ part of 'account_cubit.dart';
 class AccountState extends Equatable {
   const AccountState({
     required this.user,
-    this.locale = 'vi',
+    required this.locale,
   });
 
   final MUser user;
@@ -16,6 +16,7 @@ class AccountState extends Equatable {
     }
     return AccountState(
       user: user ?? MUser.empty(),
+      locale: UserPrefs.I.getLocale(),
     );
   }
 

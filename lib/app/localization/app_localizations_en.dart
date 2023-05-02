@@ -52,6 +52,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_somethingWrongTryAgain => 'Something went wrong, try again...';
 
   @override
+  String get navigation_tutor => 'Tutor';
+
+  @override
+  String get navigation_schedule => 'Schedule';
+
+  @override
+  String get navigation_history => 'History';
+
+  @override
+  String get navigation_course => 'Course';
+
+  @override
+  String get navigation_account => 'Account';
+
+  @override
   String get error_sign_in => 'Log in failed. Incorrect email or password';
 
   @override
@@ -163,4 +178,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get report_subtitle => 'Help us understand what\'s happening';
+
+  @override
+  String get setting_edit_profile => 'Edit profile';
+
+  @override
+  String get setting_language => 'Language Preferences';
+
+  @override
+  String get setting_private_policy => 'Private Policy';
+
+  @override
+  String get setting_button_log_out => 'Log out';
+
+  @override
+  String get title_bottom_select_language => 'Select Language';
 }

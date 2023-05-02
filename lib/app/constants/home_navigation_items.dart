@@ -5,6 +5,7 @@ import '../features/history/presentation/view/history_screen.dart';
 import '../features/home/data/home_navigation_item.dart';
 import '../features/schedule/presentation/view/schedule_screen.dart';
 import '../features/tutor/view/tutors/tutors_screen.dart';
+import '../localization/localization_utils.dart';
 import '../routing/app_routing.dart';
 
 class HomeNavigationItems {
@@ -13,8 +14,6 @@ class HomeNavigationItems {
     path: '/tutors',
     icon: Assets.images.icBoardTeacher.path,
     selectedIcon: Assets.images.icBoardTeacher.path,
-    tooltip: 'Tutor',
-    label: 'Tutor',
     view: const TutorsScreen(),
   );
 
@@ -23,8 +22,6 @@ class HomeNavigationItems {
     path: '/schedule',
     icon: Assets.images.icScheduleCheck.path,
     selectedIcon: Assets.images.icScheduleCheck.path,
-    tooltip: 'Schedule',
-    label: 'Schedule',
     view: const ScheduleScreen(),
   );
 
@@ -33,8 +30,6 @@ class HomeNavigationItems {
     path: '/history',
     icon: Assets.images.icHistory.path,
     selectedIcon: Assets.images.icHistory.path,
-    tooltip: 'History',
-    label: 'History',
     view: const HistoryScreen(),
   );
 
@@ -43,8 +38,6 @@ class HomeNavigationItems {
     path: '/courses',
     icon: Assets.images.icGraduationCap.path,
     selectedIcon: Assets.images.icGraduationCap.path,
-    tooltip: 'Course',
-    label: 'Course',
     view: const CoursesScreen(),
   );
 
@@ -53,8 +46,6 @@ class HomeNavigationItems {
     path: '/account',
     icon: Assets.images.icUserGraduate.path,
     selectedIcon: Assets.images.icUserGraduate.path,
-    tooltip: 'Account',
-    label: 'Account',
     view: const AccountScreen(),
   );
 
@@ -65,4 +56,23 @@ class HomeNavigationItems {
     courses,
     account,
   ];
+
+  static String getLabel(String name) {
+    if (name == AppRoute.tutors.name) {
+      return S.text.navigation_tutor;
+    }
+    if (name == AppRoute.schedule.name) {
+      return S.text.navigation_schedule;
+    }
+    if (name == AppRoute.history.name) {
+      return S.text.navigation_history;
+    }
+    if (name == AppRoute.courses.name) {
+      return S.text.navigation_course;
+    }
+    if (name == AppRoute.account.name) {
+      return S.text.navigation_account;
+    }
+    return "";
+  }
 }

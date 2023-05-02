@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_size.dart';
+import '../constants/base_style.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -38,6 +39,7 @@ class PrimaryButton extends StatelessWidget {
               )
             : Text(
                 text,
+                style: BaseTextStyle.button(),
                 textAlign: TextAlign.center,
               ),
       ),

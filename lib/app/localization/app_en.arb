@@ -23,6 +23,12 @@
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
 
+  "navigation_tutor": "Tutor",
+  "navigation_schedule": "Schedule",
+  "navigation_history": "History",
+  "navigation_course": "Course",
+  "navigation_account": "Account",
+
   "error_sign_in": "Log in failed. Incorrect email or password",
   "error_sign_up": "Sign up failed. Please try again",
   "error_sign_up_email": "Email already exists",
@@ -75,5 +81,12 @@
       }
     }
   },
-  "report_subtitle": "Help us understand what's happening"
+  "report_subtitle": "Help us understand what's happening",
+
+  "setting_edit_profile": "Edit profile",
+  "setting_language": "Language Preferences",
+  "setting_private_policy": "Private Policy",
+  "setting_button_log_out": "Log out",
+
+  "title_bottom_select_language": "Select Language"
 }

@@ -36,8 +36,8 @@ class _AppScaffoldState extends State<AppScaffold> {
               color: color,
               size: Sizes.p24,
             ),
-            label: item.label,
-            tooltip: item.tooltip,
+            label: HomeNavigationItems.getLabel(item.route.name),
+            tooltip: HomeNavigationItems.getLabel(item.route.name),
           );
         }),
       ),

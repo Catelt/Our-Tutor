@@ -78,4 +78,11 @@ class AccountCubit extends Cubit<AccountState> {
     }
     emit(newState);
   }
+
+  void onChangeLanguage(String value) {
+    if (value.isNotEmpty) {
+      UserPrefs.instance.setLocale(value);
+      emit(state.copyWith(locale: value));
+    }
+  }
 }

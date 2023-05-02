@@ -52,6 +52,21 @@ class AppLocalizationsVi extends AppLocalizations {
   String get error_somethingWrongTryAgain => 'Có chuyện gì đó không đúng, hãy thử lại...';
 
   @override
+  String get navigation_tutor => 'Gia sư';
+
+  @override
+  String get navigation_schedule => 'Lịch Học';
+
+  @override
+  String get navigation_history => 'Lịch Sử';
+
+  @override
+  String get navigation_course => 'Khóa Học';
+
+  @override
+  String get navigation_account => 'Tài Khoản';
+
+  @override
   String get error_sign_in => 'Đăng nhập thất bại.Email hoặc mật khẩu không đúng';
 
   @override
@@ -163,4 +178,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get report_subtitle => 'Bạn đang gặp phải vấn đề gì';
+
+  @override
+  String get setting_edit_profile => 'Chỉnh sửa thông tin';
+
+  @override
+  String get setting_language => 'Ngôn ngữ';
+
+  @override
+  String get setting_private_policy => 'Chính sách bảo mật';
+
+  @override
+  String get setting_button_log_out => 'Đăng xuất';
+
+  @override
+  String get title_bottom_select_language => 'Chọn ngôn ngữ';
 }

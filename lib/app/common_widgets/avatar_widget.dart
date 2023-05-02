@@ -1,18 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/base_style.dart';
+import '../constants/base_style.dart';
 
 class AvatarWidget extends StatelessWidget {
   const AvatarWidget({
     super.key,
-    required this.name,
+    this.name,
     this.url,
     this.size = 70,
   });
 
   final String? url;
-  final String name;
+  final String? name;
   final double size;
 
   @override
@@ -25,14 +25,23 @@ class AvatarWidget extends StatelessWidget {
               width: size,
               imageUrl: url!,
               fit: BoxFit.cover,
-              errorWidget: (context, url, error) => defaultAvatar(),
+              errorWidget: (context, url, error) => defaultIcon(),
             )
-          : defaultAvatar(),
+          : defaultIcon(),
     );
   }
 
+  Widget defaultIcon() {
+    if (name == null)
+      return Icon(
+        Icons.account_circle_outlined,
+        size: size,
+      );
+    return defaultAvatar();
+  }
+
   Widget defaultAvatar() {
-    final listName = name.split(" ").toList();
+    final listName = name?.split(" ").toList() ?? [];
     var shortName = '';
     for (var value in listName) {
       shortName += value[0];

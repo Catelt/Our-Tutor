@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../tutor/tutor.dart';
 import 'favorite_tutor.dart';
 import 'tutors.dart';
 

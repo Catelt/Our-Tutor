@@ -1,12 +1,41 @@
 import '../../gen/assets.gen.dart';
 import '../network/model/national.dart';
 
-final vn =
-    National(id: 1, name: 'Viet Nam', imageUrl: Assets.iconNational.icVn.path);
+final vn = National(
+  id: 1,
+  name: 'Việt Nam',
+  code: "vi",
+  imageUrl: Assets.iconNational.icVn.path,
+);
+
 final philip = National(
-    id: 2, name: 'Philippines', imageUrl: Assets.iconNational.icPhilip.path);
+  id: 2,
+  name: 'Philippines',
+  code: "en-PH",
+  imageUrl: Assets.iconNational.icPhilip.path,
+);
+
 final tai = National(
-    id: 3, name: 'Taiwan', imageUrl: Assets.iconNational.icTaiwan.path);
+  id: 3,
+  name: 'Taiwan',
+  code: "zh",
+  imageUrl: Assets.iconNational.icTaiwan.path,
+);
+
+final en = National(
+  id: 4,
+  name: 'English',
+  code: "en",
+  imageUrl: Assets.iconNational.icEn.path,
+);
+
+class XAppLanguage {
+  static final languages = [vn, en];
+  static National getLanguage(String? code) {
+    return languages.firstWhere((e) => e.code == code,
+        orElse: () => languages[0]);
+  }
+}
 
 enum ENational {
   vietnam('vn'),

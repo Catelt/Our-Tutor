@@ -8,7 +8,6 @@ import '../../../constants/specialties.dart';
 import '../../../localization/localization_utils.dart';
 import '../../../network/model/tutor/tutor.dart';
 import '../../../routing/coordinator.dart';
-import 'avatar_widget.dart';
 
 class TutorItem extends StatelessWidget {
   const TutorItem({super.key, required this.item});

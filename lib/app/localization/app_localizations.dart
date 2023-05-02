@@ -183,6 +183,36 @@ abstract class AppLocalizations {
   /// **'Something went wrong, try again...'**
   String get error_somethingWrongTryAgain;
 
+  /// No description provided for @navigation_tutor.
+  ///
+  /// In en, this message translates to:
+  /// **'Tutor'**
+  String get navigation_tutor;
+
+  /// No description provided for @navigation_schedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get navigation_schedule;
+
+  /// No description provided for @navigation_history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get navigation_history;
+
+  /// No description provided for @navigation_course.
+  ///
+  /// In en, this message translates to:
+  /// **'Course'**
+  String get navigation_course;
+
+  /// No description provided for @navigation_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get navigation_account;
+
   /// No description provided for @error_sign_in.
   ///
   /// In en, this message translates to:
@@ -404,6 +434,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Help us understand what\'s happening'**
   String get report_subtitle;
+
+  /// No description provided for @setting_edit_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get setting_edit_profile;
+
+  /// No description provided for @setting_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language Preferences'**
+  String get setting_language;
+
+  /// No description provided for @setting_private_policy.
+  ///
+  /// In en, this message translates to:
+  /// **'Private Policy'**
+  String get setting_private_policy;
+
+  /// No description provided for @setting_button_log_out.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get setting_button_log_out;
+
+  /// No description provided for @title_bottom_select_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get title_bottom_select_language;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

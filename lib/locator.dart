@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
+import 'app/constants/devices/app_Info.dart';
 import 'app/features/account/bloc/account_cubit.dart';
 import 'app/network/domain_manager.dart';
 import 'app/services/user_prefs.dart';
@@ -68,6 +69,7 @@ Future<void> locator(FutureOr<Widget> Function() builder) async {
   _initGetIt();
   await Future.wait([
     UserPrefs.instance.initialize(),
+    AppInfo.initialize(),
   ]);
 
   Bloc.observer = XBlocObserver();

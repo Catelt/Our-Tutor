@@ -3,10 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../constants/countries.dart';
 import '../network/model/user/user.dart';
 import '../utils/utils.dart';
 
 class _keys {
+  static const String locate = 'app-locale';
   static const String theme = 'app-theme';
   static const String user = 'user';
 }
@@ -20,6 +22,16 @@ class UserPrefs {
   late SharedPreferences _prefs;
   Future initialize() async {
     _prefs = await SharedPreferences.getInstance();
+  }
+
+  // Languages
+  String getLocale() {
+    final value = _prefs.getString(_keys.locate);
+    return value ?? XAppLanguage.languages[1].code;
+  }
+
+  void setLocale(String value) {
+    _prefs.setString(_keys.locate, value);
   }
 
   // theme

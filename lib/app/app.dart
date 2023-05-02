@@ -17,7 +17,7 @@ class App extends StatelessWidget {
         BlocProvider(create: (_) => GetIt.I<AccountCubit>()),
       ],
       child: BlocBuilder<AccountCubit, AccountState>(
-        buildWhen: (previous, current) => false,
+        buildWhen: (previous, current) => previous.locale != current.locale,
         builder: (context, state) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
@@ -31,6 +31,7 @@ class App extends StatelessWidget {
               Locale('en', ''),
               Locale('vi', ''),
             ],
+            locale: Locale.fromSubtags(languageCode: state.locale),
             onGenerateTitle: (BuildContext context) =>
                 S.of(context).common_appTitle,
             routerConfig: XAppRouter.router,
