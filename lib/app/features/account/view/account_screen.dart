@@ -41,6 +41,13 @@ class AccountScreen extends StatelessWidget {
             settingSection(S.text.setting_edit_profile, onTap: () {
               XCoordinator().showEditProfile();
             }),
+            Visibility(
+              visible:
+                  context.read<AccountCubit>().state.user.tutorInfo == null,
+              child: settingSection(S.text.setting_become_tutor, onTap: () {
+                XCoordinator().showBecomeTutor();
+              }),
+            ),
             settingSection(S.text.setting_language, onTap: () async {
               await showModalBottomSheet(
                   context: context,

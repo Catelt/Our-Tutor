@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../constants/home_navigation_items.dart';
 import '../features/account/bloc/account_cubit.dart';
+import '../features/account/view/become_tutor/become_tutor_screen.dart';
 import '../features/account/view/edit_profile/edit_profile_screen.dart';
 import '../features/authentication/router/coordination.dart';
 import '../features/course/view/course_detail/course_detail_screen.dart';
@@ -29,6 +30,7 @@ enum AppRoute {
 
   account,
   editProfile,
+  becomeTutor,
 
   videoCall,
 }
@@ -96,6 +98,14 @@ class XAppRouter {
               name: AppRoute.editProfile.name,
               pageBuilder: (context, state) => DefaultTransition(
                 child: EditProfileScreen(),
+              ),
+            ),
+            GoRoute(
+              parentNavigatorKey: XAppRouter.navigatorKey,
+              path: 'becomeTutor',
+              name: AppRoute.becomeTutor.name,
+              pageBuilder: (context, state) => DefaultTransition(
+                child: BecomeTutorScreen(),
               ),
             ),
           ]),

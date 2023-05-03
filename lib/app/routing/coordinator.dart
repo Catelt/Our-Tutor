@@ -38,4 +38,8 @@ class XCoordinator extends BaseCoordinator {
   void showEditProfile() {
     pushNamed(AppRoute.editProfile.name);
   }
+
+  void showBecomeTutor() {
+    pushNamed(AppRoute.becomeTutor.name);
+  }
 }

@@ -23,7 +23,7 @@ class MTutor with _$MTutor {
     @Default(0) double rating,
     @Default(0) double price,
     @Default(false) bool isOnline,
-    String? isNative,
+    @Default(false) bool? isNative,
     String? resume,
     String? accent,
     String? targetStudent,

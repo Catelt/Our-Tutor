@@ -519,6 +519,12 @@ abstract class AppLocalizations {
   /// **'Edit profile'**
   String get setting_edit_profile;
 
+  /// No description provided for @setting_become_tutor.
+  ///
+  /// In en, this message translates to:
+  /// **'Become tutor'**
+  String get setting_become_tutor;
+
   /// No description provided for @setting_language.
   ///
   /// In en, this message translates to:

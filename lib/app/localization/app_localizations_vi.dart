@@ -226,6 +226,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get setting_edit_profile => 'Chỉnh sửa thông tin';
 
   @override
+  String get setting_become_tutor => 'Trở thành giáo viên';
+
+  @override
   String get setting_language => 'Ngôn ngữ';
 
   @override

@@ -185,30 +185,37 @@ class __$$_MWalletInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MWalletInfo with DiagnosticableTreeMixin implements _MWalletInfo {
   _$_MWalletInfo(
-      {required this.id,
-      required this.userId,
-      required this.amount,
-      required this.isBlocked,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.bonus});
+      {this.id = "",
+      this.userId = "",
+      this.amount = "",
+      this.isBlocked = false,
+      this.createdAt = "",
+      this.updatedAt = "",
+      this.bonus = 0});
 
   factory _$_MWalletInfo.fromJson(Map<String, dynamic> json) =>
       _$$_MWalletInfoFromJson(json);
 
   @override
+  @JsonKey()
   String id;
   @override
+  @JsonKey()
   String userId;
   @override
+  @JsonKey()
   String amount;
   @override
+  @JsonKey()
   bool isBlocked;
   @override
+  @JsonKey()
   String createdAt;
   @override
+  @JsonKey()
   String updatedAt;
   @override
+  @JsonKey()
   int bonus;
 
   @override
@@ -246,13 +253,13 @@ class _$_MWalletInfo with DiagnosticableTreeMixin implements _MWalletInfo {
 
 abstract class _MWalletInfo implements MWalletInfo {
   factory _MWalletInfo(
-      {required String id,
-      required String userId,
-      required String amount,
-      required bool isBlocked,
-      required String createdAt,
-      required String updatedAt,
-      required int bonus}) = _$_MWalletInfo;
+      {String id,
+      String userId,
+      String amount,
+      bool isBlocked,
+      String createdAt,
+      String updatedAt,
+      int bonus}) = _$_MWalletInfo;
 
   factory _MWalletInfo.fromJson(Map<String, dynamic> json) =
       _$_MWalletInfo.fromJson;

@@ -46,8 +46,8 @@ mixin _$MTutor {
   set price(double value) => throw _privateConstructorUsedError;
   bool get isOnline => throw _privateConstructorUsedError;
   set isOnline(bool value) => throw _privateConstructorUsedError;
-  String? get isNative => throw _privateConstructorUsedError;
-  set isNative(String? value) => throw _privateConstructorUsedError;
+  bool? get isNative => throw _privateConstructorUsedError;
+  set isNative(bool? value) => throw _privateConstructorUsedError;
   String? get resume => throw _privateConstructorUsedError;
   set resume(String? value) => throw _privateConstructorUsedError;
   String? get accent => throw _privateConstructorUsedError;
@@ -139,7 +139,7 @@ abstract class $MTutorCopyWith<$Res> {
       double rating,
       double price,
       bool isOnline,
-      String? isNative,
+      bool? isNative,
       String? resume,
       String? accent,
       String? targetStudent,
@@ -292,7 +292,7 @@ class _$MTutorCopyWithImpl<$Res, $Val extends MTutor>
       isNative: freezed == isNative
           ? _value.isNative
           : isNative // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       resume: freezed == resume
           ? _value.resume
           : resume // ignore: cast_nullable_to_non_nullable
@@ -449,7 +449,7 @@ abstract class _$$_MTutorCopyWith<$Res> implements $MTutorCopyWith<$Res> {
       double rating,
       double price,
       bool isOnline,
-      String? isNative,
+      bool? isNative,
       String? resume,
       String? accent,
       String? targetStudent,
@@ -599,7 +599,7 @@ class __$$_MTutorCopyWithImpl<$Res>
       isNative: freezed == isNative
           ? _value.isNative
           : isNative // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       resume: freezed == resume
           ? _value.resume
           : resume // ignore: cast_nullable_to_non_nullable
@@ -750,7 +750,7 @@ class _$_MTutor implements _MTutor {
       this.rating = 0,
       this.price = 0,
       this.isOnline = false,
-      this.isNative,
+      this.isNative = false,
       this.resume,
       this.accent,
       this.targetStudent,
@@ -828,7 +828,8 @@ class _$_MTutor implements _MTutor {
   @JsonKey()
   bool isOnline;
   @override
-  String? isNative;
+  @JsonKey()
+  bool? isNative;
   @override
   String? resume;
   @override
@@ -944,7 +945,7 @@ abstract class _MTutor implements MTutor {
       double rating,
       double price,
       bool isOnline,
-      String? isNative,
+      bool? isNative,
       String? resume,
       String? accent,
       String? targetStudent,
@@ -1021,8 +1022,8 @@ abstract class _MTutor implements MTutor {
   bool get isOnline;
   set isOnline(bool value);
   @override
-  String? get isNative;
-  set isNative(String? value);
+  bool? get isNative;
+  set isNative(bool? value);
   @override
   String? get resume;
   set resume(String? value);

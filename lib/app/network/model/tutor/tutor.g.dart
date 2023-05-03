@@ -20,7 +20,7 @@ _$_MTutor _$$_MTutorFromJson(Map<String, dynamic> json) => _$_MTutor(
       rating: (json['rating'] as num?)?.toDouble() ?? 0,
       price: (json['price'] as num?)?.toDouble() ?? 0,
       isOnline: json['isOnline'] as bool? ?? false,
-      isNative: json['isNative'] as String?,
+      isNative: json['isNative'] as bool? ?? false,
       resume: json['resume'] as String?,
       accent: json['accent'] as String?,
       targetStudent: json['targetStudent'] as String?,

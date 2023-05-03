@@ -42,6 +42,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
           phone: user.phone,
           birthday: user.birthday,
           level: state.level.value,
+          learnTopics: user.learnTopics,
           studySchedule: state.studySchedule);
       if (response.isSuccess) {
         final user = response.data;

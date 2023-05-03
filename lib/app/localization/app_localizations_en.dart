@@ -226,6 +226,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get setting_edit_profile => 'Edit profile';
 
   @override
+  String get setting_become_tutor => 'Become tutor';
+
+  @override
   String get setting_language => 'Language Preferences';
 
   @override

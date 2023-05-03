@@ -34,7 +34,7 @@ class UserRepositoryImpl extends UserRepository {
       String? phone,
       String? birthday,
       String? level,
-      List<String>? learnTopics,
+      List<MLearnTopic>? learnTopics,
       String? studySchedule}) async {
     try {
       final response = await XHttp().put('$_baseUrl/info', data: {
@@ -63,6 +63,45 @@ class UserRepositoryImpl extends UserRepository {
       final response =
           await XHttp().post('$_baseUrl/uploadAvatar', data: formData);
       final data = MUser.fromJson(jsonDecode(response));
+      return MResult.success(data);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<MResult<MUser>> becomeTutor(
+      {required String name,
+      required String country,
+      required String birthday,
+      required String interests,
+      required String education,
+      required String experience,
+      required String profession,
+      required String languages,
+      required String bio,
+      required String targetStudent,
+      required String specialties,
+      String? avatar,
+      String? video,
+      required int price}) async {
+    try {
+      final response = await XHttp().put('/tutor/register', data: {
+        "name": name,
+        "country": country,
+        "birthday": birthday,
+        "interests": interests,
+        "education": education,
+        "experience": experience,
+        "profession": profession,
+        "languages": languages,
+        "bio": bio,
+        "targetStudent": targetStudent,
+        "specialties": specialties,
+        "price": price,
+      });
+      final data = MUser.fromJson(jsonDecode(response)["user"]);
       return MResult.success(data);
     } catch (e) {
       if (e is Exception) return MResult.error(e.message);

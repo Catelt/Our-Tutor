@@ -20,9 +20,8 @@ class BookingCubit extends Cubit<BookingState> {
     emit(state.copyWith(isPress: true));
     if (state.content.isValid) {
       emit(state.copyWith(handle: MHandle.loading()));
-      // final response = await domain.schedule.booking([id],state.content.value);
-      // emit(state.copyWith(handle: MHandle.result(response)));
-      emit(state.copyWith(handle: MHandle.completed(true)));
+      final response = await domain.schedule.booking([id], state.content.value);
+      emit(state.copyWith(handle: MHandle.result(response)));
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../dialogs/alert_wrapper.dart';
@@ -20,6 +21,17 @@ class AccountCubit extends Cubit<AccountState> {
 
   void onLoginSuccess(MUser user) {
     onUserChange(state.login(user));
+    updateProfile();
+  }
+
+  void updateProfile() async {
+    final response = await domain.user.getInfo();
+    if (response.isSuccess && response.data != null) {
+      final user = response.data;
+      if (user != null) {
+        onUserChange(state.login(user));
+      }
+    }
   }
 
   void checkRefreshToken() async {

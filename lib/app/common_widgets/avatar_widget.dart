@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +11,13 @@ class AvatarWidget extends StatelessWidget {
     this.name,
     this.url,
     this.size = 70,
+    this.path,
   });
 
   final String? url;
   final String? name;
   final double size;
+  final String? path;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +36,14 @@ class AvatarWidget extends StatelessWidget {
   }
 
   Widget defaultIcon() {
+    if (path != null && path?.isNotEmpty == true) {
+      return CircleAvatar(
+        radius: size / 2,
+        backgroundImage: Image.file(
+          File(path ?? ""),
+        ).image,
+      );
+    }
     if (name == null)
       return Icon(
         Icons.account_circle_outlined,
