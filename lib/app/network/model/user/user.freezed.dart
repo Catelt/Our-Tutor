@@ -70,6 +70,8 @@ mixin _$MUser {
   set accessToken(MToken? value) => throw _privateConstructorUsedError;
   MToken? get refreshToken => throw _privateConstructorUsedError;
   set refreshToken(MToken? value) => throw _privateConstructorUsedError;
+  MTutor? get tutorInfo => throw _privateConstructorUsedError;
+  set tutorInfo(MTutor? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -105,7 +107,8 @@ abstract class $MUserCopyWith<$Res> {
       String? studentInfo,
       double? avgRating,
       MToken? accessToken,
-      MToken? refreshToken});
+      MToken? refreshToken,
+      MTutor? tutorInfo});
 
   $MWalletInfoCopyWith<$Res>? get walletInfo;
   $MTokenCopyWith<$Res>? get accessToken;
@@ -149,6 +152,7 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
     Object? avgRating = freezed,
     Object? accessToken = freezed,
     Object? refreshToken = freezed,
+    Object? tutorInfo = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -247,6 +251,10 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
               as MToken?,
+      tutorInfo: freezed == tutorInfo
+          ? _value.tutorInfo
+          : tutorInfo // ignore: cast_nullable_to_non_nullable
+              as MTutor?,
     ) as $Val);
   }
 
@@ -317,7 +325,8 @@ abstract class _$$_MUserCopyWith<$Res> implements $MUserCopyWith<$Res> {
       String? studentInfo,
       double? avgRating,
       MToken? accessToken,
-      MToken? refreshToken});
+      MToken? refreshToken,
+      MTutor? tutorInfo});
 
   @override
   $MWalletInfoCopyWith<$Res>? get walletInfo;
@@ -360,6 +369,7 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
     Object? avgRating = freezed,
     Object? accessToken = freezed,
     Object? refreshToken = freezed,
+    Object? tutorInfo = freezed,
   }) {
     return _then(_$_MUser(
       id: null == id
@@ -458,6 +468,10 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
           ? _value.refreshToken
           : refreshToken // ignore: cast_nullable_to_non_nullable
               as MToken?,
+      tutorInfo: freezed == tutorInfo
+          ? _value.tutorInfo
+          : tutorInfo // ignore: cast_nullable_to_non_nullable
+              as MTutor?,
     ));
   }
 }
@@ -489,7 +503,8 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
       this.studentInfo,
       this.avgRating,
       this.accessToken,
-      this.refreshToken});
+      this.refreshToken,
+      this.tutorInfo});
 
   factory _$_MUser.fromJson(Map<String, dynamic> json) =>
       _$$_MUserFromJson(json);
@@ -549,10 +564,12 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   MToken? accessToken;
   @override
   MToken? refreshToken;
+  @override
+  MTutor? tutorInfo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MUser(id: $id, email: $email, avatar: $avatar, country: $country, phone: $phone, roles: $roles, language: $language, birthday: $birthday, isActivated: $isActivated, walletInfo: $walletInfo, courses: $courses, requireNote: $requireNote, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isPhoneActivated: $isPhoneActivated, timezone: $timezone, studySchedule: $studySchedule, canSendMessage: $canSendMessage, studentGroup: $studentGroup, studentInfo: $studentInfo, avgRating: $avgRating, accessToken: $accessToken, refreshToken: $refreshToken)';
+    return 'MUser(id: $id, email: $email, avatar: $avatar, country: $country, phone: $phone, roles: $roles, language: $language, birthday: $birthday, isActivated: $isActivated, walletInfo: $walletInfo, courses: $courses, requireNote: $requireNote, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isPhoneActivated: $isPhoneActivated, timezone: $timezone, studySchedule: $studySchedule, canSendMessage: $canSendMessage, studentGroup: $studentGroup, studentInfo: $studentInfo, avgRating: $avgRating, accessToken: $accessToken, refreshToken: $refreshToken, tutorInfo: $tutorInfo)';
   }
 
   @override
@@ -583,7 +600,8 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
       ..add(DiagnosticsProperty('studentInfo', studentInfo))
       ..add(DiagnosticsProperty('avgRating', avgRating))
       ..add(DiagnosticsProperty('accessToken', accessToken))
-      ..add(DiagnosticsProperty('refreshToken', refreshToken));
+      ..add(DiagnosticsProperty('refreshToken', refreshToken))
+      ..add(DiagnosticsProperty('tutorInfo', tutorInfo));
   }
 
   @JsonKey(ignore: true)
@@ -625,7 +643,8 @@ abstract class _MUser implements MUser {
       String? studentInfo,
       double? avgRating,
       MToken? accessToken,
-      MToken? refreshToken}) = _$_MUser;
+      MToken? refreshToken,
+      MTutor? tutorInfo}) = _$_MUser;
 
   factory _MUser.fromJson(Map<String, dynamic> json) = _$_MUser.fromJson;
 
@@ -701,6 +720,9 @@ abstract class _MUser implements MUser {
   @override
   MToken? get refreshToken;
   set refreshToken(MToken? value);
+  @override
+  MTutor? get tutorInfo;
+  set tutorInfo(MTutor? value);
   @override
   @JsonKey(ignore: true)
   _$$_MUserCopyWith<_$_MUser> get copyWith =>

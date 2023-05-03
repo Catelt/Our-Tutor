@@ -5,6 +5,7 @@ import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../constants/specialties.dart';
 import '../../../../localization/localization_utils.dart';
+import '../../../../routing/coordinator.dart';
 import '../../../../utils/extension/datetime.dart';
 import '../../widgets/widget.dart';
 import 'cubit/tutors_cubit.dart';
@@ -113,8 +114,6 @@ class _TutorsScreenState extends State<TutorsScreen> {
                     buildWhen: (previous, current) =>
                         previous.nameTutor != current.nameTutor,
                     builder: (context, state) {
-                      print(state.nameTutor);
-                      print("-----a---");
                       return TextFieldCustom(
                         hint: "Enter tutor name",
                         text: state.nameTutor,
@@ -204,8 +203,6 @@ class _TutorsScreenState extends State<TutorsScreen> {
       buildWhen: (previous, current) => previous.booking != current.booking,
       builder: (context, state) {
         final schedule = state.booking.scheduleDetailInfo;
-        final start = DateTime.fromMillisecondsSinceEpoch(
-            schedule.startPeriodTimestamp.round());
         return Visibility(
           visible: state.booking.id.isNotEmpty,
           child: Column(
@@ -220,12 +217,14 @@ class _TutorsScreenState extends State<TutorsScreen> {
               ),
               gapH4,
               Text(
-                "${XDateFormat().date.format(start)} ${schedule.startPeriod} - ${schedule.endPeriod}",
+                "${XDateFormat().date.format(state.booking.getStartTime())} ${state.booking.startTime} - ${state.booking.endTime}",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               gapH8,
               GestureDetector(
-                onTap: null,
+                onTap: () {
+                  XCoordinator().showVideoCall(state.booking.id, state.booking);
+                },
                 child: Container(
                   padding: const EdgeInsets.symmetric(
                       horizontal: Sizes.p20, vertical: Sizes.p4),

@@ -408,7 +408,7 @@ class __$$_MBookingCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MBooking implements _MBooking {
+class _$_MBooking extends _MBooking {
   _$_MBooking(
       {this.createdAtTimeStamp = 0,
       this.updatedAtTimeStamp = 0,
@@ -431,7 +431,8 @@ class _$_MBooking implements _MBooking {
       this.showRecordUrl = false,
       this.studentMaterials = const [],
       this.feedbacks = const [],
-      required this.scheduleDetailInfo});
+      required this.scheduleDetailInfo})
+      : super._();
 
   factory _$_MBooking.fromJson(Map<String, dynamic> json) =>
       _$$_MBookingFromJson(json);
@@ -518,7 +519,7 @@ class _$_MBooking implements _MBooking {
   }
 }
 
-abstract class _MBooking implements MBooking {
+abstract class _MBooking extends MBooking {
   factory _MBooking(
       {double createdAtTimeStamp,
       double updatedAtTimeStamp,
@@ -542,6 +543,7 @@ abstract class _MBooking implements MBooking {
       List<dynamic> studentMaterials,
       List<MFeedback> feedbacks,
       required MSchedule scheduleDetailInfo}) = _$_MBooking;
+  _MBooking._() : super._();
 
   factory _MBooking.fromJson(Map<String, dynamic> json) = _$_MBooking.fromJson;
 

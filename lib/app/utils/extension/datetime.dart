@@ -5,6 +5,7 @@ import '../../services/user_prefs.dart';
 class XDateFormat {
   final basic = DateFormat('yyyy-MM-dd HH:mm', UserPrefs.I.getLocale());
   final date = DateFormat('EEE, d MMM yyyy', UserPrefs.I.getLocale());
+  final time = DateFormat('HH:mm', UserPrefs.I.getLocale());
 }
 
 extension DateTimeExtension on DateTime {

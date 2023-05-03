@@ -11,6 +11,7 @@ import '../features/home/data/home_navigation_item.dart';
 import '../features/tutor/view/feedback/feedback_screen.dart';
 import '../features/tutor/view/tutor_detail/tutor_detail_screen.dart';
 import '../features/video_call/video_call_screen.dart';
+import '../network/model/booking/booking.dart';
 import 'custom_transition.dart';
 import 'not_found_screen.dart';
 
@@ -93,7 +94,7 @@ class XAppRouter {
         path: '/call/:id',
         name: AppRoute.videoCall.name,
         pageBuilder: (context, state) => DefaultTransition(
-          child: VideoCallScreen(),
+          child: VideoCallScreen(booking: state.extra as MBooking),
         ),
       ),
     ],

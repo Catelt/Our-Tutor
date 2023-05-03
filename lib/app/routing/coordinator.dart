@@ -1,3 +1,4 @@
+import '../network/model/booking/booking.dart';
 import 'app_routing.dart';
 import 'base_coordinator.dart';
 
@@ -30,7 +31,7 @@ class XCoordinator extends BaseCoordinator {
     }
   }
 
-  void showVideoCall(String id) {
-    pushNamed(AppRoute.videoCall.name, params: {'id': id});
+  void showVideoCall(String id, MBooking booking) {
+    pushNamed(AppRoute.videoCall.name, params: {'id': id}, extra: booking);
   }
 }

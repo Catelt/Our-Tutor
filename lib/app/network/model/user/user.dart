@@ -5,6 +5,7 @@ import '../api/auth_response/auth_response.dart';
 import '../course/course.dart';
 import '../learn_topic/learn_topic.dart';
 import '../token/token.dart';
+import '../tutor/tutor.dart';
 import '../wallet_info/wallet_info.dart';
 
 part 'user.freezed.dart';
@@ -37,6 +38,7 @@ class MUser with _$MUser {
     double? avgRating,
     MToken? accessToken,
     MToken? refreshToken,
+    MTutor? tutorInfo,
   }) = _MUser;
 
   factory MUser.fromJson(Map<String, Object?> json) => _$MUserFromJson(json);

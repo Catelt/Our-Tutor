@@ -55,9 +55,7 @@ class AccountScreen extends StatelessWidget {
                     );
                   });
             }),
-            settingSection(S.text.setting_private_policy, onTap: () {
-              XCoordinator().showVideoCall("abc");
-            }),
+            settingSection(S.text.setting_private_policy, onTap: () {}),
             gapH32,
             SizedBox(
               width: double.infinity,
