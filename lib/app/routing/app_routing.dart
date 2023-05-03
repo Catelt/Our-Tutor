@@ -10,6 +10,7 @@ import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
 import '../features/tutor/view/feedback/feedback_screen.dart';
 import '../features/tutor/view/tutor_detail/tutor_detail_screen.dart';
+import '../features/video_call/video_call_screen.dart';
 import 'custom_transition.dart';
 import 'not_found_screen.dart';
 
@@ -24,6 +25,8 @@ enum AppRoute {
   schedule,
   history,
   account,
+
+  videoCall,
 }
 
 class XAppRouter {
@@ -84,6 +87,14 @@ class XAppRouter {
           ]),
           _bottomNavigationItemBuilder(HomeNavigationItems.items[4]),
         ],
+      ),
+      GoRoute(
+        parentNavigatorKey: XAppRouter.navigatorKey,
+        path: '/call/:id',
+        name: AppRoute.videoCall.name,
+        pageBuilder: (context, state) => DefaultTransition(
+          child: VideoCallScreen(),
+        ),
       ),
     ],
     errorBuilder: (context, state) => const NotFoundScreen(),

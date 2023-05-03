@@ -17,6 +17,7 @@ class CoursesCubit extends Cubit<CoursesState> {
   Future<void> getList() async {
     emit(state.copyWith(page: state.page + 1, handle: MHandle.loading()));
     final response = await domain.course.getList(state.page);
+    if (isClosed) return;
     if (response.isSuccess) {
       if (response.data?.isEmpty == true) {
         emit(state.copyWith(

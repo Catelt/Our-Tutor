@@ -29,6 +29,8 @@ dependencies:
   email_validator: ^2.1.17
   device_info_plus: ^8.2.2
   package_info_plus: ^3.1.2
+  flutter_launcher_icons: "^0.13.1"
+  flutter_native_splash: ^2.2.19
 
 
   # WIDGET
@@ -37,6 +39,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   bot_toast: ^4.0.3
   cached_network_image: ^3.2.3
+  jitsi_meet_wrapper: ^0.0.6
 
   # STATE MANAGEMENT
   flutter_bloc: ^8.1.2
@@ -53,6 +56,26 @@ dev_dependencies:
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
   flutter_gen_runner: ^5.3.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/images/logo.png"
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/logo.png
+  color_dark: "#ffffff"
+  image_dark: assets/images/logo.png
+
+  android_12:
+    image: assets/images/logo.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/images/logo.png
+    icon_background_color_dark: "#ffffff"
+
+  web: false
 
 flutter_gen:
   output: lib/gen/ # Optional (default: lib/gen/)

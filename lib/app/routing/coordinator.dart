@@ -29,4 +29,8 @@ class XCoordinator extends BaseCoordinator {
       pushNamed(AppRoute.course.name, params: {'id': id});
     }
   }
+
+  void showVideoCall(String id) {
+    pushNamed(AppRoute.videoCall.name, params: {'id': id});
+  }
 }

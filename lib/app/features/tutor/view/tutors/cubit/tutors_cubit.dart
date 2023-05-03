@@ -28,6 +28,7 @@ class TutorsCubit extends Cubit<TutorsState> {
     } else {
       response = await domain.tutor.getList(state.page);
     }
+    if (isClosed) return;
     if (response.isSuccess) {
       if (response.data?.isEmpty == true) {
         emit(state.copyWith(
@@ -44,6 +45,7 @@ class TutorsCubit extends Cubit<TutorsState> {
 
   Future<void> getTotalTime() async {
     final response = await domain.schedule.getTotalTimeLearn();
+    if (isClosed) return;
     if (response.isSuccess) {
       emit(state.copyWith(total: response.data));
     }
@@ -52,6 +54,7 @@ class TutorsCubit extends Cubit<TutorsState> {
   Future<void> getUpComingBooking() async {
     final response = await domain.schedule
         .getNextBooked(DateTime.now().millisecondsSinceEpoch);
+    if (isClosed) return;
     if (response.isSuccess) {
       emit(state.copyWith(booking: response.data?.first));
     }

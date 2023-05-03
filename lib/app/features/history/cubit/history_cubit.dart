@@ -18,6 +18,7 @@ class HistoryCubit extends Cubit<HistoryState> {
     emit(state.copyWith(page: state.page + 1, handle: MHandle.loading()));
     final response = await domain.schedule
         .getBookedClasses(state.page, DateTime.now().millisecondsSinceEpoch);
+    if (isClosed) return;
     if (response.isSuccess) {
       if (response.data?.isEmpty == true) {
         emit(state.copyWith(
