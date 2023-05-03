@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
+
 import '../../../utils/extension/exception .dart';
 import '../../model/common/result.dart';
 import '../../model/user/user.dart';
@@ -19,4 +21,6 @@ abstract class UserRepository {
     List<String>? learnTopics,
     String? studySchedule,
   });
+
+  Future<MResult<MUser>> changeAvatar(String path, {String? name});
 }

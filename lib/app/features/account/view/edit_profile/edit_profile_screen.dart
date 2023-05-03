@@ -24,6 +24,7 @@ class EditProfileScreen extends StatelessWidget {
             final user = state.handle.data;
             if (user != null) {
               context.read<AccountCubit>().onLoginSuccess(user);
+              context.read<EditProfileCubit>().onChangeAvatar(user.avatar);
               XToast.success("Save success");
             }
           } else if (state.handle.isError) {
@@ -122,15 +123,24 @@ class EditProfileScreen extends StatelessWidget {
 
   Widget info() {
     return BlocBuilder<AccountCubit, AccountState>(
+      buildWhen: (previous, current) => previous.user != current.user,
       builder: (context, state) {
-        return Column(
-          children: [
-            AvatarWidget(
-              url: state.user.avatar,
-              size: 150,
-            ),
-            gapH16,
-          ],
+        return BlocBuilder<EditProfileCubit, EditProfileState>(
+          buildWhen: (previous, current) => previous.avatar != current.avatar,
+          builder: (context, state) {
+            return Column(
+              children: [
+                GestureDetector(
+                  onTap: context.read<EditProfileCubit>().imagePicker,
+                  child: AvatarWidget(
+                    url: state.avatar,
+                    size: 150,
+                  ),
+                ),
+                gapH16,
+              ],
+            );
+          },
         );
       },
     );

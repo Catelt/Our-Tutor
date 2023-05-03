@@ -52,4 +52,21 @@ class UserRepositoryImpl extends UserRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<MUser>> changeAvatar(String path, {String? name}) async {
+    try {
+      String fileName = name ?? path.split('/').last;
+      FormData formData = FormData.fromMap({
+        "avatar": await MultipartFile.fromFile(path, filename: fileName),
+      });
+      final response =
+          await XHttp().post('$_baseUrl/uploadAvatar', data: formData);
+      final data = MUser.fromJson(jsonDecode(response));
+      return MResult.success(data);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }
