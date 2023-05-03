@@ -34,4 +34,8 @@ class XCoordinator extends BaseCoordinator {
   void showVideoCall(String id, MBooking booking) {
     pushNamed(AppRoute.videoCall.name, params: {'id': id}, extra: booking);
   }
+
+  void showEditProfile() {
+    pushNamed(AppRoute.editProfile.name);
+  }
 }

@@ -26,6 +26,8 @@ mixin _$MUser {
   set email(String value) => throw _privateConstructorUsedError;
   String get avatar => throw _privateConstructorUsedError;
   set avatar(String value) => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   set country(String? value) => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
@@ -87,6 +89,7 @@ abstract class $MUserCopyWith<$Res> {
       {String id,
       String email,
       String avatar,
+      String name,
       String? country,
       String phone,
       List<String>? roles,
@@ -113,6 +116,7 @@ abstract class $MUserCopyWith<$Res> {
   $MWalletInfoCopyWith<$Res>? get walletInfo;
   $MTokenCopyWith<$Res>? get accessToken;
   $MTokenCopyWith<$Res>? get refreshToken;
+  $MTutorCopyWith<$Res>? get tutorInfo;
 }
 
 /// @nodoc
@@ -131,6 +135,7 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
     Object? id = null,
     Object? email = null,
     Object? avatar = null,
+    Object? name = null,
     Object? country = freezed,
     Object? phone = null,
     Object? roles = freezed,
@@ -166,6 +171,10 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
       avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       country: freezed == country
           ? _value.country
@@ -293,6 +302,18 @@ class _$MUserCopyWithImpl<$Res, $Val extends MUser>
       return _then(_value.copyWith(refreshToken: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MTutorCopyWith<$Res>? get tutorInfo {
+    if (_value.tutorInfo == null) {
+      return null;
+    }
+
+    return $MTutorCopyWith<$Res>(_value.tutorInfo!, (value) {
+      return _then(_value.copyWith(tutorInfo: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -305,6 +326,7 @@ abstract class _$$_MUserCopyWith<$Res> implements $MUserCopyWith<$Res> {
       {String id,
       String email,
       String avatar,
+      String name,
       String? country,
       String phone,
       List<String>? roles,
@@ -334,6 +356,8 @@ abstract class _$$_MUserCopyWith<$Res> implements $MUserCopyWith<$Res> {
   $MTokenCopyWith<$Res>? get accessToken;
   @override
   $MTokenCopyWith<$Res>? get refreshToken;
+  @override
+  $MTutorCopyWith<$Res>? get tutorInfo;
 }
 
 /// @nodoc
@@ -348,6 +372,7 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
     Object? id = null,
     Object? email = null,
     Object? avatar = null,
+    Object? name = null,
     Object? country = freezed,
     Object? phone = null,
     Object? roles = freezed,
@@ -383,6 +408,10 @@ class __$$_MUserCopyWithImpl<$Res> extends _$MUserCopyWithImpl<$Res, _$_MUser>
       avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       country: freezed == country
           ? _value.country
@@ -483,6 +512,7 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
       {required this.id,
       this.email = "",
       this.avatar = "",
+      this.name = "",
       this.country,
       this.phone = "",
       this.roles,
@@ -517,6 +547,9 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
   @override
   @JsonKey()
   String avatar;
+  @override
+  @JsonKey()
+  String name;
   @override
   String? country;
   @override
@@ -569,7 +602,7 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MUser(id: $id, email: $email, avatar: $avatar, country: $country, phone: $phone, roles: $roles, language: $language, birthday: $birthday, isActivated: $isActivated, walletInfo: $walletInfo, courses: $courses, requireNote: $requireNote, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isPhoneActivated: $isPhoneActivated, timezone: $timezone, studySchedule: $studySchedule, canSendMessage: $canSendMessage, studentGroup: $studentGroup, studentInfo: $studentInfo, avgRating: $avgRating, accessToken: $accessToken, refreshToken: $refreshToken, tutorInfo: $tutorInfo)';
+    return 'MUser(id: $id, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, roles: $roles, language: $language, birthday: $birthday, isActivated: $isActivated, walletInfo: $walletInfo, courses: $courses, requireNote: $requireNote, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isPhoneActivated: $isPhoneActivated, timezone: $timezone, studySchedule: $studySchedule, canSendMessage: $canSendMessage, studentGroup: $studentGroup, studentInfo: $studentInfo, avgRating: $avgRating, accessToken: $accessToken, refreshToken: $refreshToken, tutorInfo: $tutorInfo)';
   }
 
   @override
@@ -580,6 +613,7 @@ class _$_MUser with DiagnosticableTreeMixin implements _MUser {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('avatar', avatar))
+      ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('country', country))
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('roles', roles))
@@ -623,6 +657,7 @@ abstract class _MUser implements MUser {
       {required String id,
       String email,
       String avatar,
+      String name,
       String? country,
       String phone,
       List<String>? roles,
@@ -657,6 +692,9 @@ abstract class _MUser implements MUser {
   @override
   String get avatar;
   set avatar(String value);
+  @override
+  String get name;
+  set name(String value);
   @override
   String? get country;
   set country(String? value);

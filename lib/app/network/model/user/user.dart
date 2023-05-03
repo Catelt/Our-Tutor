@@ -17,6 +17,7 @@ class MUser with _$MUser {
     required String id,
     @Default("") String email,
     @Default("") String avatar,
+    @Default("") String name,
     String? country,
     @Default("") String phone,
     List<String>? roles,

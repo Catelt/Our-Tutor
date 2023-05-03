@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../constants/home_navigation_items.dart';
 import '../features/account/bloc/account_cubit.dart';
+import '../features/account/view/edit_profile/edit_profile_screen.dart';
 import '../features/authentication/router/coordination.dart';
 import '../features/course/view/course_detail/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
@@ -25,7 +26,9 @@ enum AppRoute {
   signIn,
   schedule,
   history,
+
   account,
+  editProfile,
 
   videoCall,
 }
@@ -86,7 +89,16 @@ class XAppRouter {
               ),
             ),
           ]),
-          _bottomNavigationItemBuilder(HomeNavigationItems.items[4]),
+          _bottomNavigationItemBuilder(HomeNavigationItems.items[4], routes: [
+            GoRoute(
+              parentNavigatorKey: XAppRouter.navigatorKey,
+              path: 'editProfile',
+              name: AppRoute.editProfile.name,
+              pageBuilder: (context, state) => DefaultTransition(
+                child: EditProfileScreen(),
+              ),
+            ),
+          ]),
         ],
       ),
       GoRoute(

@@ -142,4 +142,10 @@ class XHttp {
     return request(XMethod.post, url,
         data: data, queryParameters: queryParameters);
   }
+
+  Future<String> put(String url,
+      {Object? data, Map<String, dynamic>? queryParameters}) {
+    return request(XMethod.put, url,
+        data: data, queryParameters: queryParameters);
+  }
 }

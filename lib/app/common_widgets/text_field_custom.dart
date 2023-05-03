@@ -7,6 +7,7 @@ import 'svg_widget.dart';
 class TextFieldCustom extends StatefulWidget {
   const TextFieldCustom(
       {Key? key,
+      this.label,
       this.hint,
       this.errorText,
       this.text,
@@ -14,9 +15,12 @@ class TextFieldCustom extends StatefulWidget {
       this.onEditingComplete,
       this.assetIcon,
       this.icon,
+      this.height,
+      this.fontSize = 14,
       this.maxLines})
       : super(key: key);
 
+  final String? label;
   final String? hint;
   final String? errorText;
   final String? text;
@@ -25,6 +29,8 @@ class TextFieldCustom extends StatefulWidget {
   final String? assetIcon;
   final IconData? icon;
   final int? maxLines;
+  final double? height;
+  final double fontSize;
 
   @override
   State<TextFieldCustom> createState() => _TextFieldCustomState();
@@ -51,19 +57,20 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
     controller.selection = TextSelection.fromPosition(
         TextPosition(offset: controller.text.length));
     return TextField(
-      style: const TextStyle(fontSize: 14),
+      style: TextStyle(fontSize: widget.fontSize),
       onChanged: widget.onChange,
       onEditingComplete: widget.onEditingComplete,
       textInputAction: TextInputAction.done,
       maxLines: widget.maxLines,
       controller: controller,
       decoration: InputDecoration(
+          label: widget.label != null ? Text(widget.label ?? "") : null,
           hintText: widget.hint,
           errorText: widget.errorText,
           isDense: true,
           suffixIcon: checkIcon(),
-          contentPadding: const EdgeInsets.symmetric(
-              vertical: Sizes.p8, horizontal: Sizes.p12),
+          contentPadding: EdgeInsets.symmetric(
+              vertical: widget.height ?? Sizes.p8, horizontal: Sizes.p12),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(Sizes.p12),
               borderSide: const BorderSide(width: 1, color: Colors.grey)),

@@ -38,7 +38,9 @@ class AccountScreen extends StatelessWidget {
           children: [
             info(),
             gapH32,
-            settingSection(S.text.setting_edit_profile),
+            settingSection(S.text.setting_edit_profile, onTap: () {
+              XCoordinator().showEditProfile();
+            }),
             settingSection(S.text.setting_language, onTap: () async {
               await showModalBottomSheet(
                   context: context,

@@ -41,6 +41,7 @@ dependencies:
   cached_network_image: ^3.2.3
   jitsi_meet_wrapper: ^0.0.6
   table_calendar: 3.0.8
+  dropdown_button2: ^2.1.0
 
   # STATE MANAGEMENT
   flutter_bloc: ^8.1.2

@@ -10,4 +10,13 @@ part 'user_repository_impl.dart';
 abstract class UserRepository {
   Future<MResult<bool>> forgotPassword(String email);
   Future<MResult<MUser>> getInfo();
+  Future<MResult<MUser>> updateProfile({
+    String? name,
+    String? country,
+    String? phone,
+    String? birthday,
+    String? level,
+    List<String>? learnTopics,
+    String? studySchedule,
+  });
 }
