@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
@@ -11,10 +10,12 @@ import '../../../../constants/specialties.dart';
 import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/course/course.dart';
+import '../../../../network/model/schedule/schedule_info.dart';
 import '../../../../network/model/tutor/tutor.dart';
 import '../../../../routing/coordinator.dart';
-import '../../widgets/widget.dart';
 import 'cubit/tutor_detail_cubit.dart';
+import 'widgets/booking_widget.dart';
+import 'widgets/calendar_schedule.dart';
 import 'widgets/report_widget.dart';
 
 class TutorDetailScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class TutorDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TutorDetailCubit()..getTutor(id),
+      create: (context) => TutorDetailCubit(id),
       child: BlocConsumer<TutorDetailCubit, TutorDetailState>(
         listenWhen: (previous, current) => previous.handle != current.handle,
         listener: (context, state) {
@@ -119,9 +120,8 @@ class TutorDetailScreen extends StatelessWidget {
                   BlocBuilder<TutorDetailCubit, TutorDetailState>(
                     builder: (context, state) {
                       return GestureDetector(
-                        onTap: () => context
-                            .read<TutorDetailCubit>()
-                            .onChangeFavorite(id),
+                        onTap: () =>
+                            context.read<TutorDetailCubit>().onChangeFavorite(),
                         child: iconButton(context,
                             asset: item.isFavorite
                                 ? Assets.images.icHeartFill.path
@@ -183,6 +183,70 @@ class TutorDetailScreen extends StatelessWidget {
                   item.experience,
                   style: const TextStyle(fontSize: 14),
                 )),
+            BlocBuilder<TutorDetailCubit, TutorDetailState>(
+              buildWhen: (previous, current) =>
+                  previous.onSelected != current.onSelected,
+              builder: (context, state) {
+                return CalendarSchedule(
+                  onDateChange:
+                      context.read<TutorDetailCubit>().onChangeDateSelected,
+                  selectDay: state.onSelected,
+                );
+              },
+            ),
+            BlocBuilder<TutorDetailCubit, TutorDetailState>(
+              builder: (context, state) => state.handleSchedule.isLoading
+                  ? LoadingWidget()
+                  : BlocBuilder<TutorDetailCubit, TutorDetailState>(
+                      buildWhen: (previous, current) =>
+                          previous.schedule != current.schedule,
+                      builder: (context, state) {
+                        return ListView.separated(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: state.schedule.length,
+                          itemBuilder: (context, index) {
+                            return scheduleItem(context, state.schedule[index]);
+                          },
+                          separatorBuilder: (context, index) => gapH4,
+                        );
+                      },
+                    ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget scheduleItem(BuildContext context, MScheduleInfo item) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(Sizes.p8),
+        border: Border.all(color: Colors.black),
+      ),
+      child: Padding(
+        padding:
+            EdgeInsets.symmetric(vertical: Sizes.p4, horizontal: Sizes.p16),
+        child: Row(
+          children: [
+            Text(
+              "${item.startTime} - ${item.endTime}",
+              style: BaseTextStyle.body3(),
+            ),
+            Spacer(),
+            PrimaryButton(
+              text: S.text.book_button,
+              onPressed: item.isBooked
+                  ? null
+                  : () {
+                      XBottomSheet.show(context,
+                          isDismissible: false,
+                          child: BookingWidget(schedule: item));
+                    },
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Colors.white,
+            )
           ],
         ),
       ),

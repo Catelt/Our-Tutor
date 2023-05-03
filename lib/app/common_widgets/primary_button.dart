@@ -39,7 +39,7 @@ class PrimaryButton extends StatelessWidget {
               )
             : Text(
                 text,
-                style: BaseTextStyle.button(),
+                style: BaseTextStyle.button().copyWith(color: foregroundColor),
                 textAlign: TextAlign.center,
               ),
       ),

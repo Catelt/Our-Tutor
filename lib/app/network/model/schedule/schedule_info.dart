@@ -1,6 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../booking/booking.dart';
 import '../tutor/tutor.dart';
+import 'schedule.dart';
 
 part 'schedule_info.freezed.dart';
 part 'schedule_info.g.dart';
@@ -18,6 +20,7 @@ class MScheduleInfo with _$MScheduleInfo {
     @Default(false) bool isDeleted,
     @Default("") String createdAt,
     @Default("") String updatedAt,
+    @Default(false) bool isBooked,
     MTutor? tutorInfo,
   }) = _MScheduleInfo;
 

@@ -62,9 +62,9 @@ void _initGetIt() {
 
 Future<void> locator(FutureOr<Widget> Function() builder) async {
   WidgetsFlutterBinding.ensureInitialized();
-  FlutterError.onError = (details) {
-    xLog.e(details.exceptionAsString());
-  };
+  // FlutterError.onError = (details) {
+  //   xLog.e(details.exceptionAsString());
+  // };
 
   _initGetIt();
   await Future.wait([

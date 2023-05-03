@@ -40,6 +40,8 @@ mixin _$MScheduleInfo {
   set createdAt(String value) => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
   set updatedAt(String value) => throw _privateConstructorUsedError;
+  bool get isBooked => throw _privateConstructorUsedError;
+  set isBooked(bool value) => throw _privateConstructorUsedError;
   MTutor? get tutorInfo => throw _privateConstructorUsedError;
   set tutorInfo(MTutor? value) => throw _privateConstructorUsedError;
 
@@ -66,6 +68,7 @@ abstract class $MScheduleInfoCopyWith<$Res> {
       bool isDeleted,
       String createdAt,
       String updatedAt,
+      bool isBooked,
       MTutor? tutorInfo});
 
   $MTutorCopyWith<$Res>? get tutorInfo;
@@ -94,6 +97,7 @@ class _$MScheduleInfoCopyWithImpl<$Res, $Val extends MScheduleInfo>
     Object? isDeleted = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? isBooked = null,
     Object? tutorInfo = freezed,
   }) {
     return _then(_value.copyWith(
@@ -137,6 +141,10 @@ class _$MScheduleInfoCopyWithImpl<$Res, $Val extends MScheduleInfo>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      isBooked: null == isBooked
+          ? _value.isBooked
+          : isBooked // ignore: cast_nullable_to_non_nullable
+              as bool,
       tutorInfo: freezed == tutorInfo
           ? _value.tutorInfo
           : tutorInfo // ignore: cast_nullable_to_non_nullable
@@ -176,6 +184,7 @@ abstract class _$$_MScheduleInfoCopyWith<$Res>
       bool isDeleted,
       String createdAt,
       String updatedAt,
+      bool isBooked,
       MTutor? tutorInfo});
 
   @override
@@ -203,6 +212,7 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
     Object? isDeleted = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? isBooked = null,
     Object? tutorInfo = freezed,
   }) {
     return _then(_$_MScheduleInfo(
@@ -246,6 +256,10 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      isBooked: null == isBooked
+          ? _value.isBooked
+          : isBooked // ignore: cast_nullable_to_non_nullable
+              as bool,
       tutorInfo: freezed == tutorInfo
           ? _value.tutorInfo
           : tutorInfo // ignore: cast_nullable_to_non_nullable
@@ -268,6 +282,7 @@ class _$_MScheduleInfo implements _MScheduleInfo {
       this.isDeleted = false,
       this.createdAt = "",
       this.updatedAt = "",
+      this.isBooked = false,
       this.tutorInfo});
 
   factory _$_MScheduleInfo.fromJson(Map<String, dynamic> json) =>
@@ -304,11 +319,14 @@ class _$_MScheduleInfo implements _MScheduleInfo {
   @JsonKey()
   String updatedAt;
   @override
+  @JsonKey()
+  bool isBooked;
+  @override
   MTutor? tutorInfo;
 
   @override
   String toString() {
-    return 'MScheduleInfo(date: $date, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, id: $id, tutorId: $tutorId, startTime: $startTime, endTime: $endTime, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, tutorInfo: $tutorInfo)';
+    return 'MScheduleInfo(date: $date, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, id: $id, tutorId: $tutorId, startTime: $startTime, endTime: $endTime, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, isBooked: $isBooked, tutorInfo: $tutorInfo)';
   }
 
   @JsonKey(ignore: true)
@@ -337,6 +355,7 @@ abstract class _MScheduleInfo implements MScheduleInfo {
       bool isDeleted,
       String createdAt,
       String updatedAt,
+      bool isBooked,
       MTutor? tutorInfo}) = _$_MScheduleInfo;
 
   factory _MScheduleInfo.fromJson(Map<String, dynamic> json) =
@@ -372,6 +391,9 @@ abstract class _MScheduleInfo implements MScheduleInfo {
   @override
   String get updatedAt;
   set updatedAt(String value);
+  @override
+  bool get isBooked;
+  set isBooked(bool value);
   @override
   MTutor? get tutorInfo;
   set tutorInfo(MTutor? value);

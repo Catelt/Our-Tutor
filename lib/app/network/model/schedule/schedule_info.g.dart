@@ -18,6 +18,7 @@ _$_MScheduleInfo _$$_MScheduleInfoFromJson(Map<String, dynamic> json) =>
       isDeleted: json['isDeleted'] as bool? ?? false,
       createdAt: json['createdAt'] as String? ?? "",
       updatedAt: json['updatedAt'] as String? ?? "",
+      isBooked: json['isBooked'] as bool? ?? false,
       tutorInfo: json['tutorInfo'] == null
           ? null
           : MTutor.fromJson(json['tutorInfo'] as Map<String, dynamic>),
@@ -35,5 +36,6 @@ Map<String, dynamic> _$$_MScheduleInfoToJson(_$_MScheduleInfo instance) =>
       'isDeleted': instance.isDeleted,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'isBooked': instance.isBooked,
       'tutorInfo': instance.tutorInfo?.toJson(),
     };

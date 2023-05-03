@@ -18,4 +18,18 @@ extension DateTimeExtension on DateTime {
     }
     return XDateFormat().basic.format(this);
   }
+
+  bool isSameDate(DateTime other) {
+    return this.year == other.year &&
+        this.month == other.month &&
+        this.day == other.day;
+  }
+
+  DateTime get getBeginDate {
+    return DateTime(this.year, this.month, this.day, 0, 0);
+  }
+
+  DateTime get getEndDate {
+    return DateTime(this.year, this.month, this.day, 23, 59);
+  }
 }

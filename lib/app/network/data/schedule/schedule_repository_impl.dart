@@ -59,4 +59,58 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<List<MScheduleInfo>>> getScheduleForTutor(String id) async {
+    try {
+      final response = await XHttp().post('/schedule', data: {
+        "tutorId": id,
+      });
+      final data = jsonDecode(response)['data'];
+      List<MScheduleInfo> list = [];
+      for (var value in data) {
+        list.add(MScheduleInfo.fromJson(value));
+      }
+      return MResult.success(list);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<MResult<bool>> booking(List<String> id, String note) async {
+    try {
+      final response = await XHttp().post('/booking', data: {
+        "scheduleDetailIds": id,
+        "note": note,
+      });
+      return MResult.success(jsonDecode(response)['total']);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
+
+  @override
+  Future<MResult<List<MScheduleInfo>>> getScheduleForDate(
+      String id, DateTime time) async {
+    try {
+      final response = await XHttp().get('/schedule', queryParameters: {
+        "tutorId": id,
+        "startTimestamp": time.getBeginDate.millisecondsSinceEpoch,
+        "endTimestamp": time.getEndDate.millisecondsSinceEpoch,
+      });
+      final data = jsonDecode(response)['scheduleOfTutor'];
+      List<MScheduleInfo> list = [];
+      for (var value in data) {
+        list.add(MScheduleInfo.fromJson(value));
+      }
+      list.sort((a, b) => a.startTimestamp.compareTo(b.startTimestamp));
+      return MResult.success(list);
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }
