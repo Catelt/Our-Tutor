@@ -15,7 +15,9 @@ _$_MFeedback _$$_MFeedbackFromJson(Map<String, dynamic> json) => _$_MFeedback(
       content: json['content'] as String? ?? "",
       createAt: json['createAt'] as String? ?? "",
       updatedAt: json['updatedAt'] as String? ?? "",
-      firstInfo: MTutor.fromJson(json['firstInfo'] as Map<String, dynamic>),
+      firstInfo: json['firstInfo'] == null
+          ? null
+          : MTutor.fromJson(json['firstInfo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MFeedbackToJson(_$_MFeedback instance) =>
@@ -28,5 +30,5 @@ Map<String, dynamic> _$$_MFeedbackToJson(_$_MFeedback instance) =>
       'content': instance.content,
       'createAt': instance.createAt,
       'updatedAt': instance.updatedAt,
-      'firstInfo': instance.firstInfo.toJson(),
+      'firstInfo': instance.firstInfo?.toJson(),
     };

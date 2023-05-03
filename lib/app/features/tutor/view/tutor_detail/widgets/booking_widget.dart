@@ -17,8 +17,6 @@ class BookingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(schedule.id);
-    print("-----");
     final time =
         DateTime.fromMillisecondsSinceEpoch(schedule.startTimestamp.round());
     return BlocProvider(

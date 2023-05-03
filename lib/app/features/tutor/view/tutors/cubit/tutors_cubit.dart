@@ -80,5 +80,6 @@ class TutorsCubit extends Cubit<TutorsState> {
 
   void resetFilter() {
     emit(state.copyWith(nameTutor: '', specialties: []));
+    onSubmitSearch();
   }
 }

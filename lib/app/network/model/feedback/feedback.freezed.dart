@@ -36,8 +36,8 @@ mixin _$MFeedback {
   set createAt(String value) => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
   set updatedAt(String value) => throw _privateConstructorUsedError;
-  MTutor get firstInfo => throw _privateConstructorUsedError;
-  set firstInfo(MTutor value) => throw _privateConstructorUsedError;
+  MTutor? get firstInfo => throw _privateConstructorUsedError;
+  set firstInfo(MTutor? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,9 +59,9 @@ abstract class $MFeedbackCopyWith<$Res> {
       String content,
       String createAt,
       String updatedAt,
-      MTutor firstInfo});
+      MTutor? firstInfo});
 
-  $MTutorCopyWith<$Res> get firstInfo;
+  $MTutorCopyWith<$Res>? get firstInfo;
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ class _$MFeedbackCopyWithImpl<$Res, $Val extends MFeedback>
     Object? content = null,
     Object? createAt = null,
     Object? updatedAt = null,
-    Object? firstInfo = null,
+    Object? firstInfo = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -120,17 +120,21 @@ class _$MFeedbackCopyWithImpl<$Res, $Val extends MFeedback>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      firstInfo: null == firstInfo
+      firstInfo: freezed == firstInfo
           ? _value.firstInfo
           : firstInfo // ignore: cast_nullable_to_non_nullable
-              as MTutor,
+              as MTutor?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MTutorCopyWith<$Res> get firstInfo {
-    return $MTutorCopyWith<$Res>(_value.firstInfo, (value) {
+  $MTutorCopyWith<$Res>? get firstInfo {
+    if (_value.firstInfo == null) {
+      return null;
+    }
+
+    return $MTutorCopyWith<$Res>(_value.firstInfo!, (value) {
       return _then(_value.copyWith(firstInfo: value) as $Val);
     });
   }
@@ -152,10 +156,10 @@ abstract class _$$_MFeedbackCopyWith<$Res> implements $MFeedbackCopyWith<$Res> {
       String content,
       String createAt,
       String updatedAt,
-      MTutor firstInfo});
+      MTutor? firstInfo});
 
   @override
-  $MTutorCopyWith<$Res> get firstInfo;
+  $MTutorCopyWith<$Res>? get firstInfo;
 }
 
 /// @nodoc
@@ -177,7 +181,7 @@ class __$$_MFeedbackCopyWithImpl<$Res>
     Object? content = null,
     Object? createAt = null,
     Object? updatedAt = null,
-    Object? firstInfo = null,
+    Object? firstInfo = freezed,
   }) {
     return _then(_$_MFeedback(
       id: null == id
@@ -212,10 +216,10 @@ class __$$_MFeedbackCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
-      firstInfo: null == firstInfo
+      firstInfo: freezed == firstInfo
           ? _value.firstInfo
           : firstInfo // ignore: cast_nullable_to_non_nullable
-              as MTutor,
+              as MTutor?,
     ));
   }
 }
@@ -232,7 +236,7 @@ class _$_MFeedback implements _MFeedback {
       this.content = "",
       this.createAt = "",
       this.updatedAt = "",
-      required this.firstInfo});
+      this.firstInfo});
 
   factory _$_MFeedback.fromJson(Map<String, dynamic> json) =>
       _$$_MFeedbackFromJson(json);
@@ -262,7 +266,7 @@ class _$_MFeedback implements _MFeedback {
   @JsonKey()
   String updatedAt;
   @override
-  MTutor firstInfo;
+  MTutor? firstInfo;
 
   @override
   String toString() {
@@ -293,7 +297,7 @@ abstract class _MFeedback implements MFeedback {
       String content,
       String createAt,
       String updatedAt,
-      required MTutor firstInfo}) = _$_MFeedback;
+      MTutor? firstInfo}) = _$_MFeedback;
 
   factory _MFeedback.fromJson(Map<String, dynamic> json) =
       _$_MFeedback.fromJson;
@@ -323,8 +327,8 @@ abstract class _MFeedback implements MFeedback {
   String get updatedAt;
   set updatedAt(String value);
   @override
-  MTutor get firstInfo;
-  set firstInfo(MTutor value);
+  MTutor? get firstInfo;
+  set firstInfo(MTutor? value);
   @override
   @JsonKey(ignore: true)
   _$$_MFeedbackCopyWith<_$_MFeedback> get copyWith =>

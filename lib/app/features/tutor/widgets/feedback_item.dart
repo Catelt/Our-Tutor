@@ -13,7 +13,7 @@ class FeedbackItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final avatar = feedback.firstInfo.avatar;
+    final avatar = feedback.firstInfo?.avatar;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: Sizes.p8),
       child: Row(
@@ -34,7 +34,7 @@ class FeedbackItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  feedback.firstInfo.name,
+                  feedback.firstInfo?.name ?? "",
                   style: BaseTextStyle.body1(),
                 ),
                 RatingBarWidget(

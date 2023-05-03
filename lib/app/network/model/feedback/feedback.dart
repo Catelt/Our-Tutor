@@ -16,7 +16,7 @@ class MFeedback with _$MFeedback {
     @Default("") String content,
     @Default("") String createAt,
     @Default("") String updatedAt,
-    required MTutor firstInfo,
+    MTutor? firstInfo,
   }) = _MFeedback;
 
   factory MFeedback.fromJson(Map<String, Object?> json) =>

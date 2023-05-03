@@ -3,7 +3,7 @@ import '../features/account/view/account_screen.dart';
 import '../features/course/view/courses/courses_screen.dart';
 import '../features/history/view/history_screen.dart';
 import '../features/home/data/home_navigation_item.dart';
-import '../features/schedule/presentation/view/schedule_screen.dart';
+import '../features/schedule/view/schedule_screen.dart';
 import '../features/tutor/view/tutors/tutors_screen.dart';
 import '../localization/localization_utils.dart';
 import '../routing/app_routing.dart';

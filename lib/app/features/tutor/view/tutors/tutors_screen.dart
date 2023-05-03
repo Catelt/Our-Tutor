@@ -113,6 +113,8 @@ class _TutorsScreenState extends State<TutorsScreen> {
                     buildWhen: (previous, current) =>
                         previous.nameTutor != current.nameTutor,
                     builder: (context, state) {
+                      print(state.nameTutor);
+                      print("-----a---");
                       return TextFieldCustom(
                         hint: "Enter tutor name",
                         text: state.nameTutor,
@@ -164,6 +166,12 @@ class _TutorsScreenState extends State<TutorsScreen> {
             },
           ),
           gapH12,
+          PrimaryButton(
+            text: "Reset Filter",
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Colors.white,
+            onPressed: context.read<TutorsCubit>().resetFilter,
+          )
         ],
       ),
     );

@@ -1,18 +1,19 @@
 part of 'schedule_repository.dart';
 
 class ScheduleRepositoryImpl extends ScheduleRepository {
-  static final perPage = 10;
+  static final perPage = 20;
 
   @override
-  Future<MResult<List<MBooking>>> getBookedClasses(int page, int time) async {
+  Future<MResult<List<MBooking>>> getBookedClasses(int page, int time,
+      {bool isSchedule = false}) async {
     try {
       final response =
           await XHttp().get('/booking/list/student', queryParameters: {
         'perPage': perPage,
         'page': page,
-        'dateTimeLte': time,
+        isSchedule ? 'dateTimeGte' : 'dateTimeLte': time,
         'orderBy': 'meeting',
-        'sortBy': 'desc',
+        'sortBy': isSchedule ? 'asc' : 'desc',
       });
       final data = MHistoryResponse.fromJson(jsonDecode(response)['data']);
       return MResult.success(data.list);

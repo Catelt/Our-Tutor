@@ -11,7 +11,8 @@ import '../common/http.dart';
 part 'schedule_repository_impl.dart';
 
 abstract class ScheduleRepository {
-  Future<MResult<List<MBooking>>> getBookedClasses(int page, int time);
+  Future<MResult<List<MBooking>>> getBookedClasses(int page, int time,
+      {bool isSchedule = false});
   Future<MResult<List<MBooking>>> getNextBooked(int time);
   Future<MResult<int>> getTotalTimeLearn();
   Future<MResult<List<MScheduleInfo>>> getScheduleForTutor(String id);

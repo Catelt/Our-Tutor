@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import '../../../../../gen/assets.gen.dart';
-import '../../../../common_widgets/common_widgets.dart';
-import '../../../../constants/app_size.dart';
-import '../../../../network/model/tutor/tutor.dart';
+import '../../../common_widgets/common_widgets.dart';
+import '../../../constants/app_size.dart';
+import '../../../network/model/booking/booking.dart';
+import '../../../network/model/booking/bookings.dart';
+import '../../../network/model/tutor/tutor.dart';
+import '../../../utils/extension/datetime.dart';
 import 'request_lesson.dart';
 
 class ScheduleItem extends StatelessWidget {
-  const ScheduleItem({super.key});
+  const ScheduleItem({super.key, required this.bookings});
+
+  final MBookings bookings;
 
   @override
   Widget build(BuildContext context) {
+    final time = DateTime.fromMillisecondsSinceEpoch(
+        bookings.list.first.scheduleDetailInfo.startPeriodTimestamp.round());
     return Container(
       padding: const EdgeInsets.all(Sizes.p12),
       decoration: BoxDecoration(
@@ -26,17 +33,19 @@ class ScheduleItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text(
-            'Wed, 15 Mar 23',
+          Text(
+            XDateFormat().date.format(time),
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          const Text(
-            '1 lesson',
+          Text(
+            '${bookings.list.length} lesson',
             style: TextStyle(fontSize: 14),
           ),
           gapH16,
           InfoTutorWidget(
-            tutor: MTutor(),
+            tutor: bookings
+                    .list.first.scheduleDetailInfo.scheduleInfo?.tutorInfo ??
+                MTutor(),
           ),
           gapH12,
           infoLesson()
@@ -56,13 +65,18 @@ class ScheduleItem extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         children: [
-          const Text('Lesson Time: 17:00 - 21:55'),
-          ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 5,
-            itemBuilder: (context, index) => lessonItem(),
-            separatorBuilder: (context, index) => gapH4,
+          Text(
+              'Lesson Time: ${bookings.list.first.scheduleDetailInfo.startPeriod} - ${bookings.list.last.scheduleDetailInfo.endPeriod}'),
+          Visibility(
+            visible: bookings.list.length > 1,
+            child: ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: bookings.list.length,
+              itemBuilder: (context, index) =>
+                  lessonItem(index, bookings.list[index]),
+              separatorBuilder: (context, index) => gapH4,
+            ),
           ),
           gapH12,
           const RequestLessonWidget(),
@@ -71,10 +85,11 @@ class ScheduleItem extends StatelessWidget {
     );
   }
 
-  Widget lessonItem() {
+  Widget lessonItem(int index, MBooking item) {
     return Row(
       children: [
-        const Text('Session 1: 17:00 - 17:25'),
+        Text(
+            'Session ${index + 1}: ${item.scheduleDetailInfo.startPeriod} -  ${item.scheduleDetailInfo.endPeriod}'),
         const Spacer(),
         Visibility(
           child: Container(

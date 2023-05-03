@@ -47,12 +47,16 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
 
   @override
   Widget build(BuildContext context) {
+    controller.text = widget.text ?? "";
+    controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: controller.text.length));
     return TextField(
       style: const TextStyle(fontSize: 14),
       onChanged: widget.onChange,
       onEditingComplete: widget.onEditingComplete,
       textInputAction: TextInputAction.done,
       maxLines: widget.maxLines,
+      controller: controller,
       decoration: InputDecoration(
           hintText: widget.hint,
           errorText: widget.errorText,
