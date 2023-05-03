@@ -3,24 +3,14 @@ import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import '../../../features/account/bloc/account_cubit.dart';
+import '../../../constants/api_constant.dart';
 import '../../../localization/localization_utils.dart';
 import '../../../utils/utils.dart';
-import '../../domain_manager.dart';
+import 'http.dart';
 
-enum XMethod {
-  get,
-  post,
-  put,
-  patch,
-  delete,
-  head;
-}
-
-class XHttp {
-  factory XHttp() => instance;
-  XHttp._internal() {
+class XGpt {
+  factory XGpt() => instance;
+  XGpt._internal() {
     final options = BaseOptions(
       validateStatus: (status) {
         return true;
@@ -35,14 +25,14 @@ class XHttp {
     _dio = Dio(options);
   }
 
-  static final XHttp instance = XHttp._internal();
-  static XHttp get I => instance;
+  static final XGpt instance = XGpt._internal();
+  static XGpt get I => instance;
   late Dio _dio;
 
   String? tokenType;
   String? tokenApi;
 
-  String _baseUrl = 'https://sandbox.api.lettutor.com';
+  String _baseUrl = ApiConstant.domain;
   Duration _connectTimeout = const Duration(seconds: 10);
   Duration _receiveTimeout = const Duration(seconds: 10);
   Duration _sendTimeout = const Duration(seconds: 5);
@@ -50,7 +40,7 @@ class XHttp {
   Map<String, String> get _headers => {
         'Content-type': 'application/json',
         'Accept': 'application/json',
-        'Authorization': '$tokenType $tokenApi'
+        'Authorization': 'Bearer ${ApiConstant.key}'
       };
 
   /// Configure Dio

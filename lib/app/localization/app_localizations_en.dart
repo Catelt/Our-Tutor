@@ -239,4 +239,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get title_bottom_select_language => 'Select Language';
+
+  @override
+  String get hint_edit_text => 'Start typing or taking';
+
+  @override
+  String get is_listening_gpt => 'listening...';
 }

@@ -42,4 +42,8 @@ class XCoordinator extends BaseCoordinator {
   void showBecomeTutor() {
     pushNamed(AppRoute.becomeTutor.name);
   }
+
+  void showChat() {
+    pushNamed(AppRoute.chat.name);
+  }
 }

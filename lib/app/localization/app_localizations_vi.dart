@@ -239,4 +239,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get title_bottom_select_language => 'Chọn ngôn ngữ';
+
+  @override
+  String get hint_edit_text => 'Nhập hoặc bấm micro để nói';
+
+  @override
+  String get is_listening_gpt => 'Đang lắng nghe...';
 }

@@ -4,6 +4,7 @@ import '../../gen/assets.gen.dart';
 import '../constants/app_size.dart';
 import '../constants/countries.dart';
 import '../network/model/tutor/tutor.dart';
+import '../routing/coordinator.dart';
 import 'common_widgets.dart';
 
 class InfoTutorWidget extends StatelessWidget {
@@ -48,22 +49,27 @@ class InfoTutorWidget extends StatelessWidget {
                   )
                 ],
               ),
-              Row(
-                children: [
-                  SvgWidget(
-                    assetName: Assets.images.icMessage.path,
-                    size: 14,
-                    // color: Theme.of(context).colorScheme.primary,
-                  ),
-                  gapW4,
-                  Text(
-                    'Direct Message',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Theme.of(context).colorScheme.primary,
+              GestureDetector(
+                onTap: () {
+                  XCoordinator().showChat();
+                },
+                child: Row(
+                  children: [
+                    SvgWidget(
+                      assetName: Assets.images.icMessage.path,
+                      size: 14,
+                      // color: Theme.of(context).colorScheme.primary,
                     ),
-                  )
-                ],
+                    gapW4,
+                    Text(
+                      'Direct Message',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),

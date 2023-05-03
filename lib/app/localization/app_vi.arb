@@ -121,5 +121,8 @@
   "setting_private_policy": "Chính sách bảo mật",
   "setting_button_log_out": "Đăng xuất",
 
-  "title_bottom_select_language": "Chọn ngôn ngữ"
+  "title_bottom_select_language": "Chọn ngôn ngữ",
+
+  "hint_edit_text": "Nhập hoặc bấm micro để nói",
+  "is_listening_gpt": "Đang lắng nghe..."
 }

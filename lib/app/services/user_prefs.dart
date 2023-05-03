@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/countries.dart';
+import '../network/model/message.dart';
 import '../network/model/user/user.dart';
 import '../utils/utils.dart';
 
@@ -11,6 +12,7 @@ class _keys {
   static const String locate = 'app-locale';
   static const String theme = 'app-theme';
   static const String user = 'user';
+  static const String messages = 'messages';
 }
 
 class UserPrefs {
@@ -65,5 +67,23 @@ class UserPrefs {
       xLog.e(e);
       return null;
     }
+  }
+
+  // message
+  void saveMessages(List<XMessage> list) {
+    if (list.isEmpty) {
+      _prefs.remove(_keys.messages);
+    } else {
+      final jsonList = list.map((message) => message.toJson()).toList();
+      _prefs.setStringList(_keys.messages, jsonList);
+    }
+  }
+
+  List<XMessage> getMessages() {
+    List<XMessage> result = [];
+    final list = _prefs.getStringList(_keys.messages);
+    if (list == null) return result;
+    result = list.map((message) => XMessage.fromJson(message)).toList();
+    return result;
   }
 }

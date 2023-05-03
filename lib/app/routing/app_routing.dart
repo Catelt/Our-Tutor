@@ -7,6 +7,7 @@ import '../features/account/bloc/account_cubit.dart';
 import '../features/account/view/become_tutor/become_tutor_screen.dart';
 import '../features/account/view/edit_profile/edit_profile_screen.dart';
 import '../features/authentication/router/coordination.dart';
+import '../features/chat/chat_screen.dart';
 import '../features/course/view/course_detail/course_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
@@ -33,6 +34,7 @@ enum AppRoute {
   becomeTutor,
 
   videoCall,
+  chat,
 }
 
 class XAppRouter {
@@ -117,6 +119,14 @@ class XAppRouter {
         name: AppRoute.videoCall.name,
         pageBuilder: (context, state) => DefaultTransition(
           child: VideoCallScreen(booking: state.extra as MBooking),
+        ),
+      ),
+      GoRoute(
+        parentNavigatorKey: XAppRouter.navigatorKey,
+        path: '/chat',
+        name: AppRoute.chat.name,
+        pageBuilder: (context, state) => DefaultTransition(
+          child: ChatScreen(),
         ),
       ),
     ],

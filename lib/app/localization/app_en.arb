@@ -121,5 +121,8 @@
   "setting_private_policy": "Private Policy",
   "setting_button_log_out": "Log out",
 
-  "title_bottom_select_language": "Select Language"
+  "title_bottom_select_language": "Select Language",
+
+  "hint_edit_text": "Start typing or taking",
+  "is_listening_gpt": "listening..."
 }

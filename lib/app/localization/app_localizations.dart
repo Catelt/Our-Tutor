@@ -548,6 +548,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select Language'**
   String get title_bottom_select_language;
+
+  /// No description provided for @hint_edit_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Start typing or taking'**
+  String get hint_edit_text;
+
+  /// No description provided for @is_listening_gpt.
+  ///
+  /// In en, this message translates to:
+  /// **'listening...'**
+  String get is_listening_gpt;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../dialogs/alert_wrapper.dart';
@@ -29,7 +28,9 @@ class AccountCubit extends Cubit<AccountState> {
     if (response.isSuccess && response.data != null) {
       final user = response.data;
       if (user != null) {
-        onUserChange(state.login(user));
+        onUserChange(state.login(user.copyWith(
+            accessToken: state.user.accessToken,
+            refreshToken: state.user.refreshToken)));
       }
     }
   }
