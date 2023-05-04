@@ -12,7 +12,7 @@ class ButtonDropDownOneCustom extends StatefulWidget {
     this.hint,
     this.errorText,
     this.height,
-    this.fontSize,
+    this.fontSize = 14,
     this.onChange,
     this.selected,
   });
@@ -46,23 +46,25 @@ class _ButtonDropDownOneCustomState extends State<ButtonDropDownOneCustom> {
   @override
   void initState() {
     super.initState();
-    selectedItems =
-        items.firstWhere((e) => e.id == widget.selected, orElse: null);
+    if (widget.selected != null && widget.selected?.isNotEmpty == true) {
+      selectedItems = items.firstWhere((e) => e.id == widget.selected);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return FormField(
-      builder: (state) => InputDecorator(
+    return DropdownButtonHideUnderline(
+      child: DropdownButtonFormField2(
         decoration: InputDecoration(
             labelStyle: TextStyle(fontSize: widget.fontSize),
+            hintStyle: TextStyle(fontSize: widget.fontSize),
             label: widget.label != null ? Text(widget.label ?? "") : null,
             hintText: widget.hint,
             errorText: widget.errorText,
             isDense: true,
-            // suffixIcon: checkIcon(),
-            contentPadding: EdgeInsets.symmetric(
-                vertical: widget.height ?? Sizes.p8, horizontal: Sizes.p12),
+            contentPadding:
+                EdgeInsets.symmetric(vertical: widget.height ?? Sizes.p8)
+                    .add(const EdgeInsets.only(right: Sizes.p12)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(Sizes.p12),
                 borderSide: const BorderSide(width: 1, color: Colors.grey)),
@@ -76,26 +78,22 @@ class _ButtonDropDownOneCustomState extends State<ButtonDropDownOneCustom> {
                 borderRadius: BorderRadius.circular(Sizes.p12),
                 borderSide: BorderSide(
                     width: 1, color: Theme.of(context).colorScheme.primary))),
-        isEmpty: selectedItems == null,
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton(
-            value: selectedItems,
-            isDense: true,
-            items: items.map((item) {
-              return DropdownMenuItem<MLevel>(
-                value: item,
-                child: Text(item.name),
-              );
-            }).toList(),
-            onChanged: (value) {
-              setState(() {
-                MLevel data = value as MLevel;
-                widget.onChange?.call(data.id);
-                selectedItems = data;
-              });
-            },
-          ),
-        ),
+        value: selectedItems,
+        isDense: true,
+        isExpanded: true,
+        items: items.map((item) {
+          return DropdownMenuItem<MLevel>(
+            value: item,
+            child: Text(item.name),
+          );
+        }).toList(),
+        onChanged: (value) {
+          setState(() {
+            MLevel data = value as MLevel;
+            widget.onChange?.call(data.id);
+            selectedItems = data;
+          });
+        },
       ),
     );
   }

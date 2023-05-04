@@ -7,6 +7,7 @@ import '../../../../constants/specialties.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../routing/coordinator.dart';
 import '../../../../utils/extension/datetime.dart';
+import '../../widgets/button_dropdown_custom.dart';
 import '../../widgets/widget.dart';
 import 'cubit/tutors_cubit.dart';
 
@@ -106,26 +107,29 @@ class _TutorsScreenState extends State<TutorsScreen> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 29),
           ),
           gapH12,
-          Row(
-            children: [
-              Expanded(
-                  flex: 2,
-                  child: BlocBuilder<TutorsCubit, TutorsState>(
-                    buildWhen: (previous, current) =>
-                        previous.nameTutor != current.nameTutor,
-                    builder: (context, state) {
-                      return TextFieldCustom(
-                        hint: "Enter tutor name",
-                        text: state.nameTutor,
-                        onEditingComplete:
-                            context.read<TutorsCubit>().onSubmitSearch,
-                        onChange: context.read<TutorsCubit>().onChangeNameTutor,
-                      );
-                    },
-                  )),
-              gapW4,
-              Expanded(child: TextFieldCustom(hint: "Select tutor nationality"))
-            ],
+          BlocBuilder<TutorsCubit, TutorsState>(
+            buildWhen: (previous, current) =>
+                previous.nameTutor != current.nameTutor,
+            builder: (context, state) {
+              return TextFieldCustom(
+                hint: "Enter tutor name",
+                text: state.nameTutor,
+                onEditingComplete: context.read<TutorsCubit>().onSubmitSearch,
+                onChange: context.read<TutorsCubit>().onChangeNameTutor,
+              );
+            },
+          ),
+          gapH12,
+          BlocBuilder<TutorsCubit, TutorsState>(
+            buildWhen: (previous, current) =>
+                previous.national != current.national,
+            builder: (context, state) {
+              return ButtonDropDownCustom(
+                selected: state.national,
+                hint: "Select tutor nationality",
+                onChange: context.read<TutorsCubit>().onChangeNational,
+              );
+            },
           ),
           // gapH8,
           // Text(

@@ -24,7 +24,12 @@ class TutorsCubit extends Cubit<TutorsState> {
     MResult<List<MTutor>> response;
     if (state.isSearch) {
       response = await domain.tutor.search(state.page,
-          search: state.nameTutor, specialties: state.specialtiesId);
+          search: state.nameTutor,
+          specialties: state.specialtiesId,
+          nationality: [
+            state.national.contains("Vietnamese Tutor"),
+            state.national.contains("Native English Tutor"),
+          ]);
     } else {
       response = await domain.tutor.getList(state.page);
     }
@@ -69,6 +74,11 @@ class TutorsCubit extends Cubit<TutorsState> {
     onSubmitSearch();
   }
 
+  void onChangeNational(List<String> national) {
+    emit(state.copyWith(national: national));
+    onSubmitSearch();
+  }
+
   void onSubmitSearch() {
     resetPage();
     getList();
@@ -79,7 +89,7 @@ class TutorsCubit extends Cubit<TutorsState> {
   }
 
   void resetFilter() {
-    emit(state.copyWith(nameTutor: '', specialties: []));
+    emit(state.copyWith(nameTutor: '', specialties: [], national: []));
     onSubmitSearch();
   }
 }

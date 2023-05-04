@@ -1,41 +1,71 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/level.dart';
+import '../../../constants/app_size.dart';
+import '../../../constants/base_style.dart';
 
 class ButtonDropDownCustom extends StatefulWidget {
-  const ButtonDropDownCustom({super.key});
+  const ButtonDropDownCustom(
+      {super.key,
+      this.label,
+      this.hint,
+      this.errorText,
+      this.height,
+      this.fontSize,
+      this.selected,
+      this.onChange});
+
+  final String? label;
+  final String? hint;
+  final String? errorText;
+  final double? height;
+  final double? fontSize;
+  final List<String>? selected;
+  final void Function(List<String>)? onChange;
 
   @override
   State<ButtonDropDownCustom> createState() => _ButtonDropDownCustomState();
 }
 
 class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
-  final List<MLevel> items = [
-    MLevel(id: "BEGINNER", name: "Pre A1 (Beginner)"),
-    MLevel(id: "HIGHER_BEGINNER", name: "A1 (Higher Beginner)"),
-    MLevel(id: "PRE_INTERMEDIATE", name: "A2 (Pre-Intermediate)"),
-    MLevel(id: "INTERMEDIATE", name: "B1 (Intermediate)"),
-    MLevel(id: "UPPER_INTERMEDIATE", name: "B2 (Upper-Intermediate)"),
-    MLevel(id: "ADVANCED", name: "C1 (Advanced)"),
-    MLevel(id: "PROFICIENCY", name: "C2 (Proficiency)"),
-  ];
+  final List<String> items = ["Vietnamese Tutor", "Native English Tutor"];
 
-  List<MLevel> selectedItems = [];
+  List<String> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
+    selectedItems = List.from(widget.selected ?? []);
     return DropdownButtonHideUnderline(
-      child: DropdownButton2(
+      child: DropdownButtonFormField2(
+        decoration: InputDecoration(
+            labelStyle: TextStyle(fontSize: widget.fontSize),
+            label: widget.label != null ? Text(widget.label ?? "") : null,
+            hintText: widget.hint,
+            errorText: widget.errorText,
+            isDense: true,
+            contentPadding:
+                EdgeInsets.symmetric(vertical: widget.height ?? Sizes.p8)
+                    .add(const EdgeInsets.only(right: Sizes.p12)),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Sizes.p12),
+                borderSide: const BorderSide(width: 1, color: Colors.grey)),
+            focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Sizes.p12),
+                borderSide: BorderSide(width: 1, color: BaseColor.red)),
+            errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Sizes.p12),
+                borderSide: BorderSide(width: 1, color: BaseColor.red)),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(Sizes.p12),
+                borderSide: BorderSide(
+                    width: 1, color: Theme.of(context).colorScheme.primary))),
+        isDense: true,
         isExpanded: true,
-        hint: Align(
-          alignment: AlignmentDirectional.center,
-          child: Text(
-            'Select Items',
-            style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).hintColor,
-            ),
+        hint: Text(
+          widget.hint ?? "",
+          style: TextStyle(
+            fontSize: 14,
+            color: Theme.of(context).hintColor,
           ),
         ),
         value: selectedItems.isEmpty ? null : selectedItems.last,
@@ -44,8 +74,6 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
           return items.map(
             (item) {
               return Container(
-                alignment: AlignmentDirectional.center,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
                   getText(),
                   style: const TextStyle(
@@ -59,7 +87,7 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<MLevel>(
+          return DropdownMenuItem<String>(
             value: item,
             enabled: false,
             child: StatefulBuilder(
@@ -74,10 +102,10 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
                     setState(() {});
                     //This rebuilds the dropdownMenu Widget to update the check mark
                     menuSetState(() {});
+                    widget.onChange?.call(selectedItems);
                   },
                   child: Container(
                     height: double.infinity,
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Row(
                       children: [
                         _isSelected
@@ -85,7 +113,7 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
                             : const Icon(Icons.check_box_outline_blank),
                         const SizedBox(width: 16),
                         Text(
-                          item.name,
+                          item,
                           style: const TextStyle(
                             fontSize: 14,
                           ),
@@ -98,14 +126,6 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
             ),
           );
         }).toList(),
-        buttonStyleData: const ButtonStyleData(
-          height: 40,
-          width: 140,
-        ),
-        menuItemStyleData: const MenuItemStyleData(
-          height: 40,
-          padding: EdgeInsets.zero,
-        ),
       ),
     );
   }
@@ -113,7 +133,7 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
   String getText() {
     List<String> result = [];
     for (var value in selectedItems) {
-      result.add(value.name);
+      result.add(value);
     }
     return result.join(", ");
   }

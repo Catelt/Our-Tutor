@@ -44,6 +44,12 @@ class TutorRepositoryImpl extends TutorRepository {
         'search': search,
         'filters': {
           'specialties': specialties,
+          'nationality': search?.isEmpty == true
+              ? {
+                  'isVietNamese': nationality?[0],
+                  'isNative': nationality?[1],
+                }
+              : {}
         },
       });
       final data = MTutors.fromJson(jsonDecode(response));

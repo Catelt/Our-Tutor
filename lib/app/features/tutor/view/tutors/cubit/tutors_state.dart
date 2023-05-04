@@ -7,6 +7,7 @@ class TutorsState extends Equatable {
   final List<MTutor> tutors;
   final String nameTutor;
   final List<String> specialties;
+  final List<String> national;
   final MBooking booking;
   final int total;
 
@@ -17,6 +18,7 @@ class TutorsState extends Equatable {
     required this.tutors,
     this.nameTutor = '',
     this.specialties = const [],
+    this.national = const [],
     required this.booking,
     this.total = 0,
   });
@@ -37,6 +39,7 @@ class TutorsState extends Equatable {
     List<MTutor>? tutors,
     String? nameTutor,
     List<String>? specialties,
+    List<String>? national,
     MBooking? booking,
     int? total,
   }) {
@@ -47,12 +50,14 @@ class TutorsState extends Equatable {
       tutors: tutors ?? this.tutors,
       nameTutor: nameTutor ?? this.nameTutor,
       specialties: specialties ?? this.specialties,
+      national: national ?? this.national,
       booking: booking ?? this.booking,
       total: total ?? this.total,
     );
   }
 
-  bool get isSearch => nameTutor.isNotEmpty || specialties.isNotEmpty;
+  bool get isSearch =>
+      nameTutor.isNotEmpty || specialties.isNotEmpty || national.isNotEmpty;
 
   List<String> get specialtiesId {
     List<String> result = [];
@@ -71,6 +76,7 @@ class TutorsState extends Equatable {
         nameTutor,
         specialties,
         booking,
-        total
+        total,
+        national
       ];
 }
