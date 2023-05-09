@@ -32,13 +32,19 @@ platform :android do
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
-    gradle(task: "clean assembleRelease")
+    # gradle(task: "clean")
+    # gradle(
+    #   task: "assemble",
+    #   build_type: "Release",
+    #   flavor: "production",
+    #   flags: "-Ptarget=lib/main_production.dart"
+    # )
     upload_to_play_store(
       json_key: "./fastlane/playstore_key.json",
       track: "internal",
       # release_status: "draft",
       # skip_upload_changelogs: true,
-      aab: "../build/app/outputs/bundle/release/app-release.aab"
+      aab: "../build/app/outputs/bundle/productionRelease/app-production-release.aab"
     )
   end
 end

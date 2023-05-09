@@ -57,4 +57,5 @@ lib/app/constants/api_constant.dart
 **/fastlane/Preview.html
 **/fastlane/screenshots/**/*.png
 **/fastlane/test_output
-android/fastlane/pc-api-4879387418134085792-292-9886f03d98ed.json
+**/fastlane/metadata/**
+android/fastlane/playstore_key.json
