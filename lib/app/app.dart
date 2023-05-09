@@ -38,7 +38,7 @@ class App extends StatelessWidget {
             builder: BotToastInit(),
             theme: ThemeData(
               useMaterial3: true,
-              colorSchemeSeed: const Color(0xFF13B9FF),
+              colorSchemeSeed: const Color(0xFFB559EC),
             ),
           );
         },
