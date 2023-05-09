@@ -1,0 +1,2 @@
+json_key_file("./fastlane/pc-api-4879387418134085792-292-9886f03d98ed.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("com.catelt.our_tutor") # e.g. com.krausefx.app
