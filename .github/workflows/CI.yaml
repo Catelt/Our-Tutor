@@ -52,4 +52,4 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: ourtutor-tester
           releaseNotes: "${{ github.event.pull_request_review_comment.comment.body }}"
-          file: build\app\outputs\flutter-apk\app-production-release.apk
+          file: build/app/outputs/flutter-apk/app-production-release.apk
