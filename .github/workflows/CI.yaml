@@ -1,7 +1,9 @@
-name: CD
+name: CI
 on:
   push:
     branches: ["advance-online-app"]
+  pull_request:
+    branches: [ "advance-online-app"]
 
 jobs:
   build_and_deploy_distribute:
