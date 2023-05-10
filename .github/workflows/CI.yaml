@@ -1,0 +1,36 @@
+name: CD
+on:
+  push:
+    branches: ["advance-online-app"]
+
+jobs:
+  build_and_deploy_distribute:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          cache: true
+
+      # Creating the key.properties file
+      - name: Key Properties
+        run: echo ${{secrets.KEY_PROPERTIES}} | base64 -d > android/key.properties
+
+      - name: Upload keystore
+        run: echo ${{secrets.UPLOAD_KEYSTORE}} | base64 -d > android/app/key.properties
+
+      - name: Build
+        run: flutter build apk --flavor production -t lib/main_production.dart
+
+      - name: Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.5.0
+        with:
+          appId: ${{secrets.FIREBASE_ANDROID_APPID}}
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          groups: ourtutor-tester
+          releaseNotes: "${{ github.event.pull_request_review_comment.comment.body }}"
+          file: build\app\outputs\flutter-apk\app-production-release.apk
