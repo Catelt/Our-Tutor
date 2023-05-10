@@ -21,8 +21,6 @@ jobs:
           channel: "stable"
           cache: true
 
-
-
       - name: API GPT
         run: echo ${{secrets.API_GPT}} | base64 -d > lib/app/constants/api_constant.dart
 
@@ -33,7 +31,6 @@ jobs:
           fileName: upload-keystore.jks
           encodedString: ${{ secrets.UPLOAD_KEYSTORE }}
     
-      # Creating the key.properties file
       - name: Create key.properties
         run: |
           echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
