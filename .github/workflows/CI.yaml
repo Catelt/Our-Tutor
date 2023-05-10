@@ -45,7 +45,7 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1.5.0
         with:
           appId: ${{secrets.FIREBASE_ANDROID_APPID}}
-          token: ${{ secrets.FIREBASE_TOKEN }}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: ourtutor-tester
           releaseNotes: "${{ github.event.pull_request_review_comment.comment.body }}"
           file: build\app\outputs\flutter-apk\app-production-release.apk
