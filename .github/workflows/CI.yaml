@@ -22,8 +22,12 @@ jobs:
       - name: Key Properties
         run: echo ${{secrets.KEY_PROPERTIES}} | base64 -d > android/key.properties
 
-      - name: Upload keystore
-        run: echo ${{secrets.UPLOAD_KEYSTORE}} | base64 -d > android/app/key.properties
+      - name: Download Android keystore
+        id: android_keystore
+        uses: timheuer/base64-to-file@v1.0.3
+        with:
+          fileName: upload-keystore.jks
+          encodedString: ${{ secrets.UPLOAD_KEYSTORE }}
 
       - name: Build
         run: flutter build apk --flavor production -t lib/main_production.dart
