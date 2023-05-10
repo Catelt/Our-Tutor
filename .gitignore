@@ -58,4 +58,6 @@ lib/app/constants/api_constant.dart
 **/fastlane/screenshots/**/*.png
 **/fastlane/test_output
 **/fastlane/metadata/**
+
+**/google-services.json
 android/fastlane/playstore_key.json
