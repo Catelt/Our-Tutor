@@ -31,7 +31,7 @@ jobs:
         id: android_keystore
         uses: timheuer/base64-to-file@v1.0.3
         with:
-          fileName: upload-keystore.jks
+          path: android/app/upload-keystore.jks
           encodedString: ${{ secrets.UPLOAD_KEYSTORE }}
 
       - name: Build
