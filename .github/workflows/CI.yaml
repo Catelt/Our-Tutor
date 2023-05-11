@@ -37,7 +37,7 @@ jobs:
             
       - name: Firebase Option
         run: |
-          echo "${{ secrets.FIREBASE_OPTIONS }}" > lib/firebase/prod/firebase_options.dart
+          echo ${{ secrets.FIREBASE_OPTIONS }} | base64 -d > lib/firebase/prod/firebase_options.dart
  
       - name: Create key.properties
         run: |
