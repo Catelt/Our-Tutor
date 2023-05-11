@@ -1,4 +1,4 @@
-package com.example.our_tutor
+package com.catelt.our_tutor
 
 import io.flutter.embedding.android.FlutterActivity
 
