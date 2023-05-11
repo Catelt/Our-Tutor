@@ -118,11 +118,17 @@
   "setting_edit_profile": "Edit profile",
   "setting_become_tutor": "Become tutor",
   "setting_language": "Language Preferences",
+  "setting_theme": "Theme Mode",
   "setting_private_policy": "Private Policy",
   "setting_button_log_out": "Log out",
 
   "title_bottom_select_language": "Select Language",
 
   "hint_edit_text": "Start typing or taking",
-  "is_listening_gpt": "listening..."
+  "is_listening_gpt": "listening...",
+
+  "title_bottom_select_theme": "Select Theme",
+  "system_theme" : "System",
+  "dark_theme" : "Dark",
+  "light_theme" : "Light"
 }

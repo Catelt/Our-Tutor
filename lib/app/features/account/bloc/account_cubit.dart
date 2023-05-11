@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 import '../../../dialogs/alert_wrapper.dart';
 import '../../../dialogs/widgets/alert_dialog.dart';
@@ -97,5 +98,10 @@ class AccountCubit extends Cubit<AccountState> {
       UserPrefs.instance.setLocale(value);
       emit(state.copyWith(locale: value));
     }
+  }
+
+  void onChangeThemeMode(ThemeMode value) {
+    UserPrefs.instance.setTheme(value);
+    emit(state.copyWith(themeMode: value));
   }
 }

@@ -26,7 +26,7 @@ class TutorItem extends StatelessWidget {
             padding: const EdgeInsets.all(Sizes.p16)
                 .add(const EdgeInsets.only(bottom: Sizes.p12)),
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(

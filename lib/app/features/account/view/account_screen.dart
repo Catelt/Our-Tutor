@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common_widgets/bottom_sheet/bottom_select_theme.dart';
 import '../../../common_widgets/common_widgets.dart';
 import '../../../constants/app_size.dart';
 import '../../../constants/base_style.dart';
@@ -59,6 +60,22 @@ class AccountScreen extends StatelessWidget {
                         return BottomSelectLanguage(
                           selected: XAppLanguage.getLanguage(state.locale),
                           onTap: context.read<AccountCubit>().onChangeLanguage,
+                        );
+                      },
+                    );
+                  });
+            }),
+            settingSection(S.text.setting_theme, onTap: () async {
+              await showModalBottomSheet(
+                  context: context,
+                  builder: (_) {
+                    return BlocBuilder<AccountCubit, AccountState>(
+                      buildWhen: (previous, current) =>
+                          previous.themeMode != current.themeMode,
+                      builder: (context, state) {
+                        return BottomSelectTheme(
+                          selected: state.themeMode,
+                          onTap: context.read<AccountCubit>().onChangeThemeMode,
                         );
                       },
                     );

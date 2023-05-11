@@ -232,6 +232,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get setting_language => 'Ngôn ngữ';
 
   @override
+  String get setting_theme => 'Chế độ';
+
+  @override
   String get setting_private_policy => 'Chính sách bảo mật';
 
   @override
@@ -245,4 +248,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get is_listening_gpt => 'Đang lắng nghe...';
+
+  @override
+  String get title_bottom_select_theme => 'Chọn chế độ';
+
+  @override
+  String get system_theme => 'Hệ thống';
+
+  @override
+  String get dark_theme => 'Tối';
+
+  @override
+  String get light_theme => 'Sáng';
 }

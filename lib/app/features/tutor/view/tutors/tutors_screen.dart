@@ -184,7 +184,7 @@ class _TutorsScreenState extends State<TutorsScreen> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: Sizes.p8),
       width: double.infinity,
-      color: Colors.blue,
+      color: Theme.of(context).colorScheme.primary,
       child: Column(
         children: [
           upComingInfo(),

@@ -118,11 +118,17 @@
   "setting_edit_profile": "Chỉnh sửa thông tin",
   "setting_become_tutor": "Trở thành giáo viên",
   "setting_language": "Ngôn ngữ",
+  "setting_theme": "Chế độ",
   "setting_private_policy": "Chính sách bảo mật",
   "setting_button_log_out": "Đăng xuất",
 
   "title_bottom_select_language": "Chọn ngôn ngữ",
 
   "hint_edit_text": "Nhập hoặc bấm micro để nói",
-  "is_listening_gpt": "Đang lắng nghe..."
+  "is_listening_gpt": "Đang lắng nghe...",
+
+  "title_bottom_select_theme": "Chọn chế độ",
+  "system_theme" : "Hệ thống",
+  "dark_theme" : "Tối",
+  "light_theme" : "Sáng"
 }

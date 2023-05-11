@@ -10,7 +10,6 @@ class DefaultAppBar {
         padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
         child: const Icon(
           Icons.arrow_back_ios,
-          color: Colors.black,
         ),
       ),
       onPressed: onPressed ??

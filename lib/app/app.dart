@@ -17,7 +17,9 @@ class App extends StatelessWidget {
         BlocProvider(create: (_) => GetIt.I<AccountCubit>()),
       ],
       child: BlocBuilder<AccountCubit, AccountState>(
-        buildWhen: (previous, current) => previous.locale != current.locale,
+        buildWhen: (previous, current) =>
+            previous.locale != current.locale ||
+            previous.themeMode != current.themeMode,
         builder: (context, state) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
@@ -36,9 +38,13 @@ class App extends StatelessWidget {
                 S.of(context).common_appTitle,
             routerConfig: XAppRouter.router,
             builder: BotToastInit(),
+            themeMode: state.themeMode,
             theme: ThemeData(
               useMaterial3: true,
               colorSchemeSeed: const Color(0xFFB559EC),
+            ),
+            darkTheme: ThemeData.dark(
+              useMaterial3: true,
             ),
           );
         },

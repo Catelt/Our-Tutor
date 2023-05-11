@@ -531,6 +531,12 @@ abstract class AppLocalizations {
   /// **'Language Preferences'**
   String get setting_language;
 
+  /// No description provided for @setting_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get setting_theme;
+
   /// No description provided for @setting_private_policy.
   ///
   /// In en, this message translates to:
@@ -560,6 +566,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'listening...'**
   String get is_listening_gpt;
+
+  /// No description provided for @title_bottom_select_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Theme'**
+  String get title_bottom_select_theme;
+
+  /// No description provided for @system_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get system_theme;
+
+  /// No description provided for @dark_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark_theme;
+
+  /// No description provided for @light_theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light_theme;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

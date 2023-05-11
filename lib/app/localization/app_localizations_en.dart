@@ -232,6 +232,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get setting_language => 'Language Preferences';
 
   @override
+  String get setting_theme => 'Theme Mode';
+
+  @override
   String get setting_private_policy => 'Private Policy';
 
   @override
@@ -245,4 +248,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get is_listening_gpt => 'listening...';
+
+  @override
+  String get title_bottom_select_theme => 'Select Theme';
+
+  @override
+  String get system_theme => 'System';
+
+  @override
+  String get dark_theme => 'Dark';
+
+  @override
+  String get light_theme => 'Light';
 }

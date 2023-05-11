@@ -23,7 +23,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Regular",
         fontSize: fontSize ?? 32,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w400);
   }
 
@@ -31,7 +31,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 24,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w500);
   }
 
@@ -39,7 +39,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Regular",
         fontSize: fontSize ?? 24,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w400);
   }
 
@@ -47,7 +47,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Bold",
         fontSize: fontSize ?? 24,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w600);
   }
 
@@ -55,7 +55,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Regular",
         fontSize: fontSize ?? 20,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w400);
   }
 
@@ -63,7 +63,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 18,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w500);
   }
 
@@ -71,7 +71,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 14,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w500);
   }
 
@@ -80,7 +80,7 @@ class BaseTextStyle {
         decoration: TextDecoration.underline,
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 16,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w500);
   }
 
@@ -88,7 +88,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Regular",
         fontSize: fontSize ?? 18,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w400);
   }
 
@@ -96,7 +96,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 14,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w400);
   }
 
@@ -104,7 +104,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Bold",
         fontSize: fontSize ?? 16,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w600);
   }
 
@@ -112,7 +112,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 16,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w600);
   }
 
@@ -120,7 +120,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 12,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w500);
   }
 
@@ -128,7 +128,7 @@ class BaseTextStyle {
     return TextStyle(
         fontFamily: "${BaseTextStyle.appFontFamily}-Medium",
         fontSize: fontSize ?? 10,
-        color: color ?? BaseColor.black,
+        color: color,
         fontWeight: FontWeight.w500);
   }
 }
