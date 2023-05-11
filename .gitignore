@@ -61,3 +61,5 @@ lib/app/constants/api_constant.dart
 
 **/google-services.json
 android/fastlane/playstore_key.json
+
+lib/firebase/**

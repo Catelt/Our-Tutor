@@ -34,6 +34,10 @@ jobs:
       - name: Create google-services
         run: |
           echo "${{ secrets.GOOGLE_SERVICES }}" > android/app/google-services.json
+            
+      - name: Firebase Option
+        run: |
+          echo "${{ secrets.FIREBASE_OPTIONS }}" > lib/firebase/prod/firebase_options.dart
  
       - name: Create key.properties
         run: |

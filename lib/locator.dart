@@ -1,8 +1,7 @@
-// ignore_for_file: strict_raw_type
-
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -61,11 +60,10 @@ void _initGetIt() {
 }
 
 Future<void> locator(FutureOr<Widget> Function() builder) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  // FlutterError.onError = (details) {
-  //   xLog.e(details.exceptionAsString());
-  // };
-
+  FlutterError.onError = (errorDetails) {
+    xLog.e(errorDetails.exceptionAsString());
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
   _initGetIt();
   await Future.wait([
     UserPrefs.instance.initialize(),
@@ -76,6 +74,9 @@ Future<void> locator(FutureOr<Widget> Function() builder) async {
 
   await runZonedGuarded(
     () async => runApp(await builder()),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+    (error, stackTrace) {
+      log(error.toString(), stackTrace: stackTrace);
+      FirebaseCrashlytics.instance.recordError(error, stackTrace, fatal: true);
+    },
   );
 }
