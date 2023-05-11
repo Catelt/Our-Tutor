@@ -1,3 +1,6 @@
+# Except this file
+!.gitignore
+
 # Miscellaneous
 *.class
 *.log
@@ -62,4 +65,4 @@ lib/app/constants/api_constant.dart
 **/google-services.json
 android/fastlane/playstore_key.json
 
-lib/firebase/**
+**/firebase_options.dart
