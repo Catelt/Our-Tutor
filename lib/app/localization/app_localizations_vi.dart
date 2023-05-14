@@ -287,4 +287,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get course_detail_suggested_tutors => 'Gợi ý gia sư';
+
+  @override
+  String get video_call_class_started => 'Lớp học đã bắt đầu trong';
+
+  @override
+  String get video_call_class_begin => 'Lớp học sẽ bắt đầu trong';
+
+  @override
+  String get video_call_button => 'Tham gia lớp học';
 }

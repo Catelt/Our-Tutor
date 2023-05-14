@@ -6,6 +6,7 @@ import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
 import '../../common_widgets/common_widgets.dart';
 import '../../constants/app_size.dart';
 import '../../constants/base_style.dart';
+import '../../localization/localization_utils.dart';
 import '../../network/model/booking/booking.dart';
 import '../../network/model/jitsi/jitsi.dart';
 import '../../network/model/tutor/tutor.dart';
@@ -22,15 +23,13 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   late MJitsi infoJitsi;
   Timer? countdownTimer;
   late Duration myDuration;
+  bool isBefore = false;
 
   @override
   void initState() {
     super.initState();
     infoJitsi = widget.booking.getInfoJitsi();
-    final timeStart = DateTime.fromMillisecondsSinceEpoch(
-        widget.booking.scheduleDetailInfo.startPeriodTimestamp.round());
-    myDuration =
-        Duration(seconds: timeStart.difference(DateTime.now()).inSeconds.abs());
+    setCountDown();
     startTimer();
   }
 
@@ -41,20 +40,19 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   }
 
   void startTimer() {
-    countdownTimer =
-        Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
+    countdownTimer = Timer.periodic(Duration(seconds: 1), (_) {
+      setState(() {
+        setCountDown();
+      });
+    });
   }
 
   void setCountDown() {
-    final reduceSecondsBy = 1;
-    setState(() {
-      final seconds = myDuration.inSeconds - reduceSecondsBy;
-      if (seconds < 0) {
-        countdownTimer!.cancel();
-      } else {
-        myDuration = Duration(seconds: seconds);
-      }
-    });
+    final timeStart = DateTime.fromMillisecondsSinceEpoch(
+        widget.booking.scheduleDetailInfo.startPeriodTimestamp.round());
+    final now = DateTime.now();
+    isBefore = timeStart.isBefore(now);
+    myDuration = Duration(seconds: timeStart.difference(now).inSeconds.abs());
   }
 
   _joinMeeting() async {
@@ -130,53 +128,56 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-                child: Container(
-                    color: Theme.of(context).colorScheme.primary,
-                    child: Center(
-                        child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Class will begin in",
-                          style: BaseTextStyle.heading1()
-                              .copyWith(color: Colors.white),
-                        ),
-                        Text(
-                          "${myDuration.inHours} : ${myDuration.inMinutes % 60} : ${myDuration.inSeconds % 60}",
-                          style: BaseTextStyle.heading1().copyWith(
-                              color: Colors.white, fontSize: Sizes.p64),
-                        ),
-                      ],
-                    )))),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: Sizes.p16, vertical: Sizes.p20),
-              child: Column(
-                children: [
-                  InfoTutorWidget(
-                      tutor: widget.booking.scheduleDetailInfo.scheduleInfo
-                              ?.tutorInfo ??
-                          MTutor()),
-                  SizedBox(
-                    width: double.infinity,
-                    child: PrimaryButton(
-                      text: "Join meeting",
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor: Colors.white,
-                      onPressed: () => _joinMeeting(),
-                    ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: DefaultAppBar.defaultLeading(),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+              child: Container(
+                  color: Theme.of(context).colorScheme.primary,
+                  child: Center(
+                      child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        isBefore
+                            ? S.text.video_call_class_started
+                            : S.text.video_call_class_begin,
+                        style: BaseTextStyle.heading1()
+                            .copyWith(color: Colors.white),
+                      ),
+                      Text(
+                        "${(myDuration.inHours).toString().padLeft(2, '0')} : ${(myDuration.inMinutes % 60).toString().padLeft(2, '0')} : ${(myDuration.inSeconds % 60).toString().padLeft(2, '0')}",
+                        style: BaseTextStyle.heading1()
+                            .copyWith(color: Colors.white, fontSize: Sizes.p64),
+                      ),
+                    ],
+                  )))),
+          Container(
+            padding: const EdgeInsets.symmetric(
+                horizontal: Sizes.p16, vertical: Sizes.p20),
+            child: Column(
+              children: [
+                InfoTutorWidget(
+                    tutor: widget.booking.scheduleDetailInfo.scheduleInfo
+                            ?.tutorInfo ??
+                        MTutor()),
+                SizedBox(
+                  width: double.infinity,
+                  child: PrimaryButton(
+                    text: S.text.video_call_button,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Colors.white,
+                    onPressed: () => _joinMeeting(),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
     ;

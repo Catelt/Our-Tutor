@@ -140,5 +140,9 @@
   "course_detail_experience_level": "Experience Level",
   "course_detail_course_length": "Course Length",
   "course_detail_list_topics": "List Topics",
-  "course_detail_suggested_tutors": "Suggested Tutors"
+  "course_detail_suggested_tutors": "Suggested Tutors",
+
+  "video_call_class_started": "Class started in",
+  "video_call_class_begin": "Class will begin in",
+  "video_call_button": "Join meeting"
 }

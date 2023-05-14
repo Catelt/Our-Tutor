@@ -644,6 +644,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Suggested Tutors'**
   String get course_detail_suggested_tutors;
+
+  /// No description provided for @video_call_class_started.
+  ///
+  /// In en, this message translates to:
+  /// **'Class started in'**
+  String get video_call_class_started;
+
+  /// No description provided for @video_call_class_begin.
+  ///
+  /// In en, this message translates to:
+  /// **'Class will begin in'**
+  String get video_call_class_begin;
+
+  /// No description provided for @video_call_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Join meeting'**
+  String get video_call_button;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -287,4 +287,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get course_detail_suggested_tutors => 'Suggested Tutors';
+
+  @override
+  String get video_call_class_started => 'Class started in';
+
+  @override
+  String get video_call_class_begin => 'Class will begin in';
+
+  @override
+  String get video_call_button => 'Join meeting';
 }
