@@ -21,7 +21,7 @@ class HistoryItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(Sizes.p12),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -63,14 +63,14 @@ class HistoryItem extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(Sizes.p12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         children: [
           Text(
               S.text.history_lesson_time(
-                  "${booking.scheduleDetailInfo.startPeriod} - ${booking.scheduleDetailInfo.endPeriod}"),
+                  "${booking.startTime} - ${booking.endTime}"),
               style: TextStyle(fontSize: 20)),
           Visibility(
             visible: booking.recordUrl.isNotEmpty,
@@ -86,12 +86,11 @@ class HistoryItem extends StatelessWidget {
                   SvgWidget(
                     assetName: Assets.images.icPlaySquare.path,
                     size: 14,
-                    color: Colors.white,
                   ),
                   gapW4,
                   Text(
                     S.text.record,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: TextStyle(fontSize: 14),
                   )
                 ],
               ),
@@ -111,7 +110,7 @@ class HistoryItem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
               height: 46,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(8),
                       bottomRight: Radius.circular(8))),
@@ -125,8 +124,8 @@ class HistoryItem extends StatelessWidget {
         body: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(Sizes.p16),
-          decoration: const BoxDecoration(
-            color: Colors.white,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
           ),
           child: Text(
             review,
@@ -144,7 +143,7 @@ class HistoryItem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
               height: 46,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 border: Border(
                   top: BorderSide(color: Colors.grey),
                   bottom: expanded
@@ -158,8 +157,8 @@ class HistoryItem extends StatelessWidget {
             ),
         body: Container(
           padding: const EdgeInsets.all(Sizes.p16),
-          decoration: const BoxDecoration(
-            color: Colors.white,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
             border: Border(
               bottom: BorderSide(color: Colors.grey),
             ),
@@ -173,7 +172,7 @@ class HistoryItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
       height: 46,
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(8), topRight: Radius.circular(8))),
       child: Row(

@@ -40,7 +40,7 @@ class XAppLanguage {
 enum ENational {
   vietnam('vn'),
   philippines('PH'),
-  taiwan('TA');
+  taiwan('TW');
 
   const ENational(this.id);
 
