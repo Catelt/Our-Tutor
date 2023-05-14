@@ -130,5 +130,15 @@
   "title_bottom_select_theme": "Chọn chế độ",
   "system_theme" : "Hệ thống",
   "dark_theme" : "Tối",
-  "light_theme" : "Sáng"
+  "light_theme" : "Sáng",
+
+  "topics": "Chủ đề",
+  "more_info" : "Xem thêm",
+  "course_detail_why": "Tại sao bạn nên học khóa học này",
+  "course_detail_what": "Bạn có thể làm gì",
+  "course_detail_overview": "Tổng quan",
+  "course_detail_experience_level": "Trình độ yêu cầu",
+  "course_detail_course_length": "Thời lượng khóa học",
+  "course_detail_list_topics": "Danh sách chủ đề",
+  "course_detail_suggested_tutors": "Gợi ý gia sư"
 }

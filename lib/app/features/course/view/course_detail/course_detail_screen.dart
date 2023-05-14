@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
+import '../../../../constants/course_level.dart';
+import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/course/course.dart';
 import '../../../../network/model/topic/topic.dart';
 import '../../../../network/model/tutor/tutor.dart';
@@ -45,12 +47,16 @@ class CourseDetailScreen extends StatelessWidget {
         children: [
           CourseItem(
             course: item,
-            onPress: () {},
+            onPress: () {
+              XCoordinator().showTopicDetail(id, course: item);
+            },
           ),
           gapH12,
-          detailWidget(title: "Overview", child: overviewWidget(item)),
           detailWidget(
-              title: "Experience Level",
+              title: S.text.course_detail_overview,
+              child: overviewWidget(item)),
+          detailWidget(
+              title: S.text.course_detail_experience_level,
               child: Row(
                 children: [
                   SvgWidget(
@@ -58,15 +64,14 @@ class CourseDetailScreen extends StatelessWidget {
                     size: 20,
                   ),
                   gapW8,
-                  //TODO: Handle level
                   Text(
-                    'Intermediate',
+                    CoursesLevel.getName(item.level),
                     style: TextStyle(fontSize: 16),
                   )
                 ],
               )),
           detailWidget(
-              title: "Course Length",
+              title: S.text.course_detail_course_length,
               child: Row(
                 children: [
                   SvgWidget(
@@ -75,23 +80,27 @@ class CourseDetailScreen extends StatelessWidget {
                   ),
                   gapW8,
                   Text(
-                    '${item.topics.length} topics',
+                    '${item.topics.length} ${S.text.topics}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
               )),
           detailWidget(
-              title: "Suggested Tutors",
+              title: S.text.course_detail_list_topics,
               child: ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: item.topics.length,
                 itemBuilder: (context, index) => itemTopic(
-                    context, (index + 1).toString(), item.topics[index]),
+                  context: context,
+                  index: index,
+                  topic: item.topics[index],
+                  course: item,
+                ),
                 separatorBuilder: (context, index) => gapH8,
               )),
           detailWidget(
-              title: "Suggested Tutors",
+              title: S.text.course_detail_suggested_tutors,
               child: ListView.separated(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -105,24 +114,38 @@ class CourseDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget itemTopic(BuildContext context, String index, MTopic topic) {
-    return Container(
-      padding: const EdgeInsets.all(Sizes.p20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(Sizes.p8),
-        border: Border.all(color: Colors.grey, width: 1),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '${index}.',
-            style: TextStyle(fontSize: 16),
-          ),
-          Text(topic.name,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
-        ],
+  Widget itemTopic({
+    required BuildContext context,
+    required int index,
+    required MTopic topic,
+    MCourse? course,
+  }) {
+    return GestureDetector(
+      onTap: () {
+        XCoordinator().showTopicDetail(
+          id,
+          course: course,
+          select: index,
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(Sizes.p20),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(Sizes.p8),
+          border: Border.all(color: Colors.grey, width: 1),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${(index + 1).toString()}.',
+              style: TextStyle(fontSize: 16),
+            ),
+            Text(topic.name,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
+          ],
+        ),
       ),
     );
   }
@@ -137,7 +160,7 @@ class CourseDetailScreen extends StatelessWidget {
       GestureDetector(
         onTap: () => XCoordinator().showTutorDetail(tutor.id, isReplace: true),
         child: Text(
-          "More info",
+          S.text.more_info,
           style: TextStyle(
               fontSize: 14, color: Theme.of(context).colorScheme.primary),
         ),
@@ -164,13 +187,13 @@ class CourseDetailScreen extends StatelessWidget {
   Widget overviewWidget(MCourse course) {
     return Column(
       children: [
-        titleInOverviewWidget('Why take this course'),
+        titleInOverviewWidget(S.text.course_detail_why),
         Padding(
           padding: EdgeInsets.only(left: Sizes.p16),
           child: Text(course.reason,
               style: TextStyle(fontSize: 14, color: Colors.grey)),
         ),
-        titleInOverviewWidget('What will you be able to do'),
+        titleInOverviewWidget(S.text.course_detail_what),
         Padding(
           padding: EdgeInsets.only(left: Sizes.p16),
           child: Text(course.purpose,

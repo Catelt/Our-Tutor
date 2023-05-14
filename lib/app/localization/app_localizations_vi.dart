@@ -260,4 +260,31 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get light_theme => 'Sáng';
+
+  @override
+  String get topics => 'Chủ đề';
+
+  @override
+  String get more_info => 'Xem thêm';
+
+  @override
+  String get course_detail_why => 'Tại sao bạn nên học khóa học này';
+
+  @override
+  String get course_detail_what => 'Bạn có thể làm gì';
+
+  @override
+  String get course_detail_overview => 'Tổng quan';
+
+  @override
+  String get course_detail_experience_level => 'Trình độ yêu cầu';
+
+  @override
+  String get course_detail_course_length => 'Thời lượng khóa học';
+
+  @override
+  String get course_detail_list_topics => 'Danh sách chủ đề';
+
+  @override
+  String get course_detail_suggested_tutors => 'Gợi ý gia sư';
 }

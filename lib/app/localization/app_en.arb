@@ -130,5 +130,15 @@
   "title_bottom_select_theme": "Select Theme",
   "system_theme" : "System",
   "dark_theme" : "Dark",
-  "light_theme" : "Light"
+  "light_theme" : "Light",
+
+  "topics": "topics",
+  "more_info" : "More info",
+  "course_detail_why": "Why take this course",
+  "course_detail_what": "What will you be able to do",
+  "course_detail_overview": "Overview",
+  "course_detail_experience_level": "Experience Level",
+  "course_detail_course_length": "Course Length",
+  "course_detail_list_topics": "List Topics",
+  "course_detail_suggested_tutors": "Suggested Tutors"
 }

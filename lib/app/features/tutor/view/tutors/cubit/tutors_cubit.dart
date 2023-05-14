@@ -60,7 +60,7 @@ class TutorsCubit extends Cubit<TutorsState> {
     final response = await domain.schedule
         .getNextBooked(DateTime.now().millisecondsSinceEpoch);
     if (isClosed) return;
-    if (response.isSuccess) {
+    if (response.isSuccess && response.data?.isNotEmpty == true) {
       emit(state.copyWith(booking: response.data?.first));
     }
   }

@@ -590,6 +590,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Light'**
   String get light_theme;
+
+  /// No description provided for @topics.
+  ///
+  /// In en, this message translates to:
+  /// **'topics'**
+  String get topics;
+
+  /// No description provided for @more_info.
+  ///
+  /// In en, this message translates to:
+  /// **'More info'**
+  String get more_info;
+
+  /// No description provided for @course_detail_why.
+  ///
+  /// In en, this message translates to:
+  /// **'Why take this course'**
+  String get course_detail_why;
+
+  /// No description provided for @course_detail_what.
+  ///
+  /// In en, this message translates to:
+  /// **'What will you be able to do'**
+  String get course_detail_what;
+
+  /// No description provided for @course_detail_overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get course_detail_overview;
+
+  /// No description provided for @course_detail_experience_level.
+  ///
+  /// In en, this message translates to:
+  /// **'Experience Level'**
+  String get course_detail_experience_level;
+
+  /// No description provided for @course_detail_course_length.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Length'**
+  String get course_detail_course_length;
+
+  /// No description provided for @course_detail_list_topics.
+  ///
+  /// In en, this message translates to:
+  /// **'List Topics'**
+  String get course_detail_list_topics;
+
+  /// No description provided for @course_detail_suggested_tutors.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested Tutors'**
+  String get course_detail_suggested_tutors;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -51,25 +51,21 @@ class ScheduleCubit extends Cubit<ScheduleState> {
               list[i].scheduleDetailInfo.endPeriodTimestamp.round());
           final timeB = DateTime.fromMillisecondsSinceEpoch(
               list[j].scheduleDetailInfo.startPeriodTimestamp.round());
-          print(timeA);
-          print(timeB);
-          print("----");
 
           if (timeB.isAfter(timeA) &&
               timeB.difference(timeA).inHours.abs() < 2) {
             temp.add(list[j]);
             i = j;
           } else {
-            result.add(MBookings(list: temp));
             i = j;
             break;
           }
         } else {
-          result.add(MBookings(list: temp));
           i = j;
           break;
         }
       }
+      result.add(MBookings(list: temp));
     }
     return result;
   }

@@ -9,10 +9,16 @@ import '../../../network/model/course/course.dart';
 import '../../../routing/coordinator.dart';
 
 class CourseItem extends StatelessWidget {
-  const CourseItem({super.key, this.onPress, required this.course});
+  const CourseItem({
+    super.key,
+    this.onPress,
+    required this.course,
+    this.removeButton = false,
+  });
 
   final void Function()? onPress;
   final MCourse course;
+  final bool removeButton;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +69,7 @@ class CourseItem extends StatelessWidget {
                   style: TextStyle(color: Colors.grey, fontSize: 12),
                 ),
                 gapH16,
-                if (onPress != null)
+                if (onPress != null && !removeButton)
                   Container(
                     padding: EdgeInsets.only(bottom: Sizes.p12),
                     width: double.infinity,
@@ -72,7 +78,7 @@ class CourseItem extends StatelessWidget {
                       onPressed: onPress,
                     ),
                   ),
-                if (onPress == null)
+                if (onPress == null && !removeButton)
                   Text(
                     "${CoursesLevel.getName(course.level)} • ${course.topics.length}  Lessons",
                     style: TextStyle(color: Colors.grey, fontSize: 14),

@@ -9,12 +9,14 @@ import '../features/account/view/edit_profile/edit_profile_screen.dart';
 import '../features/authentication/router/coordination.dart';
 import '../features/chat/chat_screen.dart';
 import '../features/course/view/course_detail/course_detail_screen.dart';
+import '../features/course/view/topic_detail/topic_detail_screen.dart';
 import '../features/home/app_scaffold.dart';
 import '../features/home/data/home_navigation_item.dart';
 import '../features/tutor/view/feedback/feedback_screen.dart';
 import '../features/tutor/view/tutor_detail/tutor_detail_screen.dart';
 import '../features/video_call/video_call_screen.dart';
 import '../network/model/booking/booking.dart';
+import '../network/model/course/course.dart';
 import 'custom_transition.dart';
 import 'not_found_screen.dart';
 
@@ -25,6 +27,8 @@ enum AppRoute {
 
   courses,
   course,
+  topic,
+
   signIn,
   schedule,
   history,
@@ -92,6 +96,22 @@ class XAppRouter {
                 child: CourseDetailScreen(id: state.params['id'] ?? ''),
               ),
             ),
+            GoRoute(
+                parentNavigatorKey: XAppRouter.navigatorKey,
+                path: 'explore-course/:id',
+                name: AppRoute.topic.name,
+                pageBuilder: (context, state) {
+                  return DefaultTransition(
+                    child: TopicDetailScreen(
+                      id: state.params['id'] ?? '',
+                      course:
+                          state.extra != null ? state.extra as MCourse : null,
+                      initSelect: state.queryParams['index'] != null
+                          ? int.parse(state.queryParams['index'] ?? '0')
+                          : 0,
+                    ),
+                  );
+                })
           ]),
           _bottomNavigationItemBuilder(HomeNavigationItems.items[4], routes: [
             GoRoute(

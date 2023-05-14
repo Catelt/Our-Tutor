@@ -260,4 +260,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get light_theme => 'Light';
+
+  @override
+  String get topics => 'topics';
+
+  @override
+  String get more_info => 'More info';
+
+  @override
+  String get course_detail_why => 'Why take this course';
+
+  @override
+  String get course_detail_what => 'What will you be able to do';
+
+  @override
+  String get course_detail_overview => 'Overview';
+
+  @override
+  String get course_detail_experience_level => 'Experience Level';
+
+  @override
+  String get course_detail_course_length => 'Course Length';
+
+  @override
+  String get course_detail_list_topics => 'List Topics';
+
+  @override
+  String get course_detail_suggested_tutors => 'Suggested Tutors';
 }
