@@ -134,6 +134,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/logo_splash.png
+  AssetGenImage get logoSplash =>
+      const AssetGenImage('assets/images/logo_splash.png');
+
   /// File path: assets/images/phone.svg
   SvgGenImage get phone => const SvgGenImage('assets/images/phone.svg');
 
@@ -164,6 +168,7 @@ class $AssetsImagesGen {
         icUserGraduate,
         icUserGroup,
         logo,
+        logoSplash,
         phone
       ];
 }

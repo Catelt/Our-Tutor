@@ -44,6 +44,9 @@ mixin _$MScheduleInfo {
   set isBooked(bool value) => throw _privateConstructorUsedError;
   MTutor? get tutorInfo => throw _privateConstructorUsedError;
   set tutorInfo(MTutor? value) => throw _privateConstructorUsedError;
+  List<MSchedule> get scheduleDetails => throw _privateConstructorUsedError;
+  set scheduleDetails(List<MSchedule> value) =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +72,8 @@ abstract class $MScheduleInfoCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       bool isBooked,
-      MTutor? tutorInfo});
+      MTutor? tutorInfo,
+      List<MSchedule> scheduleDetails});
 
   $MTutorCopyWith<$Res>? get tutorInfo;
 }
@@ -99,6 +103,7 @@ class _$MScheduleInfoCopyWithImpl<$Res, $Val extends MScheduleInfo>
     Object? updatedAt = null,
     Object? isBooked = null,
     Object? tutorInfo = freezed,
+    Object? scheduleDetails = null,
   }) {
     return _then(_value.copyWith(
       date: null == date
@@ -149,6 +154,10 @@ class _$MScheduleInfoCopyWithImpl<$Res, $Val extends MScheduleInfo>
           ? _value.tutorInfo
           : tutorInfo // ignore: cast_nullable_to_non_nullable
               as MTutor?,
+      scheduleDetails: null == scheduleDetails
+          ? _value.scheduleDetails
+          : scheduleDetails // ignore: cast_nullable_to_non_nullable
+              as List<MSchedule>,
     ) as $Val);
   }
 
@@ -185,7 +194,8 @@ abstract class _$$_MScheduleInfoCopyWith<$Res>
       String createdAt,
       String updatedAt,
       bool isBooked,
-      MTutor? tutorInfo});
+      MTutor? tutorInfo,
+      List<MSchedule> scheduleDetails});
 
   @override
   $MTutorCopyWith<$Res>? get tutorInfo;
@@ -214,6 +224,7 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? isBooked = null,
     Object? tutorInfo = freezed,
+    Object? scheduleDetails = null,
   }) {
     return _then(_$_MScheduleInfo(
       date: null == date
@@ -264,13 +275,17 @@ class __$$_MScheduleInfoCopyWithImpl<$Res>
           ? _value.tutorInfo
           : tutorInfo // ignore: cast_nullable_to_non_nullable
               as MTutor?,
+      scheduleDetails: null == scheduleDetails
+          ? _value.scheduleDetails
+          : scheduleDetails // ignore: cast_nullable_to_non_nullable
+              as List<MSchedule>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_MScheduleInfo implements _MScheduleInfo {
+class _$_MScheduleInfo extends _MScheduleInfo {
   _$_MScheduleInfo(
       {this.date = "",
       this.startTimestamp = 0,
@@ -283,7 +298,9 @@ class _$_MScheduleInfo implements _MScheduleInfo {
       this.createdAt = "",
       this.updatedAt = "",
       this.isBooked = false,
-      this.tutorInfo});
+      this.tutorInfo,
+      this.scheduleDetails = const []})
+      : super._();
 
   factory _$_MScheduleInfo.fromJson(Map<String, dynamic> json) =>
       _$$_MScheduleInfoFromJson(json);
@@ -323,10 +340,13 @@ class _$_MScheduleInfo implements _MScheduleInfo {
   bool isBooked;
   @override
   MTutor? tutorInfo;
+  @override
+  @JsonKey()
+  List<MSchedule> scheduleDetails;
 
   @override
   String toString() {
-    return 'MScheduleInfo(date: $date, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, id: $id, tutorId: $tutorId, startTime: $startTime, endTime: $endTime, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, isBooked: $isBooked, tutorInfo: $tutorInfo)';
+    return 'MScheduleInfo(date: $date, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, id: $id, tutorId: $tutorId, startTime: $startTime, endTime: $endTime, isDeleted: $isDeleted, createdAt: $createdAt, updatedAt: $updatedAt, isBooked: $isBooked, tutorInfo: $tutorInfo, scheduleDetails: $scheduleDetails)';
   }
 
   @JsonKey(ignore: true)
@@ -343,7 +363,7 @@ class _$_MScheduleInfo implements _MScheduleInfo {
   }
 }
 
-abstract class _MScheduleInfo implements MScheduleInfo {
+abstract class _MScheduleInfo extends MScheduleInfo {
   factory _MScheduleInfo(
       {String date,
       double startTimestamp,
@@ -356,7 +376,9 @@ abstract class _MScheduleInfo implements MScheduleInfo {
       String createdAt,
       String updatedAt,
       bool isBooked,
-      MTutor? tutorInfo}) = _$_MScheduleInfo;
+      MTutor? tutorInfo,
+      List<MSchedule> scheduleDetails}) = _$_MScheduleInfo;
+  _MScheduleInfo._() : super._();
 
   factory _MScheduleInfo.fromJson(Map<String, dynamic> json) =
       _$_MScheduleInfo.fromJson;
@@ -397,6 +419,9 @@ abstract class _MScheduleInfo implements MScheduleInfo {
   @override
   MTutor? get tutorInfo;
   set tutorInfo(MTutor? value);
+  @override
+  List<MSchedule> get scheduleDetails;
+  set scheduleDetails(List<MSchedule> value);
   @override
   @JsonKey(ignore: true)
   _$$_MScheduleInfoCopyWith<_$_MScheduleInfo> get copyWith =>

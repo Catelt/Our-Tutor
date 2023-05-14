@@ -352,4 +352,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancel_booking_reason => 'What was the reason you cancel this booking?';
+
+  @override
+  String get booking_title => 'Booking Detail';
+
+  @override
+  String get booking_time => 'Booking Time';
+
+  @override
+  String get booking_note => 'Note';
 }

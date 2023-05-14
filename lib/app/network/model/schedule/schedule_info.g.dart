@@ -22,6 +22,10 @@ _$_MScheduleInfo _$$_MScheduleInfoFromJson(Map<String, dynamic> json) =>
       tutorInfo: json['tutorInfo'] == null
           ? null
           : MTutor.fromJson(json['tutorInfo'] as Map<String, dynamic>),
+      scheduleDetails: (json['scheduleDetails'] as List<dynamic>?)
+              ?.map((e) => MSchedule.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_MScheduleInfoToJson(_$_MScheduleInfo instance) =>
@@ -38,4 +42,6 @@ Map<String, dynamic> _$$_MScheduleInfoToJson(_$_MScheduleInfo instance) =>
       'updatedAt': instance.updatedAt,
       'isBooked': instance.isBooked,
       'tutorInfo': instance.tutorInfo?.toJson(),
+      'scheduleDetails':
+          instance.scheduleDetails.map((e) => e.toJson()).toList(),
     };

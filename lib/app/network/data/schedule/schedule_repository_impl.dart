@@ -86,7 +86,8 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
         "scheduleDetailIds": id,
         "note": note,
       });
-      return MResult.success(jsonDecode(response)['total']);
+      return MResult.success(
+          jsonDecode(response)['message'].toString().contains("successful"));
     } catch (e) {
       if (e is Exception) return MResult.error(e.message);
       return MResult.error(e.toString());

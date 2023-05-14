@@ -1,28 +1,23 @@
 part of 'booking_cubit.dart';
 
 class BookingState extends Equatable {
-  final DefaultForm content;
+  final String content;
   final MHandle<bool> handle;
-  final bool isPress;
 
-  BookingState(
-      {required this.content, required this.handle, this.isPress = false});
+  BookingState({this.content = "", required this.handle});
 
-  factory BookingState.ds() =>
-      BookingState(content: DefaultForm.pure(), handle: MHandle());
+  factory BookingState.ds() => BookingState(handle: MHandle());
 
   BookingState copyWith({
-    DefaultForm? content,
+    String? content,
     MHandle<bool>? handle,
-    bool? isPress,
   }) {
     return BookingState(
       content: content ?? this.content,
       handle: handle ?? this.handle,
-      isPress: isPress ?? this.isPress,
     );
   }
 
   @override
-  List<Object?> get props => [content, handle, isPress];
+  List<Object?> get props => [content, handle];
 }

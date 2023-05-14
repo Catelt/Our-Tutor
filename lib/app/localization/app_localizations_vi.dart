@@ -352,4 +352,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get cancel_booking_reason => 'Lý do bạn hủy buổi học này là gì?';
+
+  @override
+  String get booking_title => 'Chi tiết đặt lịch';
+
+  @override
+  String get booking_time => 'Thời gian đặt lịch';
+
+  @override
+  String get booking_note => 'Ghi chú';
 }

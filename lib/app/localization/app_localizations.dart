@@ -770,6 +770,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'What was the reason you cancel this booking?'**
   String get cancel_booking_reason;
+
+  /// No description provided for @booking_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking Detail'**
+  String get booking_title;
+
+  /// No description provided for @booking_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking Time'**
+  String get booking_time;
+
+  /// No description provided for @booking_note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get booking_note;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

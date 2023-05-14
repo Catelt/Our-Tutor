@@ -6,26 +6,27 @@ import '../../../../../constants/app_size.dart';
 import '../../../../../constants/base_style.dart';
 import '../../../../../dialogs/toast_wrapper.dart';
 import '../../../../../localization/localization_utils.dart';
-import '../../../../../network/model/common/default_form.dart';
 import '../../../../../network/model/schedule/schedule_info.dart';
 import '../../../../../utils/extension/datetime.dart';
 import '../cubit/booking_cubit.dart';
 
 class BookingWidget extends StatelessWidget {
-  const BookingWidget({super.key, required this.schedule});
+  const BookingWidget({super.key, required this.schedule, this.callback});
   final MScheduleInfo schedule;
+  final void Function()? callback;
 
   @override
   Widget build(BuildContext context) {
     final time =
         DateTime.fromMillisecondsSinceEpoch(schedule.startTimestamp.round());
     return BlocProvider(
-      create: (context) => BookingCubit(schedule.id),
+      create: (context) => BookingCubit(schedule.scheduleDetails.first.id),
       child: BlocListener<BookingCubit, BookingState>(
           listenWhen: (previous, current) => previous.handle != current.handle,
           listener: (context, state) {
             if (state.handle.isCompleted && state.handle.data == true) {
               XToast.success(S.text.common_success);
+              callback?.call();
               Navigator.pop(context);
             } else if (!state.handle.isLoading) {
               XToast.error(S.text.error_somethingWrongTryAgain);
@@ -41,13 +42,13 @@ class BookingWidget extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: Text(
-                    "Booking Detail",
+                    S.text.booking_title,
                     style: BaseTextStyle.heading4(),
                     textAlign: TextAlign.center,
                   ),
                 ),
                 Text(
-                  "Booking Time",
+                  S.text.booking_time,
                   style: BaseTextStyle.body1(),
                 ),
                 Text(
@@ -55,23 +56,19 @@ class BookingWidget extends StatelessWidget {
                   style: BaseTextStyle.body2(),
                 ),
                 Text(
-                  "Note",
+                  S.text.booking_note,
                   style: BaseTextStyle.body1(),
                 ),
                 gapH8,
                 BlocBuilder<BookingCubit, BookingState>(
                   buildWhen: (previous, current) =>
-                      previous.content != current.content ||
-                      previous.isPress != current.isPress,
+                      previous.content != current.content,
                   builder: (context, state) {
                     return TextFieldCustom(
                       hint: S.text.password_hint,
-                      text: state.content.value,
+                      text: state.content,
                       maxLines: 4,
                       onChange: context.read<BookingCubit>().onChangeContext,
-                      errorText: state.isPress
-                          ? state.content.error?.messageDefaultForm
-                          : null,
                     );
                   },
                 ),

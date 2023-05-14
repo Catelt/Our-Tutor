@@ -231,18 +231,24 @@ class TutorDetailScreen extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              "${item.startTime} - ${item.endTime}",
+              "${item.startTimeStr} - ${item.endTimeStr}",
               style: BaseTextStyle.body3(),
             ),
             Spacer(),
             PrimaryButton(
               text: S.text.book_button,
-              onPressed: item.isBooked
+              onPressed: item.isBooked ||
+                      item.getStartTime().isBefore(DateTime.now())
                   ? null
                   : () {
                       XBottomSheet.show(context,
                           isDismissible: false,
-                          child: BookingWidget(schedule: item));
+                          child: BookingWidget(
+                            schedule: item,
+                            callback: () {
+                              context.read<TutorDetailCubit>().getSchedule();
+                            },
+                          ));
                     },
               backgroundColor: Theme.of(context).colorScheme.primary,
               foregroundColor: Colors.white,

@@ -173,5 +173,9 @@
 
   "cancel_booking_title": "Cancel Booking",
   "cancel_booking_lesson_time": "Lesson Time",
-  "cancel_booking_reason": "What was the reason you cancel this booking?"
+  "cancel_booking_reason": "What was the reason you cancel this booking?",
+
+  "booking_title": "Booking Detail",
+  "booking_time": "Booking Time",
+  "booking_note": "Note"
 }
