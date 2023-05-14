@@ -165,6 +165,12 @@ abstract class AppLocalizations {
   /// **'Submit'**
   String get common_submit;
 
+  /// No description provided for @common_reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Filter'**
+  String get common_reset;
+
   /// No description provided for @error_noInternet.
   ///
   /// In en, this message translates to:
@@ -662,6 +668,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Join meeting'**
   String get video_call_button;
+
+  /// No description provided for @courses_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Courses'**
+  String get courses_title;
+
+  /// No description provided for @course.
+  ///
+  /// In en, this message translates to:
+  /// **'Course'**
+  String get course;
+
+  /// No description provided for @courses_sub_title.
+  ///
+  /// In en, this message translates to:
+  /// **'LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.'**
+  String get courses_sub_title;
+
+  /// No description provided for @courses_select_level.
+  ///
+  /// In en, this message translates to:
+  /// **'Select level'**
+  String get courses_select_level;
+
+  /// No description provided for @courses_select_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Select category'**
+  String get courses_select_category;
+
+  /// No description provided for @courses_select_sort_level.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort by level'**
+  String get courses_select_sort_level;
+
+  /// No description provided for @sort_asc.
+  ///
+  /// In en, this message translates to:
+  /// **'Level ascending'**
+  String get sort_asc;
+
+  /// No description provided for @sort_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Level descending'**
+  String get sort_desc;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

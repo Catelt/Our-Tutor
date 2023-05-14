@@ -19,6 +19,7 @@
   "common_back": "Back",
   "common_success": "Success",
   "common_submit": "Submit",
+  "common_reset": "Reset Filter",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
@@ -144,5 +145,15 @@
 
   "video_call_class_started": "Class started in",
   "video_call_class_begin": "Class will begin in",
-  "video_call_button": "Join meeting"
+  "video_call_button": "Join meeting",
+
+  "courses_title": "Discover Courses",
+  "course": "Course",
+  "courses_sub_title": "LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.",
+  "courses_select_level": "Select level",
+  "courses_select_category": "Select category",
+  "courses_select_sort_level": "Sort by level",
+
+  "sort_asc": "Level ascending",
+  "sort_desc": "Level descending"
 }

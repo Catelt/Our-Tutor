@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
-import '../../widgets/course_item.dart';
+import '../../../../localization/localization_utils.dart';
+import '../../widgets/widgets.dart';
 import 'cubit/courses_cubit.dart';
 
 class CoursesScreen extends StatefulWidget {
@@ -95,13 +96,24 @@ class _CoursesScreenState extends State<CoursesScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Discover Courses",
+                      S.text.courses_title,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                     ),
-                    TextFieldCustom(
-                      hint: 'Course',
-                      assetIcon: Assets.images.icSearch.path,
+                    BlocBuilder<CoursesCubit, CoursesState>(
+                      buildWhen: (previous, current) =>
+                          previous.nameCourse != current.nameCourse,
+                      builder: (context, state) {
+                        return TextFieldCustom(
+                          hint: S.text.course,
+                          assetIcon: Assets.images.icSearch.path,
+                          text: state.nameCourse,
+                          onEditingComplete:
+                              context.read<CoursesCubit>().onSubmitSearch,
+                          onChange:
+                              context.read<CoursesCubit>().onChangeNameCourse,
+                        );
+                      },
                     )
                   ]),
             )
@@ -109,34 +121,47 @@ class _CoursesScreenState extends State<CoursesScreen> {
         ),
         gapH12,
         Text(
-          'LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.',
+          S.text.courses_sub_title,
           style: TextStyle(fontSize: 14),
         ),
         gapH12,
-        Row(
-          children: [
-            Expanded(
-              child: TextFieldCustom(
-                hint: 'Select level',
-                icon: Icons.keyboard_arrow_down,
-              ),
-            ),
-            gapW8,
-            Expanded(
-              child: TextFieldCustom(
-                hint: 'Select category',
-                icon: Icons.keyboard_arrow_down,
-              ),
-            )
-          ],
+        BlocBuilder<CoursesCubit, CoursesState>(
+          buildWhen: (previous, current) => previous.levels != current.levels,
+          builder: (context, state) {
+            return ButtonDropDownLevel(
+              selected: state.levels,
+              hint: S.text.courses_select_level,
+              onChange: context.read<CoursesCubit>().onChangeLevels,
+            );
+          },
         ),
         gapH8,
-        Container(
-          width: MediaQuery.of(context).size.width / 3,
-          child: TextFieldCustom(
-            hint: 'Sort by level',
-            icon: Icons.keyboard_arrow_down,
-          ),
+        BlocBuilder<CoursesCubit, CoursesState>(
+          buildWhen: (previous, current) =>
+              previous.categories != current.categories,
+          builder: (context, state) {
+            return ButtonDropDownCategories(
+              selected: state.categories,
+              hint: S.text.courses_select_category,
+              onChange: context.read<CoursesCubit>().onChangeCategories,
+            );
+          },
+        ),
+        gapH8,
+        BlocBuilder<CoursesCubit, CoursesState>(
+          buildWhen: (previous, current) => previous.sort != current.sort,
+          builder: (context, state) {
+            return ButtonDropDownSort(
+              selected: state.sort,
+              hint: S.text.courses_select_sort_level,
+              onChange: context.read<CoursesCubit>().onChangeSort,
+            );
+          },
+        ),
+        gapH12,
+        PrimaryButton(
+          text: S.text.common_reset,
+          onPressed: context.read<CoursesCubit>().resetFilter,
         ),
         gapH12,
       ],

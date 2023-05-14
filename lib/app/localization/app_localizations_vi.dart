@@ -43,6 +43,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get common_submit => 'Gửi';
 
   @override
+  String get common_reset => 'Đặt lại bộ lọc';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -296,4 +299,28 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get video_call_button => 'Tham gia lớp học';
+
+  @override
+  String get courses_title => 'Khám phá các khóa học';
+
+  @override
+  String get course => 'Khóa học';
+
+  @override
+  String get courses_sub_title => 'LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.';
+
+  @override
+  String get courses_select_level => 'Chọn cấp độ';
+
+  @override
+  String get courses_select_category => 'Chọn danh mục';
+
+  @override
+  String get courses_select_sort_level => 'Sắp sếp theo độ khó';
+
+  @override
+  String get sort_asc => 'Độ khó tăng dần';
+
+  @override
+  String get sort_desc => 'Độ khó giảm dần';
 }

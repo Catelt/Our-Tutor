@@ -43,6 +43,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get common_submit => 'Submit';
 
   @override
+  String get common_reset => 'Reset Filter';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -296,4 +299,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get video_call_button => 'Join meeting';
+
+  @override
+  String get courses_title => 'Discover Courses';
+
+  @override
+  String get course => 'Course';
+
+  @override
+  String get courses_sub_title => 'LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.';
+
+  @override
+  String get courses_select_level => 'Select level';
+
+  @override
+  String get courses_select_category => 'Select category';
+
+  @override
+  String get courses_select_sort_level => 'Sort by level';
+
+  @override
+  String get sort_asc => 'Level ascending';
+
+  @override
+  String get sort_desc => 'Level descending';
 }

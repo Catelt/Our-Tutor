@@ -32,7 +32,7 @@ class CourseItem extends StatelessWidget {
   Widget _body(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(Sizes.p8),
           boxShadow: [
             BoxShadow(

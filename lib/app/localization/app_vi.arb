@@ -19,6 +19,7 @@
   "common_back": "Trở lại",
   "common_success": "Thành công",
   "common_submit": "Gửi",
+  "common_reset": "Đặt lại bộ lọc",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
@@ -144,5 +145,15 @@
 
   "video_call_class_started": "Lớp học đã bắt đầu trong",
   "video_call_class_begin": "Lớp học sẽ bắt đầu trong",
-  "video_call_button": "Tham gia lớp học"
+  "video_call_button": "Tham gia lớp học",
+
+  "courses_title": "Khám phá các khóa học",
+  "course": "Khóa học",
+  "courses_sub_title": "LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.",
+  "courses_select_level": "Chọn cấp độ",
+  "courses_select_category": "Chọn danh mục",
+  "courses_select_sort_level": "Sắp sếp theo độ khó",
+
+  "sort_asc": "Độ khó tăng dần",
+  "sort_desc": "Độ khó giảm dần"
 }
