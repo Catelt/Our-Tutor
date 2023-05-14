@@ -66,6 +66,7 @@
   "report": "Báo cáo",
   "reviews": "Xem đánh giá",
   "record": "Bản ghi",
+  "lesson": "Buổi học",
   "add_a_rating":"Đánh giá",
   "enter_lesson_room" :"Vào lớp học",
 
@@ -155,5 +156,22 @@
   "courses_select_sort_level": "Sắp sếp theo độ khó",
 
   "sort_asc": "Độ khó tăng dần",
-  "sort_desc": "Độ khó giảm dần"
+  "sort_desc": "Độ khó giảm dần",
+
+  "schedule_title": "Lịch đã đặt",
+  "schedule_sub_title": "Đây là danh sách những khung giờ bạn đã đặt\nBạn có thể theo dõi khi nào buổi học bắt đầu, tham gia buổi học bằng một cú nhấp chuột hoặc có thể hủy buổi học trước 2 tiếng.",
+  "schedule_edit_request": "Chỉnh sửa yêu cầu",
+  "schedule_no_request": "Hiện tại không có yêu cầu cho lớp học này. Xin vui lòng viết ra bất kỳ yêu cầu nào cho giáo viên nếu có.",
+  "schedule_session_time": "Buổi ${value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+
+  "cancel_booking_title": "Hủy Buổi học",
+  "cancel_booking_lesson_time": "Thời gian bài học",
+  "cancel_booking_reason": "Lý do bạn hủy buổi học này là gì?"
 }

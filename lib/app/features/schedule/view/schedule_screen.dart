@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../../common_widgets/common_widgets.dart';
 import '../../../constants/app_size.dart';
+import '../../../localization/localization_utils.dart';
 import '../cubit/schedule_cubit.dart';
 import '../widgets/schedule_item.dart';
 
@@ -61,20 +62,20 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                     assetName: Assets.images.calendar.path,
                     size: 120,
                   ),
-                  const Text(
-                    'Schedule',
+                  Text(
+                    S.text.schedule_title,
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                   IntrinsicHeight(
                     child: Row(
-                      children: const [
+                      children: [
                         VerticalDivider(
                           color: Colors.grey,
                           thickness: 3,
                         ),
                         Expanded(
                           child: Text(
-                            'Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours',
+                            S.text.schedule_sub_title,
                             style: TextStyle(fontSize: 18, color: Colors.grey),
                           ),
                         ),

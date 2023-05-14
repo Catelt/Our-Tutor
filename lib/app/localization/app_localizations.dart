@@ -399,6 +399,12 @@ abstract class AppLocalizations {
   /// **'Record'**
   String get record;
 
+  /// No description provided for @lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'lesson'**
+  String get lesson;
+
   /// No description provided for @add_a_rating.
   ///
   /// In en, this message translates to:
@@ -716,6 +722,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Level descending'**
   String get sort_desc;
+
+  /// No description provided for @schedule_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get schedule_title;
+
+  /// No description provided for @schedule_sub_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours'**
+  String get schedule_sub_title;
+
+  /// No description provided for @schedule_edit_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Request'**
+  String get schedule_edit_request;
+
+  /// No description provided for @schedule_no_request.
+  ///
+  /// In en, this message translates to:
+  /// **'Currently there are no requests for this class. Please write down any requests for the teacher.'**
+  String get schedule_no_request;
+
+  /// No description provided for @schedule_session_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Session {value}'**
+  String schedule_session_time(Object value);
+
+  /// No description provided for @cancel_booking_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Booking'**
+  String get cancel_booking_title;
+
+  /// No description provided for @cancel_booking_lesson_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson Time'**
+  String get cancel_booking_lesson_time;
+
+  /// No description provided for @cancel_booking_reason.
+  ///
+  /// In en, this message translates to:
+  /// **'What was the reason you cancel this booking?'**
+  String get cancel_booking_reason;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

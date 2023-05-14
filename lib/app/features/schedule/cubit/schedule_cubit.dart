@@ -57,11 +57,11 @@ class ScheduleCubit extends Cubit<ScheduleState> {
             temp.add(list[j]);
             i = j;
           } else {
-            i = j;
+            i = j - 1;
             break;
           }
         } else {
-          i = j;
+          i = j - 1;
           break;
         }
       }
@@ -73,5 +73,10 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   bool sameBooking(MBooking a, MBooking b) {
     return a.scheduleDetailInfo.scheduleInfo?.tutorId ==
         b.scheduleDetailInfo.scheduleInfo?.tutorId;
+  }
+
+  void resetPage() {
+    emit(state.copyWith(hasNextPage: true, page: 0, list: []));
+    getList();
   }
 }

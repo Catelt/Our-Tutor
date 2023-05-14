@@ -160,6 +160,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get record => 'Bản ghi';
 
   @override
+  String get lesson => 'Buổi học';
+
+  @override
   String get add_a_rating => 'Đánh giá';
 
   @override
@@ -323,4 +326,30 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get sort_desc => 'Độ khó giảm dần';
+
+  @override
+  String get schedule_title => 'Lịch đã đặt';
+
+  @override
+  String get schedule_sub_title => 'Đây là danh sách những khung giờ bạn đã đặt\nBạn có thể theo dõi khi nào buổi học bắt đầu, tham gia buổi học bằng một cú nhấp chuột hoặc có thể hủy buổi học trước 2 tiếng.';
+
+  @override
+  String get schedule_edit_request => 'Chỉnh sửa yêu cầu';
+
+  @override
+  String get schedule_no_request => 'Hiện tại không có yêu cầu cho lớp học này. Xin vui lòng viết ra bất kỳ yêu cầu nào cho giáo viên nếu có.';
+
+  @override
+  String schedule_session_time(Object value) {
+    return 'Buổi \$$value';
+  }
+
+  @override
+  String get cancel_booking_title => 'Hủy Buổi học';
+
+  @override
+  String get cancel_booking_lesson_time => 'Thời gian bài học';
+
+  @override
+  String get cancel_booking_reason => 'Lý do bạn hủy buổi học này là gì?';
 }

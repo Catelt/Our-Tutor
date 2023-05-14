@@ -151,4 +151,10 @@ class XHttp {
     return request(XMethod.put, url,
         data: data, queryParameters: queryParameters);
   }
+
+  Future<String> delete(String url,
+      {Object? data, Map<String, dynamic>? queryParameters}) {
+    return request(XMethod.delete, url,
+        data: data, queryParameters: queryParameters);
+  }
 }

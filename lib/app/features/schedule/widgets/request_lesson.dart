@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../common_widgets/expand_container.dart';
 import '../../../constants/app_size.dart';
+import '../../../localization/localization_utils.dart';
 
 class RequestLessonWidget extends StatelessWidget {
   const RequestLessonWidget({super.key});
@@ -12,7 +13,7 @@ class RequestLessonWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
               height: 46,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: Theme.of(context).colorScheme.surface,
                 border: Border.all(color: Colors.grey, width: 1),
               ),
               child: Row(children: [
@@ -27,14 +28,14 @@ class RequestLessonWidget extends StatelessWidget {
                     size: 12,
                   ),
                 gapW4,
-                const Text(
-                  'Request for lesson',
+                Text(
+                  S.text.history_request,
                   style: TextStyle(
                     fontSize: 14,
                   ),
                 ),
                 const Spacer(),
-                Text('Edit Request',
+                Text(S.text.schedule_edit_request,
                     style: TextStyle(
                         fontSize: 14,
                         color: Theme.of(context).colorScheme.primary)),
@@ -49,9 +50,7 @@ class RequestLessonWidget extends StatelessWidget {
               bottom: BorderSide(color: Colors.grey),
             ),
           ),
-          child: const Center(
-              child: Text(
-                  'Currently there are no requests for this class. Please write down any requests for the teacher.')),
+          child: Center(child: Text(S.text.schedule_no_request)),
         ));
   }
 }

@@ -160,6 +160,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get record => 'Record';
 
   @override
+  String get lesson => 'lesson';
+
+  @override
   String get add_a_rating => 'Add a Rating';
 
   @override
@@ -323,4 +326,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sort_desc => 'Level descending';
+
+  @override
+  String get schedule_title => 'Schedule';
+
+  @override
+  String get schedule_sub_title => 'Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours';
+
+  @override
+  String get schedule_edit_request => 'Edit Request';
+
+  @override
+  String get schedule_no_request => 'Currently there are no requests for this class. Please write down any requests for the teacher.';
+
+  @override
+  String schedule_session_time(Object value) {
+    return 'Session $value';
+  }
+
+  @override
+  String get cancel_booking_title => 'Cancel Booking';
+
+  @override
+  String get cancel_booking_lesson_time => 'Lesson Time';
+
+  @override
+  String get cancel_booking_reason => 'What was the reason you cancel this booking?';
 }

@@ -66,6 +66,7 @@
   "report": "Report",
   "reviews": "Reviews",
   "record": "Record",
+  "lesson": "lesson",
   "add_a_rating":"Add a Rating",
   "enter_lesson_room" :"Enter lesson room",
 
@@ -155,5 +156,22 @@
   "courses_select_sort_level": "Sort by level",
 
   "sort_asc": "Level ascending",
-  "sort_desc": "Level descending"
+  "sort_desc": "Level descending",
+
+  "schedule_title": "Schedule",
+  "schedule_sub_title": "Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours",
+  "schedule_edit_request": "Edit Request",
+  "schedule_no_request": "Currently there are no requests for this class. Please write down any requests for the teacher.",
+  "schedule_session_time": "Session {value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+
+  "cancel_booking_title": "Cancel Booking",
+  "cancel_booking_lesson_time": "Lesson Time",
+  "cancel_booking_reason": "What was the reason you cancel this booking?"
 }

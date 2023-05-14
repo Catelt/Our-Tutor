@@ -19,4 +19,5 @@ abstract class ScheduleRepository {
   Future<MResult<List<MScheduleInfo>>> getScheduleForDate(
       String id, DateTime time);
   Future<MResult<bool>> booking(List<String> id, String note);
+  Future<MResult<bool>> cancelBooking(List<String> id, String note);
 }

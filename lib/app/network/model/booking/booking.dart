@@ -66,4 +66,10 @@ class MBooking with _$MBooking {
   String get endTime {
     return XDateFormat().time.format(getEndTime());
   }
+
+  bool get canCancelBooking {
+    final now = DateTime.now();
+    return getStartTime().isAfter(now) &&
+        getStartTime().difference(now).inMinutes.abs() > 120;
+  }
 }

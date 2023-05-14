@@ -114,4 +114,18 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<bool>> cancelBooking(List<String> id, String note) async {
+    try {
+      final response = await XHttp().delete('/booking', data: {
+        "scheduleDetailIds": id,
+      });
+      return MResult.success(
+          jsonDecode(response)['message'].toString().contains("successful"));
+    } catch (e) {
+      if (e is Exception) return MResult.error(e.message);
+      return MResult.error(e.toString());
+    }
+  }
 }
