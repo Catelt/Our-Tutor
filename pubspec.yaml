@@ -51,6 +51,7 @@ dependencies:
   speech_to_text: ^6.1.1
   dropdown_button2: ^2.1.0
   animated_text_kit: ^4.2.2
+  chewie: ^1.5.0
 
   # STATE MANAGEMENT
   flutter_bloc: ^8.1.2

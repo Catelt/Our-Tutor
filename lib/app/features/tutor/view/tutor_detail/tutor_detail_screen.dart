@@ -56,7 +56,7 @@ class TutorDetailScreen extends StatelessWidget {
     final national = ENational.getNational(item.country ?? "");
     final specialties =
         item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
-    final _controller = VideoPlayerController.network(item.video);
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Sizes.p12),
@@ -86,8 +86,7 @@ class TutorDetailScreen extends StatelessWidget {
                         style: const TextStyle(
                             fontSize: 22, fontWeight: FontWeight.bold)),
                     RatingBarWidget(
-                        avgRating: item.rating,
-                        numRating: item.feedbacks.length),
+                        avgRating: item.rating, numRating: item.totalFeedback),
                     gapH12,
                     Row(
                       children: [
@@ -140,7 +139,6 @@ class TutorDetailScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      _controller.pause();
                       XCoordinator().showFeedback(id);
                     },
                     child: iconButton(context,
@@ -153,7 +151,6 @@ class TutorDetailScreen extends StatelessWidget {
             Center(
                 child: RemoteVideoWidget(
               url: item.video,
-              controller: _controller,
             )),
             detailWidget(
                 title: S.text.tutor_languages,

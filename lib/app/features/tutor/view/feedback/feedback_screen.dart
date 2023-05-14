@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
+import '../../../../localization/localization_utils.dart';
 import '../../widgets/widget.dart';
 import 'cubit/feedback_cubit.dart';
 
@@ -43,7 +44,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             ..addListener(() => loadMore(context));
           return Scaffold(
             appBar: AppBar(
-              title: Text("Feedback"),
+              title: Text(S.text.reviews),
               centerTitle: true,
               leading: DefaultAppBar.defaultLeading(),
             ),

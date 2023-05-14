@@ -1,11 +1,11 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class RemoteVideoWidget extends StatefulWidget {
-  const RemoteVideoWidget({super.key, required this.url, this.controller});
+  const RemoteVideoWidget({super.key, required this.url});
 
   final String url;
-  final VideoPlayerController? controller;
 
   @override
   State<RemoteVideoWidget> createState() => _RemoteVideoWidgetState();
@@ -13,21 +13,30 @@ class RemoteVideoWidget extends StatefulWidget {
 
 class _RemoteVideoWidgetState extends State<RemoteVideoWidget> {
   late VideoPlayerController _controller;
+  late ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller =
-        widget.controller ?? VideoPlayerController.network(widget.url);
-    _controller.initialize().then((_) {
-      setState(() {});
-      _controller.play();
-    });
+    init();
+  }
+
+  void init() async {
+    _controller = VideoPlayerController.network(widget.url);
+    await _controller.initialize();
+
+    _chewieController = ChewieController(
+      videoPlayerController: _controller,
+      autoPlay: true,
+      looping: true,
+    );
+    setState(() {});
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _chewieController.dispose();
     super.dispose();
   }
 
@@ -37,15 +46,18 @@ class _RemoteVideoWidgetState extends State<RemoteVideoWidget> {
       height: 300,
       padding: const EdgeInsets.all(20),
       child: _controller.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: <Widget>[
-                  VideoPlayer(_controller),
-                  VideoProgressIndicator(_controller, allowScrubbing: true),
-                ],
-              ),
+          // ? AspectRatio(
+          //     aspectRatio: _controller.value.aspectRatio,
+          //     child: Stack(
+          //       alignment: Alignment.bottomCenter,
+          //       children: <Widget>[
+          //         VideoPlayer(_controller),
+          //         VideoProgressIndicator(_controller, allowScrubbing: true),
+          //       ],
+          //     ),
+          //   )
+          ? Chewie(
+              controller: _chewieController,
             )
           : null,
     );
