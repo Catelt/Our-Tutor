@@ -5,20 +5,23 @@ import '../constants/base_style.dart';
 import 'svg_widget.dart';
 
 class TextFieldCustom extends StatefulWidget {
-  const TextFieldCustom(
-      {Key? key,
-      this.label,
-      this.hint,
-      this.errorText,
-      this.text,
-      this.onChange,
-      this.onEditingComplete,
-      this.assetIcon,
-      this.icon,
-      this.height,
-      this.fontSize = 14,
-      this.maxLines})
-      : super(key: key);
+  const TextFieldCustom({
+    Key? key,
+    this.label,
+    this.hint,
+    this.errorText,
+    this.text,
+    this.onChange,
+    this.onEditingComplete,
+    this.assetIcon,
+    this.icon,
+    this.height,
+    this.fontSize = 14,
+    this.maxLines,
+    this.enable,
+    this.realOnly,
+    this.onTap,
+  }) : super(key: key);
 
   final String? label;
   final String? hint;
@@ -31,6 +34,9 @@ class TextFieldCustom extends StatefulWidget {
   final int? maxLines;
   final double? height;
   final double fontSize;
+  final bool? enable;
+  final bool? realOnly;
+  final void Function()? onTap;
 
   @override
   State<TextFieldCustom> createState() => _TextFieldCustomState();
@@ -59,6 +65,9 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
     return TextField(
       style: TextStyle(fontSize: widget.fontSize),
       onChanged: widget.onChange,
+      enabled: widget.enable,
+      readOnly: widget.realOnly ?? false,
+      onTap: widget.onTap,
       onEditingComplete: widget.onEditingComplete,
       textInputAction: TextInputAction.done,
       maxLines: widget.maxLines,

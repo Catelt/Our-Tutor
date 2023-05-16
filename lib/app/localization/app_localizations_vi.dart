@@ -373,4 +373,34 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get booking_note => 'Ghi chú';
+
+  @override
+  String get edit_profile_save => 'Thay đổi thành công';
+
+  @override
+  String get edit_profile_name => 'Tên';
+
+  @override
+  String get edit_profile_email => 'Email';
+
+  @override
+  String get edit_profile_phone => 'Số điện thoại';
+
+  @override
+  String get edit_profile_country => 'Quốc gia';
+
+  @override
+  String get edit_profile_birthday => 'Ngày sinh';
+
+  @override
+  String get edit_profile_level => 'Trình độ';
+
+  @override
+  String get edit_profile_topic => 'Muốn học';
+
+  @override
+  String get edit_profile_study_schedule => 'Lịch học';
+
+  @override
+  String get edit_profile_button => 'Lưu thay đổi';
 }

@@ -6,8 +6,9 @@ import '../../../../constants/app_size.dart';
 import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/common/default_form.dart';
+import '../../../../utils/extension/datetime.dart';
 import '../../bloc/account_cubit.dart';
-import 'button_dropdown_one_custom.dart';
+import '../widgets/widgets.dart';
 import 'cubit/edit_profile_cubit.dart';
 
 class EditProfileScreen extends StatelessWidget {
@@ -25,7 +26,7 @@ class EditProfileScreen extends StatelessWidget {
             if (user != null) {
               context.read<AccountCubit>().onLoginSuccess(user);
               context.read<EditProfileCubit>().onChangeAvatar(user.avatar);
-              XToast.success("Save success");
+              XToast.success(S.text.edit_profile_save);
             }
           } else if (state.handle.isError) {
             XToast.error(S.text.error_somethingWrongTryAgain);
@@ -57,7 +58,7 @@ class EditProfileScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.name.value,
-                  label: "Name",
+                  label: S.text.edit_profile_name,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange: context.read<EditProfileCubit>().onChangName,
@@ -67,19 +68,75 @@ class EditProfileScreen extends StatelessWidget {
                 );
               },
             ),
-            gapH20,
             BlocBuilder<EditProfileCubit, EditProfileState>(
-              buildWhen: (previous, current) =>
-                  previous.studySchedule != current.studySchedule ||
-                  previous.onPress != current.onPress,
+              buildWhen: (previous, current) => false,
               builder: (context, state) {
                 return TextFieldCustom(
-                  text: state.studySchedule,
-                  label: "Study schedule",
+                  text: context.read<EditProfileCubit>().user.email,
+                  label: S.text.edit_profile_email,
                   onChange:
                       context.read<EditProfileCubit>().onChangStudySchedule,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
+                  enable: false,
+                );
+              },
+            ),
+            BlocBuilder<EditProfileCubit, EditProfileState>(
+              buildWhen: (previous, current) => false,
+              builder: (context, state) {
+                return TextFieldCustom(
+                  text: context.read<EditProfileCubit>().user.phone,
+                  label: S.text.edit_profile_phone,
+                  onChange:
+                      context.read<EditProfileCubit>().onChangStudySchedule,
+                  height: Sizes.p16,
+                  fontSize: Sizes.p16,
+                  enable: false,
+                );
+              },
+            ),
+            gapH20,
+            BlocBuilder<EditProfileCubit, EditProfileState>(
+              buildWhen: (previous, current) =>
+                  previous.country != current.country ||
+                  previous.onPress != current.onPress,
+              builder: (context, state) {
+                return SizedBox(
+                    width: double.infinity,
+                    child: ButtonDropDownCountry(
+                      label: S.text.edit_profile_country,
+                      height: Sizes.p16,
+                      fontSize: Sizes.p16,
+                      selected: state.country,
+                      onChange:
+                          context.read<EditProfileCubit>().onChangeCountry,
+                    ));
+              },
+            ),
+            gapH20,
+            BlocBuilder<EditProfileCubit, EditProfileState>(
+              buildWhen: (previous, current) =>
+                  previous.birthDay != current.birthDay ||
+                  previous.onPress != current.onPress,
+              builder: (context, state) {
+                return TextFieldCustom(
+                  text: state.birthDay.toStringDate,
+                  label: S.text.edit_profile_birthday,
+                  height: Sizes.p16,
+                  fontSize: Sizes.p16,
+                  realOnly: true,
+                  onTap: () async {
+                    final DateTime? picked = await showDatePicker(
+                      context: context,
+                      initialDate: state.birthDay,
+                      firstDate: DateTime(1950),
+                      lastDate: DateTime.now(),
+                    );
+                    if (picked != null && picked != state.birthDay) {
+                      context.read<EditProfileCubit>().onChangeBirthDay(picked);
+                    }
+                  },
                 );
               },
             ),
@@ -91,13 +148,53 @@ class EditProfileScreen extends StatelessWidget {
               builder: (context, state) {
                 return SizedBox(
                     width: double.infinity,
-                    child: ButtonDropDownOneCustom(
-                      label: "My Level",
+                    child: ButtonDropDownLevel(
+                      label: S.text.edit_profile_level,
                       height: Sizes.p16,
                       fontSize: Sizes.p16,
-                      selected: state.level.value,
-                      onChange: context.read<EditProfileCubit>().onChangLevel,
+                      selected: state.level,
+                      onChange: context.read<EditProfileCubit>().onChangeLevel,
+                      errorText: state.onPress && state.level.id.isEmpty
+                          ? S.text.common_empty_field
+                          : null,
                     ));
+              },
+            ),
+            gapH20,
+            BlocBuilder<EditProfileCubit, EditProfileState>(
+              buildWhen: (previous, current) =>
+                  previous.learnTopics != current.learnTopics ||
+                  previous.onPress != current.onPress,
+              builder: (context, state) {
+                return SizedBox(
+                    width: double.infinity,
+                    child: ButtonDropDownLearnTopic(
+                      label: S.text.edit_profile_topic,
+                      height: Sizes.p16,
+                      fontSize: Sizes.p16,
+                      selected: state.learnTopics,
+                      onChange:
+                          context.read<EditProfileCubit>().onChangeLearnTutors,
+                      errorText: state.onPress && state.learnTopics.isEmpty
+                          ? S.text.common_empty_field
+                          : null,
+                    ));
+              },
+            ),
+            gapH20,
+            BlocBuilder<EditProfileCubit, EditProfileState>(
+              buildWhen: (previous, current) =>
+                  previous.studySchedule != current.studySchedule ||
+                  previous.onPress != current.onPress,
+              builder: (context, state) {
+                return TextFieldCustom(
+                  text: state.studySchedule,
+                  label: S.text.edit_profile_study_schedule,
+                  onChange:
+                      context.read<EditProfileCubit>().onChangStudySchedule,
+                  height: Sizes.p16,
+                  fontSize: Sizes.p16,
+                );
               },
             ),
             gapH32,
@@ -108,13 +205,13 @@ class EditProfileScreen extends StatelessWidget {
                 return SizedBox(
                   width: double.infinity,
                   child: PrimaryButton(
-                    text: "Save",
+                    text: S.text.edit_profile_button,
                     onPressed: context.read<EditProfileCubit>().save,
                   ),
                 );
               },
             ),
-            gapH4,
+            gapH20,
           ],
         ),
       ),

@@ -181,5 +181,16 @@
 
   "booking_title": "Chi tiết đặt lịch",
   "booking_time": "Thời gian đặt lịch",
-  "booking_note": "Ghi chú"
+  "booking_note": "Ghi chú",
+
+  "edit_profile_save": "Thay đổi thành công",
+  "edit_profile_name": "Tên",
+  "edit_profile_email": "Email",
+  "edit_profile_phone": "Số điện thoại",
+  "edit_profile_country": "Quốc gia",
+  "edit_profile_birthday": "Ngày sinh",
+  "edit_profile_level": "Trình độ",
+  "edit_profile_topic": "Muốn học",
+  "edit_profile_study_schedule": "Lịch học",
+  "edit_profile_button": "Lưu thay đổi"
 }

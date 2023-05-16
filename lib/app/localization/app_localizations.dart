@@ -812,6 +812,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Note'**
   String get booking_note;
+
+  /// No description provided for @edit_profile_save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save success'**
+  String get edit_profile_save;
+
+  /// No description provided for @edit_profile_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get edit_profile_name;
+
+  /// No description provided for @edit_profile_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get edit_profile_email;
+
+  /// No description provided for @edit_profile_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number'**
+  String get edit_profile_phone;
+
+  /// No description provided for @edit_profile_country.
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get edit_profile_country;
+
+  /// No description provided for @edit_profile_birthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get edit_profile_birthday;
+
+  /// No description provided for @edit_profile_level.
+  ///
+  /// In en, this message translates to:
+  /// **'My level'**
+  String get edit_profile_level;
+
+  /// No description provided for @edit_profile_topic.
+  ///
+  /// In en, this message translates to:
+  /// **'Want to learn'**
+  String get edit_profile_topic;
+
+  /// No description provided for @edit_profile_study_schedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Study schedule'**
+  String get edit_profile_study_schedule;
+
+  /// No description provided for @edit_profile_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get edit_profile_button;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

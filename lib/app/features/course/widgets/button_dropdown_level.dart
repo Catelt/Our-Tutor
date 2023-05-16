@@ -1,9 +1,8 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/app_size.dart';
-import '../../../constants/base_style.dart';
 import '../../../constants/course_level.dart';
+import '../../../constants/drop_down_theme.dart';
 
 class ButtonDropDownLevel extends StatefulWidget {
   const ButtonDropDownLevel(
@@ -38,28 +37,14 @@ class _ButtonDropDownLevelState extends State<ButtonDropDownLevel> {
     selectedItems = List.from(widget.selected ?? []);
     return DropdownButtonHideUnderline(
       child: DropdownButtonFormField2(
-        decoration: InputDecoration(
-            labelStyle: TextStyle(fontSize: widget.fontSize),
-            label: widget.label != null ? Text(widget.label ?? "") : null,
-            hintText: widget.hint,
-            errorText: widget.errorText,
-            isDense: true,
-            contentPadding:
-                EdgeInsets.symmetric(vertical: widget.height ?? Sizes.p8)
-                    .add(const EdgeInsets.only(right: Sizes.p12)),
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Sizes.p12),
-                borderSide: const BorderSide(width: 1, color: Colors.grey)),
-            focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Sizes.p12),
-                borderSide: BorderSide(width: 1, color: BaseColor.red)),
-            errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Sizes.p12),
-                borderSide: BorderSide(width: 1, color: BaseColor.red)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(Sizes.p12),
-                borderSide: BorderSide(
-                    width: 1, color: Theme.of(context).colorScheme.primary))),
+        decoration: DropDownTheme.dropDownTheme(
+          context,
+          fontSize: widget.fontSize,
+          height: widget.height,
+          label: widget.label,
+          hint: widget.hint,
+          errorText: widget.errorText,
+        ),
         isDense: true,
         isExpanded: true,
         hint: Text(

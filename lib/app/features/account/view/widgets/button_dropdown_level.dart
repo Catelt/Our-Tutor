@@ -1,11 +1,11 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/drop_down_theme.dart';
-import '../../../constants/sort_level.dart';
+import '../../../../constants/drop_down_theme.dart';
+import '../../data/level.dart';
 
-class ButtonDropDownSort extends StatefulWidget {
-  const ButtonDropDownSort({
+class ButtonDropDownLevel extends StatefulWidget {
+  const ButtonDropDownLevel({
     super.key,
     this.label,
     this.hint,
@@ -21,22 +21,22 @@ class ButtonDropDownSort extends StatefulWidget {
   final String? errorText;
   final double? height;
   final double? fontSize;
-  final bool? selected;
-  final void Function(bool)? onChange;
+  final MLevel? selected;
+  final void Function(MLevel)? onChange;
 
   @override
-  State<ButtonDropDownSort> createState() => _ButtonDropDownSortState();
+  State<ButtonDropDownLevel> createState() => _ButtonDropDownLevelState();
 }
 
-class _ButtonDropDownSortState extends State<ButtonDropDownSort> {
-  final List<MSortLevel> items = MSortLevel.values;
+class _ButtonDropDownLevelState extends State<ButtonDropDownLevel> {
+  final List<MLevel> items = MLevel.getData();
 
-  MSortLevel? selectedItems;
+  MLevel? selectedItems;
 
   @override
   Widget build(BuildContext context) {
-    if (widget.selected != null) {
-      selectedItems = MSortLevel.get(widget.selected ?? false);
+    if (widget.selected != null && widget.selected?.id.isNotEmpty == true) {
+      selectedItems = items.firstWhere((e) => e.id == widget.selected?.id);
     } else {
       selectedItems = null;
     }
@@ -53,18 +53,18 @@ class _ButtonDropDownSortState extends State<ButtonDropDownSort> {
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<MSortLevel>(
+          return DropdownMenuItem<MLevel>(
             value: item,
             child: Text(
-              item.getName,
+              item.name,
               style: TextStyle(fontSize: widget.fontSize),
             ),
           );
         }).toList(),
         onChanged: (value) {
           setState(() {
-            MSortLevel data = value as MSortLevel;
-            widget.onChange?.call(data == MSortLevel.asc);
+            MLevel data = value as MLevel;
+            widget.onChange?.call(data);
             selectedItems = data;
           });
         },

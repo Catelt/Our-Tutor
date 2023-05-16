@@ -1,11 +1,11 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/drop_down_theme.dart';
-import '../../../constants/specialties.dart';
+import '../../../../constants/drop_down_theme.dart';
+import '../../../../network/model/learn_topic/learn_topic.dart';
 
-class ButtonDropDownCategories extends StatefulWidget {
-  const ButtonDropDownCategories(
+class ButtonDropDownLearnTopic extends StatefulWidget {
+  const ButtonDropDownLearnTopic(
       {super.key,
       this.label,
       this.hint,
@@ -20,18 +20,18 @@ class ButtonDropDownCategories extends StatefulWidget {
   final String? errorText;
   final double? height;
   final double? fontSize;
-  final List<Specialty>? selected;
-  final void Function(List<Specialty>)? onChange;
+  final List<MLearnTopic>? selected;
+  final void Function(List<MLearnTopic>)? onChange;
 
   @override
-  State<ButtonDropDownCategories> createState() =>
-      _ButtonDropDownCategoriesState();
+  State<ButtonDropDownLearnTopic> createState() =>
+      _ButtonDropDownLearnTopicState();
 }
 
-class _ButtonDropDownCategoriesState extends State<ButtonDropDownCategories> {
-  final List<Specialty> items = Specialty.getList;
+class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
+  final List<MLearnTopic> items = MLearnTopic.getData();
 
-  List<Specialty> selectedItems = [];
+  List<MLearnTopic> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class _ButtonDropDownCategoriesState extends State<ButtonDropDownCategories> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<Specialty>(
+          return DropdownMenuItem<MLearnTopic>(
             value: item,
             enabled: false,
             child: StatefulBuilder(

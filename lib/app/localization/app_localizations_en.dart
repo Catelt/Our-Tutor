@@ -373,4 +373,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get booking_note => 'Note';
+
+  @override
+  String get edit_profile_save => 'Save success';
+
+  @override
+  String get edit_profile_name => 'Name';
+
+  @override
+  String get edit_profile_email => 'Email';
+
+  @override
+  String get edit_profile_phone => 'Phone number';
+
+  @override
+  String get edit_profile_country => 'Country';
+
+  @override
+  String get edit_profile_birthday => 'Birthday';
+
+  @override
+  String get edit_profile_level => 'My level';
+
+  @override
+  String get edit_profile_topic => 'Want to learn';
+
+  @override
+  String get edit_profile_study_schedule => 'Study schedule';
+
+  @override
+  String get edit_profile_button => 'Save';
 }

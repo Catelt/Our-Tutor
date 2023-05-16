@@ -20,6 +20,10 @@ extension DateTimeExtension on DateTime {
     return XDateFormat().basic.format(this);
   }
 
+  String get toStringDate {
+    return "${this.year}-${this.month.toString().padLeft(2, "0")}-${this.day.toString().padLeft(2, "0")}";
+  }
+
   bool isSameDate(DateTime other) {
     return this.year == other.year &&
         this.month == other.month &&

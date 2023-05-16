@@ -2,7 +2,10 @@ part of 'edit_profile_cubit.dart';
 
 class EditProfileState extends Equatable {
   final DefaultForm name;
-  final DefaultForm level;
+  final MLevel level;
+  final MLanguage country;
+  final DateTime birthDay;
+  final List<MLearnTopic> learnTopics;
   final String studySchedule;
   final String avatar;
   final bool onPress;
@@ -11,28 +14,46 @@ class EditProfileState extends Equatable {
   EditProfileState({
     required this.name,
     required this.level,
+    required this.country,
+    required this.birthDay,
+    required this.learnTopics,
     this.studySchedule = "",
-    this.onPress = false,
     required this.avatar,
+    this.onPress = false,
     required this.handle,
   });
 
   factory EditProfileState.ds(MUser user) => EditProfileState(
         name: DefaultForm.dirty(
             user.name.isEmpty ? user.email.split("@").first : user.name),
-        level: DefaultForm.dirty(user.level ?? ""),
+        level: MLevel.fromId(user.level),
         studySchedule: user.studySchedule,
+        country: MLanguage.fromCode(user.country ?? "VN"),
+        birthDay: DateTime.parse(user.birthday ?? DateTime.now().toStringDate),
+        learnTopics: user.learnTopics ?? [],
         avatar: user.avatar,
         handle: MHandle(),
       );
 
   @override
-  List<Object?> get props =>
-      [name, level, studySchedule, avatar, onPress, handle];
+  List<Object?> get props => [
+        name,
+        level,
+        studySchedule,
+        avatar,
+        onPress,
+        handle,
+        country,
+        birthDay,
+        learnTopics
+      ];
 
   EditProfileState copyWith({
     DefaultForm? name,
-    DefaultForm? level,
+    MLevel? level,
+    MLanguage? country,
+    DateTime? birthDay,
+    List<MLearnTopic>? learnTopics,
     String? studySchedule,
     String? avatar,
     bool? onPress,
@@ -41,6 +62,9 @@ class EditProfileState extends Equatable {
     return EditProfileState(
       name: name ?? this.name,
       level: level ?? this.level,
+      country: country ?? this.country,
+      birthDay: birthDay ?? this.birthDay,
+      learnTopics: learnTopics ?? this.learnTopics,
       studySchedule: studySchedule ?? this.studySchedule,
       avatar: avatar ?? this.avatar,
       onPress: onPress ?? this.onPress,

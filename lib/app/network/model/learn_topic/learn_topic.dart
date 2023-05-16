@@ -14,4 +14,13 @@ class MLearnTopic with _$MLearnTopic {
 
   factory MLearnTopic.fromJson(Map<String, Object?> json) =>
       _$MLearnTopicFromJson(json);
+
+  static List<MLearnTopic> getData() {
+    return [
+      MLearnTopic(id: 3, key: "english-for-kids", name: "English for Kids"),
+      MLearnTopic(id: 4, key: "business-english", name: "Business English"),
+      MLearnTopic(
+          id: 5, key: "conversational-english", name: "Conversational English"),
+    ];
+  }
 }
