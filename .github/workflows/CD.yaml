@@ -24,6 +24,9 @@ jobs:
       - name: API GPT
         run: echo ${{secrets.API_GPT}} | base64 -d > lib/app/constants/api_constant.dart
 
+      - name: Playstore key
+        run: echo ${{secrets.PLAYSTORE_KEY}} | base64 -d > android/fastlane/playstore_key.json
+      
       - name: Download Android keystore
         id: android_keystore
         uses: timheuer/base64-to-file@v1.0.3
