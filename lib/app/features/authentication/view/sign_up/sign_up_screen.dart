@@ -9,6 +9,7 @@ import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../routing/coordinator.dart';
 import '../../../account/bloc/account_cubit.dart';
+import '../../models/confirm_password.dart';
 import '../../models/models.dart';
 import '../../router/coordination.dart';
 import '../../widgets/widget.dart';
@@ -100,6 +101,28 @@ class SignUpScreen extends StatelessWidget {
                       },
                     ),
                     gapH12,
+                    Text(S.text.password_confirm,
+                        style: TextStyle(fontSize: 15)),
+                    BlocBuilder<SignUpCubit, SignUpState>(
+                      buildWhen: (previous, current) =>
+                          previous.isPress != current.isPress ||
+                          previous.confirmPassword != current.confirmPassword ||
+                          previous.password != current.password,
+                      builder: (context, state) {
+                        return TextFieldWidget(
+                          hint: S.text.password_hint,
+                          text: state.confirmPassword.value,
+                          isPassword: true,
+                          onChange: context
+                              .read<SignUpCubit>()
+                              .onChangeConfirmPassword,
+                          errorText: state.isPress
+                              ? state.confirmPassword.error?.message
+                              : null,
+                        );
+                      },
+                    ),
+                    gapH12,
                     BlocBuilder<SignUpCubit, SignUpState>(
                       buildWhen: (previous, current) =>
                           previous.handle != current.handle,
@@ -120,18 +143,21 @@ class SignUpScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 13)),
                     ),
                     gapH20,
+                    // Center(
+                    //   child: SizedBox(
+                    //     width: MediaQuery.of(context).size.width / 2,
+                    //     child: Row(
+                    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //       children: [
+                    //         // SocialButton(assetName: Assets.images.fb.path),
+                    //         SocialButton(assetName: Assets.images.google.path),
+                    //         // SocialButton(assetName: Assets.images.phone.path),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                     Center(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SocialButton(assetName: Assets.images.fb.path),
-                            SocialButton(assetName: Assets.images.google.path),
-                            SocialButton(assetName: Assets.images.phone.path),
-                          ],
-                        ),
-                      ),
+                      child: SocialButton(assetName: Assets.images.google.path),
                     ),
                     gapH20,
                     Center(

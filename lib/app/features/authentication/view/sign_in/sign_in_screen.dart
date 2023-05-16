@@ -123,17 +123,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                     gapH20,
                     Center(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width / 2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SocialButton(assetName: Assets.images.fb.path),
-                            SocialButton(assetName: Assets.images.google.path),
-                            SocialButton(assetName: Assets.images.phone.path),
-                          ],
-                        ),
-                      ),
+                      child: SocialButton(assetName: Assets.images.google.path),
                     ),
                     gapH20,
                     Center(

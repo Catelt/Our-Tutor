@@ -267,11 +267,23 @@ abstract class AppLocalizations {
   /// **'Email is invalid'**
   String get invalid_email;
 
+  /// No description provided for @password_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Doesn\'t match password'**
+  String get password_not_match;
+
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
   /// **'PASSWORD'**
   String get password;
+
+  /// No description provided for @password_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'CONFIRM PASSWORD'**
+  String get password_confirm;
 
   /// No description provided for @password_hint.
   ///

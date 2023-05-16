@@ -40,6 +40,8 @@
   "email_hint":"abc@gmail.com",
   "invalid_email":"Email không hợp lệ",
   "password":"MẬT KHẨU",
+  "password_not_match": "Mật khẩu không trùng",
+  "password":"Xác nhận mật khẩu",
   "password_hint":"",
   "invalid_password":"Mật khẩu có ít nhất 6 kí tự",
 

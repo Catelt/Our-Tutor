@@ -39,7 +39,9 @@
   "email":"EMAIL",
   "email_hint":"abc@gmail.com",
   "invalid_email":"Email is invalid",
+  "password_not_match": "Doesn't match password",
   "password":"PASSWORD",
+  "password_confirm":"CONFIRM PASSWORD",
   "password_hint":"",
   "invalid_password":"Password with at least 6 characters",
 

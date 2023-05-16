@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../../network/domain_manager.dart';
 import '../../../../../network/model/common/handle.dart';
 import '../../../../../network/model/user/user.dart';
+import '../../../models/confirm_password.dart';
 import '../../../models/models.dart';
 
 part 'sign_up_state.dart';
@@ -18,12 +19,22 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   void onChangPassword(String value) {
-    emit(state.copyWith(password: Password.dirty(value)));
+    emit(state.copyWith(
+        password: Password.dirty(value),
+        confirmPassword:
+            ConfirmPassword.dirty(state.confirmPassword.value, value)));
+  }
+
+  void onChangeConfirmPassword(String value) {
+    emit(state.copyWith(
+        confirmPassword: ConfirmPassword.dirty(value, state.password.value)));
   }
 
   void register() async {
     emit(state.copyWith(isPress: true));
-    if (state.email.isValid && state.password.isValid) {
+    if (state.email.isValid &&
+        state.password.isValid &&
+        state.confirmPassword.isValid) {
       emit(state.copyWith(handle: MHandle.loading()));
 
       final response =

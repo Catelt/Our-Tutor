@@ -94,7 +94,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get invalid_email => 'Email không hợp lệ';
 
   @override
-  String get password => 'MẬT KHẨU';
+  String get password_not_match => 'Mật khẩu không trùng';
+
+  @override
+  String get password => 'Xác nhận mật khẩu';
+
+  @override
+  String get password_confirm => 'CONFIRM PASSWORD';
 
   @override
   String get password_hint => '';
