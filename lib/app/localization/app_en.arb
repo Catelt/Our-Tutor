@@ -34,6 +34,7 @@
   "error_sign_in": "Log in failed. Incorrect email or password",
   "error_sign_up": "Sign up failed. Please try again",
   "error_sign_up_email": "Email already exists",
+  "error_sign_in_google": "Sign in google fail",
 
   "common_empty_field":"Field is requirement",
   "email":"EMAIL",

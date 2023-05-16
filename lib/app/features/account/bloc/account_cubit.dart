@@ -8,6 +8,7 @@ import '../../../localization/localization_utils.dart';
 import '../../../network/data/common/http.dart';
 import '../../../network/domain_manager.dart';
 import '../../../network/model/user/user.dart';
+import '../../../services/google_sign_in.dart';
 import '../../../services/user_prefs.dart';
 
 part 'account_state.dart';
@@ -60,6 +61,15 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
+  void loginGG() async {
+    final response = await XGoogleSignIn().handleSignIn();
+    if (response.isSuccess) {
+      final user = response.data;
+      if (user == null) return;
+      onUserChange(state.login(user));
+    }
+  }
+
   Future onLogOut() async {
     final key = await XAlert.show(
       title: 'Logout',
@@ -75,6 +85,7 @@ class AccountCubit extends Cubit<AccountState> {
     );
     if (key == 'yes') {
       onUserChange(state.logOut());
+      XGoogleSignIn().handleSignOut();
       return true;
     }
     return false;

@@ -82,6 +82,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get error_sign_up_email => 'Email đã tồn tại';
 
   @override
+  String get error_sign_in_google => 'Đăng nhập Google thất bại';
+
+  @override
   String get common_empty_field => 'Không được để trống';
 
   @override

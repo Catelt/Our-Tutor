@@ -243,6 +243,12 @@ abstract class AppLocalizations {
   /// **'Email already exists'**
   String get error_sign_up_email;
 
+  /// No description provided for @error_sign_in_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in google fail'**
+  String get error_sign_in_google;
+
   /// No description provided for @common_empty_field.
   ///
   /// In en, this message translates to:

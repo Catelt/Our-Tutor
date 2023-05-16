@@ -123,7 +123,12 @@ class SignInScreen extends StatelessWidget {
                     ),
                     gapH20,
                     Center(
-                      child: SocialButton(assetName: Assets.images.google.path),
+                      child: SocialButton(
+                        assetName: Assets.images.google.path,
+                        onTap: () {
+                          context.read<AccountCubit>().loginGG();
+                        },
+                      ),
                     ),
                     gapH20,
                     Center(

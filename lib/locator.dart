@@ -10,6 +10,7 @@ import 'package:logger/logger.dart';
 import 'app/constants/devices/app_Info.dart';
 import 'app/features/account/bloc/account_cubit.dart';
 import 'app/network/domain_manager.dart';
+import 'app/services/google_sign_in.dart';
 import 'app/services/user_prefs.dart';
 import 'app/utils/utils.dart';
 
@@ -71,6 +72,7 @@ Future<void> locator(FutureOr<Widget> Function() builder) async {
   ]);
 
   Bloc.observer = XBlocObserver();
+  XGoogleSignIn().init();
 
   await runZonedGuarded(
     () async => runApp(await builder()),

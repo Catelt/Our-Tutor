@@ -3,11 +3,8 @@ import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import '../../../features/account/bloc/account_cubit.dart';
 import '../../../localization/localization_utils.dart';
 import '../../../utils/utils.dart';
-import '../../domain_manager.dart';
 
 enum XMethod {
   get,

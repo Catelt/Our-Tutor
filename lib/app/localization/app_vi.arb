@@ -34,6 +34,7 @@
   "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
   "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
   "error_sign_up_email": "Email đã tồn tại",
+  "error_sign_in_google": "Đăng nhập Google thất bại",
 
   "common_empty_field":"Không được để trống",
   "email":"ĐỊA CHỈ email",

@@ -39,4 +39,16 @@ class AuthRepositoryImpl extends AuthRepository {
       return MResult.error(e.toString());
     }
   }
+
+  @override
+  Future<MResult<MUser>> loginGG(String token) async {
+    try {
+      final response = await XHttp()
+          .post('$_baseUrl/google', data: jsonEncode({"access_token": token}));
+      final data = MAuthResponse.fromJson(jsonDecode(response));
+      return MResult.success(MUser.userFromAuthResponse(data));
+    } catch (e) {
+      return MResult.error(e.toString());
+    }
+  }
 }

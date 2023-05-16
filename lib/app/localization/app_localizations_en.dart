@@ -82,6 +82,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_sign_up_email => 'Email already exists';
 
   @override
+  String get error_sign_in_google => 'Sign in google fail';
+
+  @override
   String get common_empty_field => 'Field is requirement';
 
   @override
