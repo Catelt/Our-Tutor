@@ -5,6 +5,7 @@ class TutorsState extends Equatable {
   final bool hasNextPage;
   final int page;
   final List<MTutor> tutors;
+  final List<MTutor> favorite;
   final String nameTutor;
   final List<String> specialties;
   final List<String> national;
@@ -19,6 +20,7 @@ class TutorsState extends Equatable {
     this.nameTutor = '',
     this.specialties = const [],
     this.national = const [],
+    this.favorite = const [],
     required this.booking,
     this.total = 0,
   });
@@ -37,6 +39,7 @@ class TutorsState extends Equatable {
     bool? hasNextPage,
     int? page,
     List<MTutor>? tutors,
+    List<MTutor>? favorite,
     String? nameTutor,
     List<String>? specialties,
     List<String>? national,
@@ -48,6 +51,7 @@ class TutorsState extends Equatable {
       hasNextPage: hasNextPage ?? this.hasNextPage,
       page: page ?? this.page,
       tutors: tutors ?? this.tutors,
+      favorite: favorite ?? this.favorite,
       nameTutor: nameTutor ?? this.nameTutor,
       specialties: specialties ?? this.specialties,
       national: national ?? this.national,
@@ -74,6 +78,7 @@ class TutorsState extends Equatable {
         page,
         tutors,
         nameTutor,
+        favorite,
         specialties,
         booking,
         total,

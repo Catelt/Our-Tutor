@@ -26,6 +26,8 @@ mixin _$MFavoriteTutor {
   set firstId(String value) => throw _privateConstructorUsedError;
   String get secondId => throw _privateConstructorUsedError;
   set secondId(String value) => throw _privateConstructorUsedError;
+  MSecondInfo? get secondInfo => throw _privateConstructorUsedError;
+  set secondInfo(MSecondInfo? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +41,10 @@ abstract class $MFavoriteTutorCopyWith<$Res> {
           MFavoriteTutor value, $Res Function(MFavoriteTutor) then) =
       _$MFavoriteTutorCopyWithImpl<$Res, MFavoriteTutor>;
   @useResult
-  $Res call({String id, String firstId, String secondId});
+  $Res call(
+      {String id, String firstId, String secondId, MSecondInfo? secondInfo});
+
+  $MSecondInfoCopyWith<$Res>? get secondInfo;
 }
 
 /// @nodoc
@@ -58,6 +63,7 @@ class _$MFavoriteTutorCopyWithImpl<$Res, $Val extends MFavoriteTutor>
     Object? id = null,
     Object? firstId = null,
     Object? secondId = null,
+    Object? secondInfo = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -72,7 +78,23 @@ class _$MFavoriteTutorCopyWithImpl<$Res, $Val extends MFavoriteTutor>
           ? _value.secondId
           : secondId // ignore: cast_nullable_to_non_nullable
               as String,
+      secondInfo: freezed == secondInfo
+          ? _value.secondInfo
+          : secondInfo // ignore: cast_nullable_to_non_nullable
+              as MSecondInfo?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MSecondInfoCopyWith<$Res>? get secondInfo {
+    if (_value.secondInfo == null) {
+      return null;
+    }
+
+    return $MSecondInfoCopyWith<$Res>(_value.secondInfo!, (value) {
+      return _then(_value.copyWith(secondInfo: value) as $Val);
+    });
   }
 }
 
@@ -84,7 +106,11 @@ abstract class _$$_MFavoriteTutorCopyWith<$Res>
       __$$_MFavoriteTutorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String firstId, String secondId});
+  $Res call(
+      {String id, String firstId, String secondId, MSecondInfo? secondInfo});
+
+  @override
+  $MSecondInfoCopyWith<$Res>? get secondInfo;
 }
 
 /// @nodoc
@@ -101,6 +127,7 @@ class __$$_MFavoriteTutorCopyWithImpl<$Res>
     Object? id = null,
     Object? firstId = null,
     Object? secondId = null,
+    Object? secondInfo = freezed,
   }) {
     return _then(_$_MFavoriteTutor(
       id: null == id
@@ -115,6 +142,10 @@ class __$$_MFavoriteTutorCopyWithImpl<$Res>
           ? _value.secondId
           : secondId // ignore: cast_nullable_to_non_nullable
               as String,
+      secondInfo: freezed == secondInfo
+          ? _value.secondInfo
+          : secondInfo // ignore: cast_nullable_to_non_nullable
+              as MSecondInfo?,
     ));
   }
 }
@@ -122,7 +153,8 @@ class __$$_MFavoriteTutorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MFavoriteTutor implements _MFavoriteTutor {
-  _$_MFavoriteTutor({this.id = "", this.firstId = "", this.secondId = ""});
+  _$_MFavoriteTutor(
+      {this.id = "", this.firstId = "", this.secondId = "", this.secondInfo});
 
   factory _$_MFavoriteTutor.fromJson(Map<String, dynamic> json) =>
       _$$_MFavoriteTutorFromJson(json);
@@ -136,10 +168,12 @@ class _$_MFavoriteTutor implements _MFavoriteTutor {
   @override
   @JsonKey()
   String secondId;
+  @override
+  MSecondInfo? secondInfo;
 
   @override
   String toString() {
-    return 'MFavoriteTutor(id: $id, firstId: $firstId, secondId: $secondId)';
+    return 'MFavoriteTutor(id: $id, firstId: $firstId, secondId: $secondId, secondInfo: $secondInfo)';
   }
 
   @JsonKey(ignore: true)
@@ -157,8 +191,11 @@ class _$_MFavoriteTutor implements _MFavoriteTutor {
 }
 
 abstract class _MFavoriteTutor implements MFavoriteTutor {
-  factory _MFavoriteTutor({String id, String firstId, String secondId}) =
-      _$_MFavoriteTutor;
+  factory _MFavoriteTutor(
+      {String id,
+      String firstId,
+      String secondId,
+      MSecondInfo? secondInfo}) = _$_MFavoriteTutor;
 
   factory _MFavoriteTutor.fromJson(Map<String, dynamic> json) =
       _$_MFavoriteTutor.fromJson;
@@ -172,6 +209,9 @@ abstract class _MFavoriteTutor implements MFavoriteTutor {
   @override
   String get secondId;
   set secondId(String value);
+  @override
+  MSecondInfo? get secondInfo;
+  set secondInfo(MSecondInfo? value);
   @override
   @JsonKey(ignore: true)
   _$$_MFavoriteTutorCopyWith<_$_MFavoriteTutor> get copyWith =>

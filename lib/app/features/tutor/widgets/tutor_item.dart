@@ -10,8 +10,9 @@ import '../../../network/model/tutor/tutor.dart';
 import '../../../routing/coordinator.dart';
 
 class TutorItem extends StatelessWidget {
-  const TutorItem({super.key, required this.item});
+  const TutorItem({super.key, required this.item, this.favoriteCallback});
   final MTutor item;
+  final void Function(MTutor)? favoriteCallback;
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +79,17 @@ class TutorItem extends StatelessWidget {
           Positioned(
             top: Sizes.p16,
             right: Sizes.p16,
-            child: SvgWidget(
-              assetName: Assets.images.icHeart.path,
-              size: 26,
-              color: Theme.of(context).colorScheme.primary,
+            child: GestureDetector(
+              onTap: () {
+                favoriteCallback?.call(item);
+              },
+              child: SvgWidget(
+                assetName: item.isFavorite
+                    ? Assets.images.icHeartFill.path
+                    : Assets.images.icHeart.path,
+                size: 26,
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
           ),
         ],

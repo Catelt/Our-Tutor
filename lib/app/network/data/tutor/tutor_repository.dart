@@ -13,7 +13,7 @@ import '../common/http.dart';
 part 'tutor_repository_impl.dart';
 
 abstract class TutorRepository {
-  Future<MResult<List<MTutor>>> getList(int page);
+  Future<MResult<MTutorResponse>> getList(int page);
   Future<MResult<List<MTutor>>> search(int page,
       {List<String>? specialties,
       Map<String, bool> nationality,

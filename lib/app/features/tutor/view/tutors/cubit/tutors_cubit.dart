@@ -21,15 +21,44 @@ class TutorsCubit extends Cubit<TutorsState> {
 
   Future<void> getList() async {
     emit(state.copyWith(page: state.page + 1, handle: MHandle.loading()));
-    MResult<List<MTutor>> response;
     if (state.isSearch) {
-      response = await domain.tutor.search(state.page,
-          search: state.nameTutor,
-          specialties: state.specialtiesId,
-          nationality: handleNationality());
+      getSearch();
     } else {
-      response = await domain.tutor.getList(state.page);
+      getDefault();
     }
+  }
+
+  void getDefault() async {
+    final response = await domain.tutor.getList(state.page);
+
+    if (isClosed) return;
+    if (response.isSuccess) {
+      if (response.data?.tutors.rows.isEmpty == true) {
+        emit(state.copyWith(
+            hasNextPage: false, handle: MHandle.completed(true)));
+      } else {
+        final favorite = response.data?.favoriteTutor;
+        favorite?.removeWhere(
+          (e) => e.secondInfo == null,
+        );
+        final favoriteTutor =
+            favorite?.map((e) => MTutor.fromSecondInfo(e.secondInfo!)).toList();
+        emit(state.copyWith(favorite: favoriteTutor));
+        List<MTutor> list = List.from(state.tutors);
+        list.addAll(response.data?.tutors.rows ?? []);
+        emit(state.copyWith(
+            tutors: handleTutorData(list), handle: MHandle.completed(true)));
+      }
+    } else {
+      emit(state.copyWith(handle: MHandle.error(response.error)));
+    }
+  }
+
+  void getSearch() async {
+    final response = await domain.tutor.search(state.page,
+        search: state.nameTutor,
+        specialties: state.specialtiesId,
+        nationality: handleNationality());
     if (isClosed) return;
     if (response.isSuccess) {
       if (response.data?.isEmpty == true) {
@@ -38,11 +67,31 @@ class TutorsCubit extends Cubit<TutorsState> {
       } else {
         List<MTutor> list = List.from(state.tutors);
         list.addAll(response.data ?? []);
-        emit(state.copyWith(tutors: list, handle: MHandle.completed(true)));
+        emit(state.copyWith(
+            tutors: handleTutorData(list), handle: MHandle.completed(true)));
       }
     } else {
       emit(state.copyWith(handle: MHandle.error(response.error)));
     }
+  }
+
+  List<MTutor> handleTutorData(List<MTutor> list) {
+    List<MTutor> result = List.from(list);
+    for (var favorite in state.favorite) {
+      if (!state.isSearch) {
+        result.removeWhere((e) => e.id == favorite.id && e.isFavorite == false);
+        if (state.page == 1) {
+          result.insert(0, favorite.copyWith(isFavorite: true));
+        }
+      } else {
+        final temp = list.where((e) => e.id == favorite.id).toList();
+        if (temp.isNotEmpty) {
+          result.removeWhere((e) => e.id == favorite.id);
+          result.insert(0, temp.first.copyWith(isFavorite: true));
+        }
+      }
+    }
+    return sortTutorData(result);
   }
 
   Map<String, bool> handleNationality() {
@@ -120,5 +169,34 @@ class TutorsCubit extends Cubit<TutorsState> {
   void resetFilter() {
     emit(state.copyWith(nameTutor: '', specialties: [], national: []));
     onSubmitSearch();
+  }
+
+  List<MTutor> sortTutorData(List<MTutor> data) {
+    List<MTutor> result = List.from(data);
+    result.sort(((a, b) {
+      if (a.isFavorite == b.isFavorite) {
+        return b.rating.compareTo(a.rating);
+      }
+      if (b.isFavorite) {
+        return 1;
+      }
+      return -1;
+    }));
+    return result;
+  }
+
+  void onChangeFavorite(MTutor tutor) async {
+    final response = await domain.tutor.favoriteTutor(tutor.userId);
+    List<MTutor> list = List.from(state.tutors);
+    if (response.isSuccess && response.data == true) {
+      if (tutor.isFavorite) {
+        final index = list.indexOf(tutor);
+        list[index] = list[index].copyWith(isFavorite: false);
+      } else {
+        list.removeWhere((e) => e.id == tutor.id);
+        list.insert(0, tutor.copyWith(isFavorite: true));
+      }
+      emit(state.copyWith(tutors: sortTutorData(list)));
+    }
   }
 }

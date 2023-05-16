@@ -66,7 +66,14 @@ class _TutorsScreenState extends State<TutorsScreen> {
                       (context, index) => Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: Sizes.p20),
-                            child: TutorItem(item: state.tutors[index]),
+                            child: TutorItem(
+                              item: state.tutors[index],
+                              favoriteCallback: (tutor) {
+                                context
+                                    .read<TutorsCubit>()
+                                    .onChangeFavorite(tutor);
+                              },
+                            ),
                           ),
                       childCount: state.tutors.length),
                 ),

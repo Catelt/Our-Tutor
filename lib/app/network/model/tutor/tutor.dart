@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../api/tutor_detail_response/tutor_detail_response.dart';
+import '../api/tutor_response/second_info.dart';
 import '../course/course.dart';
 import '../feedback/feedback.dart';
 
@@ -77,6 +78,15 @@ class MTutor with _$MTutor {
       accent: response.accent,
       isFavorite: response.isFavorite,
       totalFeedback: response.totalFeedback,
+    );
+  }
+
+  factory MTutor.fromSecondInfo(MSecondInfo response) {
+    final tutor = response.tutorInfo;
+    return tutor.copyWith(
+      avatar: response.avatar,
+      country: response.country,
+      name: response.name,
     );
   }
 }
