@@ -61,15 +61,6 @@ class AccountCubit extends Cubit<AccountState> {
     }
   }
 
-  void loginGG() async {
-    final response = await XGoogleSignIn().handleSignIn();
-    if (response.isSuccess) {
-      final user = response.data;
-      if (user == null) return;
-      onUserChange(state.login(user));
-    }
-  }
-
   Future onLogOut() async {
     final key = await XAlert.show(
       title: 'Logout',

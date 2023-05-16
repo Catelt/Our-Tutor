@@ -41,7 +41,7 @@ class UserPrefs {
     final value = _prefs.getString(_keys.theme);
     return ThemeMode.values.firstWhere(
       (e) => e.toString().toLowerCase() == '$value'.toLowerCase(),
-      orElse: () => ThemeMode.system,
+      orElse: () => ThemeMode.light,
     );
   }
 

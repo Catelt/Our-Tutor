@@ -46,7 +46,7 @@ class MsgItem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   vertical: Sizes.p8, horizontal: Sizes.p16),
               decoration: BoxDecoration(
-                  color: Colors.grey[300],
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(Sizes.p12)),
               child: isLast && recent
                   ? AnimatedTextKit(
@@ -85,9 +85,8 @@ class MsgItem extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primary.withOpacity(0.6),
                   borderRadius: BorderRadius.circular(Sizes.p12)),
-              child: Text(item.msg,
-                  style: const TextStyle(
-                      fontSize: Sizes.p16, color: Colors.white)),
+              child:
+                  Text(item.msg, style: const TextStyle(fontSize: Sizes.p16)),
             ),
           ),
         ],
