@@ -31,7 +31,7 @@ class SignInScreen extends StatelessWidget {
               XCoordinator().showHomeScreen();
             }
           } else if (state.handle.isError) {
-            XToast.error(S.text.error_sign_in);
+            XToast.error(state.handle.message);
           }
         },
         child: signInView(context),
