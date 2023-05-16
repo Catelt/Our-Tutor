@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../constants/specialties.dart';
 import '../../../../localization/localization_utils.dart';
-import '../../../../routing/coordinator.dart';
-import '../../../../utils/extension/datetime.dart';
-import '../../widgets/button_dropdown_custom.dart';
 import '../../widgets/widget.dart';
 import 'cubit/tutors_cubit.dart';
 
@@ -131,29 +127,6 @@ class _TutorsScreenState extends State<TutorsScreen> {
               );
             },
           ),
-          // gapH8,
-          // Text(
-          //   "Select available tutoring time:",
-          //   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          // ),
-          // Wrap(
-          //   spacing: Sizes.p4,
-          //   runSpacing: Sizes.p8,
-          //   children: [
-          //     SizedBox(
-          //       width: 150,
-          //       child: TextFieldCustom(
-          //         hint: "Select a day",
-          //       ),
-          //     ),
-          //     SizedBox(
-          //       width: 250,
-          //       child: TextFieldCustom(
-          //         hint: "Start time -> End time",
-          //       ),
-          //     ),
-          //   ],
-          // ),
           gapH12,
           BlocBuilder<TutorsCubit, TutorsState>(
             buildWhen: (previous, current) =>
@@ -170,7 +143,7 @@ class _TutorsScreenState extends State<TutorsScreen> {
           ),
           gapH12,
           PrimaryButton(
-            text: "Reset Filter",
+            text: S.text.common_reset,
             backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Colors.white,
             onPressed: context.read<TutorsCubit>().resetFilter,
@@ -206,57 +179,8 @@ class _TutorsScreenState extends State<TutorsScreen> {
     return BlocBuilder<TutorsCubit, TutorsState>(
       buildWhen: (previous, current) => previous.booking != current.booking,
       builder: (context, state) {
-        final schedule = state.booking.scheduleDetailInfo;
-        return Visibility(
-          visible: state.booking.id.isNotEmpty,
-          child: Column(
-            children: [
-              gapH16,
-              Text(
-                S.text.tutors_up_coming,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-              ),
-              gapH4,
-              Text(
-                "${XDateFormat().date.format(state.booking.getStartTime())} ${state.booking.startTime} - ${state.booking.endTime}",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              gapH8,
-              GestureDetector(
-                onTap: () {
-                  XCoordinator().showVideoCall(state.booking.id, state.booking);
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: Sizes.p20, vertical: Sizes.p4),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgWidget(
-                        assetName: Assets.images.icTivi.path,
-                        size: 16,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      gapW8,
-                      Text(
-                        S.text.enter_lesson_room,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: 16),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              gapH8,
-            ],
-          ),
+        return UpComingWidget(
+          booking: state.booking,
         );
       },
     );

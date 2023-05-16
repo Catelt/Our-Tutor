@@ -657,6 +657,12 @@ abstract class AppLocalizations {
   /// **'Suggested Tutors'**
   String get course_detail_suggested_tutors;
 
+  /// No description provided for @up_coming_start.
+  ///
+  /// In en, this message translates to:
+  /// **'Start in'**
+  String get up_coming_start;
+
   /// No description provided for @video_call_class_started.
   ///
   /// In en, this message translates to:
