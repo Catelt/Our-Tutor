@@ -1,5 +1,4 @@
 const specialties_data = [
-  'All',
   'English for Business',
   'Conversational',
   'English for kids',

@@ -4,6 +4,7 @@ export 'avatar_widget.dart';
 export 'bottom_sheet.dart';
 export 'count_down_widget.dart';
 export 'custom_app_bar.dart';
+export 'empty_widget.dart';
 export 'info_tutor_widget.dart';
 export 'loading_widget.dart';
 export 'not_found_widget.dart';

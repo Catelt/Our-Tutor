@@ -20,6 +20,7 @@
   "common_success": "Thành công",
   "common_submit": "Gửi",
   "common_reset": "Đặt lại bộ lọc",
+  "common_empty": "Không có dữ liệu",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
@@ -71,6 +72,8 @@
   "enter_lesson_room" :"Vào lớp học",
 
   "tutors_find_tutor" : "Tìm kiếm gia sư",
+  "tutors_find_tutor_hint" : "Nhập tên gia sư",
+  "tutors_find_tutor_national_hint" : "Chọn quốc tịch gia sư",
   "tutors_up_coming" : "Buổi học sắp diễn ra",
   "tutors_total_time" : "Tổng số giờ bạn đã học là {hours} giờ {minutes} phút",
   "@tutors_total_time": {

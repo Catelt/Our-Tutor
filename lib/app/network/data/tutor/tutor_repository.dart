@@ -15,7 +15,9 @@ part 'tutor_repository_impl.dart';
 abstract class TutorRepository {
   Future<MResult<List<MTutor>>> getList(int page);
   Future<MResult<List<MTutor>>> search(int page,
-      {List<String>? specialties, List<bool> nationality, String? search});
+      {List<String>? specialties,
+      Map<String, bool> nationality,
+      String? search});
   Future<MResult<MTutor>> getDetailTutor(String id);
   Future<MResult<List<MFeedback>>> getFeedbackTutor(String id, int page);
   Future<MResult<bool>> reportTutor(String id, String content);

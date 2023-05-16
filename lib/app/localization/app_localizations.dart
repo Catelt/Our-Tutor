@@ -171,6 +171,12 @@ abstract class AppLocalizations {
   /// **'Reset Filter'**
   String get common_reset;
 
+  /// No description provided for @common_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No data'**
+  String get common_empty;
+
   /// No description provided for @error_noInternet.
   ///
   /// In en, this message translates to:
@@ -422,6 +428,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Find a tutor'**
   String get tutors_find_tutor;
+
+  /// No description provided for @tutors_find_tutor_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter tutor name'**
+  String get tutors_find_tutor_hint;
+
+  /// No description provided for @tutors_find_tutor_national_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Select tutor nationality'**
+  String get tutors_find_tutor_national_hint;
 
   /// No description provided for @tutors_up_coming.
   ///

@@ -77,6 +77,18 @@ class _TutorsScreenState extends State<TutorsScreen> {
                         previous.handle != current.handle,
                     builder: (context, state) {
                       return Visibility(
+                          visible: state.tutors.isEmpty &&
+                              state.isSearch &&
+                              state.handle.isCompleted &&
+                              !state.handle.isLoading,
+                          child: EmptyWidget());
+                    },
+                  ),
+                  BlocBuilder<TutorsCubit, TutorsState>(
+                    buildWhen: (previous, current) =>
+                        previous.handle != current.handle,
+                    builder: (context, state) {
+                      return Visibility(
                           visible: state.handle.isLoading,
                           child: LoadingWidget());
                     },
@@ -108,7 +120,7 @@ class _TutorsScreenState extends State<TutorsScreen> {
                 previous.nameTutor != current.nameTutor,
             builder: (context, state) {
               return TextFieldCustom(
-                hint: "Enter tutor name",
+                hint: S.text.tutors_find_tutor_hint,
                 text: state.nameTutor,
                 onEditingComplete: context.read<TutorsCubit>().onSubmitSearch,
                 onChange: context.read<TutorsCubit>().onChangeNameTutor,
@@ -122,7 +134,7 @@ class _TutorsScreenState extends State<TutorsScreen> {
             builder: (context, state) {
               return ButtonDropDownCustom(
                 selected: state.national,
-                hint: "Select tutor nationality",
+                hint: S.text.tutors_find_tutor_national_hint,
                 onChange: context.read<TutorsCubit>().onChangeNational,
               );
             },

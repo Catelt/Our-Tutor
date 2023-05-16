@@ -46,6 +46,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get common_reset => 'Đặt lại bộ lọc';
 
   @override
+  String get common_empty => 'Không có dữ liệu';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -170,6 +173,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get tutors_find_tutor => 'Tìm kiếm gia sư';
+
+  @override
+  String get tutors_find_tutor_hint => 'Nhập tên gia sư';
+
+  @override
+  String get tutors_find_tutor_national_hint => 'Chọn quốc tịch gia sư';
 
   @override
   String get tutors_up_coming => 'Buổi học sắp diễn ra';

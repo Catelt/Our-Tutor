@@ -46,6 +46,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get common_reset => 'Reset Filter';
 
   @override
+  String get common_empty => 'No data';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -170,6 +173,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tutors_find_tutor => 'Find a tutor';
+
+  @override
+  String get tutors_find_tutor_hint => 'Enter tutor name';
+
+  @override
+  String get tutors_find_tutor_national_hint => 'Select tutor nationality';
 
   @override
   String get tutors_up_coming => 'Upcoming lesson';

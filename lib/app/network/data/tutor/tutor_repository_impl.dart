@@ -35,22 +35,14 @@ class TutorRepositoryImpl extends TutorRepository {
   @override
   Future<MResult<List<MTutor>>> search(int page,
       {List<String>? specialties,
-      List<bool>? nationality,
+      Map<String, bool> nationality = const {},
       String? search}) async {
     try {
       final response = await XHttp().post('$_baseUrl/search', data: {
         'perPage': perPage,
         'page': page,
         'search': search,
-        'filters': {
-          'specialties': specialties,
-          'nationality': search?.isEmpty == true
-              ? {
-                  'isVietNamese': nationality?[0],
-                  'isNative': nationality?[1],
-                }
-              : {}
-        },
+        'filters': {'specialties': specialties, 'nationality': nationality},
       });
       final data = MTutors.fromJson(jsonDecode(response));
       return MResult.success(data.rows);

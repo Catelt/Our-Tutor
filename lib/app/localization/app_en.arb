@@ -20,6 +20,7 @@
   "common_success": "Success",
   "common_submit": "Submit",
   "common_reset": "Reset Filter",
+  "common_empty": "No data",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
@@ -71,6 +72,8 @@
   "enter_lesson_room" :"Enter lesson room",
 
   "tutors_find_tutor" : "Find a tutor",
+  "tutors_find_tutor_hint" : "Enter tutor name",
+  "tutors_find_tutor_national_hint" : "Select tutor nationality",
   "tutors_up_coming" : "Upcoming lesson",
   "tutors_total_time" : "Total lesson time is {hours} hours {minutes} minutes",
   "@tutors_total_time": {

@@ -26,10 +26,7 @@ class TutorsCubit extends Cubit<TutorsState> {
       response = await domain.tutor.search(state.page,
           search: state.nameTutor,
           specialties: state.specialtiesId,
-          nationality: [
-            state.national.contains("Vietnamese Tutor"),
-            state.national.contains("Native English Tutor"),
-          ]);
+          nationality: handleNationality());
     } else {
       response = await domain.tutor.getList(state.page);
     }
@@ -46,6 +43,38 @@ class TutorsCubit extends Cubit<TutorsState> {
     } else {
       emit(state.copyWith(handle: MHandle.error(response.error)));
     }
+  }
+
+  Map<String, bool> handleNationality() {
+    final vn = 'isVietNamese';
+    final native = 'isNative';
+    if (state.national.length == 1) {
+      if (state.national.contains("Vietnamese Tutor")) {
+        return {vn: true};
+      }
+      if (state.national.contains("Native English Tutor")) {
+        return {native: true};
+      } else {
+        return {
+          vn: false,
+          native: false,
+        };
+      }
+    }
+    if (state.national.length == 2) {
+      if (!state.national.contains("Vietnamese Tutor")) {
+        return {vn: false};
+      }
+      if (!state.national.contains("Native English Tutor")) {
+        return {native: false};
+      } else {
+        return {
+          vn: true,
+          native: true,
+        };
+      }
+    }
+    return {};
   }
 
   Future<void> getTotalTime() async {

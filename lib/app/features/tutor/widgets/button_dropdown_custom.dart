@@ -28,7 +28,11 @@ class ButtonDropDownCustom extends StatefulWidget {
 }
 
 class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
-  final List<String> items = ["Vietnamese Tutor", "Native English Tutor"];
+  final List<String> items = [
+    "Vietnamese Tutor",
+    "Native English Tutor",
+    "Foreign Tutor"
+  ];
 
   List<String> selectedItems = [];
 
