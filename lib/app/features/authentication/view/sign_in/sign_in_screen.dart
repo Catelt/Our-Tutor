@@ -21,19 +21,33 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => SignInCubit(),
-      child: BlocListener<SignInCubit, SignInState>(
-        listenWhen: (previous, current) => previous.handle != current.handle,
-        listener: (context, state) {
-          if (state.handle.isCompleted && state.handle.data != null) {
-            final user = state.handle.data;
-            if (user != null && user.id.isNotEmpty) {
-              GetIt.I<AccountCubit>().onLoginSuccess(user);
-              XCoordinator().showHomeScreen();
-            }
-          } else if (state.handle.isError) {
-            XToast.error(state.handle.message);
-          }
-        },
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<SignInCubit, SignInState>(
+            listenWhen: (previous, current) =>
+                previous.handle != current.handle,
+            listener: (context, state) {
+              if (state.handle.isCompleted && state.handle.data != null) {
+                final user = state.handle.data;
+                if (user != null && user.id.isNotEmpty) {
+                  GetIt.I<AccountCubit>().onLoginSuccess(user);
+                  XCoordinator().showHomeScreen();
+                }
+              } else if (state.handle.isError) {
+                XToast.error(state.handle.message);
+              }
+            },
+          ),
+          BlocListener<AccountCubit, AccountState>(
+            listenWhen: (previous, current) =>
+                previous.isLogin != current.isLogin,
+            listener: (context, state) {
+              if (state.isLogin) {
+                XCoordinator().showHomeScreen();
+              }
+            },
+          )
+        ],
         child: signInView(context),
       ),
     );

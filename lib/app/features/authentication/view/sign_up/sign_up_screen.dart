@@ -20,29 +20,37 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => SignUpCubit(),
-      child: BlocConsumer<SignUpCubit, SignUpState>(
-        listenWhen: (previous, current) => previous.handle != current.handle,
-        listener: (context, state) {
-          if (state.handle.isCompleted && state.handle.data != null) {
-            final user = state.handle.data;
-            if (user != null && user.id.isNotEmpty) {
-              GetIt.I<AccountCubit>().onLoginSuccess(user);
-              XCoordinator().showHomeScreen();
+    return BlocListener<AccountCubit, AccountState>(
+      listenWhen: (previous, current) => previous.isLogin != current.isLogin,
+      listener: (context, state) {
+        if (state.isLogin) {
+          XCoordinator().showHomeScreen();
+        }
+      },
+      child: BlocProvider(
+        create: (_) => SignUpCubit(),
+        child: BlocConsumer<SignUpCubit, SignUpState>(
+          listenWhen: (previous, current) => previous.handle != current.handle,
+          listener: (context, state) {
+            if (state.handle.isCompleted && state.handle.data != null) {
+              final user = state.handle.data;
+              if (user != null && user.id.isNotEmpty) {
+                GetIt.I<AccountCubit>().onLoginSuccess(user);
+                XCoordinator().showHomeScreen();
+              }
+            } else if (state.handle.isError) {
+              if (state.handle.message?.contains('Email has already taken') ==
+                  true) {
+                XToast.error(S.text.error_sign_up_email);
+              } else {
+                XToast.error(S.text.error_sign_up);
+              }
             }
-          } else if (state.handle.isError) {
-            if (state.handle.message?.contains('Email has already taken') ==
-                true) {
-              XToast.error(S.text.error_sign_up_email);
-            } else {
-              XToast.error(S.text.error_sign_up);
-            }
-          }
-        },
-        builder: (context, state) {
-          return signUpView(context);
-        },
+          },
+          builder: (context, state) {
+            return signUpView(context);
+          },
+        ),
       ),
     );
   }

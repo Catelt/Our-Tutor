@@ -85,7 +85,7 @@ class AccountCubit extends Cubit<AccountState> {
     );
     if (key == 'yes') {
       onUserChange(state.logOut());
-      XGoogleSignIn().handleSignOut();
+      await XGoogleSignIn().handleSignOut();
       return true;
     }
     return false;

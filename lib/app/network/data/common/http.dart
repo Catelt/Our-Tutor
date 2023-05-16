@@ -44,11 +44,10 @@ class XHttp {
   Duration _receiveTimeout = const Duration(seconds: 10);
   Duration _sendTimeout = const Duration(seconds: 5);
 
-  Map<String, String> get _headers => {
-        'Content-type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': '$tokenType $tokenApi'
-      };
+  Map<String, String> _headers = {
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+  };
 
   /// Configure Dio
   void configDio({
@@ -74,6 +73,11 @@ class XHttp {
     this.tokenType = tokenType;
     this.tokenApi = tokenApi;
 
+    if (tokenApi.isNotEmpty) {
+      _headers.addAll({'Authorization': '$tokenType $tokenApi'});
+    } else {
+      _headers.removeWhere((key, value) => key == 'Authorization');
+    }
     _dio = Dio(_dio.options.copyWith(headers: _headers));
   }
 

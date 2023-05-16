@@ -30,7 +30,6 @@ class XGoogleSignIn {
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
       if (_currentUser != null) {
         print("Google sign in success with email ${_currentUser!.email}");
-        print("Google sign in success with userId ${_currentUser!.id}");
       } else {
         print("Google sign in with no User, currentUser IS NULL");
       }
@@ -65,6 +64,6 @@ class XGoogleSignIn {
 
   Future<void> handleSignOut() async {
     await _googleSignIn.signOut();
-    await _googleSignIn.disconnect();
+    // await _googleSignIn.disconnect();
   }
 }
