@@ -49,28 +49,28 @@ class InfoTutorWidget extends StatelessWidget {
                   )
                 ],
               ),
-              GestureDetector(
-                onTap: () {
-                  XCoordinator().showChat();
-                },
-                child: Row(
-                  children: [
-                    SvgWidget(
-                      assetName: Assets.images.icMessage.path,
-                      size: 14,
-                      // color: Theme.of(context).colorScheme.primary,
-                    ),
-                    gapW4,
-                    Text(
-                      'Direct Message',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    )
-                  ],
-                ),
-              )
+              // GestureDetector(
+              //   onTap: () {
+              //     XCoordinator().showChat();
+              //   },
+              //   child: Row(
+              //     children: [
+              //       SvgWidget(
+              //         assetName: Assets.images.icMessage.path,
+              //         size: 14,
+              //         // color: Theme.of(context).colorScheme.primary,
+              //       ),
+              //       gapW4,
+              //       Text(
+              //         'Direct Message',
+              //         style: TextStyle(
+              //           fontSize: 14,
+              //           color: Theme.of(context).colorScheme.primary,
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // )
             ],
           ),
         ],

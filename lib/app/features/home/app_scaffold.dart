@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../common_widgets/common_widgets.dart';
 import '../../constants/app_size.dart';
 import '../../constants/home_navigation_items.dart';
+import '../../routing/coordinator.dart';
 
 class AppScaffold extends StatefulWidget {
   const AppScaffold({super.key, required this.child});
@@ -18,6 +19,12 @@ class _AppScaffoldState extends State<AppScaffold> {
     final items = HomeNavigationItems.items;
     return Scaffold(
       body: widget.child,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          XCoordinator().showChat();
+        },
+        child: const Icon(Icons.message),
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (index) {
           context.goNamed(items[index].route.name);
