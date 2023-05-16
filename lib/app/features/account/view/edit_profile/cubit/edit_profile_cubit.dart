@@ -54,11 +54,11 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       emit(state.copyWith(handle: MHandle.loading()));
       final response = await domain.user.updateProfile(
           name: state.name.value,
-          country: user.country,
+          country: state.country.code,
           phone: user.phone,
-          birthday: user.birthday,
+          birthday: state.birthDay.toStringDate,
           level: state.level.id,
-          learnTopics: user.learnTopics,
+          learnTopics: state.learnTopics,
           studySchedule: state.studySchedule);
       if (response.isSuccess) {
         final user = response.data;

@@ -111,7 +111,7 @@ class AccountScreen extends StatelessWidget {
             ),
             gapH16,
             Text(
-              state.user.email,
+              state.user.name,
               style: BaseTextStyle.heading2(),
               textAlign: TextAlign.center,
             )

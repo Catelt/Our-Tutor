@@ -23,4 +23,9 @@ class MLearnTopic with _$MLearnTopic {
           id: 5, key: "conversational-english", name: "Conversational English"),
     ];
   }
+
+  factory MLearnTopic.fromId(int id) {
+    final list = getData();
+    return list.firstWhere((e) => e.id == id);
+  }
 }

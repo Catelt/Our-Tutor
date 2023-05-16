@@ -43,6 +43,7 @@ class UserRepositoryImpl extends UserRepository {
         "phone": phone,
         "birthday": birthday,
         "level": level,
+        "learnTopics": learnTopics?.map((e) => e.id).toList() ?? [],
         "studySchedule": studySchedule
       });
       final data = MUser.fromJson(jsonDecode(response)["user"]);

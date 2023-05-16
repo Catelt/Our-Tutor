@@ -29,13 +29,13 @@ class ButtonDropDownLearnTopic extends StatefulWidget {
 }
 
 class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
-  final List<MLearnTopic> items = MLearnTopic.getData();
+  final List<int> items = [3, 4, 5];
 
-  List<MLearnTopic> selectedItems = [];
+  List<int> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
-    selectedItems = List.from(widget.selected ?? []);
+    selectedItems = List.from(widget.selected?.map((e) => e.id) ?? []);
     return DropdownButtonHideUnderline(
       child: DropdownButtonFormField2(
         decoration: DropDownTheme.dropDownTheme(
@@ -74,12 +74,13 @@ class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<MLearnTopic>(
+          return DropdownMenuItem<int>(
             value: item,
             enabled: false,
             child: StatefulBuilder(
               builder: (context, menuSetState) {
                 final _isSelected = selectedItems.contains(item);
+                print(_isSelected);
                 return InkWell(
                   onTap: () {
                     _isSelected
@@ -89,7 +90,9 @@ class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
                     setState(() {});
                     //This rebuilds the dropdownMenu Widget to update the check mark
                     menuSetState(() {});
-                    widget.onChange?.call(selectedItems);
+                    widget.onChange?.call(selectedItems
+                        .map((e) => MLearnTopic.fromId(e))
+                        .toList());
                   },
                   child: Container(
                     height: double.infinity,
@@ -100,7 +103,7 @@ class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
                             : const Icon(Icons.check_box_outline_blank),
                         const SizedBox(width: 16),
                         Text(
-                          item.name,
+                          MLearnTopic.fromId(item).name,
                           style: const TextStyle(
                             fontSize: 14,
                           ),
@@ -120,7 +123,7 @@ class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
   String getText() {
     List<String> result = [];
     for (var value in selectedItems) {
-      result.add(value.name);
+      result.add(MLearnTopic.fromId(value).name);
     }
     return result.join(", ");
   }
