@@ -103,7 +103,6 @@ class _CustomEditTextState extends State<CustomEditText> {
                     borderRadius: BorderRadius.circular(Sizes.p12),
                     borderSide: BorderSide.none,
                   ),
-                  fillColor: Colors.white,
                   filled: true,
                   contentPadding: const EdgeInsets.all(Sizes.p12),
                 ),

@@ -21,33 +21,19 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => SignInCubit(),
-      child: MultiBlocListener(
-        listeners: [
-          BlocListener<SignInCubit, SignInState>(
-            listenWhen: (previous, current) =>
-                previous.handle != current.handle,
-            listener: (context, state) {
-              if (state.handle.isCompleted && state.handle.data != null) {
-                final user = state.handle.data;
-                if (user != null && user.id.isNotEmpty) {
-                  GetIt.I<AccountCubit>().onLoginSuccess(user);
-                  XCoordinator().showHomeScreen();
-                }
-              } else if (state.handle.isError) {
-                XToast.error(state.handle.message);
-              }
-            },
-          ),
-          BlocListener<AccountCubit, AccountState>(
-            listenWhen: (previous, current) =>
-                previous.isLogin != current.isLogin,
-            listener: (context, state) {
-              if (state.isLogin) {
-                XCoordinator().showHomeScreen();
-              }
-            },
-          )
-        ],
+      child: BlocListener<SignInCubit, SignInState>(
+        listenWhen: (previous, current) => previous.handle != current.handle,
+        listener: (context, state) {
+          if (state.handle.isCompleted && state.handle.data != null) {
+            final user = state.handle.data;
+            if (user != null && user.id.isNotEmpty) {
+              GetIt.I<AccountCubit>().onLoginSuccess(user);
+              XCoordinator().showHomeScreen();
+            }
+          } else if (state.handle.isError) {
+            XToast.error(state.handle.message);
+          }
+        },
         child: signInView(context),
       ),
     );
@@ -136,13 +122,17 @@ class SignInScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 13)),
                     ),
                     gapH20,
-                    Center(
-                      child: SocialButton(
-                        assetName: Assets.images.google.path,
-                        onTap: () {
-                          context.read<AccountCubit>().loginGG();
-                        },
-                      ),
+                    BlocBuilder<SignInCubit, SignInState>(
+                      builder: (context, state) {
+                        return Center(
+                          child: SocialButton(
+                            assetName: Assets.images.google.path,
+                            onTap: () {
+                              context.read<SignInCubit>().loginGG();
+                            },
+                          ),
+                        );
+                      },
                     ),
                     gapH20,
                     Center(

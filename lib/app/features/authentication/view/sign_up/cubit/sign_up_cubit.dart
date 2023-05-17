@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../../network/domain_manager.dart';
 import '../../../../../network/model/common/handle.dart';
 import '../../../../../network/model/user/user.dart';
+import '../../../../../services/google_sign_in.dart';
 import '../../../models/confirm_password.dart';
 import '../../../models/models.dart';
 
@@ -47,6 +48,18 @@ class SignUpCubit extends Cubit<SignUpState> {
       } else {
         emit(state.copyWith(handle: MHandle.error(response.error)));
       }
+    }
+  }
+
+  void loginGG() async {
+    emit(state.copyWith(handle: MHandle.loading()));
+    final response = await XGoogleSignIn().handleSignIn();
+    if (response.isSuccess) {
+      final user = response.data;
+      if (user == null) return;
+      emit(state.copyWith(handle: MHandle.completed(user)));
+    } else {
+      emit(state.copyWith(handle: MHandle.error(response.error)));
     }
   }
 }
