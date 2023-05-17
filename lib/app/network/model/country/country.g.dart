@@ -1,20 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'language.dart';
+part of 'country.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MLanguage _$$_MLanguageFromJson(Map<String, dynamic> json) => _$_MLanguage(
-      code: json['code'] as String,
+_$_MCountry _$$_MCountryFromJson(Map<String, dynamic> json) => _$_MCountry(
+      code: json['iso2_cc'] as String,
       name: json['name'] as String,
-      nativeName: json['nativeName'] as String,
     );
 
-Map<String, dynamic> _$$_MLanguageToJson(_$_MLanguage instance) =>
+Map<String, dynamic> _$$_MCountryToJson(_$_MCountry instance) =>
     <String, dynamic>{
-      'code': instance.code,
+      'iso2_cc': instance.code,
       'name': instance.name,
-      'nativeName': instance.nativeName,
     };

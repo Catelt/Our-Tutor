@@ -2,7 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/drop_down_theme.dart';
-import '../../../../network/model/language/language.dart';
+import '../../../../network/model/country/country.dart';
 
 class ButtonDropDownCountry extends StatefulWidget {
   const ButtonDropDownCountry({
@@ -21,17 +21,17 @@ class ButtonDropDownCountry extends StatefulWidget {
   final String? errorText;
   final double? height;
   final double? fontSize;
-  final MLanguage? selected;
-  final void Function(MLanguage)? onChange;
+  final MCountry? selected;
+  final void Function(MCountry)? onChange;
 
   @override
   State<ButtonDropDownCountry> createState() => _ButtonDropDownCountryState();
 }
 
 class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
-  final List<MLanguage> items = MLanguage.getData();
+  final List<MCountry> items = MCountry.getData();
 
-  MLanguage? selectedItems;
+  MCountry? selectedItems;
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +48,12 @@ class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
             label: widget.label,
             hint: widget.hint,
             errorText: widget.errorText,
-            isSelect: widget.selected != null),
+            isSelect: selectedItems != null),
         value: selectedItems,
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<MLanguage>(
+          return DropdownMenuItem<MCountry>(
             value: item,
             child: Text(
               item.name,
@@ -63,7 +63,7 @@ class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
         }).toList(),
         onChanged: (value) {
           setState(() {
-            MLanguage data = value as MLanguage;
+            MCountry data = value as MCountry;
             widget.onChange?.call(data);
             selectedItems = data;
           });

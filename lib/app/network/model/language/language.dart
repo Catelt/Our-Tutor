@@ -10,8 +10,9 @@ class MLanguage with _$MLanguage {
   MLanguage._();
 
   factory MLanguage({
-    @JsonKey(name: "iso2_cc") required String code,
+    required String code,
     required String name,
+    required String nativeName,
   }) = _MLanguage;
 
   factory MLanguage.fromJson(Map<String, Object?> json) =>
@@ -19,7 +20,7 @@ class MLanguage with _$MLanguage {
 
   static List<MLanguage> getData() {
     List<MLanguage> result = [];
-    LanguageData.countryCodes.forEach((e) {
+    LanguageData.data.forEach((e) {
       result.add(MLanguage.fromJson(e));
     });
     return result;

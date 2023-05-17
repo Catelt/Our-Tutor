@@ -59,6 +59,7 @@ class _CustomEditTextState extends State<CustomEditText> {
 
   void _handleSendText() async {
     await _stopListening();
+    if (controller.text.isEmpty) return;
     widget.onSendText(controller.text);
     controller.text = '';
   }
@@ -90,6 +91,7 @@ class _CustomEditTextState extends State<CustomEditText> {
         Material(
           borderRadius: BorderRadius.circular(Sizes.p12),
           elevation: 8,
+          color: Theme.of(context).colorScheme.surfaceVariant,
           child: Row(
             children: [
               Expanded(
