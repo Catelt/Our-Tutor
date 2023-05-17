@@ -15,6 +15,8 @@ class MLanguage with _$MLanguage {
     required String nativeName,
   }) = _MLanguage;
 
+  factory MLanguage.empty() => MLanguage(code: "", name: "", nativeName: "");
+
   factory MLanguage.fromJson(Map<String, Object?> json) =>
       _$MLanguageFromJson(json);
 
@@ -28,6 +30,7 @@ class MLanguage with _$MLanguage {
 
   factory MLanguage.fromCode(String code) {
     final list = getData();
-    return list.firstWhere((e) => e.code == code);
+    return list.firstWhere((e) => e.code == code,
+        orElse: () => MLanguage(code: "", name: code, nativeName: ""));
   }
 }

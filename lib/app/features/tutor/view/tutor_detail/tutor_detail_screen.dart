@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:video_player/video_player.dart';
 import '../../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
@@ -10,6 +9,8 @@ import '../../../../constants/specialties.dart';
 import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
 import '../../../../network/model/course/course.dart';
+import '../../../../network/model/language/language.dart';
+import '../../../../network/model/major/major.dart';
 import '../../../../network/model/schedule/schedule_info.dart';
 import '../../../../network/model/tutor/tutor.dart';
 import '../../../../routing/coordinator.dart';
@@ -54,8 +55,19 @@ class TutorDetailScreen extends StatelessWidget {
 
   Widget _viewTutorDetail(BuildContext context, MTutor item) {
     final national = ENational.getNational(item.country ?? "");
-    final specialties =
-        item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
+    final languages = item.languages
+        .split(',')
+        .map((e) => MLanguage.fromCode(e.trim()).name)
+        .toList();
+    final specialties = item.specialties.split(',').map((e) {
+      String name = Specialty.getName(e);
+      if (name.isEmpty) {
+        name = MMajor.fromKey(e).englishName;
+      }
+      return name;
+    }).toList();
+
+    print(item.video);
 
     return SingleChildScrollView(
       child: Padding(
@@ -66,13 +78,6 @@ class TutorDetailScreen extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // CircleAvatar(
-                //   radius: 55,
-                //   foregroundImage:
-                //       item.avatar != null && item.avatar?.isNotEmpty == true
-                //           ? CachedNetworkImageProvider(item.avatar!)
-                //           : null,
-                // ),
                 AvatarWidget(
                   name: item.name,
                   url: item.avatar,
@@ -154,7 +159,7 @@ class TutorDetailScreen extends StatelessWidget {
             )),
             detailWidget(
                 title: S.text.tutor_languages,
-                child: WrapListWidget(list: item.languages.split(','))),
+                child: WrapListWidget(list: languages)),
             detailWidget(
                 title: S.text.tutor_specialties,
                 child: WrapListWidget(list: specialties)),
