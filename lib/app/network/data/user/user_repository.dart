@@ -31,13 +31,13 @@ abstract class UserRepository {
     required String education,
     required String experience,
     required String profession,
-    required String languages,
+    List<String> languages,
     required String bio,
     required String targetStudent,
-    required String specialties,
+    List<String> specialties,
     String? avatar,
     String? video,
-    required int price,
+    int? price,
   });
 
   Future<MResult<MUser>> changeAvatar(String path, {String? name});

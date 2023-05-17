@@ -80,13 +80,13 @@ class UserRepositoryImpl extends UserRepository {
       required String education,
       required String experience,
       required String profession,
-      required String languages,
+      List<String> languages = const [],
       required String bio,
       required String targetStudent,
-      required String specialties,
+      List<String> specialties = const [],
       String? avatar,
       String? video,
-      required int price}) async {
+      int? price = 50000}) async {
     try {
       final response = await XHttp().put('/tutor/register', data: {
         "name": name,
