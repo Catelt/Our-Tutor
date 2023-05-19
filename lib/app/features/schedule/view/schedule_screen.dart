@@ -90,7 +90,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   delegate: SliverChildBuilderDelegate(
                       (context, index) => Padding(
                             padding: const EdgeInsets.only(bottom: Sizes.p8),
-                            child: ScheduleItem(bookings: state.list[index]),
+                            child: ScheduleItem(
+                                bookings: state.list[index],
+                                showGoClass: index == 0),
                           ),
                       childCount: state.list.length),
                 ),

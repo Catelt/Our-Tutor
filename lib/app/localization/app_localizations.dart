@@ -177,6 +177,12 @@ abstract class AppLocalizations {
   /// **'No data'**
   String get common_empty;
 
+  /// No description provided for @common_go_meeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to meeting'**
+  String get common_go_meeting;
+
   /// No description provided for @error_noInternet.
   ///
   /// In en, this message translates to:
@@ -698,6 +704,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start in'**
   String get up_coming_start;
+
+  /// No description provided for @up_coming_started.
+  ///
+  /// In en, this message translates to:
+  /// **'Started about'**
+  String get up_coming_started;
 
   /// No description provided for @video_call_class_started.
   ///

@@ -49,6 +49,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get common_empty => 'Không có dữ liệu';
 
   @override
+  String get common_go_meeting => 'Vào lớp học';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -314,6 +317,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get up_coming_start => 'Bắt đầu khoảng';
+
+  @override
+  String get up_coming_started => 'Đã bắt đầu khoảng';
 
   @override
   String get video_call_class_started => 'Lớp học đã bắt đầu trong';

@@ -7,15 +7,18 @@ import '../../../localization/localization_utils.dart';
 import '../../../network/model/booking/booking.dart';
 import '../../../network/model/booking/bookings.dart';
 import '../../../network/model/tutor/tutor.dart';
+import '../../../routing/coordinator.dart';
 import '../../../utils/extension/datetime.dart';
 import '../cubit/schedule_cubit.dart';
 import 'cancel_booking_widget.dart';
 import 'request_lesson.dart';
 
 class ScheduleItem extends StatelessWidget {
-  const ScheduleItem({super.key, required this.bookings});
+  const ScheduleItem(
+      {super.key, required this.bookings, this.showGoClass = false});
 
   final MBookings bookings;
+  final bool showGoClass;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,19 @@ class ScheduleItem extends StatelessWidget {
                 MTutor(),
           ),
           gapH12,
-          infoLesson(context)
+          infoLesson(context),
+          Visibility(
+              visible: showGoClass,
+              child: SizedBox(
+                width: double.infinity,
+                child: PrimaryButton(
+                  text: S.text.common_go_meeting,
+                  onPressed: () {
+                    XCoordinator().showVideoCall(
+                        bookings.list.first.id, bookings.list.first);
+                  },
+                ),
+              ))
         ],
       ),
     );

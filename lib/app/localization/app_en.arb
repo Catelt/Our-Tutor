@@ -21,6 +21,7 @@
   "common_submit": "Submit",
   "common_reset": "Reset Filter",
   "common_empty": "No data",
+  "common_go_meeting": "Go to meeting",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
@@ -151,6 +152,7 @@
   "course_detail_suggested_tutors": "Suggested Tutors",
 
   "up_coming_start": "Start in",
+  "up_coming_started": "Started about",
   "video_call_class_started": "Class started in",
   "video_call_class_begin": "Class will begin in",
   "video_call_button": "Join meeting",

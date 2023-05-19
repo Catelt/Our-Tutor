@@ -21,6 +21,7 @@ class UpComingWidget extends StatefulWidget {
 class _UpComingWidgetState extends State<UpComingWidget> {
   Timer? countdownTimer;
   late Duration myDuration;
+  bool isBefore = false;
 
   @override
   void initState() {
@@ -41,6 +42,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
     final timeStart = DateTime.fromMillisecondsSinceEpoch(
         widget.booking.scheduleDetailInfo.startPeriodTimestamp.round());
     final now = DateTime.now();
+    isBefore = timeStart.isBefore(now);
     myDuration = Duration(seconds: timeStart.difference(now).inSeconds.abs());
   }
 
@@ -68,8 +70,9 @@ class _UpComingWidgetState extends State<UpComingWidget> {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           Text(
-              "(${S.text.up_coming_start} ${(myDuration.inHours).toString().padLeft(2, '0')}:${(myDuration.inMinutes % 60).toString().padLeft(2, '0')}:${(myDuration.inSeconds % 60).toString().padLeft(2, '0')})",
-              style: BaseTextStyle.heading5().copyWith(color: Colors.yellow)),
+              "(${isBefore ? S.text.up_coming_started : S.text.up_coming_start} ${(myDuration.inHours).toString().padLeft(2, '0')}:${(myDuration.inMinutes % 60).toString().padLeft(2, '0')}:${(myDuration.inSeconds % 60).toString().padLeft(2, '0')})",
+              style: BaseTextStyle.heading5().copyWith(
+                  color: isBefore ? Colors.green.shade300 : Colors.yellow)),
           gapH8,
           GestureDetector(
             onTap: () {

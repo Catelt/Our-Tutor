@@ -49,6 +49,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get common_empty => 'No data';
 
   @override
+  String get common_go_meeting => 'Go to meeting';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -314,6 +317,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get up_coming_start => 'Start in';
+
+  @override
+  String get up_coming_started => 'Started about';
 
   @override
   String get video_call_class_started => 'Class started in';

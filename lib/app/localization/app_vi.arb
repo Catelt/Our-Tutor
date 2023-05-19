@@ -21,6 +21,7 @@
   "common_submit": "Gửi",
   "common_reset": "Đặt lại bộ lọc",
   "common_empty": "Không có dữ liệu",
+  "common_go_meeting": "Vào lớp học",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
@@ -151,6 +152,7 @@
   "course_detail_suggested_tutors": "Gợi ý gia sư",
 
   "up_coming_start": "Bắt đầu khoảng",
+  "up_coming_started": "Đã bắt đầu khoảng",
   "video_call_class_started": "Lớp học đã bắt đầu trong",
   "video_call_class_begin": "Lớp học sẽ bắt đầu trong",
   "video_call_button": "Tham gia lớp học",

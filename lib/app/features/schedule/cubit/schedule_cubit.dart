@@ -53,7 +53,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
               list[j].scheduleDetailInfo.startPeriodTimestamp.round());
 
           if (timeB.isAfter(timeA) &&
-              timeB.difference(timeA).inHours.abs() < 2) {
+              timeB.difference(timeA).inMinutes.abs() < 30) {
             temp.add(list[j]);
             i = j;
           } else {
