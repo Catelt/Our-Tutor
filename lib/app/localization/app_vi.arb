@@ -197,5 +197,20 @@
   "edit_profile_level": "Trình độ",
   "edit_profile_topic": "Muốn học",
   "edit_profile_study_schedule": "Lịch học",
-  "edit_profile_button": "Lưu thay đổi"
+  "edit_profile_button": "Lưu thay đổi",
+
+  "become_tutor_section_1": "Thông tin cơ bản",
+  "become_tutor_section_2": "CV",
+  "become_tutor_section_subtitle_2": "Học viên sẽ xem thông tin từ hồ sơ của bạn để quyết định nếu bạn phù hợp với nhu cầu của họ.",
+  "become_tutor_section_3": "Về việc dạy",
+  "become_tutor_section_subtitle_3": "Đây là điều đầu tiên mà học viên nhìn thấy khi tìm kiếm gia sư.",
+  "become_tutor_interest": "Sở thích",
+  "become_tutor_education": "Học vấn",
+  "become_tutor_experience": "Kinh nghiệm",
+  "become_tutor_profession": "Nghề nghiệp hiện tại hoặc trước đây",
+  "become_tutor_language": "Ngôn ngữ",
+  "become_tutor_introduction": "Giới thiệu",
+  "become_tutor_target_student": "Tôi giỏi nhất trong việc dạy những học viên",
+  "become_tutor_specialties": "Chuyên ngành của tôi là",
+  "become_tutor_error_avatar": "Vui lòng tải ảnh đại diện của bạn"
 }

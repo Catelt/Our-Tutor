@@ -902,6 +902,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get edit_profile_button;
+
+  /// No description provided for @become_tutor_section_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Info'**
+  String get become_tutor_section_1;
+
+  /// No description provided for @become_tutor_section_2.
+  ///
+  /// In en, this message translates to:
+  /// **'CV'**
+  String get become_tutor_section_2;
+
+  /// No description provided for @become_tutor_section_subtitle_2.
+  ///
+  /// In en, this message translates to:
+  /// **'Students will view this information on your profile to decide if you\'re a good fit for them.'**
+  String get become_tutor_section_subtitle_2;
+
+  /// No description provided for @become_tutor_section_3.
+  ///
+  /// In en, this message translates to:
+  /// **'Who I teach'**
+  String get become_tutor_section_3;
+
+  /// No description provided for @become_tutor_section_subtitle_3.
+  ///
+  /// In en, this message translates to:
+  /// **'This is the first thing students will see when looking for tutors.'**
+  String get become_tutor_section_subtitle_3;
+
+  /// No description provided for @become_tutor_interest.
+  ///
+  /// In en, this message translates to:
+  /// **'Interests'**
+  String get become_tutor_interest;
+
+  /// No description provided for @become_tutor_education.
+  ///
+  /// In en, this message translates to:
+  /// **'Education'**
+  String get become_tutor_education;
+
+  /// No description provided for @become_tutor_experience.
+  ///
+  /// In en, this message translates to:
+  /// **'Experience'**
+  String get become_tutor_experience;
+
+  /// No description provided for @become_tutor_profession.
+  ///
+  /// In en, this message translates to:
+  /// **'Current or Previous Profession'**
+  String get become_tutor_profession;
+
+  /// No description provided for @become_tutor_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Languages'**
+  String get become_tutor_language;
+
+  /// No description provided for @become_tutor_introduction.
+  ///
+  /// In en, this message translates to:
+  /// **'Introduction'**
+  String get become_tutor_introduction;
+
+  /// No description provided for @become_tutor_target_student.
+  ///
+  /// In en, this message translates to:
+  /// **'I am best at teaching students who are'**
+  String get become_tutor_target_student;
+
+  /// No description provided for @become_tutor_specialties.
+  ///
+  /// In en, this message translates to:
+  /// **'My specialties are'**
+  String get become_tutor_specialties;
+
+  /// No description provided for @become_tutor_error_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Please upload your avatar'**
+  String get become_tutor_error_avatar;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

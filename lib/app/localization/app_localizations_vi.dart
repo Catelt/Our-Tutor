@@ -418,4 +418,46 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get edit_profile_button => 'Lưu thay đổi';
+
+  @override
+  String get become_tutor_section_1 => 'Thông tin cơ bản';
+
+  @override
+  String get become_tutor_section_2 => 'CV';
+
+  @override
+  String get become_tutor_section_subtitle_2 => 'Học viên sẽ xem thông tin từ hồ sơ của bạn để quyết định nếu bạn phù hợp với nhu cầu của họ.';
+
+  @override
+  String get become_tutor_section_3 => 'Về việc dạy';
+
+  @override
+  String get become_tutor_section_subtitle_3 => 'Đây là điều đầu tiên mà học viên nhìn thấy khi tìm kiếm gia sư.';
+
+  @override
+  String get become_tutor_interest => 'Sở thích';
+
+  @override
+  String get become_tutor_education => 'Học vấn';
+
+  @override
+  String get become_tutor_experience => 'Kinh nghiệm';
+
+  @override
+  String get become_tutor_profession => 'Nghề nghiệp hiện tại hoặc trước đây';
+
+  @override
+  String get become_tutor_language => 'Ngôn ngữ';
+
+  @override
+  String get become_tutor_introduction => 'Giới thiệu';
+
+  @override
+  String get become_tutor_target_student => 'Tôi giỏi nhất trong việc dạy những học viên';
+
+  @override
+  String get become_tutor_specialties => 'Chuyên ngành của tôi là';
+
+  @override
+  String get become_tutor_error_avatar => 'Vui lòng tải ảnh đại diện của bạn';
 }

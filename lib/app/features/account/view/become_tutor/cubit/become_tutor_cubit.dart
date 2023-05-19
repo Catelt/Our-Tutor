@@ -7,6 +7,7 @@ import '../../../../../network/model/common/default_form.dart';
 import '../../../../../network/model/common/handle.dart';
 import '../../../../../network/model/country/country.dart';
 import '../../../../../network/model/language/language.dart';
+import '../../../../../network/model/specialty/specialty.dart';
 import '../../../../../network/model/user/user.dart';
 import '../../../../../utils/extension/datetime.dart';
 
@@ -53,25 +54,40 @@ class BecomeTutorCubit extends Cubit<BecomeTutorState> {
     emit(state.copyWith(languages: value));
   }
 
+  void onChangeTargetStudent(String value) {
+    emit(state.copyWith(targetStudent: value));
+  }
+
+  void onChangeSpecialties(List<MSpecialty> value) {
+    emit(state.copyWith(specialties: value));
+  }
+
   void save() async {
     emit(state.copyWith(onPress: true));
-    if (state.name.isValid &&
-        state.introduction.isValid &&
+    if (state.avatar.isNotEmpty &&
+        state.name.isValid &&
+        state.country.code.isNotEmpty &&
         state.interest.isValid &&
-        state.education.isValid) {
+        state.education.isValid &&
+        state.profession.isValid &&
+        state.experience.isValid &&
+        state.languages.isNotEmpty &&
+        state.introduction.isValid &&
+        state.specialties.isNotEmpty &&
+        state.targetStudent.isNotEmpty) {
       emit(state.copyWith(handle: MHandle.loading()));
       final response = await domain.user.becomeTutor(
           name: state.name.value,
-          country: "VN",
-          birthday: "1999-06-01",
+          country: state.country.code,
+          birthday: state.birthday.toStringDate,
           interests: state.interest.value,
           education: state.education.value,
-          experience: "15 years of teaching",
-          profession: "Lecturer",
-          languages: ["en"],
+          experience: state.experience.value,
+          profession: state.profession.value,
+          languages: state.languages.map((e) => e.code).toList(),
           bio: state.introduction.value,
-          targetStudent: "Advanced",
-          specialties: ["english-for-kids"],
+          targetStudent: state.targetStudent,
+          specialties: state.specialties.map((e) => e.id).toList(),
           price: 50000);
       if (response.isSuccess) {
         final user = response.data;

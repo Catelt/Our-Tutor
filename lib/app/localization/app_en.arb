@@ -197,5 +197,20 @@
   "edit_profile_level": "My level",
   "edit_profile_topic": "Want to learn",
   "edit_profile_study_schedule": "Study schedule",
-  "edit_profile_button": "Save"
+  "edit_profile_button": "Save",
+
+  "become_tutor_section_1": "Basic Info",
+  "become_tutor_section_2": "CV",
+  "become_tutor_section_subtitle_2": "Students will view this information on your profile to decide if you're a good fit for them.",
+  "become_tutor_section_3": "Who I teach",
+  "become_tutor_section_subtitle_3": "This is the first thing students will see when looking for tutors.",
+  "become_tutor_interest": "Interests",
+  "become_tutor_education": "Education",
+  "become_tutor_experience": "Experience",
+  "become_tutor_profession": "Current or Previous Profession",
+  "become_tutor_language": "Languages",
+  "become_tutor_introduction": "Introduction",
+  "become_tutor_target_student": "I am best at teaching students who are",
+  "become_tutor_specialties": "My specialties are",
+  "become_tutor_error_avatar": "Please upload your avatar"
 }

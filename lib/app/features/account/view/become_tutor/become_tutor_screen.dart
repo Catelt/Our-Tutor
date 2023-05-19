@@ -53,7 +53,7 @@ class BecomeTutorScreen extends StatelessWidget {
             info(),
             gapH32,
             Text(
-              "Basic Info",
+              S.text.become_tutor_section_1,
               style: BaseTextStyle.heading2(),
             ),
             gapH12,
@@ -64,7 +64,7 @@ class BecomeTutorScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.name.value,
-                  label: "Name",
+                  label: S.text.edit_profile_name,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange: context.read<BecomeTutorCubit>().onChangeName,
@@ -89,6 +89,9 @@ class BecomeTutorScreen extends StatelessWidget {
                       selected: state.country,
                       onChange:
                           context.read<BecomeTutorCubit>().onChangeCountry,
+                      errorText: state.onPress && state.country.code.isEmpty
+                          ? S.text.common_empty_field
+                          : null,
                     ));
               },
             ),
@@ -120,11 +123,11 @@ class BecomeTutorScreen extends StatelessWidget {
             ),
             gapH20,
             Text(
-              "CV",
+              S.text.become_tutor_section_2,
               style: BaseTextStyle.heading2(),
             ),
             Text(
-              "Students will view this information on your profile to decide if you're a good fit for them.",
+              S.text.become_tutor_section_subtitle_2,
               style: BaseTextStyle.subtitle2(),
               textAlign: TextAlign.center,
             ),
@@ -136,7 +139,7 @@ class BecomeTutorScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.interest.value,
-                  label: "Interests",
+                  label: S.text.become_tutor_interest,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange: context.read<BecomeTutorCubit>().onChangeInterest,
@@ -154,7 +157,7 @@ class BecomeTutorScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.education.value,
-                  label: "Education",
+                  label: S.text.become_tutor_education,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange: context.read<BecomeTutorCubit>().onChangeEducation,
@@ -172,7 +175,7 @@ class BecomeTutorScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.experience.value,
-                  label: "Experience",
+                  label: S.text.become_tutor_experience,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange: context.read<BecomeTutorCubit>().onChangeExperience,
@@ -190,7 +193,7 @@ class BecomeTutorScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.profession.value,
-                  label: "Current or Previous Profession",
+                  label: S.text.become_tutor_profession,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange: context.read<BecomeTutorCubit>().onChangeProfession,
@@ -209,7 +212,7 @@ class BecomeTutorScreen extends StatelessWidget {
                 return SizedBox(
                     width: double.infinity,
                     child: ButtonDropDownLanguage(
-                      label: S.text.edit_profile_topic,
+                      label: S.text.become_tutor_language,
                       height: Sizes.p16,
                       fontSize: Sizes.p16,
                       selected: state.languages,
@@ -223,11 +226,11 @@ class BecomeTutorScreen extends StatelessWidget {
             ),
             gapH20,
             Text(
-              "Who I teach",
+              S.text.become_tutor_section_3,
               style: BaseTextStyle.heading2(),
             ),
             Text(
-              "This is the first thing students will see when looking for tutors.",
+              S.text.become_tutor_section_subtitle_3,
               style: BaseTextStyle.subtitle2(),
               textAlign: TextAlign.center,
             ),
@@ -239,7 +242,7 @@ class BecomeTutorScreen extends StatelessWidget {
               builder: (context, state) {
                 return TextFieldCustom(
                   text: state.introduction.value,
-                  label: "Introduction",
+                  label: S.text.become_tutor_introduction,
                   height: Sizes.p16,
                   fontSize: Sizes.p16,
                   onChange:
@@ -247,6 +250,50 @@ class BecomeTutorScreen extends StatelessWidget {
                   errorText: state.onPress
                       ? state.introduction.error?.messageDefaultForm
                       : null,
+                );
+              },
+            ),
+            gapH12,
+            BlocBuilder<BecomeTutorCubit, BecomeTutorState>(
+              buildWhen: (previous, current) =>
+                  previous.targetStudent != current.targetStudent ||
+                  previous.onPress != current.onPress,
+              builder: (context, state) {
+                return SizedBox(
+                  width: double.infinity,
+                  child: ButtonDropDownTargetStudent(
+                    label: S.text.become_tutor_target_student,
+                    height: Sizes.p16,
+                    fontSize: Sizes.p16,
+                    selected: state.targetStudent,
+                    onChange:
+                        context.read<BecomeTutorCubit>().onChangeTargetStudent,
+                    errorText: state.onPress && state.targetStudent.isEmpty
+                        ? S.text.common_empty_field
+                        : null,
+                  ),
+                );
+              },
+            ),
+            gapH12,
+            BlocBuilder<BecomeTutorCubit, BecomeTutorState>(
+              buildWhen: (previous, current) =>
+                  previous.specialties != current.specialties ||
+                  previous.onPress != current.onPress,
+              builder: (context, state) {
+                return SizedBox(
+                  width: double.infinity,
+                  child: ButtonDropDownSpecialty(
+                    label: S.text.become_tutor_specialties,
+                    height: Sizes.p16,
+                    fontSize: Sizes.p16,
+                    selected: state.specialties,
+                    onChange:
+                        context.read<BecomeTutorCubit>().onChangeSpecialties,
+                    errorText: state.onPress && state.specialties.isEmpty
+                        ? S.text.common_empty_field
+                        : null,
+                  ),
                 );
               },
             ),
@@ -273,7 +320,9 @@ class BecomeTutorScreen extends StatelessWidget {
 
   Widget info() {
     return BlocBuilder<BecomeTutorCubit, BecomeTutorState>(
-      buildWhen: (previous, current) => previous.avatar != current.avatar,
+      buildWhen: (previous, current) =>
+          previous.avatar != current.avatar ||
+          previous.onPress != current.onPress,
       builder: (context, state) {
         return Column(
           children: [
@@ -285,6 +334,13 @@ class BecomeTutorScreen extends StatelessWidget {
               ),
             ),
             gapH16,
+            Visibility(
+              visible: state.onPress && state.avatar.isEmpty,
+              child: Text(
+                S.text.become_tutor_error_avatar,
+                style: BaseTextStyle.body1().copyWith(color: Colors.red),
+              ),
+            )
           ],
         );
       },

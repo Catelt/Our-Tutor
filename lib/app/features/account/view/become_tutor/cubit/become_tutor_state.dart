@@ -11,7 +11,7 @@ class BecomeTutorState extends Equatable {
   final List<MLanguage> languages;
   final DefaultForm introduction;
   final String targetStudent;
-  final List<String> specialties;
+  final List<MSpecialty> specialties;
   final String avatar;
   final bool onPress;
   final MHandle<MUser> handle;
@@ -77,7 +77,7 @@ class BecomeTutorState extends Equatable {
     List<MLanguage>? languages,
     DefaultForm? introduction,
     String? targetStudent,
-    List<String>? specialties,
+    List<MSpecialty>? specialties,
     String? avatar,
     bool? onPress,
     MHandle<MUser>? handle,
