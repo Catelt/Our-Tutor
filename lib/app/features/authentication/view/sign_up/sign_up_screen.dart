@@ -26,8 +26,8 @@ class SignUpScreen extends StatelessWidget {
           if (state.handle.isCompleted && state.handle.data != null) {
             final user = state.handle.data;
             if (user != null && user.id.isNotEmpty) {
-              XToast.success(S.text.success_sign_up);
-              AuthCoordinator().showSignIn();
+              GetIt.I<AccountCubit>().onLoginSuccess(user);
+              XCoordinator().showHomeScreen();
             }
           } else if (state.handle.isError) {
             if (state.handle.message?.contains('Email has already taken') ==
