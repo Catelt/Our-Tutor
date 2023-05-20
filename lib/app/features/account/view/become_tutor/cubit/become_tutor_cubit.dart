@@ -8,6 +8,7 @@ import '../../../../../network/model/common/handle.dart';
 import '../../../../../network/model/country/country.dart';
 import '../../../../../network/model/language/language.dart';
 import '../../../../../network/model/specialty/specialty.dart';
+import '../../../../../network/model/tutor/tutor.dart';
 import '../../../../../network/model/user/user.dart';
 import '../../../../../utils/extension/datetime.dart';
 
@@ -88,6 +89,7 @@ class BecomeTutorCubit extends Cubit<BecomeTutorState> {
           bio: state.introduction.value,
           targetStudent: state.targetStudent,
           specialties: state.specialties.map((e) => e.id).toList(),
+          avatar: state.avatar,
           price: 50000);
       if (response.isSuccess) {
         final user = response.data;
@@ -104,15 +106,5 @@ class BecomeTutorCubit extends Cubit<BecomeTutorState> {
     final picker = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (picker == null) return;
     emit(state.copyWith(avatar: picker.path));
-    // final response =
-    //     await domain.user.changeAvatar(picker.path, name: picker.name);
-    // if (response.isSuccess) {
-    //   final user = response.data;
-    //   if (user != null) {
-    //     emit(state.copyWith(handle: MHandle.completed(user)));
-    //   }
-    // } else {
-    //   emit(state.copyWith(handle: MHandle.error(response.error)));
-    // }
   }
 }

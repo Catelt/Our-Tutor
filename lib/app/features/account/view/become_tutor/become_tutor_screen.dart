@@ -25,9 +25,9 @@ class BecomeTutorScreen extends StatelessWidget {
           if (state.handle.isCompleted && state.handle.data != null) {
             final user = state.handle.data;
             if (user != null) {
-              context.read<AccountCubit>().onLoginSuccess(user);
-              // context.read<BecomeTutorCubit>().onChangeAvatar(user.avatar);
+              context.read<AccountCubit>().updateProfile();
               XToast.success(S.text.edit_profile_save);
+              Navigator.pop(context);
             }
           } else if (state.handle.isError) {
             XToast.error(S.text.error_somethingWrongTryAgain);

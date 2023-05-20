@@ -14,7 +14,7 @@ class BecomeTutorState extends Equatable {
   final List<MSpecialty> specialties;
   final String avatar;
   final bool onPress;
-  final MHandle<MUser> handle;
+  final MHandle<MTutor> handle;
 
   BecomeTutorState({
     required this.name,
@@ -56,6 +56,7 @@ class BecomeTutorState extends Equatable {
         introduction,
         education,
         interest,
+        experience,
         profession,
         languages,
         introduction,
@@ -80,7 +81,7 @@ class BecomeTutorState extends Equatable {
     List<MSpecialty>? specialties,
     String? avatar,
     bool? onPress,
-    MHandle<MUser>? handle,
+    MHandle<MTutor>? handle,
   }) {
     return BecomeTutorState(
       name: name ?? this.name,

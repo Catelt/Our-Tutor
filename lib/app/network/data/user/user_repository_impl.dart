@@ -72,7 +72,7 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-  Future<MResult<MUser>> becomeTutor(
+  Future<MResult<MTutor>> becomeTutor(
       {required String name,
       required String country,
       required String birthday,
@@ -84,11 +84,17 @@ class UserRepositoryImpl extends UserRepository {
       required String bio,
       required String targetStudent,
       List<String> specialties = const [],
-      String? avatar,
+      required String avatar,
       String? video,
       int? price = 50000}) async {
     try {
-      final response = await XHttp().put('/tutor/register', data: {
+      String fileName = avatar.split('/').last;
+      FormData formData = FormData.fromMap({
+        "avatar": await MultipartFile.fromFile(
+          avatar,
+          filename: fileName,
+          contentType: new MediaType("image", "jpeg"),
+        ),
         "name": name,
         "country": country,
         "birthday": birthday,
@@ -96,13 +102,22 @@ class UserRepositoryImpl extends UserRepository {
         "education": education,
         "experience": experience,
         "profession": profession,
-        "languages": languages,
+        "languages": languages.join(","),
         "bio": bio,
         "targetStudent": targetStudent,
-        "specialties": specialties,
+        "specialties": specialties.join(","),
         "price": price,
       });
-      final data = MUser.fromJson(jsonDecode(response)["user"]);
+      final response = await XHttp().post('/tutor/register',
+          data: formData,
+          baseOptions: XHttp()
+              .dio
+              .options
+              .copyWith(contentType: 'multipart/form-data', headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': '${XHttp().tokenType} ${XHttp().tokenApi}'
+          }));
+      final data = MTutor.fromJson(jsonDecode(response));
       return MResult.success(data);
     } catch (e) {
       if (e is Exception) return MResult.error(e.message);
