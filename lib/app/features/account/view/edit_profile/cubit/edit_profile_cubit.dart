@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../network/domain_manager.dart';
 import '../../../../../network/model/common/default_form.dart';
 import '../../../../../network/model/common/handle.dart';
-import '../../../../../network/model/language/language.dart';
+import '../../../../../network/model/country/country.dart';
 import '../../../../../network/model/learn_topic/learn_topic.dart';
 import '../../../../../network/model/user/user.dart';
 import '../../../../../utils/extension/datetime.dart';
@@ -22,7 +22,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     emit(state.copyWith(name: DefaultForm.dirty(value)));
   }
 
-  void onChangeCountry(MLanguage value) {
+  void onChangeCountry(MCountry value) {
     emit(state.copyWith(country: value));
   }
 

@@ -3,7 +3,7 @@ part of 'edit_profile_cubit.dart';
 class EditProfileState extends Equatable {
   final DefaultForm name;
   final MLevel level;
-  final MLanguage country;
+  final MCountry country;
   final DateTime birthDay;
   final List<MLearnTopic> learnTopics;
   final String studySchedule;
@@ -28,7 +28,7 @@ class EditProfileState extends Equatable {
             user.name.isEmpty ? user.email.split("@").first : user.name),
         level: MLevel.fromId(user.level),
         studySchedule: user.studySchedule,
-        country: MLanguage.fromCode(user.country ?? "VN"),
+        country: MCountry.fromCode(user.country ?? "VN"),
         birthDay: DateTime.parse(user.birthday ?? DateTime.now().toStringDate),
         learnTopics: user.learnTopics ?? [],
         avatar: user.avatar,
@@ -51,7 +51,7 @@ class EditProfileState extends Equatable {
   EditProfileState copyWith({
     DefaultForm? name,
     MLevel? level,
-    MLanguage? country,
+    MCountry? country,
     DateTime? birthDay,
     List<MLearnTopic>? learnTopics,
     String? studySchedule,

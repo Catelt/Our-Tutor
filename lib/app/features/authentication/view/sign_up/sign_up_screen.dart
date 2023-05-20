@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../../../../gen/assets.gen.dart';
 import '../../../../common_widgets/common_widgets.dart';
 import '../../../../constants/app_size.dart';
 import '../../../../dialogs/toast_wrapper.dart';
 import '../../../../localization/localization_utils.dart';
-import '../../../../routing/coordinator.dart';
-import '../../../account/bloc/account_cubit.dart';
 import '../../models/confirm_password.dart';
 import '../../models/models.dart';
 import '../../router/coordination.dart';
@@ -28,8 +25,8 @@ class SignUpScreen extends StatelessWidget {
           if (state.handle.isCompleted && state.handle.data != null) {
             final user = state.handle.data;
             if (user != null && user.id.isNotEmpty) {
-              GetIt.I<AccountCubit>().onLoginSuccess(user);
-              XCoordinator().showHomeScreen();
+              XToast.success(S.text.success_sign_up);
+              AuthCoordinator().showSignIn();
             }
           } else if (state.handle.isError) {
             if (state.handle.message?.contains('Email has already taken') ==

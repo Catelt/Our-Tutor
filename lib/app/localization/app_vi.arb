@@ -21,6 +21,7 @@
   "common_submit": "Gửi",
   "common_reset": "Đặt lại bộ lọc",
   "common_empty": "Không có dữ liệu",
+  "common_go_meeting": "Vào lớp học",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
@@ -32,6 +33,7 @@
   "navigation_account": "Tài Khoản",
 
   "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
+  "success_sign_up":"Đăng ký thành công.Hãy kiểm tra email để xác nhận tài nhận",
   "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
   "error_sign_up_email": "Email đã tồn tại",
   "error_sign_in_google": "Đăng nhập Google thất bại",
@@ -151,6 +153,7 @@
   "course_detail_suggested_tutors": "Gợi ý gia sư",
 
   "up_coming_start": "Bắt đầu khoảng",
+  "up_coming_started": "Đã bắt đầu khoảng",
   "video_call_class_started": "Lớp học đã bắt đầu trong",
   "video_call_class_begin": "Lớp học sẽ bắt đầu trong",
   "video_call_button": "Tham gia lớp học",
@@ -195,5 +198,20 @@
   "edit_profile_level": "Trình độ",
   "edit_profile_topic": "Muốn học",
   "edit_profile_study_schedule": "Lịch học",
-  "edit_profile_button": "Lưu thay đổi"
+  "edit_profile_button": "Lưu thay đổi",
+
+  "become_tutor_section_1": "Thông tin cơ bản",
+  "become_tutor_section_2": "CV",
+  "become_tutor_section_subtitle_2": "Học viên sẽ xem thông tin từ hồ sơ của bạn để quyết định nếu bạn phù hợp với nhu cầu của họ.",
+  "become_tutor_section_3": "Về việc dạy",
+  "become_tutor_section_subtitle_3": "Đây là điều đầu tiên mà học viên nhìn thấy khi tìm kiếm gia sư.",
+  "become_tutor_interest": "Sở thích",
+  "become_tutor_education": "Học vấn",
+  "become_tutor_experience": "Kinh nghiệm",
+  "become_tutor_profession": "Nghề nghiệp hiện tại hoặc trước đây",
+  "become_tutor_language": "Ngôn ngữ",
+  "become_tutor_introduction": "Giới thiệu",
+  "become_tutor_target_student": "Tôi giỏi nhất trong việc dạy những học viên",
+  "become_tutor_specialties": "Chuyên ngành của tôi là",
+  "become_tutor_error_avatar": "Vui lòng tải ảnh đại diện của bạn"
 }

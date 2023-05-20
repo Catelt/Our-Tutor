@@ -6,6 +6,7 @@ import '../../../constants/app_size.dart';
 import '../../../constants/countries.dart';
 import '../../../constants/specialties.dart';
 import '../../../localization/localization_utils.dart';
+import '../../../network/model/major/major.dart';
 import '../../../network/model/tutor/tutor.dart';
 import '../../../routing/coordinator.dart';
 
@@ -17,8 +18,13 @@ class TutorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final national = ENational.getNational(item.country ?? "");
-    final specialties =
-        item.specialties.split(',').map((e) => Specialty.getName(e)).toList();
+    final specialties = item.specialties.split(',').map((e) {
+      String name = Specialty.getName(e);
+      if (name.isEmpty) {
+        name = MMajor.fromKey(e).englishName;
+      }
+      return name;
+    }).toList();
     return InkWell(
       onTap: () => XCoordinator().showTutorDetail(item.userId.toString()),
       child: Stack(

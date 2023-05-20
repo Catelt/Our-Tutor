@@ -49,6 +49,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get common_empty => 'No data';
 
   @override
+  String get common_go_meeting => 'Go to meeting';
+
+  @override
   String get error_noInternet => 'A Server Error Occurred';
 
   @override
@@ -74,6 +77,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get error_sign_in => 'Log in failed. Incorrect email or password';
+
+  @override
+  String get success_sign_up => 'Sign up successful. Please check your email to verify the account';
 
   @override
   String get error_sign_up => 'Sign up failed. Please try again';
@@ -316,6 +322,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get up_coming_start => 'Start in';
 
   @override
+  String get up_coming_started => 'Started about';
+
+  @override
   String get video_call_class_started => 'Class started in';
 
   @override
@@ -412,4 +421,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get edit_profile_button => 'Save';
+
+  @override
+  String get become_tutor_section_1 => 'Basic Info';
+
+  @override
+  String get become_tutor_section_2 => 'CV';
+
+  @override
+  String get become_tutor_section_subtitle_2 => 'Students will view this information on your profile to decide if you\'re a good fit for them.';
+
+  @override
+  String get become_tutor_section_3 => 'Who I teach';
+
+  @override
+  String get become_tutor_section_subtitle_3 => 'This is the first thing students will see when looking for tutors.';
+
+  @override
+  String get become_tutor_interest => 'Interests';
+
+  @override
+  String get become_tutor_education => 'Education';
+
+  @override
+  String get become_tutor_experience => 'Experience';
+
+  @override
+  String get become_tutor_profession => 'Current or Previous Profession';
+
+  @override
+  String get become_tutor_language => 'Languages';
+
+  @override
+  String get become_tutor_introduction => 'Introduction';
+
+  @override
+  String get become_tutor_target_student => 'I am best at teaching students who are';
+
+  @override
+  String get become_tutor_specialties => 'My specialties are';
+
+  @override
+  String get become_tutor_error_avatar => 'Please upload your avatar';
 }

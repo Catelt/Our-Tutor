@@ -21,6 +21,7 @@
   "common_submit": "Submit",
   "common_reset": "Reset Filter",
   "common_empty": "No data",
+  "common_go_meeting": "Go to meeting",
   "error_noInternet": "A Server Error Occurred",
   "error_unknown": "An Unknown Error Occurred",
   "error_somethingWrongTryAgain": "Something went wrong, try again...",
@@ -32,6 +33,7 @@
   "navigation_account": "Account",
 
   "error_sign_in": "Log in failed. Incorrect email or password",
+  "success_sign_up":"Sign up successful. Please check your email to verify the account",
   "error_sign_up": "Sign up failed. Please try again",
   "error_sign_up_email": "Email already exists",
   "error_sign_in_google": "Sign in google fail",
@@ -151,6 +153,7 @@
   "course_detail_suggested_tutors": "Suggested Tutors",
 
   "up_coming_start": "Start in",
+  "up_coming_started": "Started about",
   "video_call_class_started": "Class started in",
   "video_call_class_begin": "Class will begin in",
   "video_call_button": "Join meeting",
@@ -195,5 +198,20 @@
   "edit_profile_level": "My level",
   "edit_profile_topic": "Want to learn",
   "edit_profile_study_schedule": "Study schedule",
-  "edit_profile_button": "Save"
+  "edit_profile_button": "Save",
+
+  "become_tutor_section_1": "Basic Info",
+  "become_tutor_section_2": "CV",
+  "become_tutor_section_subtitle_2": "Students will view this information on your profile to decide if you're a good fit for them.",
+  "become_tutor_section_3": "Who I teach",
+  "become_tutor_section_subtitle_3": "This is the first thing students will see when looking for tutors.",
+  "become_tutor_interest": "Interests",
+  "become_tutor_education": "Education",
+  "become_tutor_experience": "Experience",
+  "become_tutor_profession": "Current or Previous Profession",
+  "become_tutor_language": "Languages",
+  "become_tutor_introduction": "Introduction",
+  "become_tutor_target_student": "I am best at teaching students who are",
+  "become_tutor_specialties": "My specialties are",
+  "become_tutor_error_avatar": "Please upload your avatar"
 }

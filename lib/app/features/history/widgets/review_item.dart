@@ -14,7 +14,8 @@ class ReviewItem extends StatelessWidget {
       width: double.infinity,
       child: RichText(
         text: TextSpan(
-          style: BaseTextStyle.body2(),
+          style: BaseTextStyle.body2()
+              .copyWith(color: Theme.of(context).colorScheme.onSurface),
           children: [
             TextSpan(text: "Lesson status: ${review.lessonStatus.status}\n"),
             TextSpan(

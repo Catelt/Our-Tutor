@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:http_parser/http_parser.dart';
 
 import '../../../utils/extension/exception .dart';
 import '../../model/common/result.dart';
 import '../../model/learn_topic/learn_topic.dart';
+import '../../model/tutor/tutor.dart';
 import '../../model/user/user.dart';
 import '../common/http.dart';
 
@@ -23,7 +25,7 @@ abstract class UserRepository {
     String? studySchedule,
   });
 
-  Future<MResult<MUser>> becomeTutor({
+  Future<MResult<MTutor>> becomeTutor({
     required String name,
     required String country,
     required String birthday,
@@ -31,13 +33,13 @@ abstract class UserRepository {
     required String education,
     required String experience,
     required String profession,
-    required String languages,
+    List<String> languages,
     required String bio,
     required String targetStudent,
-    required String specialties,
-    String? avatar,
+    List<String> specialties,
+    required String avatar,
     String? video,
-    required int price,
+    int? price,
   });
 
   Future<MResult<MUser>> changeAvatar(String path, {String? name});

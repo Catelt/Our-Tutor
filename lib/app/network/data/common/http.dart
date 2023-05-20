@@ -29,12 +29,12 @@ class XHttp {
       sendTimeout: _sendTimeout,
     );
 
-    _dio = Dio(options);
+    dio = Dio(options);
   }
 
   static final XHttp instance = XHttp._internal();
   static XHttp get I => instance;
-  late Dio _dio;
+  late Dio dio;
 
   String? tokenType;
   String? tokenApi;
@@ -62,7 +62,7 @@ class XHttp {
     _sendTimeout = sendTimeout ?? _sendTimeout;
     _baseUrl = baseUrl ?? _baseUrl;
 
-    _dio = Dio(_dio.options.copyWith(
+    dio = Dio(dio.options.copyWith(
         baseUrl: _baseUrl,
         connectTimeout: _connectTimeout,
         receiveTimeout: _receiveTimeout,
@@ -78,7 +78,7 @@ class XHttp {
     } else {
       _headers.removeWhere((key, value) => key == 'Authorization');
     }
-    _dio = Dio(_dio.options.copyWith(headers: _headers));
+    dio = Dio(dio.options.copyWith(headers: _headers));
   }
 
   Future<String> request(
@@ -90,6 +90,7 @@ class XHttp {
     ProgressCallback? onReceiveProgress,
     CancelToken? cancelToken,
     Options? options,
+    BaseOptions? baseOptions,
   }) async {
     String bodyResponse = '';
     try {
@@ -98,8 +99,9 @@ class XHttp {
       if (connectivityResult == ConnectivityResult.none) {
         throw Exception(S.text.error_noInternet);
       }
+      var newDio = Dio(baseOptions ?? dio.options);
 
-      final response = await _dio.request(
+      final response = await newDio.request(
         url,
         data: data,
         queryParameters: queryParameters,
@@ -142,9 +144,11 @@ class XHttp {
   }
 
   Future<String> post(String url,
-      {Object? data, Map<String, dynamic>? queryParameters}) {
+      {Object? data,
+      Map<String, dynamic>? queryParameters,
+      BaseOptions? baseOptions}) {
     return request(XMethod.post, url,
-        data: data, queryParameters: queryParameters);
+        data: data, queryParameters: queryParameters, baseOptions: baseOptions);
   }
 
   Future<String> put(String url,

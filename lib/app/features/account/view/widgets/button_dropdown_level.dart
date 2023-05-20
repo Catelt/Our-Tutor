@@ -48,7 +48,7 @@ class _ButtonDropDownLevelState extends State<ButtonDropDownLevel> {
             label: widget.label,
             hint: widget.hint,
             errorText: widget.errorText,
-            isSelect: widget.selected != null),
+            isSelect: selectedItems != null),
         value: selectedItems,
         isDense: true,
         isExpanded: true,

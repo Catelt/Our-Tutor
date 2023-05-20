@@ -2,10 +2,10 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/drop_down_theme.dart';
-import '../../../../network/model/country/country.dart';
+import '../../data/level.dart';
 
-class ButtonDropDownCountry extends StatefulWidget {
-  const ButtonDropDownCountry({
+class ButtonDropDownTargetStudent extends StatefulWidget {
+  const ButtonDropDownTargetStudent({
     super.key,
     this.label,
     this.hint,
@@ -21,22 +21,24 @@ class ButtonDropDownCountry extends StatefulWidget {
   final String? errorText;
   final double? height;
   final double? fontSize;
-  final MCountry? selected;
-  final void Function(MCountry)? onChange;
+  final String? selected;
+  final void Function(String)? onChange;
 
   @override
-  State<ButtonDropDownCountry> createState() => _ButtonDropDownCountryState();
+  State<ButtonDropDownTargetStudent> createState() =>
+      _ButtonDropDownTargetStudentState();
 }
 
-class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
-  final List<MCountry> items = MCountry.getData();
+class _ButtonDropDownTargetStudentState
+    extends State<ButtonDropDownTargetStudent> {
+  final List<String> items = ["Beginner", "Intermediate", "Advanced"];
 
-  MCountry? selectedItems;
+  String? selectedItems;
 
   @override
   Widget build(BuildContext context) {
-    if (widget.selected != null) {
-      selectedItems = items.firstWhere((e) => e.code == widget.selected?.code);
+    if (widget.selected != null && widget.selected?.isNotEmpty == true) {
+      selectedItems = widget.selected;
     } else {
       selectedItems = null;
     }
@@ -53,17 +55,17 @@ class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<MCountry>(
+          return DropdownMenuItem<String>(
             value: item,
             child: Text(
-              item.name,
+              item,
               style: TextStyle(fontSize: widget.fontSize),
             ),
           );
         }).toList(),
         onChanged: (value) {
           setState(() {
-            MCountry data = value as MCountry;
+            String data = value as String;
             widget.onChange?.call(data);
             selectedItems = data;
           });
