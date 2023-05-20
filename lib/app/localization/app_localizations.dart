@@ -237,6 +237,12 @@ abstract class AppLocalizations {
   /// **'Log in failed. Incorrect email or password'**
   String get error_sign_in;
 
+  /// No description provided for @success_sign_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up successful. Please check your email to verify the account'**
+  String get success_sign_up;
+
   /// No description provided for @error_sign_up.
   ///
   /// In en, this message translates to:

@@ -33,6 +33,7 @@
   "navigation_account": "Account",
 
   "error_sign_in": "Log in failed. Incorrect email or password",
+  "success_sign_up":"Sign up successful. Please check your email to verify the account",
   "error_sign_up": "Sign up failed. Please try again",
   "error_sign_up_email": "Email already exists",
   "error_sign_in_google": "Sign in google fail",

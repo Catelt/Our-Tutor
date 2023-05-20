@@ -79,6 +79,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get error_sign_in => 'Đăng nhập thất bại.Email hoặc mật khẩu không đúng';
 
   @override
+  String get success_sign_up => 'Đăng ký thành công.Hãy kiểm tra email để xác nhận tài nhận';
+
+  @override
   String get error_sign_up => 'Đăng ký thất bại. Xin hãy thử lại';
 
   @override

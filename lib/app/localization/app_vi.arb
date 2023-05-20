@@ -33,6 +33,7 @@
   "navigation_account": "Tài Khoản",
 
   "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
+  "success_sign_up":"Đăng ký thành công.Hãy kiểm tra email để xác nhận tài nhận",
   "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
   "error_sign_up_email": "Email đã tồn tại",
   "error_sign_in_google": "Đăng nhập Google thất bại",

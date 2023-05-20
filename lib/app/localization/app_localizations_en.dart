@@ -79,6 +79,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_sign_in => 'Log in failed. Incorrect email or password';
 
   @override
+  String get success_sign_up => 'Sign up successful. Please check your email to verify the account';
+
+  @override
   String get error_sign_up => 'Sign up failed. Please try again';
 
   @override

@@ -306,6 +306,7 @@ class BecomeTutorScreen extends StatelessWidget {
                   width: double.infinity,
                   child: PrimaryButton(
                     text: S.text.common_submit,
+                    isLoading: state.handle.isLoading,
                     onPressed: context.read<BecomeTutorCubit>().save,
                   ),
                 );
