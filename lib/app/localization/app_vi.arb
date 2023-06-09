@@ -1,0 +1,217 @@
+{
+  "common_appTitle": "Out Tutor",
+  "common_appVersion": "Phiên bản {value}",
+  "@common_appVersion": {
+    "description": "Số phiên bản của ứng dụng",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "common_loading": "Đang tải",
+  "common_next": "Tiếp tục",
+  "common_cancel": "Hủy",
+  "common_yes": "Đúng",
+  "common_no": "Không",
+  "common_close": "Đóng",
+  "common_exit": "Thoát",
+  "common_back": "Trở lại",
+  "common_success": "Thành công",
+  "common_submit": "Gửi",
+  "common_reset": "Đặt lại bộ lọc",
+  "common_empty": "Không có dữ liệu",
+  "common_go_meeting": "Vào lớp học",
+  "error_noInternet": "A Server Error Occurred",
+  "error_unknown": "An Unknown Error Occurred",
+  "error_somethingWrongTryAgain": "Có chuyện gì đó không đúng, hãy thử lại...",
+
+  "navigation_tutor": "Gia sư",
+  "navigation_schedule": "Lịch Học",
+  "navigation_history": "Lịch Sử",
+  "navigation_course": "Khóa Học",
+  "navigation_account": "Tài Khoản",
+
+  "error_sign_in": "Đăng nhập thất bại.Email hoặc mật khẩu không đúng",  
+  "success_sign_up":"Đăng ký thành công.Hãy kiểm tra email để xác nhận tài nhận",
+  "error_sign_up": "Đăng ký thất bại. Xin hãy thử lại",
+  "error_sign_up_email": "Email đã tồn tại",
+  "error_sign_in_google": "Đăng nhập Google thất bại",
+
+  "common_empty_field":"Không được để trống",
+  "email":"ĐỊA CHỈ email",
+  "email_hint":"abc@gmail.com",
+  "invalid_email":"Email không hợp lệ",
+  "password":"MẬT KHẨU",
+  "password_not_match": "Mật khẩu không trùng",
+  "password":"Xác nhận mật khẩu",
+  "password_hint":"",
+  "invalid_password":"Mật khẩu có ít nhất 6 kí tự",
+
+  "sign_in_title":"Đăng nhập",
+  "sign_in_subtitle":"Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.",
+  "sign_in_button":"ĐĂNG NHẬP",
+  "sign_in_continue":"Hoặc tiếp tục với",
+  "sign_in_forget_password":"Quên mật khẩu?",
+  "sign_in_footer":"Chưa có tài khoản? ",
+  "sign_up":"Đăng ký",
+
+  "sign_up_title":"Đăng ký",
+  "sign_up_footer":"Đã có tài khoản? ",
+  "sign_up_button":"SIGN UP",
+  "sign_in":"Đăng nhập",
+
+  "forget_password_title": "Thay đổi mật khẩu",
+  "forget_password_subtitle": "Vui lòng nhập email để tìm kiếm tài khoản và thay đổi mật khẩu",
+  "forget_password_subtitle_success": "Hãy kiểm tra đường dẫn trong email của bạn để thay đổi mật khẩu",
+  "forget_password_button": "Gửi email",
+
+  "book_button": "Đặt lịch",
+
+  "favorite": "Yêu thích",
+  "report": "Báo cáo",
+  "reviews": "Xem đánh giá",
+  "record": "Bản ghi",
+  "lesson": "Buổi học",
+  "add_a_rating":"Đánh giá",
+  "enter_lesson_room" :"Vào lớp học",
+
+  "tutors_find_tutor" : "Tìm kiếm gia sư",
+  "tutors_find_tutor_hint" : "Nhập tên gia sư",
+  "tutors_find_tutor_national_hint" : "Chọn quốc tịch gia sư",
+  "tutors_up_coming" : "Buổi học sắp diễn ra",
+  "tutors_total_time" : "Tổng số giờ bạn đã học là {hours} giờ {minutes} phút",
+  "@tutors_total_time": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "tutor_languages" : "Ngôn ngữ",
+  "tutor_specialties" : "Chuyên ngành",
+  "tutor_suggested_courses" : "Khóa học tham khảo",
+  "tutor_interests" : "Sở thích",
+  "tutor_teaching_experience" : "Kinh nghiệm giảng dạy",
+
+  "history_title": "Lịch sử các buổi học",
+  "history_subTitle": "Đây là danh sách các bài học bạn đã tham gia\nBạn có thể xem lại thông tin chi tiết về các buổi học đã tham gia đã tham gia",
+  "history_lesson_time": "Thời gian bài học: {value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "history_review": "Đánh giá từ gia sư",
+  "history_no_review": "Gia sư chưa có đánh giá",
+  "history_request": "Yêu cầu cho buổi học",
+  "history_no_request": "Không có yêu cầu cho buổi học",
+
+  "discover" : "Khám phá",
+  
+  "report_title" : "Báo cáo {value}",
+    "@report_title": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "report_subtitle": "Bạn đang gặp phải vấn đề gì",
+
+  "setting_edit_profile": "Chỉnh sửa thông tin",
+  "setting_become_tutor": "Trở thành giáo viên",
+  "setting_language": "Ngôn ngữ",
+  "setting_theme": "Chế độ",
+  "setting_private_policy": "Chính sách bảo mật",
+  "setting_button_log_out": "Đăng xuất",
+
+  "title_bottom_select_language": "Chọn ngôn ngữ",
+
+  "hint_edit_text": "Nhập hoặc bấm micro để nói",
+  "is_listening_gpt": "Đang lắng nghe...",
+
+  "title_bottom_select_theme": "Chọn chế độ",
+  "system_theme" : "Hệ thống",
+  "dark_theme" : "Tối",
+  "light_theme" : "Sáng",
+
+  "topics": "Chủ đề",
+  "more_info" : "Xem thêm",
+  "course_detail_why": "Tại sao bạn nên học khóa học này",
+  "course_detail_what": "Bạn có thể làm gì",
+  "course_detail_overview": "Tổng quan",
+  "course_detail_experience_level": "Trình độ yêu cầu",
+  "course_detail_course_length": "Thời lượng khóa học",
+  "course_detail_list_topics": "Danh sách chủ đề",
+  "course_detail_suggested_tutors": "Gợi ý gia sư",
+
+  "up_coming_start": "Bắt đầu khoảng",
+  "up_coming_started": "Đã bắt đầu khoảng",
+  "video_call_class_started": "Lớp học đã bắt đầu trong",
+  "video_call_class_begin": "Lớp học sẽ bắt đầu trong",
+  "video_call_button": "Tham gia lớp học",
+
+  "courses_title": "Khám phá các khóa học",
+  "course": "Khóa học",
+  "courses_sub_title": "LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.",
+  "courses_select_level": "Chọn cấp độ",
+  "courses_select_category": "Chọn danh mục",
+  "courses_select_sort_level": "Sắp sếp theo độ khó",
+
+  "sort_asc": "Độ khó tăng dần",
+  "sort_desc": "Độ khó giảm dần",
+
+  "schedule_title": "Lịch đã đặt",
+  "schedule_sub_title": "Đây là danh sách những khung giờ bạn đã đặt\nBạn có thể theo dõi khi nào buổi học bắt đầu, tham gia buổi học bằng một cú nhấp chuột hoặc có thể hủy buổi học trước 2 tiếng.",
+  "schedule_edit_request": "Chỉnh sửa yêu cầu",
+  "schedule_no_request": "Hiện tại không có yêu cầu cho lớp học này. Xin vui lòng viết ra bất kỳ yêu cầu nào cho giáo viên nếu có.",
+  "schedule_session_time": "Buổi ${value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+
+  "cancel_booking_title": "Hủy Buổi học",
+  "cancel_booking_lesson_time": "Thời gian bài học",
+  "cancel_booking_reason": "Lý do bạn hủy buổi học này là gì?",
+
+  "booking_title": "Chi tiết đặt lịch",
+  "booking_time": "Thời gian đặt lịch",
+  "booking_note": "Ghi chú",
+
+  "edit_profile_save": "Thay đổi thành công",
+  "edit_profile_name": "Tên",
+  "edit_profile_email": "Email",
+  "edit_profile_phone": "Số điện thoại",
+  "edit_profile_country": "Quốc gia",
+  "edit_profile_birthday": "Ngày sinh",
+  "edit_profile_level": "Trình độ",
+  "edit_profile_topic": "Muốn học",
+  "edit_profile_study_schedule": "Lịch học",
+  "edit_profile_button": "Lưu thay đổi",
+
+  "become_tutor_section_1": "Thông tin cơ bản",
+  "become_tutor_section_2": "CV",
+  "become_tutor_section_subtitle_2": "Học viên sẽ xem thông tin từ hồ sơ của bạn để quyết định nếu bạn phù hợp với nhu cầu của họ.",
+  "become_tutor_section_3": "Về việc dạy",
+  "become_tutor_section_subtitle_3": "Đây là điều đầu tiên mà học viên nhìn thấy khi tìm kiếm gia sư.",
+  "become_tutor_interest": "Sở thích",
+  "become_tutor_education": "Học vấn",
+  "become_tutor_experience": "Kinh nghiệm",
+  "become_tutor_profession": "Nghề nghiệp hiện tại hoặc trước đây",
+  "become_tutor_language": "Ngôn ngữ",
+  "become_tutor_introduction": "Giới thiệu",
+  "become_tutor_target_student": "Tôi giỏi nhất trong việc dạy những học viên",
+  "become_tutor_specialties": "Chuyên ngành của tôi là",
+  "become_tutor_error_avatar": "Vui lòng tải ảnh đại diện của bạn"
+}

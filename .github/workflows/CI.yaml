@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy_distribute:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.7'
+          channel: "stable"
+          cache: true
+
+      - name: API GPT
+        run: echo ${{secrets.API_GPT}} | base64 -d > lib/app/constants/api_constant.dart
+
+      - name: Download Android keystore
+        id: android_keystore
+        uses: timheuer/base64-to-file@v1.0.3
+        with:
+          fileName: upload-keystore.jks
+          encodedString: ${{ secrets.UPLOAD_KEYSTORE }}
+      
+      - name: Create google-services
+        run: 
+          echo ${{ secrets.GOOGLE_SERVICES }} | base64 -d > android/app/google-services.json
+            
+      - name: Firebase Option
+        run: 
+          echo ${{ secrets.FIREBASE_OPTIONS }} | base64 -d > lib/firebase/prod/firebase_options.dart
+ 
+      - name: Create key.properties
+        run: |
+          echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
+          echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+
+      - name: Build
+        run: flutter build apk --flavor production -t lib/main_production.dart
+
+      - name: Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.5.0
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: ourtutor-tester
+          releaseNotes: "${{ github.event.pull_request_review_comment.comment.body }}"
+          file: build/app/outputs/flutter-apk/app-production-release.apk

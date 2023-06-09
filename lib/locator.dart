@@ -1,34 +1,84 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
 
-class AppBlocObserver extends BlocObserver {
-  const AppBlocObserver();
+import 'app/constants/devices/app_Info.dart';
+import 'app/features/account/bloc/account_cubit.dart';
+import 'app/network/domain_manager.dart';
+import 'app/services/google_sign_in.dart';
+import 'app/services/user_prefs.dart';
+import 'app/utils/utils.dart';
 
+class XBlocObserver extends BlocObserver {
+  final Logger log = Logger();
   @override
-  void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
-    super.onChange(bloc, change);
-    log('onChange(${bloc.runtimeType}, $change)');
+  void onEvent(Bloc bloc, Object? event) {
+    log.i('onEvent $event');
+    super.onEvent(bloc, event);
   }
 
   @override
-  void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
-    log('onError(${bloc.runtimeType}, $error, $stackTrace)');
+  void onTransition(Bloc bloc, Transition transition) {
+    log.i('onTransition $transition');
+    super.onTransition(bloc, transition);
+  }
+
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    log.wtf('onChange ${bloc.runtimeType}\n'
+        'From: ${change.currentState}\n'
+        'To: ${change.nextState}');
+    super.onChange(bloc, change);
+  }
+
+  @override
+  void onClose(BlocBase bloc) {
+    log.i('Close ${bloc.runtimeType}');
+    super.onClose(bloc);
+  }
+
+  @override
+  void onCreate(BlocBase bloc) {
+    log.i('Create ${bloc.runtimeType}');
+    super.onCreate(bloc);
+  }
+
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    log.e('Error in : ${bloc.runtimeType}', error, stackTrace);
     super.onError(bloc, error, stackTrace);
   }
 }
 
-Future<void> locator(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
+void _initGetIt() {
+  GetIt.I.registerLazySingleton(() => DomainManager());
+  GetIt.I.registerLazySingleton(() => AccountCubit());
+}
 
-  Bloc.observer = const AppBlocObserver();
+Future<void> locator(FutureOr<Widget> Function() builder) async {
+  FlutterError.onError = (errorDetails) {
+    xLog.e(errorDetails.exceptionAsString());
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  _initGetIt();
+  await Future.wait([
+    UserPrefs.instance.initialize(),
+    AppInfo.initialize(),
+  ]);
+
+  Bloc.observer = XBlocObserver();
+  XGoogleSignIn().init();
 
   await runZonedGuarded(
     () async => runApp(await builder()),
-    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+    (error, stackTrace) {
+      log(error.toString(), stackTrace: stackTrace);
+      FirebaseCrashlytics.instance.recordError(error, stackTrace, fatal: true);
+    },
   );
 }

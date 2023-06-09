@@ -1,0 +1,58 @@
+name: CD
+on:
+  pull_request:
+    branches: ["release"]
+
+jobs:
+  build_and_deploy_android:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.7.7'
+          channel: "stable"
+          cache: true
+          
+      - name: API GPT
+        run: echo ${{secrets.API_GPT}} | base64 -d > lib/app/constants/api_constant.dart
+
+      - name: Playstore key
+        run: echo ${{secrets.PLAYSTORE_KEY}} | base64 -d > android/fastlane/playstore_key.json
+      
+      - name: Download Android keystore
+        id: android_keystore
+        uses: timheuer/base64-to-file@v1.0.3
+        with:
+          fileName: upload-keystore.jks
+          encodedString: ${{ secrets.UPLOAD_KEYSTORE }}
+      
+      - name: Create google-services
+        run: 
+          echo ${{ secrets.GOOGLE_SERVICES }} | base64 -d > android/app/google-services.json
+            
+      - name: Firebase Option
+        run: 
+          echo ${{ secrets.FIREBASE_OPTIONS }} | base64 -d > lib/firebase/prod/firebase_options.dart
+ 
+      - name: Create key.properties
+        run: |
+          echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
+          echo "storePassword=${{ secrets.STORE_PASSWORD }}" >> android/key.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> android/key.properties
+  
+      - name: Build
+        run: flutter build appbundle --flavor production -t lib/main_production.dart
+
+      - run: flutter pub get
+      - name: Run fastlane
+        working-directory: ./android
+        run: fastlane deploy

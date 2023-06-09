@@ -42,3 +42,24 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+lib/app/constants/api_constant.dart
+
+# dotenv environment variables file
+.env*
+
+# fastlane
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots/**/*.png
+**/fastlane/test_output
+**/fastlane/metadata/**
+
+**/google-services.json
+android/fastlane/playstore_key.json
+
+**/firebase_options.dart

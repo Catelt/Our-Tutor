@@ -1,0 +1,217 @@
+{
+  "common_appTitle": "Out Tutor",
+  "common_appVersion": "Version {value}",
+  "@common_appVersion": {
+    "description": "Version number of app",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "common_loading": "Loading",
+  "common_next": "Next",
+  "common_cancel": "Cancel",
+  "common_yes": "Yes",
+  "common_no": "No",
+  "common_close": "Close",
+  "common_exit": "Exit",
+  "common_back": "Back",
+  "common_success": "Success",
+  "common_submit": "Submit",
+  "common_reset": "Reset Filter",
+  "common_empty": "No data",
+  "common_go_meeting": "Go to meeting",
+  "error_noInternet": "A Server Error Occurred",
+  "error_unknown": "An Unknown Error Occurred",
+  "error_somethingWrongTryAgain": "Something went wrong, try again...",
+
+  "navigation_tutor": "Tutor",
+  "navigation_schedule": "Schedule",
+  "navigation_history": "History",
+  "navigation_course": "Course",
+  "navigation_account": "Account",
+
+  "error_sign_in": "Log in failed. Incorrect email or password",
+  "success_sign_up":"Sign up successful. Please check your email to verify the account",
+  "error_sign_up": "Sign up failed. Please try again",
+  "error_sign_up_email": "Email already exists",
+  "error_sign_in_google": "Sign in google fail",
+
+  "common_empty_field":"Field is requirement",
+  "email":"EMAIL",
+  "email_hint":"abc@gmail.com",
+  "invalid_email":"Email is invalid",
+  "password_not_match": "Doesn't match password",
+  "password":"PASSWORD",
+  "password_confirm":"CONFIRM PASSWORD",
+  "password_hint":"",
+  "invalid_password":"Password with at least 6 characters",
+
+  "sign_in_title":"Say hello to your English tutors",
+  "sign_in_subtitle":"Become fluent faster through one on one video chat lessons tailored to your goals.",
+  "sign_in_button":"LOG IN",
+  "sign_in_continue":"Or continue with",
+  "sign_in_forget_password":"Forgot Password?",
+  "sign_in_footer":"Not a member yet? ",
+  "sign_up":"Sign up",
+
+  "sign_up_title":"Start learning with LetTutor",
+  "sign_up_footer":"Already have an account?",
+  "sign_up_button":"SIGN UP",
+  "sign_in":"Log in",
+
+  "forget_password_title": "Reset Password",
+  "forget_password_subtitle": "Please enter your email address to search for your account.",
+  "forget_password_subtitle_success": "Check your inbox for a link to reset your password.",
+  "forget_password_button": "Send Email",
+
+  "book_button": "Book",
+
+  "favorite": "Favorite",
+  "report": "Report",
+  "reviews": "Reviews",
+  "record": "Record",
+  "lesson": "lesson",
+  "add_a_rating":"Add a Rating",
+  "enter_lesson_room" :"Enter lesson room",
+
+  "tutors_find_tutor" : "Find a tutor",
+  "tutors_find_tutor_hint" : "Enter tutor name",
+  "tutors_find_tutor_national_hint" : "Select tutor nationality",
+  "tutors_up_coming" : "Upcoming lesson",
+  "tutors_total_time" : "Total lesson time is {hours} hours {minutes} minutes",
+  "@tutors_total_time": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "tutor_languages" : "Languages",
+  "tutor_specialties" : "Specialties",
+  "tutor_suggested_courses" : "Suggested courses",
+  "tutor_interests" : "Interests",
+  "tutor_teaching_experience" : "Teaching experience",
+
+  "history_title": "History",
+  "history_subTitle": "The following is a list of lessons you have attended\nYou can review the details of the lessons you have attended",
+  "history_lesson_time": "Lesson Time: {value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "history_review": "Review from tutor",
+  "history_no_review": "Tutor haven't reviewed yet",
+  "history_request": "Request for lesson",
+  "history_no_request": "No request for lesson",
+
+  "discover" : "Discover",
+
+  "report_title" : "Report {value}",
+    "@report_title": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "report_subtitle": "Help us understand what's happening",
+
+  "setting_edit_profile": "Edit profile",
+  "setting_become_tutor": "Become tutor",
+  "setting_language": "Language Preferences",
+  "setting_theme": "Theme Mode",
+  "setting_private_policy": "Private Policy",
+  "setting_button_log_out": "Log out",
+
+  "title_bottom_select_language": "Select Language",
+
+  "hint_edit_text": "Start typing or taking",
+  "is_listening_gpt": "listening...",
+
+  "title_bottom_select_theme": "Select Theme",
+  "system_theme" : "System",
+  "dark_theme" : "Dark",
+  "light_theme" : "Light",
+
+  "topics": "topics",
+  "more_info" : "More info",
+  "course_detail_why": "Why take this course",
+  "course_detail_what": "What will you be able to do",
+  "course_detail_overview": "Overview",
+  "course_detail_experience_level": "Experience Level",
+  "course_detail_course_length": "Course Length",
+  "course_detail_list_topics": "List Topics",
+  "course_detail_suggested_tutors": "Suggested Tutors",
+
+  "up_coming_start": "Start in",
+  "up_coming_started": "Started about",
+  "video_call_class_started": "Class started in",
+  "video_call_class_begin": "Class will begin in",
+  "video_call_button": "Join meeting",
+
+  "courses_title": "Discover Courses",
+  "course": "Course",
+  "courses_sub_title": "LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.",
+  "courses_select_level": "Select level",
+  "courses_select_category": "Select category",
+  "courses_select_sort_level": "Sort by level",
+
+  "sort_asc": "Level ascending",
+  "sort_desc": "Level descending",
+
+  "schedule_title": "Schedule",
+  "schedule_sub_title": "Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours",
+  "schedule_edit_request": "Edit Request",
+  "schedule_no_request": "Currently there are no requests for this class. Please write down any requests for the teacher.",
+  "schedule_session_time": "Session {value}",
+  "@history_lesson_time": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+
+  "cancel_booking_title": "Cancel Booking",
+  "cancel_booking_lesson_time": "Lesson Time",
+  "cancel_booking_reason": "What was the reason you cancel this booking?",
+
+  "booking_title": "Booking Detail",
+  "booking_time": "Booking Time",
+  "booking_note": "Note",
+
+  "edit_profile_save": "Save success",
+  "edit_profile_name": "Name",
+  "edit_profile_email": "Email",
+  "edit_profile_phone": "Phone number",
+  "edit_profile_country": "Country",
+  "edit_profile_birthday": "Birthday",
+  "edit_profile_level": "My level",
+  "edit_profile_topic": "Want to learn",
+  "edit_profile_study_schedule": "Study schedule",
+  "edit_profile_button": "Save",
+
+  "become_tutor_section_1": "Basic Info",
+  "become_tutor_section_2": "CV",
+  "become_tutor_section_subtitle_2": "Students will view this information on your profile to decide if you're a good fit for them.",
+  "become_tutor_section_3": "Who I teach",
+  "become_tutor_section_subtitle_3": "This is the first thing students will see when looking for tutors.",
+  "become_tutor_interest": "Interests",
+  "become_tutor_education": "Education",
+  "become_tutor_experience": "Experience",
+  "become_tutor_profession": "Current or Previous Profession",
+  "become_tutor_language": "Languages",
+  "become_tutor_introduction": "Introduction",
+  "become_tutor_target_student": "I am best at teaching students who are",
+  "become_tutor_specialties": "My specialties are",
+  "become_tutor_error_avatar": "Please upload your avatar"
+}
