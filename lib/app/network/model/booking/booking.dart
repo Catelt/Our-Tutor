@@ -30,7 +30,7 @@ class MBooking with _$MBooking {
     @Default("") String updatedAt,
     @Default("") String recordUrl,
     @Default("") String cancelReasonId,
-    @Default("") String lessonPlanId,
+    Object? lessonPlanId,
     @Default("") String calendarId,
     @Default(false) bool isDeleted,
     MClassReview? classReview,

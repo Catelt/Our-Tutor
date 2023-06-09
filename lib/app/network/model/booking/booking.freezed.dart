@@ -48,8 +48,8 @@ mixin _$MBooking {
   set recordUrl(String value) => throw _privateConstructorUsedError;
   String get cancelReasonId => throw _privateConstructorUsedError;
   set cancelReasonId(String value) => throw _privateConstructorUsedError;
-  String get lessonPlanId => throw _privateConstructorUsedError;
-  set lessonPlanId(String value) => throw _privateConstructorUsedError;
+  Object? get lessonPlanId => throw _privateConstructorUsedError;
+  set lessonPlanId(Object? value) => throw _privateConstructorUsedError;
   String get calendarId => throw _privateConstructorUsedError;
   set calendarId(String value) => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
@@ -92,7 +92,7 @@ abstract class $MBookingCopyWith<$Res> {
       String updatedAt,
       String recordUrl,
       String cancelReasonId,
-      String lessonPlanId,
+      Object? lessonPlanId,
       String calendarId,
       bool isDeleted,
       MClassReview? classReview,
@@ -132,7 +132,7 @@ class _$MBookingCopyWithImpl<$Res, $Val extends MBooking>
     Object? updatedAt = null,
     Object? recordUrl = null,
     Object? cancelReasonId = null,
-    Object? lessonPlanId = null,
+    Object? lessonPlanId = freezed,
     Object? calendarId = null,
     Object? isDeleted = null,
     Object? classReview = freezed,
@@ -193,10 +193,8 @@ class _$MBookingCopyWithImpl<$Res, $Val extends MBooking>
           ? _value.cancelReasonId
           : cancelReasonId // ignore: cast_nullable_to_non_nullable
               as String,
-      lessonPlanId: null == lessonPlanId
-          ? _value.lessonPlanId
-          : lessonPlanId // ignore: cast_nullable_to_non_nullable
-              as String,
+      lessonPlanId:
+          freezed == lessonPlanId ? _value.lessonPlanId : lessonPlanId,
       calendarId: null == calendarId
           ? _value.calendarId
           : calendarId // ignore: cast_nullable_to_non_nullable
@@ -271,7 +269,7 @@ abstract class _$$_MBookingCopyWith<$Res> implements $MBookingCopyWith<$Res> {
       String updatedAt,
       String recordUrl,
       String cancelReasonId,
-      String lessonPlanId,
+      Object? lessonPlanId,
       String calendarId,
       bool isDeleted,
       MClassReview? classReview,
@@ -311,7 +309,7 @@ class __$$_MBookingCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? recordUrl = null,
     Object? cancelReasonId = null,
-    Object? lessonPlanId = null,
+    Object? lessonPlanId = freezed,
     Object? calendarId = null,
     Object? isDeleted = null,
     Object? classReview = freezed,
@@ -370,10 +368,8 @@ class __$$_MBookingCopyWithImpl<$Res>
           ? _value.cancelReasonId
           : cancelReasonId // ignore: cast_nullable_to_non_nullable
               as String,
-      lessonPlanId: null == lessonPlanId
-          ? _value.lessonPlanId
-          : lessonPlanId // ignore: cast_nullable_to_non_nullable
-              as String,
+      lessonPlanId:
+          freezed == lessonPlanId ? _value.lessonPlanId : lessonPlanId,
       calendarId: null == calendarId
           ? _value.calendarId
           : calendarId // ignore: cast_nullable_to_non_nullable
@@ -424,7 +420,7 @@ class _$_MBooking extends _MBooking {
       this.updatedAt = "",
       this.recordUrl = "",
       this.cancelReasonId = "",
-      this.lessonPlanId = "",
+      this.lessonPlanId,
       this.calendarId = "",
       this.isDeleted = false,
       this.classReview,
@@ -478,8 +474,7 @@ class _$_MBooking extends _MBooking {
   @JsonKey()
   String cancelReasonId;
   @override
-  @JsonKey()
-  String lessonPlanId;
+  Object? lessonPlanId;
   @override
   @JsonKey()
   String calendarId;
@@ -535,7 +530,7 @@ abstract class _MBooking extends MBooking {
       String updatedAt,
       String recordUrl,
       String cancelReasonId,
-      String lessonPlanId,
+      Object? lessonPlanId,
       String calendarId,
       bool isDeleted,
       MClassReview? classReview,
@@ -590,8 +585,8 @@ abstract class _MBooking extends MBooking {
   String get cancelReasonId;
   set cancelReasonId(String value);
   @override
-  String get lessonPlanId;
-  set lessonPlanId(String value);
+  Object? get lessonPlanId;
+  set lessonPlanId(Object? value);
   @override
   String get calendarId;
   set calendarId(String value);

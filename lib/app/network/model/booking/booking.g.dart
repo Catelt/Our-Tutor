@@ -21,7 +21,7 @@ _$_MBooking _$$_MBookingFromJson(Map<String, dynamic> json) => _$_MBooking(
       updatedAt: json['updatedAt'] as String? ?? "",
       recordUrl: json['recordUrl'] as String? ?? "",
       cancelReasonId: json['cancelReasonId'] as String? ?? "",
-      lessonPlanId: json['lessonPlanId'] as String? ?? "",
+      lessonPlanId: json['lessonPlanId'],
       calendarId: json['calendarId'] as String? ?? "",
       isDeleted: json['isDeleted'] as bool? ?? false,
       classReview: json['classReview'] == null
