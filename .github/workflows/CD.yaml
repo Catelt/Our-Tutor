@@ -1,7 +1,7 @@
 name: CD
 on:
   pull_request:
-    branches: ["main","release"]
+    branches: ["release"]
 
 jobs:
   build_and_deploy_android:

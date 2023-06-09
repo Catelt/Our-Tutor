@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - advance-online-app
+      - main
   pull_request:
     branches:
-      - advance-online-app
+      - main
 
 jobs:
   build_and_deploy_distribute:
