@@ -50,7 +50,7 @@ class XAppRouter {
     navigatorKey: navigatorKey,
     redirect: (context, state) {
       if (context.read<AccountCubit>().state.isLogin) {
-        if (state.location.contains(RegExp(r'signIn'))) {
+        if (state.uri.toString().contains(RegExp(r'signIn'))) {
           return HomeNavigationItems.items[0].path;
         }
       }
@@ -71,7 +71,7 @@ class XAppRouter {
               path: ':id',
               name: AppRoute.tutor.name,
               pageBuilder: (context, state) => DefaultTransition(
-                child: TutorDetailScreen(id: state.params['id'] ?? ""),
+                child: TutorDetailScreen(id: state.pathParameters['id'] ?? ""),
               ),
               routes: [
                 GoRoute(
@@ -79,7 +79,7 @@ class XAppRouter {
                   path: 'feedback',
                   name: AppRoute.feedback.name,
                   pageBuilder: (context, state) => DefaultTransition(
-                    child: FeedbackScreen(tutorId: state.params['id'] ?? ""),
+                    child: FeedbackScreen(tutorId: state.pathParameters['id'] ?? ""),
                   ),
                 ),
               ],
@@ -93,7 +93,7 @@ class XAppRouter {
               path: ':id',
               name: AppRoute.course.name,
               pageBuilder: (context, state) => DefaultTransition(
-                child: CourseDetailScreen(id: state.params['id'] ?? ''),
+                child: CourseDetailScreen(id: state.pathParameters['id'] ?? ''),
               ),
             ),
             GoRoute(
@@ -103,11 +103,11 @@ class XAppRouter {
                 pageBuilder: (context, state) {
                   return DefaultTransition(
                     child: TopicDetailScreen(
-                      id: state.params['id'] ?? '',
+                      id: state.pathParameters['id'] ?? '',
                       course:
                           state.extra != null ? state.extra as MCourse : null,
-                      initSelect: state.queryParams['index'] != null
-                          ? int.parse(state.queryParams['index'] ?? '0')
+                      initSelect: state.uri.queryParameters['index'] != null
+                          ? int.parse(state.uri.queryParameters['index'] ?? '0')
                           : 0,
                     ),
                   );

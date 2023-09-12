@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:flutter/material.dart';
 
 import 'widgets/loading_alert.dart';
 import 'widgets/status_toast.dart';

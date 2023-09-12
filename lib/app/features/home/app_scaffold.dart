@@ -29,7 +29,8 @@ class _AppScaffoldState extends State<AppScaffold> {
         onDestinationSelected: (index) {
           context.goNamed(items[index].route.name);
         },
-        selectedIndex: locationToTabIndex(GoRouter.of(context).location),
+        selectedIndex:
+            locationToTabIndex(GoRouterState.of(context).uri.toString()),
         destinations: List.generate(items.length, (index) {
           final item = items[index];
           return NavigationDestination(

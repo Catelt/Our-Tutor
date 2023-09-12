@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../gen/assets.gen.dart';
 import '../constants/app_size.dart';
 import '../constants/countries.dart';
 import '../network/model/tutor/tutor.dart';
-import '../routing/coordinator.dart';
 import 'common_widgets.dart';
 
 class InfoTutorWidget extends StatelessWidget {
