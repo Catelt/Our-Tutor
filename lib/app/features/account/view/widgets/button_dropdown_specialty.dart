@@ -2,7 +2,6 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/drop_down_theme.dart';
-import '../../../../network/model/language/language.dart';
 import '../../../../network/model/specialty/specialty.dart';
 
 class ButtonDropDownSpecialty extends StatefulWidget {

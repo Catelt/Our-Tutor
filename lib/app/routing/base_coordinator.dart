@@ -6,7 +6,7 @@ import 'app_routing.dart';
 abstract class BaseCoordinator {
   BuildContext get context => XAppRouter.navigatorKey.currentState!.context;
 
-  String get location => GoRouter.of(context).location;
+  String get location => GoRouterState.of(context).uri.toString();
 
   bool canPop() {
     return XAppRouter.navigatorKey.currentState!.canPop();
@@ -37,8 +37,8 @@ abstract class BaseCoordinator {
   }) =>
       context.pushNamed(
         name,
-        params: params,
-        queryParams: queryParams,
+        pathParameters: params,
+        queryParameters: queryParams,
         extra: extra,
       );
 
@@ -50,8 +50,8 @@ abstract class BaseCoordinator {
   }) =>
       context.goNamed(
         name,
-        params: params,
-        queryParams: queryParams,
+        pathParameters: params,
+        queryParameters: queryParams,
         extra: extra,
       );
 
@@ -63,8 +63,8 @@ abstract class BaseCoordinator {
   }) =>
       context.pushReplacementNamed(
         name,
-        params: params,
-        queryParams: queryParams,
+        pathParameters: params,
+        queryParameters: queryParams,
         extra: extra,
       );
 }

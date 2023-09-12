@@ -5,7 +5,6 @@ import '../../../../../constants/specialties.dart';
 import '../../../../../network/domain_manager.dart';
 import '../../../../../network/model/booking/booking.dart';
 import '../../../../../network/model/common/handle.dart';
-import '../../../../../network/model/common/result.dart';
 import '../../../../../network/model/schedule/schedule.dart';
 import '../../../../../network/model/tutor/tutor.dart';
 

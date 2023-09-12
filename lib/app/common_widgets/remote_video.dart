@@ -22,7 +22,7 @@ class _RemoteVideoWidgetState extends State<RemoteVideoWidget> {
   }
 
   void init() async {
-    _controller = VideoPlayerController.network(widget.url);
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.url));
     await _controller.initialize();
 
     _chewieController = ChewieController(

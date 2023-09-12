@@ -112,7 +112,7 @@ class XGpt {
       xLog
         ..w('> API CATCH Error< $e')
         ..w('> API CATCH Body< $bodyResponse');
-      if (e is DioError) {
+      if (e is DioException) {
         throw e.response?.data['errors'][0] ?? "Error";
       } else {
         throw e;

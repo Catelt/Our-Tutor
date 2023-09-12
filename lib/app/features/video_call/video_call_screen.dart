@@ -56,22 +56,22 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   }
 
   _joinMeeting() async {
-    Map<FeatureFlag, Object> featureFlags = {};
+    Map<String, Object> featureFlags = {};
 
     // Define meetings options here
     var options = JitsiMeetingOptions(
-        roomNameOrUrl: infoJitsi.room,
-        // serverUrl: serverUrl,
-        // subject: subjectText.text,
-        // token: tokenText.text,
-        // isAudioMuted: isAudioMuted,
-        // isAudioOnly: isAudioOnly,
-        // isVideoMuted: isVideoMuted,
-        userDisplayName: infoJitsi.userCall?.email.split("@")[1],
-        userEmail: infoJitsi.userCall?.email,
-        userAvatarUrl: infoJitsi.userCall?.avatar
-        // featureFlags: featureFlags,
-        );
+      roomNameOrUrl: infoJitsi.room,
+      // serverUrl: serverUrl,
+      // subject: subjectText.text,
+      // token: tokenText.text,
+      // isAudioMuted: isAudioMuted,
+      // isAudioOnly: isAudioOnly,
+      // isVideoMuted: isVideoMuted,
+      userDisplayName: infoJitsi.userCall?.email.split("@")[1],
+      userEmail: infoJitsi.userCall?.email,
+      userAvatarUrl: infoJitsi.userCall?.avatar,
+      featureFlags: featureFlags,
+    );
 
     debugPrint("JitsiMeetingOptions: $options");
     await JitsiMeetWrapper.joinMeeting(
@@ -180,6 +180,5 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
         ],
       ),
     );
-    ;
   }
 }
