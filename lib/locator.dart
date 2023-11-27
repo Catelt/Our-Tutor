@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:logger/logger.dart';
 
 import 'app/constants/devices/app_Info.dart';
 import 'app/features/account/bloc/account_cubit.dart';
+import 'app/network/data/common/http.dart';
 import 'app/network/domain_manager.dart';
 import 'app/services/google_sign_in.dart';
 import 'app/services/user_prefs.dart';
@@ -61,22 +63,34 @@ void _initGetIt() {
   GetIt.I.registerLazySingleton(() => AccountCubit());
 }
 
-Future<void> locator(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (errorDetails) {
-    xLog.e(errorDetails.exceptionAsString());
-    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-  };
-  _initGetIt();
-  await Future.wait([
-    UserPrefs.instance.initialize(),
-    AppInfo.initialize(),
-  ]);
-
-  Bloc.observer = XBlocObserver();
-  XGoogleSignIn().init();
-
+Future<void> locator(
+    {FirebaseOptions? options,
+    required FutureOr<Widget> Function() builder}) async {
   await runZonedGuarded(
-    () async => runApp(await builder()),
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      FlutterError.onError = (details) {};
+
+      await Firebase.initializeApp(
+        options: options,
+      );
+      XHttp().configDio(baseUrl: 'https://sandbox.api.lettutor.com');
+
+      FlutterError.onError = (errorDetails) {
+        xLog.e(errorDetails.exceptionAsString());
+        FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+      };
+      _initGetIt();
+      await Future.wait([
+        UserPrefs.instance.initialize(),
+        AppInfo.initialize(),
+      ]);
+
+      Bloc.observer = XBlocObserver();
+      XGoogleSignIn().init();
+
+      runApp(await builder());
+    },
     (error, stackTrace) {
       log(error.toString(), stackTrace: stackTrace);
       FirebaseCrashlytics.instance.recordError(error, stackTrace, fatal: true);
