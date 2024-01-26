@@ -36,7 +36,10 @@ class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
   @override
   Widget build(BuildContext context) {
     if (widget.selected != null) {
-      selectedItems = items.firstWhere((e) => e.code == widget.selected?.code);
+      selectedItems = items.firstWhere(
+        (e) => e.code == widget.selected?.code,
+        orElse: () => items.first,
+      );
     } else {
       selectedItems = null;
     }

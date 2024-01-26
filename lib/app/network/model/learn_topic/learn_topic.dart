@@ -26,6 +26,9 @@ class MLearnTopic with _$MLearnTopic {
 
   factory MLearnTopic.fromId(int id) {
     final list = getData();
-    return list.firstWhere((e) => e.id == id);
+    return list.firstWhere(
+      (e) => e.id == id,
+      orElse: () => list.first,
+    );
   }
 }

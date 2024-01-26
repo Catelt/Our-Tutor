@@ -36,7 +36,10 @@ class _ButtonDropDownLevelState extends State<ButtonDropDownLevel> {
   @override
   Widget build(BuildContext context) {
     if (widget.selected != null && widget.selected?.id.isNotEmpty == true) {
-      selectedItems = items.firstWhere((e) => e.id == widget.selected?.id);
+      selectedItems = items.firstWhere(
+        (e) => e.id == widget.selected?.id,
+        orElse: () => items.first,
+      );
     } else {
       selectedItems = null;
     }

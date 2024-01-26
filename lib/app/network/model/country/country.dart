@@ -27,6 +27,9 @@ class MCountry with _$MCountry {
 
   factory MCountry.fromCode(String code) {
     final list = getData();
-    return list.firstWhere((e) => e.code == code);
+    return list.firstWhere(
+      (e) => e.code == code,
+      orElse: () => list.first,
+    );
   }
 }
