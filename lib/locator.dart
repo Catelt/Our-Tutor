@@ -15,7 +15,6 @@ import 'app/network/data/common/http.dart';
 import 'app/network/domain_manager.dart';
 import 'app/services/google_sign_in.dart';
 import 'app/services/user_prefs.dart';
-import 'app/utils/utils.dart';
 
 class XBlocObserver extends BlocObserver {
   final Logger log = Logger();

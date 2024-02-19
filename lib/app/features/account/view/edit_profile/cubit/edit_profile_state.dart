@@ -29,7 +29,7 @@ class EditProfileState extends Equatable {
         level: MLevel.fromId(user.level),
         studySchedule: user.studySchedule,
         country: MCountry.fromCode(user.country ?? "VN"),
-        birthDay: DateTime.parse(user.birthday ?? DateTime.now().toStringDate),
+        birthDay: DateTime.tryParse(user.birthday ?? "") ?? DateTime.now(),
         learnTopics: user.learnTopics ?? [],
         avatar: user.avatar,
         handle: MHandle(),
