@@ -51,7 +51,6 @@ jobs:
       - name: Build
         run: flutter build appbundle --flavor production -t lib/main_production.dart
 
-      - run: flutter pub get
       - name: Run fastlane
         working-directory: ./android
         run: fastlane deploy
