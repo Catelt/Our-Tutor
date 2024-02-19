@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../common_widgets/bottom_sheet/bottom_select_theme.dart';
 import '../../../common_widgets/common_widgets.dart';
@@ -86,7 +87,9 @@ class AccountScreen extends StatelessWidget {
                     );
                   });
             }),
-            settingSection(S.text.setting_private_policy, onTap: () {}),
+            settingSection(S.text.setting_private_policy, onTap: () async {
+              await launchUrlString('https://lettutor.com/tos.html');
+            }),
             gapH32,
             SizedBox(
               width: double.infinity,
