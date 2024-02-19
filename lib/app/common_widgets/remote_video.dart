@@ -14,6 +14,7 @@ class RemoteVideoWidget extends StatefulWidget {
 class _RemoteVideoWidgetState extends State<RemoteVideoWidget> {
   late VideoPlayerController _controller;
   late ChewieController _chewieController;
+  bool isInit = false;
 
   @override
   void initState() {
@@ -30,13 +31,16 @@ class _RemoteVideoWidgetState extends State<RemoteVideoWidget> {
       autoPlay: true,
       looping: true,
     );
+    isInit = true;
     setState(() {});
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-    _chewieController.dispose();
+    if (isInit) {
+      _controller.dispose();
+      _chewieController.dispose();
+    }
     super.dispose();
   }
 

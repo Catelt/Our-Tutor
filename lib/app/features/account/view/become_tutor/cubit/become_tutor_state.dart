@@ -36,7 +36,7 @@ class BecomeTutorState extends Equatable {
   factory BecomeTutorState.ds(MUser user) => BecomeTutorState(
         name: DefaultForm.dirty(user.name),
         country: MCountry.fromCode(user.country ?? "VN"),
-        birthday: DateTime.parse(user.birthday ?? DateTime.now().toStringDate),
+        birthday: DateTime.tryParse(user.birthday ?? "") ?? DateTime.now(),
         interest: DefaultForm.pure(),
         education: DefaultForm.pure(),
         experience: DefaultForm.pure(),
