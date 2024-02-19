@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -76,9 +77,16 @@ Future<void> locator(
       );
       XHttp().configDio(baseUrl: 'https://sandbox.api.lettutor.com');
 
-      FlutterError.onError = (errorDetails) {
-        xLog.e(errorDetails.exceptionAsString());
-        FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+      FlutterError.onError = (errorDetails) async {
+        if (errorDetails.library == "image resource service" &&
+            errorDetails.exception
+                .toString()
+                .startsWith("HttpException: Invalid statusCode: 404, uri")) {
+          return;
+        }
+        await FirebaseCrashlytics.instance
+            .recordFlutterFatalError(errorDetails);
+        return;
       };
       _initGetIt();
       await Future.wait([
@@ -93,7 +101,8 @@ Future<void> locator(
     },
     (error, stackTrace) {
       log(error.toString(), stackTrace: stackTrace);
-      FirebaseCrashlytics.instance.recordError(error, stackTrace, fatal: true);
+      FirebaseCrashlytics.instance
+          .recordError(error, stackTrace, fatal: !kDebugMode);
     },
   );
 }
