@@ -23,10 +23,10 @@ dependencies:
   shared_preferences: ^2.0.18
   video_player: ^2.5.3
   dio: ^5.3.4
-  connectivity_plus: ^5.0.2
+  connectivity_plus: ^6.0.1
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
-  formz: ^0.6.0
+  formz: ^0.7.0
   email_validator: ^2.1.17
   device_info_plus: ^9.1.2
   package_info_plus: ^5.0.1
