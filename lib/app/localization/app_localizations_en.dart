@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -60,7 +62,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_unknown => 'An Unknown Error Occurred';
 
   @override
-  String get error_somethingWrongTryAgain => 'Something went wrong, try again...';
+  String get error_somethingWrongTryAgain =>
+      'Something went wrong, try again...';
 
   @override
   String get navigation_tutor => 'Tutor';
@@ -81,7 +84,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_sign_in => 'Log in failed. Incorrect email or password';
 
   @override
-  String get success_sign_up => 'Sign up successful. Please check your email to verify the account';
+  String get success_sign_up =>
+      'Sign up successful. Please check your email to verify the account';
 
   @override
   String get error_sign_up => 'Sign up failed. Please try again';
@@ -123,7 +127,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sign_in_title => 'Say hello to your English tutors';
 
   @override
-  String get sign_in_subtitle => 'Become fluent faster through one on one video chat lessons tailored to your goals.';
+  String get sign_in_subtitle =>
+      'Become fluent faster through one on one video chat lessons tailored to your goals.';
 
   @override
   String get sign_in_button => 'LOG IN';
@@ -156,10 +161,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get forget_password_title => 'Reset Password';
 
   @override
-  String get forget_password_subtitle => 'Please enter your email address to search for your account.';
+  String get forget_password_subtitle =>
+      'Please enter your email address to search for your account.';
 
   @override
-  String get forget_password_subtitle_success => 'Check your inbox for a link to reset your password.';
+  String get forget_password_subtitle_success =>
+      'Check your inbox for a link to reset your password.';
 
   @override
   String get forget_password_button => 'Send Email';
@@ -224,7 +231,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get history_title => 'History';
 
   @override
-  String get history_subTitle => 'The following is a list of lessons you have attended\nYou can review the details of the lessons you have attended';
+  String get history_subTitle =>
+      'The following is a list of lessons you have attended\nYou can review the details of the lessons you have attended';
 
   @override
   String history_lesson_time(String value) {
@@ -342,7 +350,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get course => 'Course';
 
   @override
-  String get courses_sub_title => 'LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.';
+  String get courses_sub_title =>
+      'LiveTutor has built the most quality, methodical and scientific courses in the fields of life for those who are in need of improving their knowledge of the fields.';
 
   @override
   String get courses_select_level => 'Select level';
@@ -363,13 +372,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get schedule_title => 'Schedule';
 
   @override
-  String get schedule_sub_title => 'Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours';
+  String get schedule_sub_title =>
+      'Here is a list of the sessions you have booked\nYou can track when the meeting starts, join the meeting with one click or can cancel the meeting before 2 hours';
 
   @override
   String get schedule_edit_request => 'Edit Request';
 
   @override
-  String get schedule_no_request => 'Currently there are no requests for this class. Please write down any requests for the teacher.';
+  String get schedule_no_request =>
+      'Currently there are no requests for this class. Please write down any requests for the teacher.';
 
   @override
   String schedule_session_time(Object value) {
@@ -383,7 +394,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancel_booking_lesson_time => 'Lesson Time';
 
   @override
-  String get cancel_booking_reason => 'What was the reason you cancel this booking?';
+  String get cancel_booking_reason =>
+      'What was the reason you cancel this booking?';
 
   @override
   String get booking_title => 'Booking Detail';
@@ -431,13 +443,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get become_tutor_section_2 => 'CV';
 
   @override
-  String get become_tutor_section_subtitle_2 => 'Students will view this information on your profile to decide if you\'re a good fit for them.';
+  String get become_tutor_section_subtitle_2 =>
+      'Students will view this information on your profile to decide if you\'re a good fit for them.';
 
   @override
   String get become_tutor_section_3 => 'Who I teach';
 
   @override
-  String get become_tutor_section_subtitle_3 => 'This is the first thing students will see when looking for tutors.';
+  String get become_tutor_section_subtitle_3 =>
+      'This is the first thing students will see when looking for tutors.';
 
   @override
   String get become_tutor_interest => 'Interests';
@@ -458,7 +472,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get become_tutor_introduction => 'Introduction';
 
   @override
-  String get become_tutor_target_student => 'I am best at teaching students who are';
+  String get become_tutor_target_student =>
+      'I am best at teaching students who are';
 
   @override
   String get become_tutor_specialties => 'My specialties are';

@@ -63,3 +63,6 @@ lib/app/constants/api_constant.dart
 android/fastlane/playstore_key.json
 
 **/firebase_options.dart
+
+# FVM Version Cache
+.fvm/

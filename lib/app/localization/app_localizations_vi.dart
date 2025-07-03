@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -60,7 +62,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get error_unknown => 'An Unknown Error Occurred';
 
   @override
-  String get error_somethingWrongTryAgain => 'Có chuyện gì đó không đúng, hãy thử lại...';
+  String get error_somethingWrongTryAgain =>
+      'Có chuyện gì đó không đúng, hãy thử lại...';
 
   @override
   String get navigation_tutor => 'Gia sư';
@@ -78,10 +81,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get navigation_account => 'Tài Khoản';
 
   @override
-  String get error_sign_in => 'Đăng nhập thất bại.Email hoặc mật khẩu không đúng';
+  String get error_sign_in =>
+      'Đăng nhập thất bại.Email hoặc mật khẩu không đúng';
 
   @override
-  String get success_sign_up => 'Đăng ký thành công.Hãy kiểm tra email để xác nhận tài nhận';
+  String get success_sign_up =>
+      'Đăng ký thành công.Hãy kiểm tra email để xác nhận tài nhận';
 
   @override
   String get error_sign_up => 'Đăng ký thất bại. Xin hãy thử lại';
@@ -123,7 +128,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get sign_in_title => 'Đăng nhập';
 
   @override
-  String get sign_in_subtitle => 'Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.';
+  String get sign_in_subtitle =>
+      'Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.';
 
   @override
   String get sign_in_button => 'ĐĂNG NHẬP';
@@ -156,10 +162,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get forget_password_title => 'Thay đổi mật khẩu';
 
   @override
-  String get forget_password_subtitle => 'Vui lòng nhập email để tìm kiếm tài khoản và thay đổi mật khẩu';
+  String get forget_password_subtitle =>
+      'Vui lòng nhập email để tìm kiếm tài khoản và thay đổi mật khẩu';
 
   @override
-  String get forget_password_subtitle_success => 'Hãy kiểm tra đường dẫn trong email của bạn để thay đổi mật khẩu';
+  String get forget_password_subtitle_success =>
+      'Hãy kiểm tra đường dẫn trong email của bạn để thay đổi mật khẩu';
 
   @override
   String get forget_password_button => 'Gửi email';
@@ -224,7 +232,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get history_title => 'Lịch sử các buổi học';
 
   @override
-  String get history_subTitle => 'Đây là danh sách các bài học bạn đã tham gia\nBạn có thể xem lại thông tin chi tiết về các buổi học đã tham gia đã tham gia';
+  String get history_subTitle =>
+      'Đây là danh sách các bài học bạn đã tham gia\nBạn có thể xem lại thông tin chi tiết về các buổi học đã tham gia đã tham gia';
 
   @override
   String history_lesson_time(String value) {
@@ -342,7 +351,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get course => 'Khóa học';
 
   @override
-  String get courses_sub_title => 'LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.';
+  String get courses_sub_title =>
+      'LiveTutor đã xây dựng nên các khóa học của các lĩnh vực trong cuộc sống chất lượng, bài bản và khoa học nhất cho những người đang có nhu cầu trau dồi thêm kiến thức về các lĩnh vực.';
 
   @override
   String get courses_select_level => 'Chọn cấp độ';
@@ -363,13 +373,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get schedule_title => 'Lịch đã đặt';
 
   @override
-  String get schedule_sub_title => 'Đây là danh sách những khung giờ bạn đã đặt\nBạn có thể theo dõi khi nào buổi học bắt đầu, tham gia buổi học bằng một cú nhấp chuột hoặc có thể hủy buổi học trước 2 tiếng.';
+  String get schedule_sub_title =>
+      'Đây là danh sách những khung giờ bạn đã đặt\nBạn có thể theo dõi khi nào buổi học bắt đầu, tham gia buổi học bằng một cú nhấp chuột hoặc có thể hủy buổi học trước 2 tiếng.';
 
   @override
   String get schedule_edit_request => 'Chỉnh sửa yêu cầu';
 
   @override
-  String get schedule_no_request => 'Hiện tại không có yêu cầu cho lớp học này. Xin vui lòng viết ra bất kỳ yêu cầu nào cho giáo viên nếu có.';
+  String get schedule_no_request =>
+      'Hiện tại không có yêu cầu cho lớp học này. Xin vui lòng viết ra bất kỳ yêu cầu nào cho giáo viên nếu có.';
 
   @override
   String schedule_session_time(Object value) {
@@ -431,13 +443,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get become_tutor_section_2 => 'CV';
 
   @override
-  String get become_tutor_section_subtitle_2 => 'Học viên sẽ xem thông tin từ hồ sơ của bạn để quyết định nếu bạn phù hợp với nhu cầu của họ.';
+  String get become_tutor_section_subtitle_2 =>
+      'Học viên sẽ xem thông tin từ hồ sơ của bạn để quyết định nếu bạn phù hợp với nhu cầu của họ.';
 
   @override
   String get become_tutor_section_3 => 'Về việc dạy';
 
   @override
-  String get become_tutor_section_subtitle_3 => 'Đây là điều đầu tiên mà học viên nhìn thấy khi tìm kiếm gia sư.';
+  String get become_tutor_section_subtitle_3 =>
+      'Đây là điều đầu tiên mà học viên nhìn thấy khi tìm kiếm gia sư.';
 
   @override
   String get become_tutor_interest => 'Sở thích';
@@ -458,7 +472,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get become_tutor_introduction => 'Giới thiệu';
 
   @override
-  String get become_tutor_target_student => 'Tôi giỏi nhất trong việc dạy những học viên';
+  String get become_tutor_target_student =>
+      'Tôi giỏi nhất trong việc dạy những học viên';
 
   @override
   String get become_tutor_specialties => 'Chuyên ngành của tôi là';
