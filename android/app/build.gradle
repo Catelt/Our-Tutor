@@ -33,6 +33,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
+    namespace 'com.catelt.our_tutor'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -60,7 +61,7 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.catelt.our_tutor"
         minSdkVersion 24
-        targetSdkVersion 34
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
