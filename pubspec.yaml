@@ -1,7 +1,7 @@
 name: our_tutor
 description: A new Flutter project.
 
-version: 2.7.0+10
+version: 2.8.0+11
 
 # Prevent accidental publishing to pub.dev.
 publish_to: none
