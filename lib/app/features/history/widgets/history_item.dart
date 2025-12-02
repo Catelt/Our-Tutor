@@ -16,8 +16,9 @@ class HistoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final date =
-        DateTime.parse(booking.scheduleDetailInfo.scheduleInfo?.date ?? "");
+    final date = DateTime.parse(
+      booking.scheduleDetailInfo.scheduleInfo?.date ?? "",
+    );
     return Container(
       padding: const EdgeInsets.all(Sizes.p12),
       decoration: BoxDecoration(
@@ -25,11 +26,13 @@ class HistoryItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.16),
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.16),
             spreadRadius: 0,
             blurRadius: 5,
             offset: const Offset(0, 2),
-          )
+          ),
         ],
       ),
       child: Column(
@@ -52,7 +55,7 @@ class HistoryItem extends StatelessWidget {
           gapH12,
           requestWidget(context),
           reviewWidget(context),
-          ratingAndReportWidget(context)
+          ratingAndReportWidget(context),
         ],
       ),
     );
@@ -69,17 +72,20 @@ class HistoryItem extends StatelessWidget {
       child: Column(
         children: [
           Text(
-              S.text.history_lesson_time(
-                  "${booking.startTime} - ${booking.endTime}"),
-              style: TextStyle(fontSize: 20)),
+            S.text.history_lesson_time(
+              "${booking.startTime} - ${booking.endTime}",
+            ),
+            style: TextStyle(fontSize: 20),
+          ),
           Visibility(
             visible: booking.recordUrl.isNotEmpty,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
               height: 32,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Theme.of(context).colorScheme.primary),
+                borderRadius: BorderRadius.circular(8),
+                color: Theme.of(context).colorScheme.primary,
+              ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -88,14 +94,11 @@ class HistoryItem extends StatelessWidget {
                     size: 14,
                   ),
                   gapW4,
-                  Text(
-                    S.text.record,
-                    style: TextStyle(fontSize: 14),
-                  )
+                  Text(S.text.record, style: TextStyle(fontSize: 14)),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -105,66 +108,65 @@ class HistoryItem extends StatelessWidget {
     final String review = booking.studentRequest;
     final canExpand = review.isNotEmpty;
     return ExpandContainer(
-        canExpand: canExpand,
-        title: (expanded) => Container(
-              padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
-              height: 46,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8))),
-              child: titleWidget(
-                  expanded,
-                  canExpand
-                      ? S.text.history_request
-                      : S.text.history_no_request,
-                  canExpand: canExpand),
+      canExpand: canExpand,
+      title:
+          (expanded) => Container(
+            padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
+            height: 46,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(8),
+                bottomRight: Radius.circular(8),
+              ),
             ),
-        body: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(Sizes.p16),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
+            child: titleWidget(
+              expanded,
+              canExpand ? S.text.history_request : S.text.history_no_request,
+              canExpand: canExpand,
+            ),
           ),
-          child: Text(
-            review,
-            style: TextStyle(fontSize: 14),
-          ),
-        ));
+      body: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(Sizes.p16),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface),
+        child: Text(review, style: TextStyle(fontSize: 14)),
+      ),
+    );
   }
 
   Widget reviewWidget(BuildContext context) {
     final review = booking.classReview;
     final canExpand = review != null;
     return ExpandContainer(
-        canExpand: canExpand,
-        title: (expanded) => Container(
-              padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
-              height: 46,
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surface,
-                border: Border(
-                  top: BorderSide(color: Colors.grey),
-                  bottom: expanded
-                      ? BorderSide.none
-                      : BorderSide(color: Colors.grey),
-                ),
+      canExpand: canExpand,
+      title:
+          (expanded) => Container(
+            padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
+            height: 46,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              border: Border(
+                top: BorderSide(color: Colors.grey),
+                bottom:
+                    expanded ? BorderSide.none : BorderSide(color: Colors.grey),
               ),
-              child: titleWidget(expanded,
-                  canExpand ? S.text.history_review : S.text.history_no_review,
-                  canExpand: canExpand),
             ),
-        body: Container(
-          padding: const EdgeInsets.all(Sizes.p16),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
-            border: Border(
-              bottom: BorderSide(color: Colors.grey),
+            child: titleWidget(
+              expanded,
+              canExpand ? S.text.history_review : S.text.history_no_review,
+              canExpand: canExpand,
             ),
           ),
-          child: canExpand ? ReviewItem(review: review) : null,
-        ));
+      body: Container(
+        padding: const EdgeInsets.all(Sizes.p16),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
+          border: Border(bottom: BorderSide(color: Colors.grey)),
+        ),
+        child: canExpand ? ReviewItem(review: review) : null,
+      ),
+    );
   }
 
   Widget ratingAndReportWidget(BuildContext context) {
@@ -172,18 +174,29 @@ class HistoryItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: Sizes.p8),
       height: 46,
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(8), topRight: Radius.circular(8))),
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+      ),
       child: Row(
         children: [
-          Text(S.text.add_a_rating,
-              style: TextStyle(
-                  fontSize: 14, color: Theme.of(context).colorScheme.primary)),
+          Text(
+            S.text.add_a_rating,
+            style: TextStyle(
+              fontSize: 14,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
           Spacer(),
-          Text(S.text.report,
-              style: TextStyle(
-                  fontSize: 14, color: Theme.of(context).colorScheme.primary)),
+          Text(
+            S.text.report,
+            style: TextStyle(
+              fontSize: 14,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
         ],
       ),
     );
@@ -192,25 +205,15 @@ class HistoryItem extends StatelessWidget {
   Widget titleWidget(bool expanded, String title, {bool canExpand = false}) {
     return Row(
       children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 14,
-          ),
-        ),
+        Text(title, style: TextStyle(fontSize: 14)),
         const Spacer(),
         Visibility(
           visible: canExpand,
-          child: expanded
-              ? const Icon(
-                  Icons.keyboard_arrow_down,
-                  size: 12,
-                )
-              : const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                ),
-        )
+          child:
+              expanded
+                  ? const Icon(Icons.keyboard_arrow_down, size: 12)
+                  : const Icon(Icons.arrow_forward_ios, size: 12),
+        ),
       ],
     );
   }
