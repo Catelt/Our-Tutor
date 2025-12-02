@@ -37,10 +37,13 @@ class WrapListWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
-            color: handleColor(context, name).withOpacity(0.2),
-            borderRadius: BorderRadius.circular(15)),
-        child: Text(name,
-            style: TextStyle(color: handleColor(context, name), fontSize: 12)),
+          color: handleColor(context, name).withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Text(
+          name,
+          style: TextStyle(color: handleColor(context, name), fontSize: 12),
+        ),
       ),
     );
   }

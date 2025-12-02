@@ -23,39 +23,45 @@ class CourseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: onPress != null
-            ? null
-            : () => XCoordinator().showCourseDetail(course.id),
-        child: _body(context));
+      onTap:
+          onPress != null
+              ? null
+              : () => XCoordinator().showCourseDetail(course.id),
+      child: _body(context),
+    );
   }
 
   Widget _body(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(Sizes.p8),
-          boxShadow: [
-            BoxShadow(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.16),
-                spreadRadius: 0,
-                blurRadius: 5,
-                offset: const Offset(0, 2))
-          ]),
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(Sizes.p8),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.16),
+            spreadRadius: 0,
+            blurRadius: 5,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
       child: Column(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(Sizes.p8),
             child: CachedNetworkImage(
               imageUrl: course.imageUrl,
-              placeholder: (context, url) => SizedBox(
-                height: 150,
-              ),
+              placeholder: (context, url) => SizedBox(height: 150),
               fit: BoxFit.fill,
             ),
           ),
           Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: Sizes.p8, vertical: Sizes.p12),
+            padding: EdgeInsets.symmetric(
+              horizontal: Sizes.p8,
+              vertical: Sizes.p12,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -82,10 +88,10 @@ class CourseItem extends StatelessWidget {
                   Text(
                     "${CoursesLevel.getName(course.level)} • ${course.topics.length}  Lessons",
                     style: TextStyle(color: Colors.grey, fontSize: 14),
-                  )
+                  ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

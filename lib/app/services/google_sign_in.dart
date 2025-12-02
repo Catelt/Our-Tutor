@@ -6,10 +6,12 @@ import '../network/domain_manager.dart';
 import '../network/model/common/result.dart';
 import '../network/model/user/user.dart';
 
-GoogleSignIn _googleSignIn = GoogleSignIn(scopes: <String>[
-  'email',
-  // 'https://www.googleapis.com/auth/cloud-platform.read-only',
-]);
+GoogleSignIn _googleSignIn = GoogleSignIn(
+  scopes: <String>[
+    'email',
+    // 'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ],
+);
 
 class XGoogleSignIn {
   //singleton
@@ -49,8 +51,9 @@ class XGoogleSignIn {
             await _currentUser?.authentication;
 
         if (googleSignInAuthentication != null) {
-          final response = await DomainManager.I.auth
-              .loginGG(googleSignInAuthentication.accessToken ?? "");
+          final response = await DomainManager.I.auth.loginGG(
+            googleSignInAuthentication.accessToken ?? "",
+          );
           return response;
         }
       }

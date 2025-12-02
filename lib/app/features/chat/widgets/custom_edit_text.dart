@@ -77,7 +77,7 @@ class _CustomEditTextState extends State<CustomEditText> {
                 padding: const EdgeInsets.symmetric(
                     vertical: Sizes.p8, horizontal: Sizes.p12),
                 decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surfaceVariant,
+                    color: Theme.of(context).colorScheme.surfaceContainerHighest,
                     borderRadius: BorderRadius.circular(Sizes.p12)),
                 child: Text(
                   S.of(context).is_listening_gpt,
@@ -91,7 +91,7 @@ class _CustomEditTextState extends State<CustomEditText> {
         Material(
           borderRadius: BorderRadius.circular(Sizes.p12),
           elevation: 8,
-          color: Theme.of(context).colorScheme.surfaceVariant,
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
           child: Row(
             children: [
               Expanded(

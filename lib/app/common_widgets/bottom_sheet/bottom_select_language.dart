@@ -39,7 +39,7 @@ class BottomSelectLanguage extends StatelessWidget {
               return SizedBox(
                 width: double.infinity,
                 child: Divider(
-                  color: Theme.of(context).colorScheme.surfaceVariant,
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   height: 2,
                 ),
               );
