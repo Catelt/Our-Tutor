@@ -14,8 +14,11 @@ import 'cancel_booking_widget.dart';
 import 'request_lesson.dart';
 
 class ScheduleItem extends StatelessWidget {
-  const ScheduleItem(
-      {super.key, required this.bookings, this.showGoClass = false});
+  const ScheduleItem({
+    super.key,
+    required this.bookings,
+    this.showGoClass = false,
+  });
 
   final MBookings bookings;
   final bool showGoClass;
@@ -23,7 +26,8 @@ class ScheduleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final time = DateTime.fromMillisecondsSinceEpoch(
-        bookings.list.first.scheduleDetailInfo.startPeriodTimestamp.round());
+      bookings.list.first.scheduleDetailInfo.startPeriodTimestamp.round(),
+    );
     return Container(
       padding: const EdgeInsets.all(Sizes.p12),
       decoration: BoxDecoration(
@@ -31,11 +35,13 @@ class ScheduleItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.16),
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.16),
             spreadRadius: 0,
             blurRadius: 5,
             offset: const Offset(0, 2),
-          )
+          ),
         ],
       ),
       child: Column(
@@ -50,24 +56,32 @@ class ScheduleItem extends StatelessWidget {
           ),
           gapH16,
           InfoTutorWidget(
-            tutor: bookings
-                    .list.first.scheduleDetailInfo.scheduleInfo?.tutorInfo ??
+            tutor:
+                bookings
+                    .list
+                    .first
+                    .scheduleDetailInfo
+                    .scheduleInfo
+                    ?.tutorInfo ??
                 MTutor(),
           ),
           gapH12,
           infoLesson(context),
           Visibility(
-              visible: showGoClass,
-              child: SizedBox(
-                width: double.infinity,
-                child: PrimaryButton(
-                  text: S.text.common_go_meeting,
-                  onPressed: () {
-                    XCoordinator().showVideoCall(
-                        bookings.list.first.id, bookings.list.first);
-                  },
-                ),
-              ))
+            visible: showGoClass,
+            child: SizedBox(
+              width: double.infinity,
+              child: PrimaryButton(
+                text: S.text.common_go_meeting,
+                onPressed: () {
+                  XCoordinator().showVideoCall(
+                    bookings.list.first.id,
+                    bookings.list.first,
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -86,13 +100,18 @@ class ScheduleItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(S.text.history_lesson_time(
-                  '${bookings.list.first.startTime} - ${bookings.list.last.endTime}')),
+              Text(
+                S.text.history_lesson_time(
+                  '${bookings.list.first.startTime} - ${bookings.list.last.endTime}',
+                ),
+              ),
               Spacer(),
               Visibility(
-                  visible: bookings.list.length == 1 &&
-                      bookings.list.first.canCancelBooking,
-                  child: buttonCancel(context, bookings.list.first))
+                visible:
+                    bookings.list.length == 1 &&
+                    bookings.list.first.canCancelBooking,
+                child: buttonCancel(context, bookings.list.first),
+              ),
             ],
           ),
           Visibility(
@@ -101,8 +120,9 @@ class ScheduleItem extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: bookings.list.length,
-              itemBuilder: (context, index) =>
-                  lessonItem(context, index, bookings.list[index]),
+              itemBuilder:
+                  (context, index) =>
+                      lessonItem(context, index, bookings.list[index]),
               separatorBuilder: (context, index) => gapH4,
             ),
           ),
@@ -116,8 +136,11 @@ class ScheduleItem extends StatelessWidget {
   Widget lessonItem(BuildContext context, int index, MBooking item) {
     return Row(
       children: [
-        Text(S.text.schedule_session_time(
-            "${index + 1}: ${item.startTime} -  ${item.endTime}")),
+        Text(
+          S.text.schedule_session_time(
+            "${index + 1}: ${item.startTime} -  ${item.endTime}",
+          ),
+        ),
         const Spacer(),
         Visibility(
           visible: item.canCancelBooking,
@@ -130,14 +153,16 @@ class ScheduleItem extends StatelessWidget {
   Widget buttonCancel(BuildContext context, MBooking booking) {
     return GestureDetector(
       onTap: () async {
-        XBottomSheet.show(context,
-            isDismissible: false,
-            child: CancelBookingWidget(
-              booking: booking,
-              callback: () {
-                context.read<ScheduleCubit>().resetPage();
-              },
-            ));
+        XBottomSheet.show(
+          context,
+          isDismissible: false,
+          child: CancelBookingWidget(
+            booking: booking,
+            callback: () {
+              context.read<ScheduleCubit>().resetPage();
+            },
+          ),
+        );
       },
       child: Container(
         width: 90,
@@ -158,7 +183,7 @@ class ScheduleItem extends StatelessWidget {
             Text(
               S.text.common_cancel,
               style: TextStyle(fontSize: 14, color: Colors.red),
-            )
+            ),
           ],
         ),
       ),

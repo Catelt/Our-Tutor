@@ -108,7 +108,7 @@ class TopicDetailScreen extends StatelessWidget {
           padding: EdgeInsets.only(left: 20, bottom: 10, top: 10),
           decoration: isSelected
               ? BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceVariant)
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest)
               : null,
           child: Text(
             '${index + 1}   ${topic.name}',
