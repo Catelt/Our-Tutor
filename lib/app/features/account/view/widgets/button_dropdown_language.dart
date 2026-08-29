@@ -54,7 +54,7 @@ class _ButtonDropDownLanguageState extends State<ButtonDropDownLanguage> {
             color: Theme.of(context).hintColor,
           ),
         ),
-        value: selectedItems.isEmpty ? null : selectedItems.last,
+        valueListenable: ValueNotifier(selectedItems.isEmpty ? null : selectedItems.last),
         onChanged: (value) {},
         selectedItemBuilder: (context) {
           return items.map(
@@ -73,7 +73,7 @@ class _ButtonDropDownLanguageState extends State<ButtonDropDownLanguage> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<MLanguage>(
+          return DropdownItem<MLanguage>(
             value: item,
             enabled: false,
             child: StatefulBuilder(

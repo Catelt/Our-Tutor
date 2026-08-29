@@ -50,11 +50,11 @@ class _ButtonDropDownTargetStudentState
             hint: widget.hint,
             errorText: widget.errorText,
             isSelect: selectedItems != null),
-        value: selectedItems,
+        valueListenable: ValueNotifier(selectedItems),
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<String>(
+          return DropdownItem<String>(
             value: item,
             child: Text(
               item,

@@ -72,7 +72,7 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
             color: Theme.of(context).hintColor,
           ),
         ),
-        value: selectedItems.isEmpty ? null : selectedItems.last,
+        valueListenable: ValueNotifier(selectedItems.isEmpty ? null : selectedItems.last),
         onChanged: (value) {},
         selectedItemBuilder: (context) {
           return items.map(
@@ -91,7 +91,7 @@ class _ButtonDropDownCustomState extends State<ButtonDropDownCustom> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<String>(
+          return DropdownItem<String>(
             value: item,
             enabled: false,
             child: StatefulBuilder(

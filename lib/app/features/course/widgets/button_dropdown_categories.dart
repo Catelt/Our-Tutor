@@ -55,7 +55,7 @@ class _ButtonDropDownCategoriesState extends State<ButtonDropDownCategories> {
             color: Theme.of(context).hintColor,
           ),
         ),
-        value: selectedItems.isEmpty ? null : selectedItems.last,
+        valueListenable: ValueNotifier(selectedItems.isEmpty ? null : selectedItems.last),
         onChanged: (value) {},
         selectedItemBuilder: (context) {
           return items.map(
@@ -74,7 +74,7 @@ class _ButtonDropDownCategoriesState extends State<ButtonDropDownCategories> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<Specialty>(
+          return DropdownItem<Specialty>(
             value: item,
             enabled: false,
             child: StatefulBuilder(

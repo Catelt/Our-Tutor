@@ -49,11 +49,11 @@ class _ButtonDropDownSortState extends State<ButtonDropDownSort> {
             hint: widget.hint,
             errorText: widget.errorText,
             isSelect: widget.selected != null),
-        value: selectedItems,
+        valueListenable: ValueNotifier(selectedItems),
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<MSortLevel>(
+          return DropdownItem<MSortLevel>(
             value: item,
             child: Text(
               item.getName,

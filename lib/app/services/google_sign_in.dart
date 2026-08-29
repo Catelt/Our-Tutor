@@ -6,12 +6,7 @@ import '../network/domain_manager.dart';
 import '../network/model/common/result.dart';
 import '../network/model/user/user.dart';
 
-GoogleSignIn _googleSignIn = GoogleSignIn(
-  scopes: <String>[
-    'email',
-    // 'https://www.googleapis.com/auth/cloud-platform.read-only',
-  ],
-);
+GoogleSignIn _googleSignIn = GoogleSignIn.instance;
 
 class XGoogleSignIn {
   //singleton
@@ -26,39 +21,45 @@ class XGoogleSignIn {
   GoogleSignInAccount? _currentUser;
   GoogleSignInAccount? get currentUser => _currentUser;
 
-  Future<bool> isLogedIn() => _googleSignIn.isSignedIn();
+  Future<bool> isLogedIn() async {
+    return _currentUser != null;
+  }
 
   void init() async {
-    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
-      if (_currentUser != null) {
+    await _googleSignIn.initialize();
+    _googleSignIn.authenticationEvents.listen((event) {
+      if (event is GoogleSignInAuthenticationEventSignIn) {
+        _currentUser = event.user;
         print("Google sign in success with email ${_currentUser!.email}");
-      } else {
+      } else if (event is GoogleSignInAuthenticationEventSignOut) {
+        _currentUser = null;
         print("Google sign in with no User, currentUser IS NULL");
       }
     });
-    _googleSignIn.signInSilently();
+    _googleSignIn.attemptLightweightAuthentication();
   }
 
-  Future<Map<String, String>>? getAuthHeaders() =>
-      _googleSignIn.currentUser?.authHeaders;
+  Future<Map<String, String>?> getAuthHeaders() async {
+    if (_currentUser == null) return null;
+    return await _currentUser!.authorizationClient.authorizationHeaders(['email']);
+  }
 
   Future<MResult<MUser>> handleSignIn() async {
     try {
-      var result = await _googleSignIn.signIn();
-      if (result != null) {
-        _currentUser = await result;
-        GoogleSignInAuthentication? googleSignInAuthentication =
-            await _currentUser?.authentication;
-
-        if (googleSignInAuthentication != null) {
-          final response = await DomainManager.I.auth.loginGG(
-            googleSignInAuthentication.accessToken ?? "",
-          );
-          return response;
-        }
+      if (!_googleSignIn.supportsAuthenticate()) {
+        XToast.error("Google sign in is not supported on this platform.");
+        return MResult.error(S.text.error_sign_in_google);
       }
-      XToast.error(S.text.error_sign_up_email);
-      return MResult.error(S.text.error_sign_in_google);
+      var result = await _googleSignIn.authenticate(scopeHint: ['email']);
+      _currentUser = result;
+      
+      var authz = await _currentUser!.authorizationClient.authorizationForScopes(['email']) 
+          ?? await _currentUser!.authorizationClient.authorizeScopes(['email']);
+          
+      final response = await DomainManager.I.auth.loginGG(
+        authz.accessToken,
+      );
+      return response;
     } catch (e) {
       XToast.error(e.toString());
       return MResult.exception(e);

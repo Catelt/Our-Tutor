@@ -52,11 +52,11 @@ class _ButtonDropDownLevelState extends State<ButtonDropDownLevel> {
             hint: widget.hint,
             errorText: widget.errorText,
             isSelect: selectedItems != null),
-        value: selectedItems,
+        valueListenable: ValueNotifier(selectedItems),
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<MLevel>(
+          return DropdownItem<MLevel>(
             value: item,
             child: Text(
               item.name,

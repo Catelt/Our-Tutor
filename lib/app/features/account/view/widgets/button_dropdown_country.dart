@@ -52,11 +52,11 @@ class _ButtonDropDownCountryState extends State<ButtonDropDownCountry> {
             hint: widget.hint,
             errorText: widget.errorText,
             isSelect: selectedItems != null),
-        value: selectedItems,
+        valueListenable: ValueNotifier(selectedItems),
         isDense: true,
         isExpanded: true,
         items: items.map((item) {
-          return DropdownMenuItem<MCountry>(
+          return DropdownItem<MCountry>(
             value: item,
             child: Text(
               item.name,

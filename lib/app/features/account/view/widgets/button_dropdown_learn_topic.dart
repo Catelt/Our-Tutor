@@ -55,7 +55,7 @@ class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
             color: Theme.of(context).hintColor,
           ),
         ),
-        value: selectedItems.isEmpty ? null : selectedItems.last,
+        valueListenable: ValueNotifier(selectedItems.isEmpty ? null : selectedItems.last),
         onChanged: (value) {},
         selectedItemBuilder: (context) {
           return items.map(
@@ -74,7 +74,7 @@ class _ButtonDropDownLearnTopicState extends State<ButtonDropDownLearnTopic> {
           ).toList();
         },
         items: items.map((item) {
-          return DropdownMenuItem<int>(
+          return DropdownItem<int>(
             value: item,
             enabled: false,
             child: StatefulBuilder(
